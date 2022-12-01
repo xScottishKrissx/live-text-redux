@@ -1,0 +1,12 @@
+Live Text:
+  Setup:
+    ✔ Setup Redux @done(22-12-01 11:29)
+    ☐ Setup Github
+  Part 1:
+    ☐ Do the UI/Prottype
+  
+  Part 2:
+    ☐ Create Live Text functionality using state
+
+  Part 3:
+    ☐ Create a link to database to maintain persistance

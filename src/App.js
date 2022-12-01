@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 
+import {useSelector, useDispatch} from 'react-redux'
+import {addItem} from './features/item'
+
 function App() {
+  const itemList = useSelector((state) => state.items.value)
+  console.log(itemList)
+  const dispatch = useDispatch()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Live Text</h1>
+      <p>{itemList}</p>
+      <button onClick={()=>{dispatch(addItem("New Item :) "))}}>Add Item</button>
     </div>
   );
 }
