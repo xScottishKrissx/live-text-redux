@@ -1,9 +1,10 @@
 Live Text:
   Setup:
     ✔ Setup Redux @done(22-12-01 11:29)
-    ☐ Setup Github
+    ✔ Setup Github @done(22-12-01 11:35)
   Part 1:
-    ☐ Do the UI/Prottype
+    ☐ Do the UI/Prototype
+      ☐ I have a little bit of the functionality working, now to get the entire thing look as I want.
   
   Part 2:
     ☐ Create Live Text functionality using state

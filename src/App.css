@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.main-wrapper{
+  display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* align-content: space-evenly; */
+  background-color: grey;
+  box-shadow: 0px 0px 5px 0px black;
+  color: #fff;;
+  font-family: sans-serif;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+@media screen and (min-width:768px) {
+  .main-wrapper{
+    flex-direction: row;
+  }
+}
+
+/*  */
+.right-column{
+  background-color: red;
+  display: flex;
+  flex: 0 0 50%;
+  flex-direction: column;
+  outline: 1px solid black;
+}

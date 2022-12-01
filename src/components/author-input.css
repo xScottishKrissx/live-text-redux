@@ -1,0 +1,15 @@
+.author-input-wrapper{
+    outline: 1px solid black;
+    /* background-color: blue; */
+    display: flex;
+    flex: 0 0 50%;
+    flex-direction: column;
+
+}
+.author-input-form{
+    display: flex;
+    /* background-color: orange; */
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+}
