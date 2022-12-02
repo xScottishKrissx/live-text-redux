@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../features/item'
 import './author-input.css'
+import TextArea from './text-area'
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 export default function AuthorInput() {
@@ -12,14 +13,14 @@ export default function AuthorInput() {
   const [postBody, setPostBody] = useState("")
   const [postForReview, setPostForReview] = useState({postTitle:"", postType:"", postBody:""})
   // console.log(postForReview)
-  console.log(postType)
+  // console.log(postType)
+  console.log(postBody)
 
   return (
     <div className='author-input-wrapper'>
       <div className='author-input-form'>
  
         <div className='author-input-form-title'>
-          {/* <label htmlFor="title">Enter Title</label> */}
           <input type="text" placeholder='Enter Title..' name='title' onChange={(e)=>setPostTitle(e.target.value)}/>
         </div>
  
@@ -35,7 +36,10 @@ export default function AuthorInput() {
       </div>
 
         {/* Write the main body of the card */}
-        {/* <textarea id="w3review" name="w3review" rows="4" cols="50" /> */}
+        <div className="author-input-form-text-area">
+          {/* <textarea name="textArea" rows="4" cols="50" /> */}
+          <TextArea setPostBody={setPostBody}/>
+        </div>
         
         {/* Instead of typing out a whole name, click on one of the pre-loaded names to insert it into the text area */}
         {/* <p>Player One Player Two Player 3 Player 4 etc</p> */}

@@ -19,6 +19,7 @@ function App() {
         <div className='right-column'>
           <ItemReview />
           <GlobalView />
+          <GlobalView />
         </div>
 
       </div>

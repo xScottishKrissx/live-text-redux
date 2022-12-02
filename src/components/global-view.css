@@ -1,6 +1,14 @@
 .item-review-area-wrapper{
+    outline: 1px solid var(--backgroundColour);
+    box-shadow: 5px 5px 0px 0px var(--backgroundColour);
+    color: black;
+    margin-bottom: 5rem;
 }
 
 .global-view-wrapper{
-
+    border-radius: var(--borderRadius);
+    outline: 1px solid var(--backgroundColour);
+    box-shadow: 5px 5px 0px 0px var(--backgroundColour);
+    color: black;
+    margin-bottom: 1.5rem;
 }
