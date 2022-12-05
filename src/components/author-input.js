@@ -39,13 +39,8 @@ export default function AuthorInput() {
 
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
-          <TextArea setPostBody={setPostBody} tag={tag} />
-        </div>
-        
-        {/* Instead of typing out a whole name, click on one of the pre-loaded names to insert it into the text area */}
-        {/* <p>Player One Player Two Player 3 Player 4 etc</p> */}
-
-        
+          <TextArea setPostBody={setPostBody} tag={tag} postType={postType} />
+        </div>      
 
         {/* Pass the card for review to the review area */}
         {/* <button onClick={()=>{dispatch(addItem({postTitle, postType, postBody}))}}>Submit for Review</button> */}

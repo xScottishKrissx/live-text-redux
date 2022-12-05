@@ -1,0 +1,36 @@
+.tags-wrapper{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+.tags-item{
+    position: relative;
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+}
+.tags-item-name{
+    margin-right: 10px;
+}
+
+.tags-first-name{
+    cursor: pointer;
+}
+
+.tags-last-name{
+    cursor: pointer;
+}
+
+.tags-first-name:hover, .tags-last-name:hover{
+    border-bottom: 3px solid black;
+}
+
+.tags-add-full-name{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    outline: 1px solid grey;
+    padding: 5px;
+    /* position: absolute; */
+    /* right: 0; */
+}

@@ -1,4 +1,4 @@
-export const JapanNames = [
+export const Japan = [
     {
         id:1,
         firstName:"Ritsu",
@@ -55,61 +55,60 @@ export const JapanNames = [
         lastName:"Endo",
     },
 ]
- Szczesny
 
-export const PolandNames = [
+export const Poland = [
     {
-        id:1,
+        id:12,
         firstName:"Wojciech",
         lastName:"Szczesny",
     },
     {
-        id:2,
+        id:13,
         firstName:"Robert",
         lastName:"Lewandowski",
     },
     {
-        id:3,
+        id:14,
         firstName:"Piotr",
         lastName:"Zielinski",
     },
     {
-        id:4,
+        id:15,
         firstName:"Grzegorz",
         lastName:"Krychowiak",
     },
     {
-        id:5,
+        id:16,
         firstName:"Karol",
         lastName:"Swiderksi",
     },
     {
-        id:6,
+        id:17,
         firstName:"Krystian",
         lastName:"Bielik",
     },
     {
-        id:7,
+        id:18,
         firstName:"Przemyslaw",
         lastName:"Frankowski",
     },
     {
-        id:8,
+        id:19,
         firstName:"Sebastian",
         lastName:"Szymanski",
     },
     {
-        id:9,
+        id:20,
         firstName:"Kamil",
         lastName:"Glik",
     },
     {
-        id:10,
+        id:21,
         firstName:"Bartosz",
         lastName:" Bereszynski",
     },
     {
-        id:11,
+        id:22,
         firstName:"Jakub",
         lastName:"Kiwior",
     },

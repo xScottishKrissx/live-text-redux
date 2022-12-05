@@ -1,39 +1,31 @@
 import React,{useState} from 'react'
 import './text-area.css'
 // Draft.js
-import {ContentState, convertToRaw, EditorState, SelectionState, Modifier} from 'draft-js'
+import {ContentState, EditorState, Modifier} from 'draft-js'
 import {Editor} from 'react-draft-wysiwyg'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import {convertToHTML} from 'draft-convert'
-// import DOMPurify from 'dompurify'
+import TagsView from './Tags/tags-view'
+const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 
-// import { useDispatch, useSelector } from 'react-redux'
-
-export default function TextArea({setPostBody, tag}) {
-  // const dispatch = useDispatch()
+export default function TextArea({setPostBody}) {
+  const [postType, setPostType] = useState("")
   const [editorState, setEditorState] = useState(
     ()=>EditorState.createEmpty()
+    // ()=>EditorState.createWithContent(ContentState.createFromText(postType))
   )
 
-
-  // const [convertedContent, setConvertedContent] = useState(null)
-  // console.log(convertedContent)
   const convertContentToHTML = () =>{
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent())
-    // This should be changed to use redux...
-    // setConvertedContent(currentContentAsHTML)
     setPostBody(currentContentAsHTML)
 
   }
   const handleEditorChange = (state) =>{
     setEditorState(state)
     convertContentToHTML()
-    
   }
 
-  const addTag = (tag) =>{
-    setEditorState(insertTag(tag, editorState));
-  }
+  const addTag = (tag) => setEditorState(insertTag(tag, editorState)); 
 
   const insertTag = (tag, editorValue) => {
     // Get the current content of the editor.
@@ -67,32 +59,28 @@ export default function TextArea({setPostBody, tag}) {
     );
   };
 
-  // const createMarkup = (html) =>{
-  //   return{
-  //     __html:DOMPurify.sanitize(html)
-  //   }
-  // }
-
   return (
     <div>
       <Editor 
         editorState={editorState}
         onEditorStateChange={handleEditorChange}
-        // onContentStateChange={handleEditorChange}
-        // defaultEditorState={editorconState}
-        // onEditorStateChange={setEditorState}
         wrapperClassName="wrapper-class"
         editorClassName="editor-class"
         toolbarClassName="toolbar-class"
         // 
 
        />
-      {/* <div className="preview" dangerouslySetInnerHTML={createMarkup(convertedContent)}></div> */}
-      <button onClick={()=>addTag(tag)}>Test</button>
-      <button onClick={()=>addTag("David")}>David</button>
-      <button onClick={()=>addTag("James")}>James</button>
-      <button onClick={()=>addTag("Alan")}>Alan</button>
-
+        <div className="author-input-form-type-select">
+          <div className='author-input-form-type-select-items'>
+            {typeRange.map((item, index) => {
+              const removeSpacesFromName = item.replace(/\s+/g, '').toLowerCase()
+              return(
+                <div key={index} onClick={()=>addTag( "@" + removeSpacesFromName)} id={removeSpacesFromName}>{item}</div>
+              )
+            })}
+          </div>
+        </div>
+      <TagsView addTag={addTag}/>
     </div>
   )
 }
