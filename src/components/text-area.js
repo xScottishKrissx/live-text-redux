@@ -1,21 +1,22 @@
 import React,{useState} from 'react'
 import './text-area.css'
 // Draft.js
-import {ContentState, convertToRaw, EditorState} from 'draft-js'
+import {ContentState, convertToRaw, EditorState, SelectionState, Modifier} from 'draft-js'
 import {Editor} from 'react-draft-wysiwyg'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import {convertToHTML} from 'draft-convert'
-import DOMPurify from 'dompurify'
+// import DOMPurify from 'dompurify'
 
-import { useDispatch, useSelector } from 'react-redux'
+// import { useDispatch, useSelector } from 'react-redux'
 
-export default function TextArea({setPostBody}) {
-  const dispatch = useDispatch()
+export default function TextArea({setPostBody, tag}) {
+  // const dispatch = useDispatch()
   const [editorState, setEditorState] = useState(
     ()=>EditorState.createEmpty()
   )
 
-  const [convertedContent, setConvertedContent] = useState(null)
+
+  // const [convertedContent, setConvertedContent] = useState(null)
   // console.log(convertedContent)
   const convertContentToHTML = () =>{
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent())
@@ -27,26 +28,71 @@ export default function TextArea({setPostBody}) {
   const handleEditorChange = (state) =>{
     setEditorState(state)
     convertContentToHTML()
+    
   }
 
-  const createMarkup = (html) =>{
-    return{
-      __html:DOMPurify.sanitize(html)
-    }
+  const addTag = (tag) =>{
+    setEditorState(insertTag(tag, editorState));
   }
+
+  const insertTag = (tag, editorValue) => {
+    // Get the current content of the editor.
+    const currentContent = editorValue.getCurrentContent();
+    // Get the current cursor position in the editor.
+    const currentSelection = editorValue.getSelection();
+
+    // Replace the specified range of content state with the supplied tag, with the inline style and entity key applied to the entire inserted string.
+    const newContent = Modifier.replaceText(
+      // Get the current content in editor...
+      currentContent,
+      /// get the range/positon of the cursor
+      currentSelection,
+      // Replace it with...
+      tag
+    );
+
+    const newEditorState = EditorState.push(
+      // The current content of the editor...
+      editorValue,
+      // The new content we just created...
+      newContent,
+      // used when making edit
+      "insert-characters"
+    );
+    return EditorState.forceSelection(
+      // Return a new EditorState object with the newly created content applied, forcing the selection to be rendered.
+      newEditorState,
+      // Return the SelectionState displayed in the editor after rendering
+      newContent.getSelectionAfter()
+    );
+  };
+
+  // const createMarkup = (html) =>{
+  //   return{
+  //     __html:DOMPurify.sanitize(html)
+  //   }
+  // }
 
   return (
     <div>
       <Editor 
         editorState={editorState}
         onEditorStateChange={handleEditorChange}
+        // onContentStateChange={handleEditorChange}
         // defaultEditorState={editorconState}
         // onEditorStateChange={setEditorState}
         wrapperClassName="wrapper-class"
         editorClassName="editor-class"
         toolbarClassName="toolbar-class"
+        // 
+
        />
-      <div className="preview" dangerouslySetInnerHTML={createMarkup(convertedContent)}></div>
+      {/* <div className="preview" dangerouslySetInnerHTML={createMarkup(convertedContent)}></div> */}
+      <button onClick={()=>addTag(tag)}>Test</button>
+      <button onClick={()=>addTag("David")}>David</button>
+      <button onClick={()=>addTag("James")}>James</button>
+      <button onClick={()=>addTag("Alan")}>Alan</button>
+
     </div>
   )
 }

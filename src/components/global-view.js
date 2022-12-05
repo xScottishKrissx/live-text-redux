@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 
 export default function GlobalView() {
   const itemList = useSelector((state) => state.items.value)
-  console.log(itemList)
   return (
     <div className='global-view-wrapper'>
 

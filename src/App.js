@@ -8,7 +8,6 @@ import ItemReview from './components/item-review';
 
 function App() {
   const itemList = useSelector((state) => state.items.value)
-  console.log(itemList)
   const dispatch = useDispatch()
   return (
     <div className="App">

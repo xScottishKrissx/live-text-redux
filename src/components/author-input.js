@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../features/item'
 import './author-input.css'
@@ -12,9 +12,11 @@ export default function AuthorInput() {
   const [postType, setPostType] = useState("")
   const [postBody, setPostBody] = useState("")
   const [postForReview, setPostForReview] = useState({postTitle:"", postType:"", postBody:""})
-  // console.log(postForReview)
-  // console.log(postType)
-  console.log(postBody)
+  const [tag, setTag] = useState("true")
+
+  useEffect(() => {
+    dispatch(addItem({postTitle, postType, postBody}))
+  },[postTitle, postBody, postType])
 
   return (
     <div className='author-input-wrapper'>
@@ -26,10 +28,10 @@ export default function AuthorInput() {
  
       <div className="author-input-form-type-select">
         <div className='author-input-form-type-select-items'>
-          {typeRange.map((item) => {
+          {typeRange.map((item, index) => {
             const removeSpacesFromName = item.replace(/\s+/g, '')
             return(
-              <div onClick={()=>setPostType(removeSpacesFromName)} id={removeSpacesFromName}>{item}</div>
+              <div key={index} onClick={()=>setPostType(removeSpacesFromName)} id={removeSpacesFromName}>{item}</div>
             )
           })}
         </div>
@@ -37,12 +39,13 @@ export default function AuthorInput() {
 
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
-          {/* <textarea name="textArea" rows="4" cols="50" /> */}
-          <TextArea setPostBody={setPostBody}/>
+          <TextArea setPostBody={setPostBody} tag={tag} />
         </div>
         
         {/* Instead of typing out a whole name, click on one of the pre-loaded names to insert it into the text area */}
         {/* <p>Player One Player Two Player 3 Player 4 etc</p> */}
+
+        
 
         {/* Pass the card for review to the review area */}
         {/* <button onClick={()=>{dispatch(addItem({postTitle, postType, postBody}))}}>Submit for Review</button> */}
