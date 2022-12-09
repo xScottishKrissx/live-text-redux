@@ -37,11 +37,11 @@ export default function ItemReview() {
   let shortcode = GetId(postBody);
   let replaceShortCode = GetName(shortcode);
   const changePostBodyTest = postBody.replaceAll("@" + shortcode , replaceShortCode)
-  if(postBody !== changePostBodyTest){
-    console.log("Different")
-  }else{
-    console.log("Not Different")
-  }
+  // if(postBody !== changePostBodyTest){
+  //   console.log("Different")
+  // }else{
+  //   console.log("Not Different")
+  // }
 
   return (
     <div className='item-review-area-wrapper'>

@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../features/item'
 import './author-input.css'
+import MentionEditor from './Mention/mentionEditor'
 import TextArea from './text-area'
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
@@ -39,7 +40,9 @@ export default function AuthorInput() {
 
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
+          <MentionEditor />
           <TextArea setPostBody={setPostBody} tag={tag} postType={postType} />
+
         </div>      
 
         {/* Pass the card for review to the review area */}

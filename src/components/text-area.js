@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useRef, useMemo} from 'react'
 import './text-area.css'
 // Draft.js
 import {ContentState, EditorState, Modifier} from 'draft-js'
@@ -6,6 +6,12 @@ import {Editor} from 'react-draft-wysiwyg'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import {convertToHTML} from 'draft-convert'
 import TagsView from './Tags/tags-view'
+
+// Mentions
+import createMentionPlugin, {defaultSuggestionsFilter} from '@draft-js-plugins/mention'
+// import editorStyles from './'
+
+
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 
 export default function TextArea({setPostBody}) {
@@ -69,7 +75,7 @@ export default function TextArea({setPostBody}) {
         toolbarClassName="toolbar-class"
         // 
 
-       />
+       />      
         <div className="author-input-form-type-select">
           <div className='author-input-form-type-select-items'>
             {typeRange.map((item, index) => {
