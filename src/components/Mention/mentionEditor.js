@@ -2,8 +2,8 @@ import React, { useState} from 'react';
   import { convertToRaw, EditorState } from 'draft-js';
   import Editor from '@draft-js-plugins/editor';
   import createMentionPlugin, { defaultSuggestionsFilter, MentionSuggestions, } from '@draft-js-plugins/mention';
-//   import { defaultSuggestionsFilter } from '@draft-js-plugins/mention';
-//   import editorStyles from './SimpleMentionEditor.module.css';
+import editorStyles from "./editorStyles.module.css";
+import "@draft-js-plugins/mention/lib/plugin.css"
 //   import mentions from './Mentions';
 
 import { Japan } from '../Tags/names';
@@ -12,9 +12,9 @@ import { Japan } from '../Tags/names';
     
     const [mentionPlugin, setMentionPlugin] = useState(createMentionPlugin())
     const { MentionSuggestions } = mentionPlugin 
-
     const [editorState, setEditorState] = useState(()=>EditorState.createEmpty())
     const [suggestions, setSuggestion] = useState(Japan)
+    // console.log(suggestions)
     const [open, setOpen] = useState(false)
 
 
@@ -22,41 +22,25 @@ import { Japan } from '../Tags/names';
         setEditorState(editorState)
     }
     const onOpenChange = () =>{
-        setOpen(!open)
+        // setOpen(!open)
+        if(open){
+            setOpen(false)
+            setSuggestion(Japan)
+        }else{
+            setOpen(true)
+        }
     }
 
     const onSearchChange = ({value}) =>{
         // console.log(value)
         // console.log(Japan)
         if(!value) return
-
-        // THe problem is in here somewhere
-        setSuggestion(defaultSuggestionsFilter(value, suggestions.firstName))
+        setSuggestion(defaultSuggestionsFilter(value, suggestions))
     }
-
-    const onExtractData = () =>{
-        const contentState = editorState.getCurrentContent()
-        const raw = convertToRaw(contentState)
-        console.log(raw)
-    }
-
-    const onExtractMentions = () =>{
-        const contentState =  editorState.getCurrentContent()
-        const raw = convertToRaw(contentState)
-        let mentionUsers = []
-        for (let key in raw.entityMap){
-            const ent = raw.entityMap[key]
-            if(ent.type === "mention"){
-                mentionUsers.push(ent.data.mention)
-            }
-        }
-        console.log(mentionUsers)
-    }
-
-    
+   
     return (
 
-        <div>
+        <div className={editorStyles.editor}>
             <Editor
                 editorState={editorState}
                 onChange={onChange}
