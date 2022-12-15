@@ -5,21 +5,21 @@ import { Japan, Poland } from './Tags/names'
 
 import DOMPurify from 'dompurify'
 
-function GetId(string){
-  let pattern = /@([\s\S]*?)(?= )/g;
-  let result = string.match(pattern)
-  for(let i = 0; i < result?.length; i++){
-    if(result[i].length > 1){
-      result[i] = result[i].substring(1, result[i].length)
-    }
-    return result[i]
-  }
-}
+// function GetId(string){
+//   let pattern = /@([\s\S]*?)(?= )/g;
+//   let result = string.match(pattern)
+//   for(let i = 0; i < result?.length; i++){
+//     if(result[i].length > 1){
+//       result[i] = result[i].substring(1, result[i].length)
+//     }
+//     return result[i]
+//   }
+// }
 
-function GetName(id){ 
-  const mapItems = Japan.filter(item => item.id === Number(id))
-  return mapItems[0]?.firstName + " " + mapItems[0]?.lastName
-}
+// function GetName(id){ 
+//   const mapItems = Japan.filter(item => item.id === Number(id))
+//   return mapItems[0]?.firstName + " " + mapItems[0]?.lastName
+// }
 
 export default function ItemReview() {
     const itemList = useSelector((state) => state.items.value)
@@ -34,9 +34,9 @@ export default function ItemReview() {
   }
 
   // const changePostBody = postBody.replaceAll("@goal" , "Goal")
-  let shortcode = GetId(postBody);
-  let replaceShortCode = GetName(shortcode);
-  const changePostBodyTest = postBody.replaceAll("@" + shortcode , replaceShortCode)
+  // let shortcode = GetId(postBody);
+  // let replaceShortCode = GetName(shortcode);
+  // const changePostBodyTest = postBody.replaceAll("@" + shortcode , replaceShortCode)
   // if(postBody !== changePostBodyTest){
   //   console.log("Different")
   // }else{
@@ -48,7 +48,7 @@ export default function ItemReview() {
         <h1>Input Review Area - (author only)</h1>
         {itemList.postType} - {itemList.postTitle}
   
-        <div dangerouslySetInnerHTML={createMarkup(changePostBodyTest)}></div>
+        <div dangerouslySetInnerHTML={createMarkup(itemList.postBody)}></div>
         <hr />
     </div>
   )
