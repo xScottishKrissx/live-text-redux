@@ -6,10 +6,14 @@ import Underline from '@tiptap/extension-underline'
 import OrderedList from '@tiptap/extension-ordered-list'
 import TextAlign from '@tiptap/extension-text-align'
 import Link from '@tiptap/extension-link'
+// Is in use even if it's grey, placing here for consistency
+import History from '@tiptap/extension-history'
+import Image from '@tiptap/extension-image'
 // Mentions / Suggestions
 import Mention from '@tiptap/extension-mention'
-import suggestion from './suggestion'
-import TipTapMenuButtons from './TipTapMenuButtons'
+import suggestion from './Mentions/suggestion'
+import TipTapMenuButtons from './MenuBar/TipTapMenuButtons'
+import FloatingMenuBar from './FloatingMenu/FloatingMenuBar'
 
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
@@ -19,11 +23,14 @@ const Tiptap = ({setPostBody}) =>{
             StarterKit,
             Underline,
             OrderedList,
+            Image,
             TextAlign.configure({
                 types: ['heading', 'paragraph'],
             }),
             Link.configure({
                 openOnClick: true,
+                linkOnPaste: false,
+                validate: href => /^https?:\/\//.test(href),
             }),
             Mention.configure({
                 HTMLAttributes:{
@@ -43,27 +50,11 @@ const Tiptap = ({setPostBody}) =>{
     
     // console.log(editor.getHTML())
     return (
-        <>
+        <div className='author-input-text-editor'>
             <MenuBar editor={editor} />
-            {editor && 
-                <FloatingMenu editor={editor}>
-                            <button
-                                onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-                                className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
-                            >
-                                h1
-                            </button>
-                            <button
-                                onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-                                className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
-                            >
-                                h2
-                            </button>
-                </FloatingMenu> 
-            
-            }
+            <FloatingMenuBar editor={editor}/>
             <EditorContent editor={editor}/>
-        </>
+        </div>
     )
 
 }

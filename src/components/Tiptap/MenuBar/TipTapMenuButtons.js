@@ -1,9 +1,11 @@
 import React from 'react'
-
+import AddImageButton from './addImageButton'
+import AddLinkButton from './addLinkButton'
+import './TipTapMenuButtons.css'
 
 export default function TipTapMenuButtons({editor}) {
   return (
-    <>
+    <div className='author-input-text-editor-buttons'>
                 <button
                     onClick={() => editor.chain().focus().toggleBold().run()}
                     disabled={ !editor.can().chain().focus().toggleBold().run()}
@@ -56,7 +58,7 @@ export default function TipTapMenuButtons({editor}) {
                     className={editor.isActive({ textAlign: 'left' }) ? 'is-active' : ''}
                 >
                 left </button>
-                
+
                 <button
                     onClick={() => editor.chain().focus().setTextAlign('center').run()}
                     className={editor.isActive({ textAlign: 'center' }) ? 'is-active' : ''}
@@ -74,6 +76,19 @@ export default function TipTapMenuButtons({editor}) {
                     className={editor.isActive({ textAlign: 'justify' }) ? 'is-active' : ''}
                 >
                 justify </button>
-    </>
+                <AddLinkButton editor={editor} />
+
+                <button onClick={()=>editor.commands.clearContent()}>Clear</button>
+
+                <button onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}>
+                undo </button>
+
+                <button onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()}>
+                redo </button>
+
+                <AddImageButton editor={editor} />
+
+
+    </div>
   )
 }
