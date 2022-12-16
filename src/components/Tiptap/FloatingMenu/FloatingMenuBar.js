@@ -1,6 +1,26 @@
 import React from 'react'
 import {FloatingMenu} from '@tiptap/react'
 
+import { 
+    FaBold, 
+    FaItalic, 
+    FaUnderline, 
+    FaStrikethrough, 
+    FaCode, 
+    FaListUl, 
+    FaListOl,
+    FaAlignLeft,
+    FaAlignCenter,
+    FaAlignRight,
+    FaAlignJustify,
+    FaLink,
+    FaUnlink,
+    FaEraser,
+    FaUndo,
+    FaRedo,
+    FaImage
+ } from 'react-icons/fa'
+
 export default function FloatingMenuBar({editor}) {
   return (
     <>
@@ -17,6 +37,24 @@ export default function FloatingMenuBar({editor}) {
                     className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
                 >
                 h2 </button>
+
+                <button
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+                    className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
+                >
+                h3 </button>
+
+                <button
+                    onClick={() => editor.chain().focus().toggleBulletList().run()}
+                    className={editor.isActive('bulletList') ? 'is-active' : ''}
+                >
+                <FaListUl /> </button>
+
+                <button
+                    onClick={() => editor.chain().focus().toggleOrderedList().run()}
+                    className={editor.isActive('orderedList') ? 'is-active' : ''}
+                >
+                <FaListOl /> </button>
             </FloatingMenu> 
         }
     </>

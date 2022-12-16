@@ -1,4 +1,5 @@
 import React,{useCallback} from 'react'
+import {FaLink, FaUnlink} from 'react-icons/fa'
 
 export default function AddLinkButton({editor}) {
     
@@ -23,13 +24,13 @@ export default function AddLinkButton({editor}) {
   return (
     <>
     
-        <button onClick={setLink} className={editor.isActive('link') ? 'is-active' : ''}> setLink </button>
+        <button onClick={setLink} className={editor.isActive('link') ? 'is-active' : ''}> <FaLink /> </button>
         
         <button
             onClick={() => editor.chain().focus().unsetLink().run()}
             disabled={!editor.isActive('link')}
         >
-        unsetLink </button>
+        <FaUnlink /> </button>
 
     </>
   )

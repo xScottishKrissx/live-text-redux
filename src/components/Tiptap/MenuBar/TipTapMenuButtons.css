@@ -1,3 +1,59 @@
 .author-input-text-editor-buttons{
+    display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    /* outline: 1px solid red; */
+}
+
+.author-input-text-editor-buttons button{
+    background-color: transparent;
+    border: none;
+    color: grey;
+    font-size: 1.2rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-top: .75rem;
+}
+.author-input-text-editor-buttons button h1,
+.author-input-text-editor-buttons button h2,
+.author-input-text-editor-buttons button h3,
+.author-input-text-editor-buttons button h4,
+.author-input-text-editor-buttons button h5,
+.author-input-text-editor-buttons button h6{
+    margin:0;
+    padding: 0;
+}
+.author-input-text-editor-buttons button h1{ font-size: 1.5rem; }
+.author-input-text-editor-buttons button h2{ font-size: 1.25rem; }
+.author-input-text-editor-buttons button h3{ font-size: 1rem; }
+.author-input-text-editor-buttons button h4{ font-size: 0.75rem; }
+.author-input-text-editor-buttons button h5{ font-size: 0.65rem; }
+.author-input-text-editor-buttons button h6{ font-size: 0.5rem; }
+
+.author-input-text-editor-buttons button:focus-visible{
+    box-shadow: 0px 3px 0px 0px grey;
+    outline: 0px solid red;
+}
+
+.author-input-text-editor-buttons button:hover{
+    color: black;
+    cursor: pointer;
+}
+.author-input-text-editor-input-container{
+    margin-top: 1rem;
+}
+.author-input-text-editor-input-container:focus-visible{
     outline: 1px solid red;
+}
+.author-input-text-editor-input{
+    background-color: #f1f1f185;
+    color: black;
+    min-height: 100px;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-top: .75rem;
+}
+.author-input-text-editor-input:focus-visible{
+    outline: 0px solid red;
+    box-shadow: 0px 3px 0px 0px grey;
 }

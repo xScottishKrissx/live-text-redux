@@ -20,6 +20,8 @@ export default function AuthorInput() {
     dispatch(addItem({postTitle, postType, postBody}))
   },[postTitle, postBody, postType])
 
+
+
   return (
     <div className='author-input-wrapper'>
       <div className='author-input-form'>
@@ -42,7 +44,7 @@ export default function AuthorInput() {
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
           {/* <MentionEditor /> */}
-          <TextArea setPostBody={setPostBody} tag={tag} postType={postType} />
+          {/* <TextArea setPostBody={setPostBody} tag={tag} postType={postType} /> */}
 
           <Tiptap setPostBody={setPostBody} />
 

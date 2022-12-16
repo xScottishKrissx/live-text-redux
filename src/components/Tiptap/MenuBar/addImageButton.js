@@ -1,6 +1,6 @@
 import React,{useCallback} from 'react'
 
-
+import {FaImage} from 'react-icons/fa'
 export default function AddImageButton({editor}) {
 
     const addImage = useCallback(() => {
@@ -17,7 +17,7 @@ export default function AddImageButton({editor}) {
 
   return (
     <>
-        <button onClick={addImage}>setImage</button>
+        <button onClick={addImage}><FaImage /></button>
     </>
   )
 }
