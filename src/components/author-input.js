@@ -42,7 +42,7 @@ export default function AuthorInput() {
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
           {/* <MentionEditor /> */}
-          {/* <TextArea setPostBody={setPostBody} tag={tag} postType={postType} /> */}
+          <TextArea setPostBody={setPostBody} tag={tag} postType={postType} />
 
           <Tiptap setPostBody={setPostBody} />
 
