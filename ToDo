@@ -4,8 +4,9 @@ Live Text:
     ✔ Setup Github @done(22-12-01 11:35)
   Part 1:
     ☐ Do the UI/Prototype
-      ☐ I have a little bit of the functionality working, now to get the entire thing look as I want.
-  
+      ☐ I have the form input styled
+      ☐ Style the global view
+      
   Part 2:
     ☐ Create Live Text functionality using state
 

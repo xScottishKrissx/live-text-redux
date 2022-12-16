@@ -2,8 +2,6 @@ import React,{useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../features/item'
 import './author-input.css'
-import MentionEditor from './Mention/mentionEditor'
-import TextArea from './text-area'
 import Tiptap from './Tiptap/Tiptap'
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
@@ -27,7 +25,6 @@ export default function AuthorInput() {
       <div className='author-input-form'>
  
         <div className='author-input-form-title'>
-          {/* <input type="text" placeholder='Enter Title..' name='title' onChange={(e)=>setPostTitle(e.target.value)}/> */}
           <Tiptap location={"title-enter"} setPostBody={setPostTitle} />
         </div>
  
@@ -44,11 +41,7 @@ export default function AuthorInput() {
 
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
-          {/* <MentionEditor /> */}
-          {/* <TextArea setPostBody={setPostBody} tag={tag} postType={postType} /> */}
-
           <Tiptap location={"text-area"} setPostBody={setPostBody} />
-
         </div>      
 
         {/* Pass the card for review to the review area */}

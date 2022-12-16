@@ -1,8 +1,5 @@
 import React,{useState} from 'react'
 import { useSelector } from 'react-redux'
-
-import { Japan, Poland } from './Tags/names'
-
 import DOMPurify from 'dompurify'
 
 // function GetId(string){
@@ -14,11 +11,6 @@ import DOMPurify from 'dompurify'
 //     }
 //     return result[i]
 //   }
-// }
-
-// function GetName(id){ 
-//   const mapItems = Japan.filter(item => item.id === Number(id))
-//   return mapItems[0]?.firstName + " " + mapItems[0]?.lastName
 // }
 
 export default function ItemReview() {
@@ -33,16 +25,6 @@ export default function ItemReview() {
     }
   }
 
-  // const changePostBody = postBody.replaceAll("@goal" , "Goal")
-  // let shortcode = GetId(postBody);
-  // let replaceShortCode = GetName(shortcode);
-  // const changePostBodyTest = postBody.replaceAll("@" + shortcode , replaceShortCode)
-  // if(postBody !== changePostBodyTest){
-  //   console.log("Different")
-  // }else{
-  //   console.log("Not Different")
-  // }
-
   return (
     <div className='item-review-area-wrapper'>
         <h1>Input Review Area - (author only)</h1>
@@ -52,9 +34,7 @@ export default function ItemReview() {
           <div dangerouslySetInnerHTML={createMarkup(itemList.postTitle)}></div>
         </div>
         - 
-        {/* {itemList.postTitle} */}
         <div dangerouslySetInnerHTML={createMarkup(itemList.postBody)}></div>
-        <hr />
     </div>
   )
 }
