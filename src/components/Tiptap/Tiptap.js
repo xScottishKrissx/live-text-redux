@@ -18,7 +18,7 @@ import TagsView from '../Tags/tags-view'
 
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
-const Tiptap = ({setPostBody}) =>{
+const Tiptap = ({setPostBody, location}) =>{
     const editor = useEditor({
 
         extensions:[
@@ -42,7 +42,7 @@ const Tiptap = ({setPostBody}) =>{
             })
         ],
         
-        content:'<p>Hello World!</p>'
+        content:''
     })
 
       
@@ -51,7 +51,8 @@ const Tiptap = ({setPostBody}) =>{
         editor.setOptions({
             editorProps: {
               attributes: {
-                class: 'author-input-text-editor-input',
+                // class: 'author-input-text-editor-input',
+                class: location === "text-area" ? 'author-input-text-editor-input' : ''
               },
             },
         })
@@ -69,6 +70,9 @@ const Tiptap = ({setPostBody}) =>{
     
     // console.log(editor.getHTML())
     return (
+        <>
+        {location === "text-area" ? 
+        // "Text Area" 
         <div className='author-input-text-editor'>
             <MenuBar editor={editor} />
             <FloatingMenuBar editor={editor}/>
@@ -76,6 +80,17 @@ const Tiptap = ({setPostBody}) =>{
             {/* <div onClick={addThing}>Add Thing</div> */}
             <TagsView addTag={addTag} />
         </div>
+        
+        : null }
+
+        {location === "title-enter" ?    
+
+            <div className='author-input-title'>
+                <EditorContent editor={editor}/>
+            </div>
+        
+        : null}
+        </>
     )
 
 }

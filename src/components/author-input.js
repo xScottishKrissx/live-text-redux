@@ -27,7 +27,8 @@ export default function AuthorInput() {
       <div className='author-input-form'>
  
         <div className='author-input-form-title'>
-          <input type="text" placeholder='Enter Title..' name='title' onChange={(e)=>setPostTitle(e.target.value)}/>
+          {/* <input type="text" placeholder='Enter Title..' name='title' onChange={(e)=>setPostTitle(e.target.value)}/> */}
+          <Tiptap location={"title-enter"} setPostBody={setPostTitle} />
         </div>
  
       <div className="author-input-form-type-select">
@@ -46,7 +47,7 @@ export default function AuthorInput() {
           {/* <MentionEditor /> */}
           {/* <TextArea setPostBody={setPostBody} tag={tag} postType={postType} /> */}
 
-          <Tiptap setPostBody={setPostBody} />
+          <Tiptap location={"text-area"} setPostBody={setPostBody} />
 
         </div>      
 

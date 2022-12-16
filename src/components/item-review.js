@@ -46,8 +46,13 @@ export default function ItemReview() {
   return (
     <div className='item-review-area-wrapper'>
         <h1>Input Review Area - (author only)</h1>
-        {itemList.postType} - {itemList.postTitle}
-  
+        
+        <div className='item-review-area-title'>
+          <div>{itemList.postType + " - "}  </div> 
+          <div dangerouslySetInnerHTML={createMarkup(itemList.postTitle)}></div>
+        </div>
+        - 
+        {/* {itemList.postTitle} */}
         <div dangerouslySetInnerHTML={createMarkup(itemList.postBody)}></div>
         <hr />
     </div>

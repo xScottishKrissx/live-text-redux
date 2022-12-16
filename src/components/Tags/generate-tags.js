@@ -19,7 +19,7 @@ export default function GenerateTags({request, addTag}) {
                   <div className="tags-item-name">
                     <span 
                       className='tags-first-name' 
-                      onClick={()=>addTag(firstName)}>{id}-{firstName}</span>
+                      onClick={()=>addTag(firstName)}>{firstName}</span>
                     {" "}
                     <span 
                       className='tags-last-name' 
