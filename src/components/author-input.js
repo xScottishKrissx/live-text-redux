@@ -1,17 +1,22 @@
 import React,{useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { addItem } from '../features/item'
+import { updateArray } from '../features/live-text'
 import './author-input.css'
 import Tiptap from './Tiptap/Tiptap'
+
+import {v4 as uuidv4} from 'uuid'
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 export default function AuthorInput() {
   const dispatch = useDispatch()
+  const liveText = useSelector((state) => state.livetext.value)
 
   const [postTitle, setPostTitle] = useState("")
   const [postSubTitle, setPostSubTitle] = useState("")
   const [postType, setPostType] = useState("")
   const [postBody, setPostBody] = useState("")
+  const [clearContent, setClearContent] = useState(false)
   // const [postForReview, setPostForReview] = useState({postTitle:"", postSubTitle:"", postType:"", postBody:""})
   const [tag, setTag] = useState("true")
 
@@ -20,17 +25,47 @@ export default function AuthorInput() {
   },[postTitle,postSubTitle, postBody, postType])
 
 
+  const pushLive = () =>{
+    const newPost = [{
+      id: uuidv4(), 
+      body: postBody, 
+      title: postTitle, 
+      subtitle: postSubTitle, 
+      type: postType
+    }]
+
+    const updateLiveTextArray = [newPost[0]].concat(liveText)
+    dispatch(updateArray(updateLiveTextArray))
+    localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
+    console.log("Clear Form")
+    setClearContent(true)
+  }
+
+  const cancelUpdate = () =>{
+    setClearContent(true)
+  }
+
 
   return (
     <div className='author-input-wrapper'>
       <div className='author-input-form'>
  
         <div className='author-input-form-title'>
-          <Tiptap location={"title-enter"} setPostBody={setPostTitle}  />
+          <Tiptap 
+            location={"title-enter"} 
+            setPostBody={setPostTitle}  
+            clearContent={clearContent} 
+            setClearContent={setClearContent}
+          />
         </div>
 
         <div className='author-input-form-subtitle'>
-          <Tiptap location={"subtitle-enter"} setPostBody={setPostSubTitle} />
+          <Tiptap 
+            location={"subtitle-enter"} 
+            setPostBody={setPostSubTitle} 
+            clearContent={clearContent}
+            setClearContent={setClearContent}
+          />
         </div>
  
       <div className="author-input-form-type-select">
@@ -46,11 +81,24 @@ export default function AuthorInput() {
 
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
-          <Tiptap location={"text-area"} setPostBody={setPostBody} placeholder={"Body"}/>
+          <Tiptap 
+            location={"text-area"} 
+            setPostBody={setPostBody} 
+            clearContent={clearContent}
+            setClearContent={setClearContent}
+          />
         </div>      
 
         {/* Pass the card for review to the review area */}
         {/* <button onClick={()=>{dispatch(addItem({postTitle, postType, postBody}))}}>Submit for Review</button> */}
+        {postTitle.length > 10 && postBody.length > 10 ? 
+          <div className='item-review-confirm-button'>
+            <button onClick={pushLive}>Confirm</button>
+            <button onClick={cancelUpdate}>Cancel</button>
+          </div>
+        :
+        null
+        }
       </div>
     </div>
   )

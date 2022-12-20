@@ -7,14 +7,17 @@ import { updateArray } from '../../features/live-text'
 import Post from '../Post/post'
 
 import './item-review.css'
+import { addItem } from '../../features/item'
 
 export default function ItemReview() {
   const dispatch = useDispatch()
   
   const itemList = useSelector((state) => state.items.value)
+  const liveText = useSelector((state) => state.livetext.value)
+
+  if(!itemList) return
   const {postType, postTitle, postSubTitle, postBody} = itemList
   
-  const liveText = useSelector((state) => state.livetext.value)
 
   if(!postBody) return
 
@@ -33,20 +36,23 @@ export default function ItemReview() {
     console.log("Clear Form")
   }
 
+  const cancelUpdate = () =>{
+  }
+
   return (
     <div className='item-review-container'>
       <div className={'post-item ' + postType}>
         <Post title={postTitle} subtitle={postSubTitle} body={postBody} type={postType} />
       </div>
 
-        {postTitle.length > 10 && postBody.length > 10 ? 
+        {/* {postTitle.length > 10 && postBody.length > 10 ? 
           <div className='item-review-confirm-button'>
             <button onClick={pushLive}>Confirm</button>
-            <button>Cancel</button>
+            <button onClick={cancelUpdate}>Cancel</button>
           </div>
         :
         null
-        }
+        } */}
     </div>
   )
 }

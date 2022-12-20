@@ -9,7 +9,9 @@ export const itemSlice = createSlice({
         addItem:(state,action) =>{
             // state.value.push(action.payload) -- add to array
             state.value = action.payload
-        }
+        },
+        
+        
     }
 })
 

@@ -18,7 +18,7 @@ import TagsView from '../Tags/tags-view'
 
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
-const Tiptap = ({setPostBody, location}) =>{
+const Tiptap = ({setPostBody, location, clearContent, setClearContent}) =>{
     const editor = useEditor({
 
         extensions:[
@@ -61,11 +61,16 @@ const Tiptap = ({setPostBody, location}) =>{
     useEffect(() =>{
         if(!editor?.getHTML) return  
         setPostBody(editor.getHTML())
+        setClearContent(false)
 
     },[editor?.getHTML()])
 
     const addTag = (tag) =>{
         editor.commands.insertContent(tag + " ")
+    }
+
+    if(clearContent) {
+        editor.commands.clearContent()
     }
     
     // console.log(editor.getHTML())
