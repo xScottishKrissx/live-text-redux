@@ -96,9 +96,7 @@ export default function AuthorInput() {
             <button onClick={pushLive}>Confirm</button>
             <button onClick={cancelUpdate}>Cancel</button>
           </div>
-        :
-        null
-        }
+        : null }
       </div>
     </div>
   )

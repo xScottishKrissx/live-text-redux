@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import DOMPurify from 'dompurify'
 
 import './post.css'
-export default function Post({title, subtitle, body, type}) {
+export default function Post({title, subtitle, body, type, id}) {
+    const [editMode, setEditMode] = useState(false)
     if(!title || !body ) return
 
     const readyPostTitle = title.replace('@', '')
@@ -15,12 +16,21 @@ export default function Post({title, subtitle, body, type}) {
         }
     }
 
+    const handleEdit = () =>{
+        console.log("Edit: " + id)
+        setEditMode(true)
+    }
 
 
     return (
+    
         <div className='post-item-container' >
+        {editMode ? "Edit Mode" :
+            <>
 
             <div className='post-item-time-stamp'>Time Stamp</div>
+
+            <button onClick={handleEdit}>Edit Me</button>
 
             <div className='post-item-headline-wrapper'>
 
@@ -34,13 +44,15 @@ export default function Post({title, subtitle, body, type}) {
                     <div 
                         className='post-item-subtitle' 
                         dangerouslySetInnerHTML={createMarkup(subtitle)}
-                    ></div>
+                        ></div>
                 </div>
             </div>
             
             
             <div dangerouslySetInnerHTML={createMarkup(body)}></div>
             <div>Social Media</div>
+                        </>
+        }
         </div>
     )
 }

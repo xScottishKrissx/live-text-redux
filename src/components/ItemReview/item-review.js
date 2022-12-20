@@ -1,58 +1,22 @@
 import React from 'react'
-import {v4 as uuidv4} from 'uuid'
-
-import { useSelector, useDispatch } from 'react-redux'
-import { updateArray } from '../../features/live-text'
-
+import { useSelector } from 'react-redux'
 import Post from '../Post/post'
-
 import './item-review.css'
-import { addItem } from '../../features/item'
 
 export default function ItemReview() {
-  const dispatch = useDispatch()
   
   const itemList = useSelector((state) => state.items.value)
-  const liveText = useSelector((state) => state.livetext.value)
 
   if(!itemList) return
   const {postType, postTitle, postSubTitle, postBody} = itemList
   
-
-  if(!postBody) return
-
-  const pushLive = () =>{
-    const newPost = [{
-      id: uuidv4(), 
-      body: postBody, 
-      title: postTitle, 
-      subtitle: postSubTitle, 
-      type: postType
-    }]
-
-    const updateLiveTextArray = [newPost[0]].concat(liveText)
-    dispatch(updateArray(updateLiveTextArray))
-    localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
-    console.log("Clear Form")
-  }
-
-  const cancelUpdate = () =>{
-  }
+  // if(!postBody) return
 
   return (
     <div className='item-review-container'>
       <div className={'post-item ' + postType}>
         <Post title={postTitle} subtitle={postSubTitle} body={postBody} type={postType} />
       </div>
-
-        {/* {postTitle.length > 10 && postBody.length > 10 ? 
-          <div className='item-review-confirm-button'>
-            <button onClick={pushLive}>Confirm</button>
-            <button onClick={cancelUpdate}>Cancel</button>
-          </div>
-        :
-        null
-        } */}
     </div>
   )
 }

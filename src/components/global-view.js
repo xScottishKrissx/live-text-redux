@@ -16,6 +16,7 @@ export default function GlobalView() {
     return(
       <div className={'post-item ' + x.type} key={index} >
         <Post
+          id={x.id}
           title={x.title}
           subtitle={x.subtitle}
           body={x.body}
