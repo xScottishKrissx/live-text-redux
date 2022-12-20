@@ -8,9 +8,12 @@ import {configureStore} from '@reduxjs/toolkit'
 import {Provider} from 'react-redux' 
 
 import itemReducer from './features/item'
+import liveTextReducer from './features/live-text'
+
 const store = configureStore({
   reducer:{
-    items:itemReducer
+    items: itemReducer,
+    livetext: liveTextReducer
   }
 })
 

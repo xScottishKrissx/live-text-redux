@@ -2,13 +2,16 @@ Live Text:
   Setup:
     ✔ Setup Redux @done(22-12-01 11:29)
     ✔ Setup Github @done(22-12-01 11:35)
-  Part 1:
+  To-Do:
     ☐ Do the UI/Prototype
-      ☐ I have the form input styled
+      ✔ I have the form input styled @done(22-12-20 14:59)
       ☐ Style the global view
+        ☐ Remove the @
+        ☐ Add Time Stamp
+        ☐ Different style depending on update type
+        ☐ Add Share bar
+      ☐ Ability to edit post in place for a limited period of time
+      ☐ Ability to delete post
+      ☐ Ability to add video
+      ☐ Add Twitter card
       
-  Part 2:
-    ☐ Create Live Text functionality using state
-
-  Part 3:
-    ☐ Create a link to database to maintain persistance

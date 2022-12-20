@@ -6,6 +6,8 @@
     display: flex;
     flex: var(--columnSpacing);
     flex-direction: column;
+
+    max-width: 480px;
     /* border-radius: var(--borderRadius); */
 
 }
@@ -17,26 +19,23 @@
     align-items: flex-start;
 }
 
-/* Title ---------------------- */
+/********************************************************* Title */
 .author-input-form-title{
-     /* outline: 1px solid black; */
      display: flex;
         align-items: center;
-
      width: 100%;
 }
 .author-input-form-title > div{
     color: black;
     width: 100%;
-    background-color:#f1f1f185;
 }
 .author-input-form-title div div p{
-    /* height: 50px; */
     margin: 0;
     padding: 1rem;
-    /* outline: 1px solid red; */
 }
-
+.author-input-title > div{
+    background-color:#f1f1f185;
+}
 .author-input-form-title:focus-visible,
 .author-input-form-title div:focus-visible{
     outline: 0px solid red;
@@ -56,6 +55,34 @@
 .author-input-form-title input:focus-visible{
     outline: none;
 }
+
+
+/********************************************************* Subtitle */
+.author-input-form-subtitle{
+    display: flex;
+       align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+.author-input-form-subtitle > div{
+    color: black;
+    width: 100%;
+}
+.author-input-subtitle > div{
+    background-color:#f1f1f185;
+}
+
+.author-input-form-subtitle div div p{
+    margin: 0;
+    padding: 1rem;
+}
+
+.author-input-form-subtitle:focus-visible,
+.author-input-form-subtitle div:focus-visible{
+    outline: 0px solid red;
+    box-shadow: 0px 3px 0px 0px grey;
+}
+
 
 /* Type Select ------------------------- */
 .author-input-form-type-select{
@@ -120,11 +147,3 @@
     width: inherit;
 }
 
-/* Item Review */
-.item-review-area-title{
-    display: flex;
-    align-items: center;
-}
-.item-review-area-title div{
-    margin-right: 5px;
-}

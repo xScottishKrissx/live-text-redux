@@ -80,4 +80,6 @@
   box-shadow: 5px 5px 0px 0px var(--backgroundColour);
   color: black; */
   /* outline: 1px solid black; */
+  overflow-wrap: break-word;
+  max-width: 480px;
 }

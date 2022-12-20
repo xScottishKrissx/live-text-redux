@@ -76,7 +76,7 @@ const Tiptap = ({setPostBody, location}) =>{
         <div className='author-input-text-editor'>
             <MenuBar editor={editor} />
             <FloatingMenuBar editor={editor}/>
-            <EditorContent className='author-input-text-editor-input-container' editor={editor}/>
+            <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
             {/* <div onClick={addThing}>Add Thing</div> */}
             <TagsView addTag={addTag} />
         </div>
@@ -86,7 +86,16 @@ const Tiptap = ({setPostBody, location}) =>{
         {location === "title-enter" ?    
 
             <div className='author-input-title'>
-                <EditorContent editor={editor}/>
+                <h3>Title</h3>
+                <EditorContent editor={editor} />
+            </div>
+        
+        : null}
+        {location === "subtitle-enter" ?    
+
+            <div className='author-input-subtitle'>
+                <h3>Subtitle</h3>
+                <EditorContent editor={editor} />
             </div>
         
         : null}

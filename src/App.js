@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {addItem} from './features/item'
 import AuthorInput from './components/author-input';
 import GlobalView from './components/global-view';
-import ItemReview from './components/item-review';
+import ItemReview from './components/ItemReview/item-review';
 
 function App() {
   const itemList = useSelector((state) => state.items.value)
@@ -17,7 +17,6 @@ function App() {
 
         <div className='right-column'>
           <ItemReview />
-          <GlobalView />
           <GlobalView />
         </div>
 

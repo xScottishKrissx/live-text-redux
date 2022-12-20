@@ -5,7 +5,7 @@ import MentionList from './MentionList'
 
 import { Japan } from '../../Tags/names'
 const mapNames = Japan.map((x,index) => { return x.name})
-console.log(mapNames)
+// console.log(mapNames)
 
 export default {
   items: ({ query }) => { return mapNames    

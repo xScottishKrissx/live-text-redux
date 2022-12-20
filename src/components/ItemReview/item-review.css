@@ -1,0 +1,14 @@
+/* Item Review */
+.item-review-container{
+    outline: 1px solid var(--backgroundColour);
+    /* box-shadow: 5px 5px 0px 0px var(--backgroundColour); */
+    color: black;
+    padding: 1rem;
+    margin-bottom: 5rem;
+}
+.item-review-confirm-button{
+    margin: 1rem;
+}
+.item-review-confirm-button p{
+    color: black;
+} 
