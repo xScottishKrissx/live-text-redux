@@ -21,6 +21,7 @@ export default function GlobalView() {
           subtitle={x.subtitle}
           body={x.body}
           type={x.type}
+          timestamp={x.timestamp}
         />
       </div>
     )

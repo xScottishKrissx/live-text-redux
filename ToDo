@@ -8,6 +8,7 @@ Live Text:
       ☐ Style the global view
         ☐ Remove the @
         ☐ Add Time Stamp
+          ☐ This should be an easy way to get myself back into the swing of things.
         ☐ Different style depending on update type
         ☐ Add Share bar
       ✔ Ability to cancel adding post @done(22-12-20 17:03)
@@ -16,3 +17,17 @@ Live Text:
       ☐ Ability to add video
       ☐ Add Twitter card
       
+
+
+// React redux for state management
+
+// Tiptap for text editor
+  https://tiptap.dev/
+
+// uuidv4 for unique id
+  https://www.npmjs.com/package/uuidv4
+    npm install uuidv4
+
+// Day.js for date and timestamp
+  https://day.js.org/en/
+  install - npm install dayjs

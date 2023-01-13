@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import DOMPurify from 'dompurify'
 
 import './post.css'
-export default function Post({title, subtitle, body, type, id}) {
+export default function Post({title, subtitle, body, type, id, timestamp}) {
     const [editMode, setEditMode] = useState(false)
     if(!title || !body ) return
 
@@ -21,6 +21,8 @@ export default function Post({title, subtitle, body, type, id}) {
         setEditMode(true)
     }
 
+    
+
 
     return (
     
@@ -28,9 +30,9 @@ export default function Post({title, subtitle, body, type, id}) {
         {editMode ? "Edit Mode" :
             <>
 
-            <div className='post-item-time-stamp'>Time Stamp</div>
+            <div className='post-item-time-stamp'>{timestamp}</div>
 
-            <button onClick={handleEdit}>Edit Me</button>
+            {/* <button onClick={handleEdit}>Edit Me</button> */}
 
             <div className='post-item-headline-wrapper'>
 

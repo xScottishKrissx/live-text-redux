@@ -6,6 +6,8 @@ import './author-input.css'
 import Tiptap from './Tiptap/Tiptap'
 
 import {v4 as uuidv4} from 'uuid'
+import dayjs from 'dayjs';
+
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 export default function AuthorInput() {
@@ -17,13 +19,12 @@ export default function AuthorInput() {
   const [postType, setPostType] = useState("")
   const [postBody, setPostBody] = useState("")
   const [clearContent, setClearContent] = useState(false)
-  // const [postForReview, setPostForReview] = useState({postTitle:"", postSubTitle:"", postType:"", postBody:""})
+
   const [tag, setTag] = useState("true")
 
   useEffect(() => {
     dispatch(addItem({postTitle,postSubTitle, postType, postBody}))
   },[postTitle,postSubTitle, postBody, postType])
-
 
   const pushLive = () =>{
     const newPost = [{
@@ -31,7 +32,8 @@ export default function AuthorInput() {
       body: postBody, 
       title: postTitle, 
       subtitle: postSubTitle, 
-      type: postType
+      type: postType,
+      timestamp: dayjs().format('HH:mm - dddd, MMM YYYY')
     }]
 
     const updateLiveTextArray = [newPost[0]].concat(liveText)
