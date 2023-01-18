@@ -6,9 +6,10 @@ import { updateArray } from '../../features/live-text'
 import './post.css'
 export default function Post({title, subtitle, body, type, id, timestamp}) {
     const dispatch = useDispatch()
-    
+    // localStorage.clear()
     const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
+    if(!liveText) return
     // console.log(liveText)
 
     if(!title || !body ) return
@@ -36,7 +37,26 @@ export default function Post({title, subtitle, body, type, id, timestamp}) {
     }
 
     const handleHide = () =>{
+        // console.log("Hide: " + id)
+        // const filterCurrentPosts = liveText.filter(x => x.id === id)
+        const postToHide = liveText.filter(x => x.id === id)
+        const setHidden = postToHide.map(item =>{
+            if(item.id === id) return {...item, type:"hidden"}
+
+        })
+
+        const currentPosts = liveText.filter(x => x.id !== id)
         
+        console.log(currentPosts)
+        console.log(setHidden)
+        const mergeObjects = {...currentPosts, ...setHidden}
+        console.log(mergeObjects)
+        // console.log(postToHide)
+        // console.log(setHidden)
+        // dispatch(updateArray(mergeObjects))
+        // localStorage.setItem("live-text", JSON.stringify(mergeObjects))
+        
+        // Working on changing an value to hidden
     }
 
     
@@ -52,6 +72,7 @@ export default function Post({title, subtitle, body, type, id, timestamp}) {
 
             {/* <button onClick={handleEdit}>Edit Me</button> */}
             <button onClick={handleDelete}>Delete Me</button>
+            <button onClick={()=>handleHide()}>Hide Me</button>
 
             <div className='post-item-headline-wrapper'>
 

@@ -7,6 +7,7 @@ import Post from './Post/post'
 export default function GlobalView() {
 
   const liveText = useSelector((state) => state.livetext.value)
+  // console.log(liveText)
   if(!liveText) return
 
   const displayLiveText = liveText.map((x, index) => {
