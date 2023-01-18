@@ -7,8 +7,9 @@ Live Text:
       ✔ I have the form input styled @done(22-12-20 14:59)
       ☐ Style the global view
         ☐ Remove the @
-        ☐ Add Time Stamp
-          ☐ This should be an easy way to get myself back into the swing of things.
+        ✔ Add Time Stamp @done(23-01-13 16:53)
+          ✔ This should be an easy way to get myself back into the swing of things. @done(23-01-13 16:53)
+          ✔ Pretty simple with day.js @done(23-01-13 16:53)
         ☐ Different style depending on update type
         ☐ Add Share bar
       ✔ Ability to cancel adding post @done(22-12-20 17:03)
