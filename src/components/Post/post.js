@@ -4,6 +4,7 @@ import DOMPurify from 'dompurify'
 import { updateArray } from '../../features/live-text'
 
 import './post.css'
+import EditTiptap from '../EditPost/editView'
 export default function Post({title, subtitle, body, type, id, timestamp, hidden}) {
     const dispatch = useDispatch()
     // localStorage.clear()
@@ -33,8 +34,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const handleDelete = () =>{
         console.log("Delete: " + id)
         const filterCurrentPosts = liveText.filter(x => x.id !== id)
-        dispatch(updateArray(filterCurrentPosts))
-        localStorage.setItem("live-text", JSON.stringify(filterCurrentPosts))
+        updateWebsite(filterCurrentPosts)
     }
 
     const handleHide = (setHide) =>{
@@ -47,48 +47,54 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         
         const mergeObjects = [...currentPosts, ...setHidden]
         // Update website
-        dispatch(updateArray(mergeObjects))
-        localStorage.setItem("live-text", JSON.stringify(mergeObjects))        
+        updateWebsite(mergeObjects)     
     }
 
-    console.log(liveText)
-
+    const updateWebsite = (newArray) =>{
+        dispatch(updateArray(newArray))
+        localStorage.setItem("live-text", JSON.stringify(newArray))   
+    }
     
 
 
     return (
     
         <div className='post-item-container' >
-        {editMode ? "Edit Mode" :
+        {editMode ? 
+            
+            <EditTiptap id={id} readyPostTitle={readyPostTitle} subtitle={subtitle} />
+            
+            :
+
             <>
 
-            <div className='post-item-time-stamp'>{timestamp}</div>
+                <div className='post-item-time-stamp'>{timestamp}</div>
 
-            {/* <button onClick={handleEdit}>Edit Me</button> */}
-            <button onClick={handleDelete}>Delete Me</button>
-            <button onClick={()=>handleHide(true)}>Hide Me</button>
-            <button onClick={()=>handleHide(false)}>Show Me</button>
+                <button onClick={handleEdit}>Edit Me</button>
+                <button onClick={handleDelete}>Delete Me</button>
+                <button onClick={()=>handleHide(true)}>Hide Me</button>
+                <button onClick={()=>handleHide(false)}>Show Me</button>
 
-            <div className='post-item-headline-wrapper'>
+                <div className='post-item-headline-wrapper'>
 
-                { headlineIcon ? <img src={"https://via.placeholder.com/50x50"} /> : ""} 
-                
-                <div className='post-item-headline-content '>
-                    <div className='post-item-title'>
-                        {hidden ? <div> ** Hidden ** </div>  : <div> // Live \\ </div> }
-                        <div dangerouslySetInnerHTML={createMarkup(readyPostTitle)}></div>
+                    { headlineIcon ? <img src={"https://via.placeholder.com/50x50"} /> : ""} 
+                    
+                    <div className='post-item-headline-content '>
+                        <div className='post-item-title'>
+                            {hidden ? <div> ** Hidden ** </div>  : <div> // Live \\ </div> }
+                            <div dangerouslySetInnerHTML={createMarkup(readyPostTitle)}></div>
+                        </div>
+                        <div 
+                            className='post-item-subtitle' 
+                            dangerouslySetInnerHTML={createMarkup(subtitle)}
+                            ></div>
                     </div>
-                    <div 
-                        className='post-item-subtitle' 
-                        dangerouslySetInnerHTML={createMarkup(subtitle)}
-                        ></div>
                 </div>
-            </div>
-            
-            
-            <div dangerouslySetInnerHTML={createMarkup(body)}></div>
-            <div>Social Media</div>
-                        </>
+                
+                
+                <div dangerouslySetInnerHTML={createMarkup(body)}></div>
+                <div>Social Media</div>
+            </>
         }
         </div>
     )
