@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const getLocalStorage =  JSON.parse(localStorage.getItem("live-text"))
-const defaultState = getLocalStorage ||  [{}] 
+const defaultState = getLocalStorage ||  [] 
 
 export const liveTextSlice = createSlice({
     name:"live-text",

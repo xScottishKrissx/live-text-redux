@@ -4,11 +4,12 @@ import DOMPurify from 'dompurify'
 import { updateArray } from '../../features/live-text'
 
 import './post.css'
-export default function Post({title, subtitle, body, type, id, timestamp}) {
+export default function Post({title, subtitle, body, type, id, timestamp, hidden}) {
     const dispatch = useDispatch()
     // localStorage.clear()
     const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
+    // console.log(liveText)
     if(!liveText) return
     // console.log(liveText)
 
@@ -36,28 +37,21 @@ export default function Post({title, subtitle, body, type, id, timestamp}) {
         localStorage.setItem("live-text", JSON.stringify(filterCurrentPosts))
     }
 
-    const handleHide = () =>{
-        // console.log("Hide: " + id)
-        // const filterCurrentPosts = liveText.filter(x => x.id === id)
+    const handleHide = (setHide) =>{
         const postToHide = liveText.filter(x => x.id === id)
         const setHidden = postToHide.map(item =>{
-            if(item.id === id) return {...item, type:"hidden"}
-
+            if(item.id === id) return {...item, hidden:setHide}
         })
-
-        const currentPosts = liveText.filter(x => x.id !== id)
         
-        console.log(currentPosts)
-        console.log(setHidden)
-        const mergeObjects = {...currentPosts, ...setHidden}
-        console.log(mergeObjects)
-        // console.log(postToHide)
-        // console.log(setHidden)
-        // dispatch(updateArray(mergeObjects))
-        // localStorage.setItem("live-text", JSON.stringify(mergeObjects))
+        const currentPosts = liveText.filter(x => x.id !== id)        
         
-        // Working on changing an value to hidden
+        const mergeObjects = [...currentPosts, ...setHidden]
+        // Update website
+        dispatch(updateArray(mergeObjects))
+        localStorage.setItem("live-text", JSON.stringify(mergeObjects))        
     }
+
+    console.log(liveText)
 
     
 
@@ -72,7 +66,8 @@ export default function Post({title, subtitle, body, type, id, timestamp}) {
 
             {/* <button onClick={handleEdit}>Edit Me</button> */}
             <button onClick={handleDelete}>Delete Me</button>
-            <button onClick={()=>handleHide()}>Hide Me</button>
+            <button onClick={()=>handleHide(true)}>Hide Me</button>
+            <button onClick={()=>handleHide(false)}>Show Me</button>
 
             <div className='post-item-headline-wrapper'>
 
@@ -80,7 +75,7 @@ export default function Post({title, subtitle, body, type, id, timestamp}) {
                 
                 <div className='post-item-headline-content '>
                     <div className='post-item-title'>
-                        {readyPostType ? <div>{readyPostType} </div>  : null }
+                        {hidden ? <div> ** Hidden ** </div>  : <div> // Live \\ </div> }
                         <div dangerouslySetInnerHTML={createMarkup(readyPostTitle)}></div>
                     </div>
                     <div 

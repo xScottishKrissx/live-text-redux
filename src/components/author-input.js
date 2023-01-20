@@ -33,7 +33,8 @@ export default function AuthorInput() {
       title: postTitle, 
       subtitle: postSubTitle, 
       type: postType,
-      timestamp: dayjs().format('HH:mm - dddd, MMM YYYY')
+      timestamp: dayjs().format('HH:mm - dddd, MMM YYYY'),
+      hidden:false
     }]
 
     const updateLiveTextArray = [newPost[0]].concat(liveText)

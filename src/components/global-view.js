@@ -6,14 +6,27 @@ import Post from './Post/post'
 
 export default function GlobalView() {
 
+  const loggedIn = true
+
   const liveText = useSelector((state) => state.livetext.value)
   // console.log(liveText)
   if(!liveText) return
+  
+  // Sort items by timestamp
+  const liveTextArray = [...liveText]
+  liveTextArray.sort((a, b) => {
+    const valA = a.timestamp; 
+    const valB = b.timestamp; 
+    if (valA < valB) { return 1; }
+    if (valA > valB) { return -1; }
+    return 0;
+  });
 
-  const displayLiveText = liveText.map((x, index) => {
+  const displayLiveText = liveTextArray.map((x, index) => {
     // const postStyle = {
     //   boxShadow:"5px 5px 0px 0px red"
     // }
+    if(!loggedIn && x.hidden ) return 
     return(
       <div className={'post-item ' + x.type} key={index} >
         <Post
@@ -23,13 +36,16 @@ export default function GlobalView() {
           body={x.body}
           type={x.type}
           timestamp={x.timestamp}
+          hidden={x.hidden}
         />
       </div>
     )
   })
 
+
   return (
     <div className='global-view-wrapper'>
+        {loggedIn ? <p>Logged In</p> : <p>Not Logged In</p>}
         {displayLiveText}
     </div>
   )
