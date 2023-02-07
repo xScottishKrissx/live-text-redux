@@ -62,7 +62,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         <div className='post-item-container' >
         {editMode ? 
             
-            <EditTiptap id={id} readyPostTitle={readyPostTitle} subtitle={subtitle} />
+            <EditTiptap id={id} readyPostTitle={readyPostTitle} subtitle={subtitle} body={body} />
             
             :
 
