@@ -13,11 +13,12 @@ Live Text:
         ☐ Different style depending on update type
         ☐ Add Share bar
       ✔ Ability to cancel adding post @done(22-12-20 17:03)
-      ☐ Ability to edit post in place for a limited period of time
-        ☐ Fields to edit
-          ☐ Title
-          ☐ Subtitle
-          ☐ Body
+      ☐ Ability to edit post 
+        ✔ Fields to edit @done(23-02-08 13:39)
+          ✔ Title @done(23-02-08 13:39)
+          ✔ Subtitle @done(23-02-08 13:39)
+          ✔ Body @done(23-02-08 13:39)
+        ☐ Close edit mode on save
         ☐ Remove border around fields
         ☐ It should be obvious the post is being edited.
 
