@@ -26,9 +26,9 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         }
     }
 
-    const handleEdit = () =>{
+    const handleEdit = (x) =>{
         console.log("Edit: " + id)
-        setEditMode(true)
+        setEditMode(x)
     }
 
     const handleDelete = () =>{
@@ -47,7 +47,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         
         const mergeObjects = [...currentPosts, ...setHidden]
         // Update website
-        updateWebsite(mergeObjects)     
+        updateWebsite(mergeObjects)
     }
 
     const updateWebsite = (newArray) =>{
@@ -62,7 +62,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         <div className='post-item-container' >
         {editMode ? 
             
-            <EditTiptap id={id} readyPostTitle={readyPostTitle} subtitle={subtitle} body={body} />
+            <EditTiptap id={id} readyPostTitle={readyPostTitle} subtitle={subtitle} body={body} handleEdit={handleEdit}/>
             
             :
 
@@ -70,7 +70,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
 
                 <div className='post-item-time-stamp'>{timestamp}</div>
 
-                <button onClick={handleEdit}>Edit Me</button>
+                <button onClick={()=>handleEdit(true)}>Edit Me</button>
                 <button onClick={handleDelete}>Delete Me</button>
                 <button onClick={()=>handleHide(true)}>Hide Me</button>
                 <button onClick={()=>handleHide(false)}>Show Me</button>
@@ -80,8 +80,8 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
                     { headlineIcon ? <img src={"https://via.placeholder.com/50x50"} /> : ""} 
                     
                     <div className='post-item-headline-content '>
+                        {hidden ? <div> ** Hidden ** </div>  : <div> // Live \\ </div> }
                         <div className='post-item-title'>
-                            {hidden ? <div> ** Hidden ** </div>  : <div> // Live \\ </div> }
                             <div dangerouslySetInnerHTML={createMarkup(readyPostTitle)}></div>
                         </div>
                         <div 

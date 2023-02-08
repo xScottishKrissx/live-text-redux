@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { updateArray } from "../../features/live-text";
-// import EditTitle from "./editTitle";
 import EditPostField from "./editPostField";
 
-const EditTiptap = ({id, readyPostTitle, subtitle, body}) =>{
+const EditTiptap = ({id, readyPostTitle, subtitle, body, handleEdit}) =>{
 
     const dispatch = useDispatch()
 
@@ -16,8 +15,6 @@ const EditTiptap = ({id, readyPostTitle, subtitle, body}) =>{
 
     const saveEdit = () =>{
         const getCurrentPost = liveText.filter(x => x.id === id)
-        console.log(getCurrentPost)
-
         const updateCurrentPost = getCurrentPost.map(item =>{
             if(item.id === id) return {...item, body:bodyField, title:titleField, subtitle:subtitleField}
         })
@@ -26,16 +23,13 @@ const EditTiptap = ({id, readyPostTitle, subtitle, body}) =>{
         const mergeObjects = [...remainingPosts, ...updateCurrentPost]
         updateWebsite(mergeObjects)  
 
-        console.log(updateCurrentPost)
-
-        // console.log(titleField)
-        // console.log(subtitleField)
-        // console.log(bodyField)
     }
     
+    // THis should be a separate function as it's u
     const updateWebsite = (newArray) =>{
         dispatch(updateArray(newArray))
         localStorage.setItem("live-text", JSON.stringify(newArray))   
+        handleEdit(false)
     }
 
     return (
