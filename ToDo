@@ -14,6 +14,13 @@ Live Text:
         ☐ Add Share bar
       ✔ Ability to cancel adding post @done(22-12-20 17:03)
       ☐ Ability to edit post in place for a limited period of time
+        ☐ Fields to edit
+          ☐ Title
+          ☐ Subtitle
+          ☐ Body
+        ☐ Remove border around fields
+        ☐ It should be obvious the post is being edited.
+
       ✔ Ability to delete post / hide post @done(23-01-20 16:37)
       ☐ Ability to add video
       ☐ Add Twitter card

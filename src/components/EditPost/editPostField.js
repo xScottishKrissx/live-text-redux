@@ -1,22 +1,22 @@
 import { useEditor, EditorContent, onUpdate } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
-export default function EditTitle({title, passTitle}) {
+export default function EditPostField({field, passNewFieldValue}) {
 
     const editor = useEditor({
-        
         extensions: [
             StarterKit,
         ],
-        content: title,
+
+        content: field,
+
         onUpdate:({editor}) => {
             const json = editor.getHTML()
-            passTitle(json)
+            passNewFieldValue(json)
         },
+
     })
 
-
-
   return <EditorContent editor={editor} />
-  
+    
 }
