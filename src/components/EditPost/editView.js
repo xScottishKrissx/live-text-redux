@@ -1,39 +1,40 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux'
-import { updateArray } from "../../features/live-text";
+// import { useSelector, useDispatch } from 'react-redux'
+// import { updateArray } from "../../features/live-text";
+import PostControl from "../PostControl/postControl";
 import EditPostField from "./editPostField";
+
+import './editView.css'
 
 const EditTiptap = ({id, readyPostTitle, subtitle, body, handleEdit}) =>{
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    const liveText = useSelector((state) => state.livetext.value)
+    // const liveText = useSelector((state) => state.livetext.value)
 
     const [titleField, setTitle] = useState(readyPostTitle)
     const [subtitleField, setSubtitle] = useState(subtitle)
     const [bodyField, setBody] = useState(body)
 
-    const saveEdit = () =>{
-        const getCurrentPost = liveText.filter(x => x.id === id)
-        const updateCurrentPost = getCurrentPost.map(item =>{
-            if(item.id === id) return {...item, body:bodyField, title:titleField, subtitle:subtitleField}
-        })
-
-        const remainingPosts = liveText.filter(x => x.id !== id) 
-        const mergeObjects = [...remainingPosts, ...updateCurrentPost]
-        updateWebsite(mergeObjects)  
-
-    }
+    // const saveEdit = () =>{
+    //     const getCurrentPost = liveText.filter(x => x.id === id)
+    //     const updateCurrentPost = getCurrentPost.map(item =>{
+    //         if(item.id === id) return {...item, body:bodyField, title:titleField, subtitle:subtitleField}
+    //     })
+    //     const remainingPosts = liveText.filter(x => x.id !== id) 
+    //     const mergeObjects = [...remainingPosts, ...updateCurrentPost]
+    //     updateWebsite(mergeObjects)  
+    // }
     
-    // THis should be a separate function as it's u
-    const updateWebsite = (newArray) =>{
-        dispatch(updateArray(newArray))
-        localStorage.setItem("live-text", JSON.stringify(newArray))   
-        handleEdit(false)
-    }
+    // const updateWebsite = (newArray) =>{
+    //     dispatch(updateArray(newArray))
+    //     localStorage.setItem("live-text", JSON.stringify(newArray))   
+    //     handleEdit(false)
+    // }
 
     return (
         <div>
+            <PostControl editMode id={id} body={bodyField} subtitle={subtitleField} title={titleField} handleEdit={handleEdit}/>
             <div className='post-item-headline-wrapper'>
 
                 {/* { headlineIcon ? <img src={"https://via.placeholder.com/50x50"} /> : ""}  */}
@@ -49,7 +50,7 @@ const EditTiptap = ({id, readyPostTitle, subtitle, body, handleEdit}) =>{
                 </div>
             </div>
 
-            <button onClick={saveEdit}>Save</button>
+            {/* <button onClick={saveEdit}>Save</button> */}
         </div>
     )
 }

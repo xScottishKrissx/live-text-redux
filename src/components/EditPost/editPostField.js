@@ -10,6 +10,12 @@ export default function EditPostField({field, passNewFieldValue}) {
 
         content: field,
 
+        editorProps:{
+            attributes:{
+                class: 'focus-visible:outline-none',
+            },
+        },
+
         onUpdate:({editor}) => {
             const json = editor.getHTML()
             passNewFieldValue(json)

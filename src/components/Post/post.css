@@ -1,5 +1,5 @@
 .post-item{
-    outline: 1px solid var(--backgroundColour);
+    /* outline: 1px solid var(--backgroundColour); */
     /* box-shadow: 5px 5px 0px 0px var(--backgroundColour); */
     color: black;
     padding: 1rem;
@@ -74,4 +74,17 @@
     box-shadow: 5px 5px 0px 0px beige;
     /* background-color: beige; */
     color: black;
+}
+
+.post-item-container{
+    outline: 1px solid var(--backgroundColour);
+    /* outline: 1px solid red; */
+    padding: 2rem;
+}
+
+.post-item-container-editMode{
+    border-radius: 1rem;
+    outline: 5px solid yellow;
+    /* border-bottom: 10px solid yellow; */
+    padding: 2rem;
 }

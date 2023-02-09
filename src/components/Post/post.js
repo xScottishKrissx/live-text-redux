@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import DOMPurify from 'dompurify'
-import { updateArray } from '../../features/live-text'
+// import { updateArray } from '../../features/live-text'
 
 import './post.css'
 import EditTiptap from '../EditPost/editView'
+import PostControl from '../PostControl/postControl'
 export default function Post({title, subtitle, body, type, id, timestamp, hidden}) {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     // localStorage.clear()
     const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
@@ -17,7 +18,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     if(!title || !body ) return
 
     const readyPostTitle = title.replace('@', '')
-    const readyPostType = type.length ? type + " - " : ""
+    // const readyPostType = type.length ? type + " - " : ""
     const headlineIcon = false
 
     const createMarkup = (html) =>{
@@ -27,39 +28,39 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     }
 
     const handleEdit = (x) =>{
-        console.log("Edit: " + id)
         setEditMode(x)
     }
 
-    const handleDelete = () =>{
-        console.log("Delete: " + id)
-        const filterCurrentPosts = liveText.filter(x => x.id !== id)
-        updateWebsite(filterCurrentPosts)
-    }
+    // const handleDelete = () =>{
+    //     console.log("Delete: " + id)
+    //     const filterCurrentPosts = liveText.filter(x => x.id !== id)
+    //     updateWebsite(filterCurrentPosts)
+    // }
 
-    const handleHide = (setHide) =>{
-        const postToHide = liveText.filter(x => x.id === id)
-        const setHidden = postToHide.map(item =>{
-            if(item.id === id) return {...item, hidden:setHide}
-        })
+    // const handleHide = (setHide) =>{
+    //     const postToHide = liveText.filter(x => x.id === id)
+    //     const setHidden = postToHide.map(item =>{
+    //         if(item.id === id) return {...item, hidden:setHide}
+    //     })
         
-        const currentPosts = liveText.filter(x => x.id !== id)        
+    //     const currentPosts = liveText.filter(x => x.id !== id)        
         
-        const mergeObjects = [...currentPosts, ...setHidden]
-        // Update website
-        updateWebsite(mergeObjects)
-    }
+    //     const mergeObjects = [...currentPosts, ...setHidden]
 
-    const updateWebsite = (newArray) =>{
-        dispatch(updateArray(newArray))
-        localStorage.setItem("live-text", JSON.stringify(newArray))   
-    }
+    //     updateWebsite(mergeObjects)
+    // }
+
+    // const updateWebsite = (newArray) =>{
+    //     dispatch(updateArray(newArray))
+    //     localStorage.setItem("live-text", JSON.stringify(newArray))   
+    // }
     
 
 
     return (
     
-        <div className='post-item-container' >
+        // <div className='post-item-container' >
+        <div className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
         {editMode ? 
             
             <EditTiptap id={id} readyPostTitle={readyPostTitle} subtitle={subtitle} body={body} handleEdit={handleEdit}/>
@@ -70,10 +71,11 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
 
                 <div className='post-item-time-stamp'>{timestamp}</div>
 
-                <button onClick={()=>handleEdit(true)}>Edit Me</button>
+                <PostControl handleEdit={handleEdit} id={id} hide={hidden}/>
+                {/* <button onClick={()=>handleEdit(true)}>Edit Me</button>
                 <button onClick={handleDelete}>Delete Me</button>
                 <button onClick={()=>handleHide(true)}>Hide Me</button>
-                <button onClick={()=>handleHide(false)}>Show Me</button>
+                <button onClick={()=>handleHide(false)}>Show Me</button> */}
 
                 <div className='post-item-headline-wrapper'>
 
