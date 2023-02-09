@@ -6,41 +6,33 @@ export default function PostControl({id, handleEdit, body, subtitle, title, edit
     
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
+    const getCurrentPost = liveText.filter(x => x.id === id)
+    const getOtherPosts = liveText.filter(x => x.id !== id)
 
     const handleDelete = () =>{
         console.log("Delete: " + id)
-        const filterCurrentPosts = liveText.filter(x => x.id !== id)
-        updateWebsite(filterCurrentPosts)
-    }
-
-    const updateWebsite = (newArray) =>{
-        dispatch(updateArray(newArray))
-        localStorage.setItem("live-text", JSON.stringify(newArray))   
-        handleEdit(false)
+        updateWebsite(getOtherPosts)
     }
 
     const handleHide = (setHide) =>{
-        const postToHide = liveText.filter(x => x.id === id)
-        const setHidden = postToHide.map(item =>{
+        const setHidden = getCurrentPost.map(item =>{
             if(item.id === id) return {...item, hidden:setHide}
-        })
-        
-        const currentPosts = liveText.filter(x => x.id !== id)        
-        
-        const mergeObjects = [...currentPosts, ...setHidden]
-        // Update website
-        updateWebsite(mergeObjects)
-        
+        })       
+        updateWebsite(setHidden)
     }
 
     const saveEdit = () =>{
-        const getCurrentPost = liveText.filter(x => x.id === id)
-        const updateCurrentPost = getCurrentPost.map(item =>{
+        const editCurrentPost = getCurrentPost.map(item =>{
             if(item.id === id) return {...item, body, title, subtitle}
         })
-        const remainingPosts = liveText.filter(x => x.id !== id) 
-        const mergeObjects = [...remainingPosts, ...updateCurrentPost]
-        updateWebsite(mergeObjects)          
+        updateWebsite(editCurrentPost)          
+    }
+
+    const updateWebsite = (changedPost) =>{
+        const mergeObjects = [...getOtherPosts, ...changedPost]
+        dispatch(updateArray(mergeObjects))
+        localStorage.setItem("live-text", JSON.stringify(mergeObjects))   
+        handleEdit(false)
     }
 
   return (
