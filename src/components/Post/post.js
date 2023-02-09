@@ -6,7 +6,7 @@ import './post.css'
 import EditTiptap from '../EditPost/editView'
 import PostControl from '../PostControl/postControl'
 
-export default function Post({title, subtitle, body, type, id, timestamp, hidden}) {
+export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn}) {
     const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
     
@@ -23,6 +23,12 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     }
 
     const handleEdit = (x) => setEditMode(x) 
+
+    const currentTime = new Date()
+    const prevTime = new Date(timestamp)
+    console.log(currentTime.getTime() - prevTime.getTime())
+
+    console.log(timestamp)
 
     return (
     
@@ -41,12 +47,15 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
             :
 
             <>
-
-                <PostControl 
-                    handleEdit={handleEdit} 
-                    id={id} 
-                    hide={hidden}
-                />
+                {loggedIn ? 
+                    <PostControl 
+                        handleEdit={handleEdit} 
+                        id={id} 
+                        hide={hidden}
+                    />
+                :
+                    null
+                }
 
                 <div className='post-item-headline-wrapper'>
 

@@ -4,6 +4,23 @@
     color: black;
     padding: 1rem;
     margin-bottom: 1rem;
+
+
+}
+
+.animate-new-post{
+    animation: newItemAni 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes newItemAni {
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .post-item-time-stamp{

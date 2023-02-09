@@ -5,7 +5,12 @@ Live Text:
   To-Do:
     ☐ Do the UI/Prototype
       ✔ I have the form input styled @done(22-12-20 14:59)
+
+      
       ☐ Style the global view
+        ☐ Animate post when it's new
+          ☐ Give it a new tag that is removed after 30 seconds?
+          ...i think i need to change the way I save my timestamp in order to achieve this.
         ☐ Remove the @
         ✔ Add Time Stamp @done(23-01-13 16:53)
           ✔ This should be an easy way to get myself back into the swing of things. @done(23-01-13 16:53)
@@ -22,6 +27,7 @@ Live Text:
         ✔ Remove border around fields @done(23-02-09 18:26)
         ✔ It should be obvious the post is being edited. @done(23-02-09 18:26)
         ☐ Add formatting options to edit fields
+        ☐ Add tags in edit field.
         ☐ The page junps when toggling edit mode.
           ...i think this is the author input rendering  every time state refreshes.
 
@@ -29,6 +35,7 @@ Live Text:
         ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)
         ✔ Style control bar @done(23-02-09 18:52)
           ... also made the jump between to edit less jarring by moving the timestamp and social media bar out of the edit mode check.
+        ✔ Should be hidden if not logged in. @done(23-02-09 19:14)
 
 
       ✔ Ability to delete post / hide post @done(23-01-20 16:37)
