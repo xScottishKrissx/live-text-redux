@@ -50,7 +50,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, edit
         <button onClick={handleDelete}><FaTrash/> Delete</button>
         
         {hide ?
-            <button onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
+            <button className='post-control-bar-isHidden' onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
             :
             <button onClick={()=>handleHide(true)}><FaEye /> Visible</button>
         }

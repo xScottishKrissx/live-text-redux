@@ -32,7 +32,7 @@ Live Text:
 
 
       ✔ Ability to delete post / hide post @done(23-01-20 16:37)
-        ☐ It should be more obvious that a post is hidden
+        ✔ It should be more obvious that a post is hidden @done(23-02-09 19:10)
       ☐ Ability to add video
         ☐ i think this is just a part of tiptap now
       ☐ Add Twitter card
