@@ -1,0 +1,17 @@
+.post-control-bar{
+    /* outline: 1px solid black; */
+    display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    margin: 1rem 0rem 1rem 0rem;
+    border-bottom: 1px solid var(--backgroundColour);
+}
+.post-control-bar button{
+    border: none;
+    background-color: transparent;
+    padding: .5rem;
+    cursor: pointer;
+
+    /* outline: 1px solid red; */
+
+}

@@ -19,11 +19,22 @@ Live Text:
           ✔ Subtitle @done(23-02-08 13:39)
           ✔ Body @done(23-02-08 13:39)
         ✔ Close edit mode on save @done(23-02-08 13:59)
-        ☐ Remove border around fields
-        ☐ It should be obvious the post is being edited.
+        ✔ Remove border around fields @done(23-02-09 18:26)
+        ✔ It should be obvious the post is being edited. @done(23-02-09 18:26)
+        ☐ Add formatting options to edit fields
+        ☐ The page junps when toggling edit mode.
+          ...i think this is the author input rendering  every time state refreshes.
+
+      ☐ Post Control Bar
+        ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)
+        ✔ Style control bar @done(23-02-09 18:52)
+          ... also made the jump between to edit less jarring by moving the timestamp and social media bar out of the edit mode check.
+
 
       ✔ Ability to delete post / hide post @done(23-01-20 16:37)
+        ☐ It should be more obvious that a post is hidden
       ☐ Ability to add video
+        ☐ i think this is just a part of tiptap now
       ☐ Add Twitter card
       ☐ Create Login / Logout system
       

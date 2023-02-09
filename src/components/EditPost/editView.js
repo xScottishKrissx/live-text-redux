@@ -30,7 +30,10 @@ const EditTiptap = ({id, readyPostTitle, subtitle, body, handleEdit}) =>{
                         <EditPostField field={readyPostTitle} passNewFieldValue={setTitle} />
                     </div>
 
-                    <EditPostField field={subtitle} passNewFieldValue={setSubtitle} />
+                    <div className='post-item-subtitle' >
+                        <EditPostField field={subtitle} passNewFieldValue={setSubtitle} />
+                    </div>
+                    
                     <EditPostField field={body} passNewFieldValue={setBody} />
                 </div>
             </div>

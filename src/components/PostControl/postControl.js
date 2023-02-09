@@ -2,6 +2,10 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateArray } from '../../features/live-text'
 
+import './postControl.css'
+
+import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
+
 export default function PostControl({id, handleEdit, body, subtitle, title, editMode, hide}) {
     
     const dispatch = useDispatch()
@@ -36,20 +40,20 @@ export default function PostControl({id, handleEdit, body, subtitle, title, edit
     }
 
   return (
-    <>
+    <div className='post-control-bar'>
         {editMode ? 
-            <button onClick={saveEdit}>Save</button>
+            <button onClick={saveEdit}><FaSave /> Save </button>
                 :
-            <button onClick={()=>handleEdit(true)}>Edit Me</button>
+            <button onClick={()=>handleEdit(true)}><FaEdit /> Edit Post</button>
         }
-        ---
-        <button onClick={handleDelete}>Delete Me</button>
-        ---
-        {!hide ?
-            <button onClick={()=>handleHide(true)}>Hide Me</button>
+        
+        <button onClick={handleDelete}><FaTrash/> Delete</button>
+        
+        {hide ?
+            <button onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
             :
-            <button onClick={()=>handleHide(false)}>Show Me</button>
+            <button onClick={()=>handleHide(true)}><FaEye /> Visible</button>
         }
-    </>
+    </div>
   )
 }
