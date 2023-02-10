@@ -7,6 +7,7 @@ import Tiptap from './Tiptap/Tiptap'
 
 import {v4 as uuidv4} from 'uuid'
 import dayjs from 'dayjs';
+import {relativeTime} from 'dayjs/plugin/relativeTime'
 
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
@@ -26,6 +27,10 @@ export default function AuthorInput() {
     dispatch(addItem({postTitle,postSubTitle, postType, postBody}))
   },[postTitle,postSubTitle, postBody, postType])
 
+
+  // console.log(Date.now())
+
+
   const pushLive = () =>{
     const newPost = [{
       id: uuidv4(), 
@@ -34,6 +39,7 @@ export default function AuthorInput() {
       subtitle: postSubTitle, 
       type: postType,
       timestamp: dayjs().format('HH:mm - dddd, MMM YYYY'),
+      timestampTest:Date.now(),
       hidden:false
     }]
 

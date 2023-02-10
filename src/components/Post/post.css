@@ -12,14 +12,26 @@
     animation: newItemAni 3s;
     animation-fill-mode: forwards;
 }
+
+.newPost{
+    
+    overflow: hidden;
+    animation: newItemAni 3s;
+    /* animation-fill-mode: forwards; */
+    animation-fill-mode: both;
+}
 @keyframes newItemAni {
     0%{
-        opacity: 0;
-        transform: translateY(-100px);
+        /* opacity: 0; */
+        height: 0 ;
+        background-color: red;
+        /* transform: translateY(-100px); */
     }
     100%{
-        opacity: 1;
-        transform: translateY(0);
+        /* opacity: 1; */
+        height: 360px ;
+        background-color: white;
+        /* transform: translateY(0); */
     }
 }
 
