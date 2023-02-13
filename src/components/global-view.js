@@ -39,7 +39,7 @@ export default function GlobalView() {
     return(
       <div 
         className={'post-item ' + x.type + thing} 
-        key={index} 
+        key={x.id} 
         // id={`${test < 70 ? "newPost" : "notNewPost" }`} 
         >
         <Post
