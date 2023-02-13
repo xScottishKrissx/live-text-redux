@@ -7,7 +7,7 @@ Live Text:
       ✔ I have the form input styled @done(22-12-20 14:59)
 
       
-      ☐ Style the global view
+      ☐ Adding Posts
         ☐ Animate post when it's new
           ☐ Give it a new tag that is removed after 30 seconds?
           ...i think i need to change the way I save my timestamp in order to achieve this.
@@ -17,6 +17,11 @@ Live Text:
           ✔ Pretty simple with day.js @done(23-01-13 16:53)
         ☐ Different style depending on update type
         ☐ Add Share bar
+        ✔ There is a post duplication bug that duplicates the post array over and over. It's not endless it's just duplicating what's currently in the array...which is then duplicated. @done(23-02-13 17:22)
+          ✔ Trying to figure out what's going on here. @done(23-02-13 17:22)
+            ✔ It's the delete button, it's doubling the array on delete... @done(23-02-13 17:22)
+            ✔ Fixed it, i was accidentally copying the array without the delete post onto the another array without the deleted post instead of just saving the array without the delete post to begin with. @done(23-02-13 17:22)
+
       ✔ Ability to cancel adding post @done(22-12-20 17:03)
       ☐ Ability to edit post 
         ✔ Fields to edit @done(23-02-08 13:39)

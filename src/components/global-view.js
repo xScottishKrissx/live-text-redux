@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './global-view.css'
 
 import { useSelector } from 'react-redux'
@@ -10,18 +10,19 @@ export default function GlobalView() {
   // localStorage.clear()
 
   const liveText = useSelector((state) => state.livetext.value)
-  // console.log(liveText)
+  console.log(liveText)
   if(!liveText) return
   
   // Sort items by timestamp
   const liveTextArray = [...liveText]
   liveTextArray.sort((a, b) => {
-    const valA = a.timestampTest; 
-    const valB = b.timestampTest; 
+    const valA = a.timestamp; 
+    const valB = b.timestamp; 
     if (valA < valB) { return 1; }
     if (valA > valB) { return -1; }
     return 0;
   });
+
 
 
 
@@ -32,7 +33,7 @@ export default function GlobalView() {
     if(!loggedIn && x.hidden ) return 
     // console.log(index)
     const test = (Date.now() - x.timestampTest) / 1000
-    const thing = test < 70 ? "newPost" : ""
+    const thing = test < 70 && index === 0 ? "newPost " + index : ""
 
 
     return(
@@ -42,6 +43,7 @@ export default function GlobalView() {
         // id={`${test < 70 ? "newPost" : "notNewPost" }`} 
         >
         <Post
+        
           id={x.id}
           title={x.title}
           subtitle={x.subtitle}
