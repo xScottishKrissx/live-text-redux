@@ -1,12 +1,13 @@
 .author-input-wrapper{
     /* outline: 1px solid black; */
     /* background-color: grey; */
-    background-color: var(--backgroundColour);
-    box-shadow: 5px 5px 5px 5px var(--backgroundColour);
+    background-color: var(--authorInputBackgroundColour);
+    box-shadow: 5px 5px 5px 5px var(--authorInputBackgroundColour);
     display: flex;
     flex: var(--columnSpacing);
     flex-direction: column;
-
+    height: 100%;
+    margin-top: 3rem;
     max-width: 480px;
     /* border-radius: var(--borderRadius); */
 

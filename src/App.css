@@ -1,8 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+  /* --backgroundColour:#8080806e; */
+  --backgroundColour: #6d6d830d;
+  /* --backgroundColour: grey; */
+  --authorInputBackgroundColour:#c7c8c8;
+  --borderRadius:10px;
+  
+  --columnSpacing: 0 0 40%;
+
+  --inputFormItemSpacing: 1rem;
+
+  --postBorderColour:#afafaf;
+  
+}
+body{
+  margin: 0;
+}
+
 
 .App {
   /* text-align: center; */
-  
+  /* background-color: #6d6d830d; */
+  min-height: 100vh;
+  background-color: var(--backgroundColour);
 }
 
 .App-logo {
@@ -39,15 +59,7 @@
     transform: rotate(360deg);
   }
 }
-:root{
-  --backgroundColour:#8080806e;
-  --backgroundColour:#c7c8c8;
-  --borderRadius:10px;
-  
-  --columnSpacing: 0 0 40%;
 
-  --inputFormItemSpacing: 1rem
-}
 .main-wrapper{
   /* border-radius: var(--borderRadius); */
   display: flex;
@@ -71,7 +83,7 @@
 
 /*  */
 .right-column{
-  background-color: white;
+  /* background-color: var(--backgroundColour); */
   border-radius: var(--borderRadius);
   display: flex;
   flex: var(--columnSpacing);

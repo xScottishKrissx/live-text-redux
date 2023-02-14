@@ -6,7 +6,9 @@ Live Text:
     ☐ Do the UI/Prototype
       ✔ I have the form input styled @done(22-12-20 14:59)
 
-      
+      Global View
+      ☐ Improve Appearance
+        ☐ Get the colours in place
       ☐ Adding Posts
         ✔ Animate post when it's new @done(23-02-13 17:50)
           ✔ Give it a new tag that is removed after 30 seconds? @done(23-02-13 17:50)
