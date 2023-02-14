@@ -47,7 +47,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     
         <div key={id} className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
         <div className='post-item-time-stamp'> {formatTimestamp} </div>
-        {checkNewPost ? <p>New Post</p> : <p>Not New Post</p>}
+        
         {editMode ? 
             
             <EditTiptap 
@@ -87,6 +87,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
             </>
         }
         <div>Social Media</div>
+        {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
         </div>
     )
 }

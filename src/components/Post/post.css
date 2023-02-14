@@ -1,8 +1,8 @@
 .post-item{
-    /* outline: 1px solid var(--backgroundColour); */
-    /* box-shadow: 5px 5px 0px 0px var(--backgroundColour); */
+    outline: 1px solid var(--backgroundColour);
+    box-shadow: 5px 5px 0px 0px var(--backgroundColour);
     color: black;
-    padding: 1rem;
+    /* padding: 1rem; */
     margin-bottom: 1rem;
 
 
@@ -14,24 +14,25 @@
 }
 
 .newPost{
-    
+    /* background-color: red; */
+    /* border-bottom: 10px solid lightgreen; */
     overflow: hidden;
-    animation: newItemAni 3s;
+    animation: newItemAni 10s;
     /* animation-fill-mode: forwards; */
     animation-fill-mode: both;
 }
 @keyframes newItemAni {
     0%{
-        /* opacity: 0; */
-        height: 0 ;
-        background-color: red;
-        /* transform: translateY(-100px); */
+        max-height: 0 ;
+        outline: 1px solid #7aff00;
+        box-shadow: 5px 5px 0px 0px #7aff00;
     }
     100%{
-        /* opacity: 1; */
-        height: 360px ;
-        background-color: white;
-        /* transform: translateY(0); */
+        max-height: 2000px;
+        /* border-bottom: 10px solid white;      */
+
+        outline: 1px solid var(--backgroundColour);
+        box-shadow: 5px 5px 0px 0px var(--backgroundColour);
     }
 }
 
@@ -77,6 +78,37 @@
     margin: 0;
 }
 
+.post-item-new-post-indicator{
+    /* outline: 1px solid red; */
+    position: absolute;
+    /* padding: 5px; */
+    /* margin: ; */
+    color: black;
+    border-bottom: 5px solid #5aff5a;
+    animation: test 50s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes test {
+    0%{
+        transform: translateX(0px);
+    }
+    90%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    92%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+
+
 .Goal{
     box-shadow: 5px 5px 0px 0px green;
     /* background-color: green; */
@@ -109,6 +141,7 @@
     outline: 1px solid var(--backgroundColour);
     /* outline: 1px solid red; */
     padding: 2rem;
+    position: relative;
 }
 
 .post-item-container-editMode{
