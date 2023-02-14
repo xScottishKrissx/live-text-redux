@@ -12,12 +12,15 @@ Live Text:
           ✔ Give it a new tag that is removed after 30 seconds? @done(23-02-13 17:50)
           ✔ The main issue i had is that the key was using index which doesn't change on render so i just switched to the post id and it worked...i wasted so much time on this i am actually annoyed. At least the problem is solved and new posts animate on render and won't animate after a set amount of time @done(23-02-13 17:51)
           ...i think i need to change the way I save my timestamp in order to achieve this.
+
         ☐ Remove the @
         ✔ Add Time Stamp @done(23-01-13 16:53)
           ✔ This should be an easy way to get myself back into the swing of things. @done(23-01-13 16:53)
           ✔ Pretty simple with day.js @done(23-01-13 16:53)
         ☐ Different style depending on update type
         ☐ Add Share bar
+        ✔ Add indicator that post is new, that changes after 60 seconds @done(23-02-14 13:57)
+          ☐ I have the core in place, just need to style it
         ✔ There is a post duplication bug that duplicates the post array over and over. It's not endless it's just duplicating what's currently in the array...which is then duplicated. @done(23-02-13 17:22)
           ✔ Trying to figure out what's going on here. @done(23-02-13 17:22)
             ✔ It's the delete button, it's doubling the array on delete... @done(23-02-13 17:22)

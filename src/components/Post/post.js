@@ -13,16 +13,19 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
 
+    // Indicate if post is new
     const [checkNewPost, setNewPost] = useState(false)  
+    // Measuring time since post in seconds
+    const checkTimeSincePost = (Date.now() - timestamp) / 1000
     
     useEffect(() =>{
-        setTimeout(() =>{
-            console.log("Change Post")
-            const checkTimeSincePost = (Date.now() - timestamp) / 1000
-            if(checkTimeSincePost < 70){
-                setNewPost(true)
-            }
-        },5000)
+        if(checkTimeSincePost < 60){
+            setNewPost(true)
+        }else{
+            setNewPost(false)
+            return
+        }
+        setTimeout(() =>{ setNewPost(false) },60000)
     },[])
 
     if(!liveText) return
@@ -38,11 +41,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     }
 
     const handleEdit = (x) => setEditMode(x) 
-
-    // Measuring time since post 
-    const checkTimeSincePost = (Date.now() - timestamp) / 1000
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
-
 
     return (
     
