@@ -38,8 +38,8 @@ export default function AuthorInput() {
       title: postTitle, 
       subtitle: postSubTitle, 
       type: postType,
-      timestamp: dayjs().format('HH:mm - dddd, MMM YYYY'),
-      timestampTest:Date.now(),
+      // timestamp: dayjs().format('HH:mm - dddd, MMM YYYY'),
+      timestamp:Date.now(),
       hidden:false
     }]
 

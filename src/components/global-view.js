@@ -10,7 +10,7 @@ export default function GlobalView() {
   // localStorage.clear()
 
   const liveText = useSelector((state) => state.livetext.value)
-  console.log(liveText)
+  // console.log(liveText)
   if(!liveText) return
   
   // Sort items by timestamp
@@ -27,20 +27,17 @@ export default function GlobalView() {
 
 
   const displayLiveText = liveTextArray.map((x, index) => {
-    // const postStyle = {
-    //   boxShadow:"5px 5px 0px 0px red"
-    // }
+
     if(!loggedIn && x.hidden ) return 
     // console.log(index)
-    const test = (Date.now() - x.timestampTest) / 1000
-    const thing = test < 70 && index === 0 ? "newPost " + index : ""
+    const timeSincePostCreation = (Date.now() - x.timestamp) / 1000
+    const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
 
 
     return(
       <div 
-        className={'post-item ' + x.type + thing} 
+        className={'post-item ' + x.type + changeClassWithTime} 
         key={x.id} 
-        // id={`${test < 70 ? "newPost" : "notNewPost" }`} 
         >
         <Post
         
@@ -50,7 +47,6 @@ export default function GlobalView() {
           body={x.body}
           type={x.type}
           timestamp={x.timestamp}
-          timestamp2={x.timestampTest}
           hidden={x.hidden}
           loggedIn={loggedIn}
         />

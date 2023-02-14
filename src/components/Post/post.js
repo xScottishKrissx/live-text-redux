@@ -1,20 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import DOMPurify from 'dompurify'
 import dayjs, { Dayjs } from 'dayjs';
-import {relativeTime} from 'dayjs/plugin/relativeTime'
 
 import './post.css'
 import EditTiptap from '../EditPost/editView'
 import PostControl from '../PostControl/postControl'
 
-export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, timestamp2}) {
-    let relativeTime = require('dayjs/plugin/relativeTime')
-    dayjs.extend(relativeTime)
+export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn}) {
+
 
     const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
+
+    const [checkNewPost, setNewPost] = useState(false)  
     
+    useEffect(() =>{
+        setTimeout(() =>{
+            console.log("Change Post")
+            const checkTimeSincePost = (Date.now() - timestamp) / 1000
+            if(checkTimeSincePost < 70){
+                setNewPost(true)
+            }
+        },5000)
+    },[])
+
     if(!liveText) return
     if(!title || !body ) return
 
@@ -30,18 +40,15 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const handleEdit = (x) => setEditMode(x) 
 
     // Measuring time since post 
-    const test = (Date.now() - timestamp2) / 1000
-
-
+    const checkTimeSincePost = (Date.now() - timestamp) / 1000
+    const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
 
 
     return (
     
         <div key={id} className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
-        <div className='post-item-time-stamp'>{timestamp}</div>
-        <div className='post-item-time-stamp'>{timestamp2}</div>
-        --
-        {test < 70 ? <p>New Post</p> : <p>Not New Post</p>}
+        <div className='post-item-time-stamp'> {formatTimestamp} </div>
+        {checkNewPost ? <p>New Post</p> : <p>Not New Post</p>}
         {editMode ? 
             
             <EditTiptap 
