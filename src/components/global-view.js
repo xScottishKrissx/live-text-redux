@@ -49,6 +49,7 @@ export default function GlobalView() {
           timestamp={x.timestamp}
           hidden={x.hidden}
           loggedIn={loggedIn}
+          image={x.image}
         />
       </div>
     )

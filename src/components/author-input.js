@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useRef} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItem } from '../features/item'
 import { updateArray } from '../features/live-text'
@@ -13,12 +13,15 @@ import {relativeTime} from 'dayjs/plugin/relativeTime'
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 export default function AuthorInput() {
   const dispatch = useDispatch()
+  const imageName = useRef()
+
   const liveText = useSelector((state) => state.livetext.value)
 
   const [postTitle, setPostTitle] = useState("")
   const [postSubTitle, setPostSubTitle] = useState("")
   const [postType, setPostType] = useState("")
   const [postBody, setPostBody] = useState("")
+  const [postImageName, setPostImageName] = useState("")
   const [clearContent, setClearContent] = useState(false)
 
   const [tag, setTag] = useState("true")
@@ -40,7 +43,8 @@ export default function AuthorInput() {
       type: postType,
       // timestamp: dayjs().format('HH:mm - dddd, MMM YYYY'),
       timestamp:Date.now(),
-      hidden:false
+      hidden:false,
+      image:postImageName
     }]
 
     const updateLiveTextArray = [newPost[0]].concat(liveText)
@@ -48,12 +52,20 @@ export default function AuthorInput() {
     localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
     console.log("Clear Form")
     setClearContent(true)
+    setPostImageName(false)
   }
 
   const cancelUpdate = () =>{
     setClearContent(true)
   }
 
+  const getFileName = () =>{
+    let getValue2 = imageName.current.value
+    const readyImageName = getValue2.replace(`C:\\fakepath\\`, '')
+    console.log(readyImageName)
+    setPostImageName(readyImageName)
+    
+  }
 
   return (
     <div className='author-input-wrapper'>
@@ -87,7 +99,11 @@ export default function AuthorInput() {
           })}
         </div>
       </div>
-
+      <form>
+        
+        <label htmlFor="myfile">Select a file:</label>
+        <input ref={imageName} type="file" id="myfile" name="myfile" onChange={()=>getFileName()}/>
+      </form>
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
           <Tiptap 

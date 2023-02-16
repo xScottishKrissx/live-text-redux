@@ -9,6 +9,13 @@ Live Text:
       Global View
       ☐ Improve Appearance
         ☐ Get the colours in place
+        ☐ Make title bold by default
+        ☐ Style links to not be blue
+        ☐ Add images
+        ☐ Add social
+        ☐ bring title and subtitle closer together
+        ☐ improve new tag
+        ☐ change font
       ☐ Adding Posts
         ✔ Animate post when it's new @done(23-02-13 17:50)
           ✔ Give it a new tag that is removed after 30 seconds? @done(23-02-13 17:50)
@@ -28,6 +35,8 @@ Live Text:
             ✔ It's the delete button, it's doubling the array on delete... @done(23-02-13 17:22)
             ✔ Fixed it, i was accidentally copying the array without the delete post onto the another array without the deleted post instead of just saving the array without the delete post to begin with. @done(23-02-13 17:22)
         ☐ Make the tags menu look better
+        ☐ Add file upload to replace/add to the current add images button
+          ☐ Done, just need to clean up the code a bit and style input
           
 
       ✔ Ability to cancel adding post @done(22-12-20 17:03)
@@ -51,6 +60,9 @@ Live Text:
           ... also made the jump between to edit less jarring by moving the timestamp and social media bar out of the edit mode check.
         ✔ Should be hidden if not logged in. @done(23-02-09 19:14)
 
+      ☐ Add Summary Bar
+        ☐ Place above live text in logged in
+        ☐ Place to the left in logged out
 
       ✔ Ability to delete post / hide post @done(23-01-20 16:37)
         ✔ It should be more obvious that a post is hidden @done(23-02-09 19:10)

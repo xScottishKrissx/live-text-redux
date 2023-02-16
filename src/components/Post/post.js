@@ -7,8 +7,12 @@ import './post.css'
 import EditTiptap from '../EditPost/editView'
 import PostControl from '../PostControl/postControl'
 
-export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn}) {
 
+import glasgow from '../../Assets/glasgow.png'
+
+export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, image}) {
+
+    // localStorage.clear()
 
     const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
@@ -45,6 +49,8 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const handleEdit = (x) => setEditMode(x) 
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
 
+    console.log(image)
+
     return (
     
         <div key={id} className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
@@ -62,7 +68,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
             
             :
 
-            <>
+            <div className='post-item-body'>
                 {loggedIn ? 
                     <PostControl 
                         handleEdit={handleEdit} 
@@ -85,8 +91,11 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
                     </div>
                 </div>
                 <div dangerouslySetInnerHTML={createMarkup(readyBody)}></div>
-            </>
+            </div>
         }
+        
+        {/* <img src={glasgow} /> */}
+        {image ? <img src={require("../../Assets/" + image)} /> : null}
         <div>Social Media</div>
         {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
         </div>
