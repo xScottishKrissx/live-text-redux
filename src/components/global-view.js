@@ -36,7 +36,7 @@ export default function GlobalView() {
 
     return(
       <div 
-        className={'post-item ' + x.type + changeClassWithTime} 
+        className={'post-item ' + x.type + ' ' + changeClassWithTime} 
         key={x.id} 
         >
         <Post

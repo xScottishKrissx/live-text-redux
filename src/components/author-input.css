@@ -113,24 +113,24 @@
     box-shadow: 0px 0px 0px 0px black;
 }
 #Goal{
-    background-color: green;
+    background-color: var(--goalColour);
 }
 #Offside{
-    background-color: orange;
+    background-color: var(--offsideColour);
 }
 #YellowCard{
-    background-color: yellow;
+    background-color: var(--yellowCardColour) ;
     color: black;
 }
 #RedCard{
-    background-color: red;
+    background-color: var(--redCardColour);
 }
 #Breaking{
-    background-color: gold;
+    background-color: var(--breakingColour);
     color: black;
 }
 #Update{
-    background-color: beige;
+    background-color: var(--postBorderColour);
     color: black;
 }
 

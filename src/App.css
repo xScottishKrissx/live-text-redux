@@ -3,6 +3,13 @@
   /* --backgroundColour:#8080806e; */
   --backgroundColour: #6d6d830d;
   /* --backgroundColour: grey; */
+
+  /* Post Item */
+  --boxShadowV1: 5px 5px 0px 0px;
+  --boxShadowV2: -10px 0px 0px 0px;
+
+
+
   --authorInputBackgroundColour:#c7c8c8;
   --borderRadius:10px;
   
@@ -11,6 +18,14 @@
   --inputFormItemSpacing: 1rem;
 
   --postBorderColour:#afafaf;
+
+  /* Post Type Colours */
+  --goalColour:green;
+  --offsideColour:orange;
+  --yellowCardColour:yellow;
+  --redCardColour:red;
+  --breakingColour:gold;
+  --updateColour:grey;
   
 }
 body{

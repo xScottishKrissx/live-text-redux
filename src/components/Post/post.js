@@ -32,6 +32,8 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     if(!title || !body ) return
 
     const readyPostTitle = title.replace('@', '')
+    const readysubtitle = subtitle.replace('@', '')
+    const readyBody = body.replace('@', '')
     const headlineIcon = false
 
     const createMarkup = (html) =>{
@@ -53,8 +55,8 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
             <EditTiptap 
                 id={id} 
                 readyPostTitle={readyPostTitle} 
-                subtitle={subtitle} 
-                body={body} 
+                subtitle={readysubtitle} 
+                body={readyBody} 
                 handleEdit={handleEdit}
             />
             
@@ -79,11 +81,10 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
                         <div className='post-item-title'>
                             <div dangerouslySetInnerHTML={createMarkup(readyPostTitle)}></div>
                         </div>
-                        <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(subtitle)}></div>
+                        <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(readysubtitle)}></div>
                     </div>
                 </div>
-                
-                <div dangerouslySetInnerHTML={createMarkup(body)}></div>
+                <div dangerouslySetInnerHTML={createMarkup(readyBody)}></div>
             </>
         }
         <div>Social Media</div>
