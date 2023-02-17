@@ -53,7 +53,10 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     return (
     
         <div key={id} className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
-        <div className='post-item-time-stamp'> {formatTimestamp} </div>
+        <div className='post-item-time-stamp'> 
+            <div className='post-item-time-stamp-item'> {formatTimestamp}  </div>
+            {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
+        </div>
         
         {editMode ? 
             
@@ -97,7 +100,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         {/* <img src={glasgow} /> */}
         
         <div>Social Media</div>
-        {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
+        
         </div>
     )
 }

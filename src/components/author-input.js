@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef} from 'react'
+import React,{useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItem } from '../features/item'
 import { updateArray } from '../features/live-text'
@@ -6,14 +6,10 @@ import './author-input.css'
 import Tiptap from './Tiptap/Tiptap'
 
 import {v4 as uuidv4} from 'uuid'
-import dayjs from 'dayjs';
-import {relativeTime} from 'dayjs/plugin/relativeTime'
-
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 export default function AuthorInput() {
   const dispatch = useDispatch()
-  const imageName = useRef()
 
   const liveText = useSelector((state) => state.livetext.value)
 
@@ -29,9 +25,6 @@ export default function AuthorInput() {
   useEffect(() => {
     dispatch(addItem({postTitle,postSubTitle, postType, postBody, postImageName}))
   },[postTitle,postSubTitle, postBody, postType, postImageName])
-
-
-  // console.log(Date.now())
 
 
   const pushLive = () =>{
@@ -58,14 +51,6 @@ export default function AuthorInput() {
   const cancelUpdate = () =>{
     setClearContent(true)
   }
-
-  // const getFileName = (e) =>{
-  //   let getValue = imageName.current.value
-  //   const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
-  //   console.log(readyImageName)
-  //   setPostImageName(readyImageName)
-    
-  // }
 
   return (
     <div className='author-input-wrapper'>
@@ -94,18 +79,19 @@ export default function AuthorInput() {
           {typeRange.map((item, index) => {
             const removeSpacesFromName = item.replace(/\s+/g, '')
             return(
-              <div key={index} onClick={()=>setPostType(removeSpacesFromName)} className={removeSpacesFromName} id={removeSpacesFromName}>{item}</div>
+              <div 
+                key={index} 
+                onClick={()=>setPostType(removeSpacesFromName)} 
+                className={removeSpacesFromName} 
+                id={removeSpacesFromName}
+              >
+                {item}
+              </div>
             )
           })}
         </div>
       </div>
 
-
-      {/* <form className='author-input-form-upload-image-button'>
-        <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
-        <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Choose Image</button>
-        {postImageName.length > 1 ? "Image Added" : "No Image"}
-      </form> */}
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
           <Tiptap 
@@ -113,7 +99,6 @@ export default function AuthorInput() {
             setPostBody={setPostBody} 
             clearContent={clearContent}
             setClearContent={setClearContent}
-
             setPostImageName={setPostImageName}
           />
           

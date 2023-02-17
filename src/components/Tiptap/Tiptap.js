@@ -17,6 +17,8 @@ import TipTapMenuButtons from './MenuBar/TipTapMenuButtons'
 import FloatingMenuBar from './FloatingMenu/FloatingMenuBar'
 import TagsView from '../Tags/tags-view'
 
+import { FaCheck, FaCross, FaRemoveFormat, FaTimes } from 'react-icons/fa'
+
 
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
@@ -81,7 +83,11 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
         const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
         setPostImageName(readyImageName)
       }
-
+    const removeImage = () =>{
+        imageName.current.value = ""
+        setPostImageName(null)
+    }
+     
     // console.log(editor.getHTML())
     return (
         <>
@@ -90,10 +96,17 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
         <div className='author-input-text-editor'>
             <MenuBar editor={editor} />
             <FloatingMenuBar editor={editor}/>
-            <form className='author-input-form-upload-image-button'>
-                <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
-                <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image</button>
-            </form>
+            <div className='author-input-text-editor-upload-image'>
+                <form className='author-input-form-upload-image-button'>
+                    <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
+                    <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image</button>     
+                </form>
+
+                {imageName.current?.value.length > 1 ? 
+                    <div id='author-input-form-upload-image-indicator'> Image Added <FaCheck /> <span onClick={()=>removeImage()}> <FaTimes /> </span> </div> 
+                : null}
+
+            </div>
             <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
             <TagsView addTag={addTag} />
         </div>
@@ -101,13 +114,12 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
         : null }
 
         {location === "title-enter" ?    
-
             <div className='author-input-title'>
                 <h3>Title</h3>
                 <EditorContent editor={editor} />
             </div>
-        
         : null}
+        
         {location === "subtitle-enter" ?    
 
             <div className='author-input-subtitle'>

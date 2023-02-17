@@ -133,11 +133,61 @@
     background-color: var(--postBorderColour);
     color: black;
 }
-
-.author-input-form-upload-image-button input{
-    display: none;
-    /* visibility: hidden; */
+.author-input-text-editor-upload-image{
+    display: flex;
+    padding-top: 1rem;
+    /* outline: 1px solid black; */
 }
+    .author-input-form-upload-image-button{
+        margin-right: 1rem;
+    }
+
+        .author-input-form-upload-image-button input{
+            display: none;
+            /* visibility: hidden; */
+        }
+        #author-input-form-upload-image-indicator{
+            animation: uploadImageAni .5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes uploadImageAni {
+            0%{
+                opacity: 1;
+                transform: translateX(0px);
+                
+            }
+            100%{
+                opacity: 1;
+                transform: translateX(25px);
+            }
+        }
+
+        #author-input-form-upload-image-indicator svg{
+            margin-left: 25px;
+            animation: uploadImageVectorAni .5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes uploadImageVectorAni {
+            0%{
+                opacity: 1;
+                transform: translateY(0px);
+                /* transform: translateX(0px); */
+                color: white;
+                
+            }
+            50%{
+                opacity: 1;
+                transform: translateY(-5px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateY(0px);
+                /* transform: translateX(20px); */
+                color: #4bff4b;
+            }
+        }
 
 /* Text Area */
 .author-input-form-text-area {
