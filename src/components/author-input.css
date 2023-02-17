@@ -134,6 +134,11 @@
     color: black;
 }
 
+.author-input-form-upload-image-button input{
+    display: none;
+    /* visibility: hidden; */
+}
+
 /* Text Area */
 .author-input-form-text-area {
     margin-top: var(--inputFormItemSpacing);

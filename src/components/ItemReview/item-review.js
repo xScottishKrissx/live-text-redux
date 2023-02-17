@@ -8,14 +8,12 @@ export default function ItemReview() {
   const itemList = useSelector((state) => state.items.value)
 
   if(!itemList) return
-  const {postType, postTitle, postSubTitle, postBody} = itemList
+  const {postType, postTitle, postSubTitle, postBody, postImageName} = itemList
   
-  // if(!postBody) return
-
   return (
     <div className='item-review-container'>
       <div className={'post-item ' + postType}>
-        <Post title={postTitle} subtitle={postSubTitle} body={postBody} type={postType} />
+        <Post title={postTitle} subtitle={postSubTitle} body={postBody} type={postType} image={postImageName}/>
       </div>
     </div>
   )

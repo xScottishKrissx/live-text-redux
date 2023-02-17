@@ -27,8 +27,8 @@ export default function AuthorInput() {
   const [tag, setTag] = useState("true")
 
   useEffect(() => {
-    dispatch(addItem({postTitle,postSubTitle, postType, postBody}))
-  },[postTitle,postSubTitle, postBody, postType])
+    dispatch(addItem({postTitle,postSubTitle, postType, postBody, postImageName}))
+  },[postTitle,postSubTitle, postBody, postType, postImageName])
 
 
   // console.log(Date.now())
@@ -52,20 +52,20 @@ export default function AuthorInput() {
     localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
     console.log("Clear Form")
     setClearContent(true)
-    setPostImageName(false)
+    setPostImageName("")
   }
 
   const cancelUpdate = () =>{
     setClearContent(true)
   }
 
-  const getFileName = () =>{
-    let getValue2 = imageName.current.value
-    const readyImageName = getValue2.replace(`C:\\fakepath\\`, '')
-    console.log(readyImageName)
-    setPostImageName(readyImageName)
+  // const getFileName = (e) =>{
+  //   let getValue = imageName.current.value
+  //   const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
+  //   console.log(readyImageName)
+  //   setPostImageName(readyImageName)
     
-  }
+  // }
 
   return (
     <div className='author-input-wrapper'>
@@ -99,11 +99,13 @@ export default function AuthorInput() {
           })}
         </div>
       </div>
-      <form>
-        
-        <label htmlFor="myfile">Select a file:</label>
-        <input ref={imageName} type="file" id="myfile" name="myfile" onChange={()=>getFileName()}/>
-      </form>
+
+
+      {/* <form className='author-input-form-upload-image-button'>
+        <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
+        <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Choose Image</button>
+        {postImageName.length > 1 ? "Image Added" : "No Image"}
+      </form> */}
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">
           <Tiptap 
@@ -111,7 +113,10 @@ export default function AuthorInput() {
             setPostBody={setPostBody} 
             clearContent={clearContent}
             setClearContent={setClearContent}
+
+            setPostImageName={setPostImageName}
           />
+          
         </div>      
 
         {/* Pass the card for review to the review area */}

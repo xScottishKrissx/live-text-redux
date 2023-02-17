@@ -49,7 +49,6 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const handleEdit = (x) => setEditMode(x) 
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
 
-    console.log(image)
 
     return (
     
@@ -90,12 +89,13 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
                         <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(readysubtitle)}></div>
                     </div>
                 </div>
+                {image ? <img src={require("../../Assets/" + image)} /> : null}
                 <div dangerouslySetInnerHTML={createMarkup(readyBody)}></div>
             </div>
         }
         
         {/* <img src={glasgow} /> */}
-        {image ? <img src={require("../../Assets/" + image)} /> : null}
+        
         <div>Social Media</div>
         {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
         </div>

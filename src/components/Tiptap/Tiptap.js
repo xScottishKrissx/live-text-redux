@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useRef} from 'react'
+
 // Basic
 import {useEditor, EditorContent, FloatingMenu} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
@@ -16,9 +17,11 @@ import TipTapMenuButtons from './MenuBar/TipTapMenuButtons'
 import FloatingMenuBar from './FloatingMenu/FloatingMenuBar'
 import TagsView from '../Tags/tags-view'
 
+
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
-const Tiptap = ({setPostBody, location, clearContent, setClearContent}) =>{
+const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostImageName}) =>{
+    const imageName = useRef()
     const editor = useEditor({
 
         extensions:[
@@ -72,7 +75,13 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent}) =>{
     if(clearContent) {
         editor.commands.clearContent()
     }
-    
+
+    const getFileName = (e) =>{
+        let getValue = imageName.current.value
+        const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
+        setPostImageName(readyImageName)
+      }
+
     // console.log(editor.getHTML())
     return (
         <>
@@ -81,8 +90,11 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent}) =>{
         <div className='author-input-text-editor'>
             <MenuBar editor={editor} />
             <FloatingMenuBar editor={editor}/>
+            <form className='author-input-form-upload-image-button'>
+                <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
+                <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image</button>
+            </form>
             <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
-            {/* <div onClick={addThing}>Add Thing</div> */}
             <TagsView addTag={addTag} />
         </div>
         
