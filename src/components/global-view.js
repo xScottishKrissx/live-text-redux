@@ -50,6 +50,7 @@ export default function GlobalView() {
           hidden={x.hidden}
           loggedIn={loggedIn}
           image={x.image}
+          tweet={x.tweet}
         />
       </div>
     )

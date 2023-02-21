@@ -5,6 +5,9 @@ import { updateArray } from '../features/live-text'
 import './author-input.css'
 import Tiptap from './Tiptap/Tiptap'
 
+// Twitter
+import {Timeline, Tweet} from 'react-twitter-widgets'
+
 import {v4 as uuidv4} from 'uuid'
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
@@ -18,13 +21,14 @@ export default function AuthorInput() {
   const [postType, setPostType] = useState("")
   const [postBody, setPostBody] = useState("")
   const [postImageName, setPostImageName] = useState("")
+  const [insertTweet, setTweet] = useState("")
   const [clearContent, setClearContent] = useState(false)
 
   const [tag, setTag] = useState("true")
 
   useEffect(() => {
-    dispatch(addItem({postTitle,postSubTitle, postType, postBody, postImageName}))
-  },[postTitle,postSubTitle, postBody, postType, postImageName])
+    dispatch(addItem({postTitle,postSubTitle, postType, postBody, postImageName, insertTweet}))
+  },[postTitle,postSubTitle, postBody, postType, postImageName, insertTweet])
 
 
   const pushLive = () =>{
@@ -37,9 +41,10 @@ export default function AuthorInput() {
       // timestamp: dayjs().format('HH:mm - dddd, MMM YYYY'),
       timestamp:Date.now(),
       hidden:false,
-      image:postImageName
+      image:postImageName,
+      tweet:insertTweet
     }]
-
+console.log(insertTweet)
     const updateLiveTextArray = [newPost[0]].concat(liveText)
     dispatch(updateArray(updateLiveTextArray))
     localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
@@ -73,6 +78,15 @@ export default function AuthorInput() {
             setClearContent={setClearContent}
           />
         </div>
+
+        <div className='author-input-form-insert-tweet'>
+          <Tiptap 
+            location={"insert-tweet"}
+            setPostBody={setTweet}
+            clearContent={clearContent} 
+            setClearContent={setClearContent}
+          />
+        </div>
  
       <div className="author-input-form-type-select">
         <div className='author-input-form-type-select-items'>
@@ -91,6 +105,10 @@ export default function AuthorInput() {
           })}
         </div>
       </div>
+      {/* <Tweet tweetId='1627980756323631105'/> */}
+
+
+
 
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">

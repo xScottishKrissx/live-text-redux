@@ -9,8 +9,9 @@ import PostControl from '../PostControl/postControl'
 
 
 import glasgow from '../../Assets/glasgow.png'
+import { Tweet } from 'react-twitter-widgets';
 
-export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, image}) {
+export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, image, tweet}) {
 
     // localStorage.clear()
 
@@ -38,6 +39,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const readyPostTitle = title.replace('@', '')
     const readysubtitle = subtitle.replace('@', '')
     const readyBody = body.replace('@', '')
+    // const readyTweet = tweet.replace('<p>', '')
     const headlineIcon = false
 
     const createMarkup = (html) =>{
@@ -49,6 +51,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const handleEdit = (x) => setEditMode(x) 
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
 
+    // console.log(tweet)
 
     return (
     
@@ -96,9 +99,8 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
                 <div dangerouslySetInnerHTML={createMarkup(readyBody)}></div>
             </div>
         }
-        
-        {/* <img src={glasgow} /> */}
-        
+        {/* Twitter Integration */}
+        {tweet ? <Tweet tweetId={tweet} /> : null }
         <div>Social Media</div>
         
         </div>

@@ -13,6 +13,8 @@ Live Text:
         ✔ Style links to not be blue @done(23-02-17 18:19)
         ✔ Add images @done(23-02-17 18:19)
         ☐ Add social
+          ☐ Integrated twitter cards using react-twitter-widgets library
+          ☐ Add share buttons
         ✔ bring title and subtitle closer together @done(23-02-17 18:19)
         ☐ improve new tag
         ✔ change font @done(23-02-17 18:23)
@@ -28,6 +30,7 @@ Live Text:
           ✔ Pretty simple with day.js @done(23-01-13 16:53)
         ✔ Different style depending on update type @done(23-02-16 12:02)
         ☐ Add Share bar
+          
         ✔ Add indicator that post is new, that changes after 60 seconds @done(23-02-14 13:57)
           ✔ I have the core in place, just need to style it @done(23-02-14 15:59)
         ✔ There is a post duplication bug that duplicates the post array over and over. It's not endless it's just duplicating what's currently in the array...which is then duplicated. @done(23-02-13 17:22)
@@ -91,3 +94,7 @@ Live Text:
 // Day.js for date and timestamp
   https://day.js.org/en/
   install - npm install dayjs
+
+// Twitter Integration
+  https://www.npmjs.com/package/react-twitter-widgets
+  React Twitter Widgets

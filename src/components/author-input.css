@@ -19,71 +19,37 @@
     flex-direction: column;
     align-items: flex-start;
 }
-
-/********************************************************* Title */
-.author-input-form-title{
-     display: flex;
-        align-items: center;
-     width: 100%;
+.author-input-form > div{
+    width: 100%;
 }
-.author-input-form-title > div{
+/* Standardising Styles */
+.author-input-field{
     color: black;
-    width: 100%;
 }
-.author-input-form-title div div p{
-    margin: 0;
-    padding: 1rem;
-}
-.author-input-title > div{
+
+.author-input-field > div{
     background-color:#f1f1f185;
-}
-.author-input-form-title:focus-visible,
-.author-input-form-title div:focus-visible{
-    outline: 0px solid red;
-    box-shadow: 0px 3px 0px 0px grey;
-}
-
-.author-input-form-title label{
-    white-space: nowrap;
-    margin-right: 1rem;
-}
-.author-input-form-title input{
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 1rem;
-    width: 100%;
-}
-.author-input-form-title input:focus-visible{
-    outline: none;
-}
-
-
-/********************************************************* Subtitle */
-.author-input-form-subtitle{
     display: flex;
        align-items: center;
-    margin-top: 1rem;
-    width: 100%;
 }
-.author-input-form-subtitle > div{
-    color: black;
-    width: 100%;
-}
-.author-input-subtitle > div{
-    background-color:#f1f1f185;
-}
-
-.author-input-form-subtitle div div p{
-    margin: 0;
-    padding: 1rem;
-}
-
-.author-input-form-subtitle:focus-visible,
-.author-input-form-subtitle div:focus-visible{
-    outline: 0px solid red;
+.author-input-field:focus-visible,
+.author-input-field div:focus-visible,
+.author-input-field input:focus-visible{
     box-shadow: 0px 3px 0px 0px grey;
+    outline: none;
 }
-
+/* Title, Subtitle */
+.author-input-field > div > div{
+    padding-left: 1rem;
+    width: 100%;
+}
+/* Tweet Id */
+.author-input-field > div > input{
+    background-color:#f1f1f185;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+}
 
 /* Type Select ------------------------- */
 .author-input-form-type-select{

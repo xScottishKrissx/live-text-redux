@@ -22,8 +22,9 @@ import { FaCheck, FaCross, FaRemoveFormat, FaTimes } from 'react-icons/fa'
 
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
-const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostImageName}) =>{
+const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostImageName, setTweet}) =>{
     const imageName = useRef()
+    const tweetIdRef =  useRef()
     const editor = useEditor({
 
         extensions:[
@@ -87,7 +88,14 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
         imageName.current.value = ""
         setPostImageName(null)
     }
-     
+    
+    // Twitter
+    const getTweetId = (e) =>{
+        // console.log(e.target.value)
+        setPostBody(e.target.value)
+        
+    }
+
     // console.log(editor.getHTML())
     return (
         <>
@@ -107,6 +115,8 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
                 : null}
 
             </div>
+
+            
             <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
             <TagsView addTag={addTag} />
         </div>
@@ -114,17 +124,27 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
         : null }
 
         {location === "title-enter" ?    
-            <div className='author-input-title'>
+            <div className='author-input-field'>
                 <h3>Title</h3>
                 <EditorContent editor={editor} />
             </div>
         : null}
-        
+
         {location === "subtitle-enter" ?    
 
-            <div className='author-input-subtitle'>
+            <div className='author-input-field'>
                 <h3>Subtitle</h3>
                 <EditorContent editor={editor} />
+            </div>
+        
+        : null}
+        {location === "insert-tweet" ?    
+
+            <div className='author-input-field'>
+                <h3>Tweet Id (optional) </h3>
+                <div>
+                    <input ref={tweetIdRef} type="text" onChange={(e)=>getTweetId(e)} />
+                </div>
             </div>
         
         : null}
