@@ -12,11 +12,10 @@ Live Text:
         ✔ Make title bold by default @done(23-02-17 18:16)
         ✔ Style links to not be blue @done(23-02-17 18:19)
         ✔ Add images @done(23-02-17 18:19)
-        ☐ Add social
-          ☐ Integrated twitter cards using react-twitter-widgets library
-          ☐ Add share buttons
+        ✔ Add social @done(23-02-21 11:48)
+          ✔ Integrated twitter cards using react-twitter-widgets library @done(23-02-21 11:45)
         ✔ bring title and subtitle closer together @done(23-02-17 18:19)
-        ☐ improve new tag
+        ✔ improve new tag @done(23-02-21 11:48)
         ✔ change font @done(23-02-17 18:23)
       ☐ Adding Posts
         ✔ Animate post when it's new @done(23-02-13 17:50)
@@ -76,8 +75,11 @@ Live Text:
       ✔ Ability to delete post / hide post @done(23-01-20 16:37)
         ✔ It should be more obvious that a post is hidden @done(23-02-09 19:10)
       ☐ Ability to add video
-        ☐ i think this is just a part of tiptap now
-      ☐ Add Twitter card
+        ✔ i think this is just a part of tiptap now @done(23-02-21 12:15)
+        ✔ added video... @done(23-02-21 12:15)
+        ☐ ...but the youtube placeholder displays even if you don't add a video.
+          ...it only appears in the item review window, so not actually an issue but still annoying
+      ✔ Add Twitter card @done(23-02-21 11:53)
       ☐ Create Login / Logout system
       
 

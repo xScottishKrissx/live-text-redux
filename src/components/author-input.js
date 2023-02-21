@@ -22,13 +22,14 @@ export default function AuthorInput() {
   const [postBody, setPostBody] = useState("")
   const [postImageName, setPostImageName] = useState("")
   const [insertTweet, setTweet] = useState("")
+  const [insertYoutube, setYoutube] = useState("")
   const [clearContent, setClearContent] = useState(false)
 
   const [tag, setTag] = useState("true")
 
   useEffect(() => {
-    dispatch(addItem({postTitle,postSubTitle, postType, postBody, postImageName, insertTweet}))
-  },[postTitle,postSubTitle, postBody, postType, postImageName, insertTweet])
+    dispatch(addItem({postTitle,postSubTitle, postType, postBody, postImageName, insertTweet, insertYoutube}))
+  },[postTitle,postSubTitle, postBody, postType, postImageName, insertTweet, insertYoutube])
 
 
   const pushLive = () =>{
@@ -42,7 +43,8 @@ export default function AuthorInput() {
       timestamp:Date.now(),
       hidden:false,
       image:postImageName,
-      tweet:insertTweet
+      tweet:insertTweet,
+      youtube: insertYoutube
     }]
 console.log(insertTweet)
     const updateLiveTextArray = [newPost[0]].concat(liveText)
@@ -83,6 +85,14 @@ console.log(insertTweet)
           <Tiptap 
             location={"insert-tweet"}
             setPostBody={setTweet}
+            clearContent={clearContent} 
+            setClearContent={setClearContent}
+          />
+        </div>
+        <div className='author-input-form-insert-youtube'>
+          <Tiptap 
+            location={"insert-youtube"}
+            setPostBody={setYoutube}
             clearContent={clearContent} 
             setClearContent={setClearContent}
           />

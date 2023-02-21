@@ -11,7 +11,7 @@ import PostControl from '../PostControl/postControl'
 import glasgow from '../../Assets/glasgow.png'
 import { Tweet } from 'react-twitter-widgets';
 
-export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, image, tweet}) {
+export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, image, tweet, youtube}) {
 
     // localStorage.clear()
 
@@ -101,8 +101,18 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         }
         {/* Twitter Integration */}
         {tweet ? <Tweet tweetId={tweet} /> : null }
-        <div>Social Media</div>
-        
+        {youtube ? 
+            <div className='post-item-youtube-video'>
+                <iframe 
+                    // width="560" 
+                    height="315" 
+                    src={"https://www.youtube.com/embed/" +  youtube}
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                </iframe>
+            </div>
+        : null }        
         </div>
     )
 }

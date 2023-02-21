@@ -121,6 +121,9 @@
     color: black !important;
 }
 
+.post-item-youtube-video iframe{
+    width: 100%;
+}
 
 
 

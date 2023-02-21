@@ -25,6 +25,7 @@ export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapM
 const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostImageName, setTweet}) =>{
     const imageName = useRef()
     const tweetIdRef =  useRef()
+    const youtubeUrlRef =  useRef()
     const editor = useEditor({
 
         extensions:[
@@ -89,13 +90,6 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
         setPostImageName(null)
     }
     
-    // Twitter
-    const getTweetId = (e) =>{
-        // console.log(e.target.value)
-        setPostBody(e.target.value)
-        
-    }
-
     // console.log(editor.getHTML())
     return (
         <>
@@ -138,12 +132,24 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
             </div>
         
         : null}
+
+        
         {location === "insert-tweet" ?    
 
             <div className='author-input-field'>
                 <h3>Tweet Id (optional) </h3>
                 <div>
-                    <input ref={tweetIdRef} type="text" onChange={(e)=>getTweetId(e)} />
+                    <input ref={tweetIdRef} type="text" onChange={(e)=>setPostBody(e.target.value)} />
+                </div>
+            </div>
+        
+        : null}
+        {location === "insert-youtube" ?    
+
+            <div className='author-input-field'>
+                <h3>Youtube Video Url (optional) </h3>
+                <div>
+                    <input ref={youtubeUrlRef} type="text" onChange={(e)=>setPostBody(e.target.value)} />
                 </div>
             </div>
         
