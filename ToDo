@@ -40,7 +40,7 @@ Live Text:
         ☐ Add file upload to replace/add to the current add images button
           ☐ Done, just need to clean up the code a bit
           ✔ style input @done(23-02-22 17:17)
-            ☐ The current styling is to bland, need to do something about this.At least the functionality is in, i just need to rethink my approach here.
+            ✔ The current styling is to bland, need to do something about this.At least the functionality is in, i just need to rethink my approach here. @done(23-02-22 17:43)
           ✔ Ability to cancel image upload @done(23-02-17 18:12)
           ✔ Indicate that image has been uploaded @done(23-02-17 18:12)
           ✔ The image has to stay at the top due to limitations with tiptap. I could probably figure out a way of integrating the image into the body but that's just too much work for this project. @done(23-02-17 17:23)
@@ -58,6 +58,9 @@ Live Text:
         ✔ It should be obvious the post is being edited. @done(23-02-09 18:26)
         ☐ Add formatting options to edit fields
         ☐ Add tags in edit field.
+        ☐ Ability to change optional id:-
+          ☐ Twitter Id
+          ☐ Youtube Id
         ☐ The page junps when toggling edit mode.
           ...i think this is the author input rendering  every time state refreshes.
         ☐ Fix styling bug

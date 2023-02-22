@@ -100,7 +100,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         }
         
         {/* Twitter Integration */}
-        {tweet ? <Tweet tweetId={tweet} /> : null }
+        {tweet?.length > 7 ? <Tweet tweetId={tweet} /> : null }
 
         {/* Youtube Integration */}
         {youtube?.length > 7 ? 
