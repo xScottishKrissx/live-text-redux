@@ -1,0 +1,20 @@
+.items{
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--boxShadowV2) var(--postBorderColour);
+}
+
+.items .item{
+    padding: .5rem;
+    border: none;
+}
+    .items .item:hover{
+        background-color: var(--postBorderColour);
+        color: white;
+        cursor: pointer;
+    }
+
+.is-selected{
+    background-color: var(--postBorderColour);
+    color: white;
+}

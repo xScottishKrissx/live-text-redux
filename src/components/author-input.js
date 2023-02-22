@@ -46,7 +46,8 @@ export default function AuthorInput() {
       tweet:insertTweet,
       youtube: insertYoutube
     }]
-console.log(insertTweet)
+
+    // console.log(insertTweet)
     const updateLiveTextArray = [newPost[0]].concat(liveText)
     dispatch(updateArray(updateLiveTextArray))
     localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
@@ -115,10 +116,6 @@ console.log(insertTweet)
           })}
         </div>
       </div>
-      {/* <Tweet tweetId='1627980756323631105'/> */}
-
-
-
 
         {/* Write the main body of the card */}
         <div className="author-input-form-text-area">

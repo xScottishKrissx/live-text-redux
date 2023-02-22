@@ -2,7 +2,8 @@ import React, {
     forwardRef, useEffect, useImperativeHandle,
     useState,
   } from 'react'
-  
+
+  import './mentions.css'
   export default forwardRef((props, ref) => {
     const [selectedIndex, setSelectedIndex] = useState(0)
   
@@ -30,12 +31,12 @@ import React, {
   
     useImperativeHandle(ref, () => ({
       onKeyDown: ({ event }) => {
-        if (event.key === 'ArrowUp') {
+        if (event.key === 'ArrowUp' ) {
           upHandler()
           return true
         }
   
-        if (event.key === 'ArrowDown') {
+        if (event.key === 'ArrowDown' || event.key === 'Tab'  ) {
           downHandler()
           return true
         }

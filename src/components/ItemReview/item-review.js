@@ -9,12 +9,19 @@ export default function ItemReview() {
 
   if(!itemList) return
   const {postType, postTitle, postSubTitle, postBody, postImageName, insertTweet, insertYoutube} = itemList
-  
   return (
     <div className='item-review-container'>
       <div className={'post-item ' + postType}>
         
-        <Post title={postTitle} subtitle={postSubTitle} body={postBody} type={postType} image={postImageName} tweet={insertTweet} youtube={insertYoutube} />
+        <Post 
+          title={postTitle} 
+          subtitle={postSubTitle} 
+          body={postBody} 
+          type={postType} 
+          image={postImageName} 
+          tweet={insertTweet} 
+          youtube={insertYoutube} 
+        />
       </div>
     </div>
   )

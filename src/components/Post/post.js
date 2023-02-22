@@ -39,7 +39,6 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const readyPostTitle = title.replace('@', '')
     const readysubtitle = subtitle.replace('@', '')
     const readyBody = body.replace('@', '')
-    // const readyTweet = tweet.replace('<p>', '')
     const headlineIcon = false
 
     const createMarkup = (html) =>{
@@ -51,11 +50,11 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const handleEdit = (x) => setEditMode(x) 
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
 
-    // console.log(tweet)
 
     return (
     
-        <div key={id} className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
+        <div key={id}  className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
+            
         <div className='post-item-time-stamp'> 
             <div className='post-item-time-stamp-item'> {formatTimestamp}  </div>
             {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
@@ -99,20 +98,24 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
                 <div dangerouslySetInnerHTML={createMarkup(readyBody)}></div>
             </div>
         }
+        
         {/* Twitter Integration */}
         {tweet ? <Tweet tweetId={tweet} /> : null }
-        {youtube ? 
+
+        {/* Youtube Integration */}
+        {youtube?.length > 7 ? 
             <div className='post-item-youtube-video'>
                 <iframe 
                     // width="560" 
                     height="315" 
                     src={"https://www.youtube.com/embed/" +  youtube}
                     title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
                 </iframe>
             </div>
-        : null }        
-        </div>
+        : null }     
+        
+    </div>
     )
 }
