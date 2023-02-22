@@ -99,14 +99,15 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
             <MenuBar editor={editor} />
             <FloatingMenuBar editor={editor}/>
             <div className='author-input-text-editor-upload-image'>
-                <form className='author-input-form-upload-image-button'>
+            <form className='author-input-form-upload-image-button'>
                     <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
-                    <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image</button>     
+                    {imageName.current?.value.length > 1 ? 
+                        <button type='button' value="Browse..." onClick={()=>removeImage()}>Remove Image - <FaTimes /></button>  
+                        : 
+                        <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image +</button>     
+                    }
                 </form>
-
-                {imageName.current?.value.length > 1 ? 
-                    <div id='author-input-form-upload-image-indicator'> Image Added <FaCheck /> <span onClick={()=>removeImage()}> <FaTimes /> </span> </div> 
-                : null}
+                
 
             </div>
 
