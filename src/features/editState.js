@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const defaultState = false
+const defaultState = {editing:false, editId:null}
 
 export const editState = createSlice({
     name:"editMode",

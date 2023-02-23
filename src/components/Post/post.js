@@ -50,20 +50,22 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         }
     }
 
-    const handleEdit = (editing, editId, editTitle, editBody, editSubtitle) => {
-        setEditMode(editing) 
-        dispatch(setEdit({editing,editId}))
+    const handleEdit = (editing, editId,) => {
+        console.log(editId, editing)
+        // setEditMode(!editing) 
+        dispatch(setEdit({editing: !editModeState.editing, editId}))
         // console.log(editModeState)
-        // console.log(editId)
         // console.log(editTitle, editSubtitle, editBody)
     }
     
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
     
-
+    const editingIsActiveOnThisPost = editModeState.editing === true && editModeState.editId === id
+    const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
     return (
     
-        <div key={id}  className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
+        // <div key={id}  className={ `${editMode ? "post-item-container-editMode" : "post-item-container" }` } >
+        <div key={id}  className={ `${editingIsActiveOnThisPost ? "post-item-container-editMode" : "post-item-container" }` } >
             
         <div className='post-item-time-stamp'> 
             <div className='post-item-time-stamp-item'> {formatTimestamp}  </div>
@@ -84,11 +86,15 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
 
             <div className='post-item-body'>
                 {loggedIn ? 
-                    <PostControl 
-                        handleEdit={()=>handleEdit(!editMode, id, readyPostTitle, readysubtitle, readyBody)} 
-                        id={id} 
-                        hide={hidden}
-                    />
+                    <>
+                        {/* <button onClick={()=>handleEdit(!editMode, id)}>Edit Me</button> */}
+                        {toggleEditButton ? <button onClick={()=>handleEdit(!editMode, id)}>Edit Me</button> : null }
+                    </>
+                    // <PostControl 
+                    //     handleEdit={()=>handleEdit(!editMode, id,)} 
+                    //     id={id} 
+                    //     hide={hidden}
+                    // />
                 :
                     null
                 }

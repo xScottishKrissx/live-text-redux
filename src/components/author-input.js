@@ -64,12 +64,12 @@ export default function AuthorInput() {
   }
 
   const handleEdit = (x) =>{
-    console.log("Edit!!!")
-    console.log(x)
-    dispatch(setEdit({editing:x}))
+    // console.log("Edit!!!")
+    // console.log(x)
+    dispatch(setEdit({editing:x, editId: null}))
   }
 
-  console.log(editModeState)
+  // console.log(editModeState)
   return (
     <div className='author-input-wrapper'>
 

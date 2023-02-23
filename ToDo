@@ -67,6 +67,7 @@ Live Text:
             Next Steps:
               ☐ Ensure all of the buttons are working as intended.
               ☐ Style the form
+              ☐ Saving a post doesn't close the edit mode in the post.
         ☐ Add formatting options to edit fields
         ☐ Add tags in edit field.
         ☐ Ability to change optional id:-
