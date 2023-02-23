@@ -1,12 +1,26 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import PostControl from "../PostControl/postControl";
 import EditPostField from "./editPostField";
 
 import './editView.css'
 
-const EditTiptap = ({id, readyPostTitle, subtitle, body, handleEdit}) =>{
+const EditTiptap = ({
 
-    const [titleField, setTitle] = useState(readyPostTitle)
+    id, 
+    readyPostTitle, 
+    // subtitle, 
+    // body, 
+    handleEdit
+
+}) =>{
+
+    const liveText = useSelector((state) => state.livetext.value)
+    const getCurrentPost = liveText.filter(x => x.id === id)
+    // console.log(getCurrentPost[0])
+    const {title, subtitle, body } = getCurrentPost[0]
+    
+    const [titleField, setTitle] = useState(title)
     const [subtitleField, setSubtitle] = useState(subtitle)
     const [bodyField, setBody] = useState(body)
 
@@ -27,7 +41,7 @@ const EditTiptap = ({id, readyPostTitle, subtitle, body, handleEdit}) =>{
 
                 <div className='post-item-headline-content '>
                     <div className='post-item-title'>
-                        <EditPostField field={readyPostTitle} passNewFieldValue={setTitle} />
+                        <EditPostField field={title} passNewFieldValue={setTitle} />
                     </div>
 
                     <div className='post-item-subtitle' >

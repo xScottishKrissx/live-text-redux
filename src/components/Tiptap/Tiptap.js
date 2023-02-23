@@ -31,7 +31,6 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
         extensions:[
             StarterKit,
             Underline,
-            // OrderedList,
             Image,
             TextAlign.configure({
                 types: ['heading', 'paragraph'],
@@ -99,19 +98,15 @@ const Tiptap = ({setPostBody, location, clearContent, setClearContent, setPostIm
             <MenuBar editor={editor} />
             <FloatingMenuBar editor={editor}/>
             <div className='author-input-text-editor-upload-image'>
-            <form className='author-input-form-upload-image-button'>
-                    <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
-                    {imageName.current?.value.length > 1 ? 
-                        <button type='button' value="Browse..." onClick={()=>removeImage()}>Remove Image - <FaTimes /></button>  
-                        : 
-                        <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image +</button>     
-                    }
+                <form className='author-input-form-upload-image-button'>
+                        <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
+                        {imageName.current?.value.length > 1 ? 
+                            <button type='button' value="Browse..." onClick={()=>removeImage()}>Remove Image - <FaTimes /></button>  
+                            : 
+                            <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image +</button>     
+                        }
                 </form>
-                
-
             </div>
-
-            
             <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
             <TagsView addTag={addTag} />
         </div>

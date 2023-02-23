@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const defaultState = []
 
+
 export const itemSlice = createSlice({
     name:"item",
     initialState:{value:defaultState},
@@ -9,6 +10,7 @@ export const itemSlice = createSlice({
         addItem:(state,action) =>{
             // state.value.push(action.payload) -- add to array
             state.value = action.payload
+            // console.log(action.payload)
         },
         
         

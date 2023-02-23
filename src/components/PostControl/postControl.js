@@ -23,6 +23,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, edit
             if(item.id === id) return {...item, hidden:setHide}
         })       
         updateWebsite(setHidden)
+        console.log("Hide")
     }
 
     const saveEdit = () =>{

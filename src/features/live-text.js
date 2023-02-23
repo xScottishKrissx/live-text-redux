@@ -9,6 +9,8 @@ export const liveTextSlice = createSlice({
     reducers:{
         updateArray:(state,action) =>{
             state.value = action.payload
+            
+            
         }
     }
 })

@@ -9,12 +9,15 @@ import Tiptap from './Tiptap/Tiptap'
 import {Timeline, Tweet} from 'react-twitter-widgets'
 
 import {v4 as uuidv4} from 'uuid'
+import EditTiptap from './EditPost/editView'
+import { setEdit } from '../features/editState'
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 export default function AuthorInput() {
   const dispatch = useDispatch()
 
   const liveText = useSelector((state) => state.livetext.value)
+  const editModeState = useSelector((state) => state.edit.value)
 
   const [postTitle, setPostTitle] = useState("")
   const [postSubTitle, setPostSubTitle] = useState("")
@@ -60,9 +63,29 @@ export default function AuthorInput() {
     setClearContent(true)
   }
 
+  const handleEdit = (x) =>{
+    console.log("Edit!!!")
+    console.log(x)
+    dispatch(setEdit({editing:x}))
+  }
+
+  console.log(editModeState)
   return (
     <div className='author-input-wrapper'>
+
+      {editModeState.editing ? 
+      
+      <>
+      
+      <h1>Edit Mode</h1>
+
+      <EditTiptap id={editModeState.editId} handleEdit={handleEdit}/>
+      
+        </>
+      :
+      
       <div className='author-input-form'>
+        
  
         <div className='author-input-form-title'>
           <Tiptap 
@@ -79,7 +102,7 @@ export default function AuthorInput() {
             setPostBody={setPostSubTitle} 
             clearContent={clearContent}
             setClearContent={setClearContent}
-          />
+            />
         </div>
 
         <div className='author-input-form-insert-tweet'>
@@ -88,7 +111,7 @@ export default function AuthorInput() {
             setPostBody={setTweet}
             clearContent={clearContent} 
             setClearContent={setClearContent}
-          />
+            />
         </div>
         <div className='author-input-form-insert-youtube'>
           <Tiptap 
@@ -96,7 +119,7 @@ export default function AuthorInput() {
             setPostBody={setYoutube}
             clearContent={clearContent} 
             setClearContent={setClearContent}
-          />
+            />
         </div>
  
       <div className="author-input-form-type-select">
@@ -105,10 +128,10 @@ export default function AuthorInput() {
             const removeSpacesFromName = item.replace(/\s+/g, '')
             return(
               <div 
-                key={index} 
-                onClick={()=>setPostType(removeSpacesFromName)} 
-                className={removeSpacesFromName} 
-                id={removeSpacesFromName}
+              key={index} 
+              onClick={()=>setPostType(removeSpacesFromName)} 
+              className={removeSpacesFromName} 
+              id={removeSpacesFromName}
               >
                 {item}
               </div>
@@ -125,7 +148,7 @@ export default function AuthorInput() {
             clearContent={clearContent}
             setClearContent={setClearContent}
             setPostImageName={setPostImageName}
-          />
+            />
           
         </div>      
 
@@ -138,6 +161,7 @@ export default function AuthorInput() {
           </div>
         : null }
       </div>
+    }
     </div>
   )
 }

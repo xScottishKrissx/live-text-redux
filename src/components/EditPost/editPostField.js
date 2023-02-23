@@ -3,6 +3,7 @@ import StarterKit from "@tiptap/starter-kit";
 
 export default function EditPostField({field, passNewFieldValue}) {
 
+   
     const editor = useEditor({
         extensions: [
             StarterKit,

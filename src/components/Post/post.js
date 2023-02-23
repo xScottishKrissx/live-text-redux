@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import DOMPurify from 'dompurify'
 import dayjs, { Dayjs } from 'dayjs';
 
@@ -11,12 +11,15 @@ import PostControl from '../PostControl/postControl'
 import glasgow from '../../Assets/glasgow.png'
 import { Tweet } from 'react-twitter-widgets';
 
-export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, image, tweet, youtube}) {
+import { setEdit } from '../../features/editState';
 
+export default function Post({title, subtitle, body, type, id, timestamp, hidden, loggedIn, image, tweet, youtube}) {
+    const dispatch = useDispatch()
     // localStorage.clear()
 
-    const [editMode, setEditMode] = useState(false)
     const liveText = useSelector((state) => state.livetext.value)
+    const editModeState = useSelector((state) => state.edit.value)
+    const [editMode, setEditMode] = useState(editModeState.editing)
 
     // Indicate if post is new
     const [checkNewPost, setNewPost] = useState(false)  
@@ -47,9 +50,16 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
         }
     }
 
-    const handleEdit = (x) => setEditMode(x) 
+    const handleEdit = (editing, editId, editTitle, editBody, editSubtitle) => {
+        setEditMode(editing) 
+        dispatch(setEdit({editing,editId}))
+        // console.log(editModeState)
+        // console.log(editId)
+        // console.log(editTitle, editSubtitle, editBody)
+    }
+    
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
-
+    
 
     return (
     
@@ -60,7 +70,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
             {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
         </div>
         
-        {editMode ? 
+        {editMode === 1000 ? 
             
             <EditTiptap 
                 id={id} 
@@ -75,7 +85,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
             <div className='post-item-body'>
                 {loggedIn ? 
                     <PostControl 
-                        handleEdit={handleEdit} 
+                        handleEdit={()=>handleEdit(!editMode, id, readyPostTitle, readysubtitle, readyBody)} 
                         id={id} 
                         hide={hidden}
                     />

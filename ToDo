@@ -56,6 +56,17 @@ Live Text:
         ✔ Close edit mode on save @done(23-02-08 13:59)
         ✔ Remove border around fields @done(23-02-09 18:26)
         ✔ It should be obvious the post is being edited. @done(23-02-09 18:26)
+        ☐ Im thinking about changing the post/edit structure. I would like the new post and edit stuff to be in the same block but I'm not sure I want to comit to that sort of refactor at this point at it would require a rewrite of the core of the website.
+          I think an extensive floating menu might be the best option at the moment.
+          ...then i think that having a big input form doing nothing is a waste.
+          ...not sure how to proceed, hence the lack of progress over the last day.
+          ...I have tried a few things but there are downsides to whatever i do here.
+          ☐ Did it. I had to get a refresher in redux but I have changed the post being edited to appear in the author input form instead of the post itself.
+            ✔ This allows all benefits of using the full form instead of trying to cram in all of the options into the post. @done(23-02-23 18:50)
+            ✔ I'm pretty proud i managed this to be honest. @done(23-02-23 18:50)
+            Next Steps:
+              ☐ Ensure all of the buttons are working as intended.
+              ☐ Style the form
         ☐ Add formatting options to edit fields
         ☐ Add tags in edit field.
         ☐ Ability to change optional id:-
