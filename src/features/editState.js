@@ -7,7 +7,7 @@ export const editState = createSlice({
     initialState:{value:defaultState},
     reducers:{
         setEdit:(state, action) =>{
-            console.log(action.payload)
+            // console.log(action.payload)
             state.value = action.payload
         }
     }

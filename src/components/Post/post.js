@@ -51,7 +51,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     }
 
     const handleEdit = (editing, editId,) => {
-        console.log(editId, editing)
+        // console.log(editId, editing)
         // setEditMode(!editing) 
         dispatch(setEdit({editing: !editModeState.editing, editId}))
         // console.log(editModeState)

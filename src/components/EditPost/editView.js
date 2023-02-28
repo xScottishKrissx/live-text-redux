@@ -11,7 +11,8 @@ const EditTiptap = ({
     readyPostTitle, 
     // subtitle, 
     // body, 
-    handleEdit
+    handleEdit,
+    setPostTitle
 
 }) =>{
 
@@ -41,7 +42,7 @@ const EditTiptap = ({
 
                 <div className='post-item-headline-content '>
                     <div className='post-item-title'>
-                        <EditPostField field={title} passNewFieldValue={setTitle} />
+                        <EditPostField field={title} passNewFieldValue={setTitle} toItemReview={setPostTitle} />
                     </div>
 
                     <div className='post-item-subtitle' >

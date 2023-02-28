@@ -6,15 +6,22 @@ import './item-review.css'
 export default function ItemReview() {
   
   const itemList = useSelector((state) => state.items.value)
+  const liveText = useSelector((state) => state.livetext.value)
+  const editModeState = useSelector((state) => state.edit.value)
+  const getCurrentPost = liveText.filter(x => x.id === editModeState.editId)
 
+  // console.log(itemList)
+  console.log(getCurrentPost[0]?.title)
+  console.log(itemList)
   if(!itemList) return
   const {postType, postTitle, postSubTitle, postBody, postImageName, insertTweet, insertYoutube} = itemList
   return (
     <div className='item-review-container'>
       <div className={'post-item ' + postType}>
-        
+        {editModeState.editing ? "EditModeActive" : null}
         <Post 
-          title={postTitle} 
+        // This achieves the desired effect of placing the current post title in the item review area as soon as you hit the edit button....it just looks mental.
+          title={itemList.postTitle?.length <= 7 ? getCurrentPost[0]?.title : postTitle } 
           subtitle={postSubTitle} 
           body={postBody} 
           type={postType} 
