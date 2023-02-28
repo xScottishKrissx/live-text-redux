@@ -65,6 +65,10 @@ Live Text:
             ✔ This allows all benefits of using the full form instead of trying to cram in all of the options into the post. @done(23-02-23 18:50)
             ✔ I'm pretty proud i managed this to be honest. @done(23-02-23 18:50)
             Next Steps:
+              ☐ Can the new post and edit post forms use the same codebase?
+                ...it would certainly make the code a lot slimmer and easier to maintain.
+                ....give me about 2 years to figure this out.
+                ....i've just realised i still need to hoom the edit field up to the item-review section so that might actually bring the 2 codebases together anyway. Let's see what happens.
               ☐ Ensure all of the buttons are working as intended.
               ☐ Style the form
               ☐ Saving a post doesn't close the edit mode in the post.
