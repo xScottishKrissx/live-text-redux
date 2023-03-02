@@ -1,8 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-// localStorage.clear()
-// const getLocalStorage = JSON.parse(localStorage.getItem("preview-edit"))
-
 const defaultState = []
 
 export const previewEditItem = createSlice({

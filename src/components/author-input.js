@@ -20,7 +20,7 @@ export default function AuthorInput() {
   const editModeState = useSelector((state) => state.edit.value)
 
   const [postTitle, setPostTitle] = useState("")
-  const [postSubTitle, setPostSubTitle] = useState("")
+  const [postSubtitle, setPostSubTitle] = useState("")
   const [postType, setPostType] = useState("")
   const [postBody, setPostBody] = useState("")
   const [postImageName, setPostImageName] = useState("")
@@ -31,8 +31,8 @@ export default function AuthorInput() {
   const [tag, setTag] = useState("true")
 
   useEffect(() => {
-    dispatch(addItem({postTitle,postSubTitle, postType, postBody, postImageName, insertTweet, insertYoutube}))
-  },[postTitle,postSubTitle, postBody, postType, postImageName, insertTweet, insertYoutube])
+    dispatch(addItem({postTitle,postSubtitle, postType, postBody, postImageName, insertTweet, insertYoutube}))
+  },[postTitle,postSubtitle, postBody, postType, postImageName, insertTweet, insertYoutube])
 
 
   const pushLive = () =>{
@@ -40,7 +40,7 @@ export default function AuthorInput() {
       id: uuidv4(), 
       body: postBody, 
       title: postTitle, 
-      subtitle: postSubTitle, 
+      subtitle: postSubtitle, 
       type: postType,
       // timestamp: dayjs().format('HH:mm - dddd, MMM YYYY'),
       timestamp:Date.now(),

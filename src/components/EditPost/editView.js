@@ -14,7 +14,7 @@ const EditTiptap = ({
     // subtitle, 
     // body, 
     handleEdit,
-    setPostTitle
+    // setPostTitle
 
 }) =>{
     const dispatch = useDispatch()
@@ -23,22 +23,22 @@ const EditTiptap = ({
     // console.log(getCurrentPost[0])
     const {title, subtitle, body } = getCurrentPost[0]
     
-    const [titleField, setTitle] = useState(title)
-    const [subtitleField, setSubtitle] = useState(subtitle)
-    const [bodyField, setBody] = useState(body)
+    const [postTitle, setTitle] = useState(title)
+    const [postSubtitle, setSubtitle] = useState(subtitle)
+    const [postBody, setBody] = useState(body)
 
     useEffect(()=>{
-        dispatch(addToPreview({titleField, bodyField, subtitleField}))
-    })
+        dispatch(addToPreview({postTitle, postSubtitle, postBody }))
+    },[postTitle, postSubtitle, postBody])
 
     return (
         <div>
             <PostControl 
                 editMode 
                 id={id} 
-                body={bodyField} 
-                subtitle={subtitleField} 
-                title={titleField} 
+                title={postTitle} 
+                subtitle={postSubtitle} 
+                body={postBody} 
                 handleEdit={handleEdit}
             />
 

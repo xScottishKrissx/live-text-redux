@@ -81,12 +81,16 @@ Live Text:
           ...i think this is the author input rendering  every time state refreshes.
         ☐ Fix styling bug
         ☐ Item Review
-         ...i am trying to get the item review to switch over to the current post on edit but struggling to get it to work.
-         ...so instead of fitting the edited item review into the new item review, im going to create a second item review just for the edited item.
-         ...hopefully this will lead me to figure out how to do it from the one component if possible.
-         ☐ I can use a useEffect but that would also update the live version.
-              ...maybe if a post is being edited it should be hidden
-              ...nah, that just seems a bit arbitrary and there are reasons a post can remain up even if it needs to be changed
+          ...i am trying to get the item review to switch over to the current post on edit but struggling to get it to work.
+          ...so instead of fitting the edited item review into the new item review, im going to create a second item review just for the edited item.
+          ...hopefully this will lead me to figure out how to do it from the one component if possible.
+          ✘ I can use a useEffect but that would also update the live version. @cancelled(23-03-02 17:41)
+                ...maybe if a post is being edited it should be hidden
+                ...nah, that just seems a bit arbitrary and there are reasons a post can remain up even if it needs to be changed
+          ✔ DId it, i created a previewSlice in redux and used that to separate the existing post from the preview post. This also an in progress post from a preview post so you only see the pest you're editing in the preview box. @done(23-03-02 17:42)
+          ✔ I now have a functional item review area that previews new posts and posts being edited using mostly the same code, apart from the redux sections. @done(23-03-02 17:42)
+          ☐ Now i just need to fill out the rest of the possible form entries, clean up the code and then style the edit form.
+              ☐ Fill out remaining form entries
 
       ☐ Post Control Bar
         ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)

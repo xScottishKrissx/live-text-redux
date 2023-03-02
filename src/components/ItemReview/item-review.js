@@ -1,32 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import Post from '../Post/post'
 import './item-review.css'
 
-export default function ItemReview() {
+export default function ItemReview({data}) {
   
-  const itemList = useSelector((state) => state.items.value)
-  const liveText = useSelector((state) => state.livetext.value)
-  const editModeState = useSelector((state) => state.edit.value)
-  const getCurrentPost = liveText.filter(x => x.id === editModeState.editId)
+  // const itemList = useSelector((state) => state.items.value)
+  // const liveText = useSelector((state) => state.livetext.value)
+  // const editModeState = useSelector((state) => state.edit.value)
+  // const getCurrentPost = liveText.filter(x => x.id === editModeState.editId)
+  // console.log(data)
 
-  // console.log(itemList)
-  // console.log(getCurrentPost[0]?.title)
-  // console.log(itemList)
-  if(!itemList) return
-  const {postType, postTitle, postSubTitle, postBody, postImageName, insertTweet, insertYoutube} = itemList
+  if(!data) return
+  const {postType, postTitle, postSubtitle, postBody, postImageName, insertTweet, insertYoutube} = data
   return (
     <div className='item-review-container'>
       <div className={'post-item ' + postType}>
         <Post 
         // This achieves the desired effect of placing the current post title in the item review area as soon as you hit the edit button....it just looks mental.
           title={postTitle} 
-          subtitle={postSubTitle} 
+          subtitle={postSubtitle} 
           body={postBody} 
-          type={postType} 
-          image={postImageName} 
-          tweet={insertTweet} 
-          youtube={insertYoutube} 
+          // type={postType} 
+          // image={postImageName} 
+          // tweet={insertTweet} 
+          // youtube={insertYoutube} 
         />
       </div>
     </div>
