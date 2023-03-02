@@ -10,12 +10,14 @@ import {Provider} from 'react-redux'
 import itemReducer from './features/item'
 import liveTextReducer from './features/live-text'
 import editModeReducer from './features/editState'
+import previewEditReducer from './features/previewEdit';
 
 const store = configureStore({
   reducer:{
     items: itemReducer,
     livetext: liveTextReducer,
-    edit: editModeReducer
+    edit: editModeReducer,
+    preview: previewEditReducer
   }
 })
 

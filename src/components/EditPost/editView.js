@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PostControl from "../PostControl/postControl";
 import EditPostField from "./editPostField";
+
+import { addToPreview } from "../../features/previewEdit";
 
 import './editView.css'
 
@@ -15,7 +17,7 @@ const EditTiptap = ({
     setPostTitle
 
 }) =>{
-
+    const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
     const getCurrentPost = liveText.filter(x => x.id === id)
     // console.log(getCurrentPost[0])
@@ -24,6 +26,10 @@ const EditTiptap = ({
     const [titleField, setTitle] = useState(title)
     const [subtitleField, setSubtitle] = useState(subtitle)
     const [bodyField, setBody] = useState(body)
+
+    useEffect(()=>{
+        dispatch(addToPreview({titleField, bodyField, subtitleField}))
+    })
 
     return (
         <div>
@@ -42,7 +48,7 @@ const EditTiptap = ({
 
                 <div className='post-item-headline-content '>
                     <div className='post-item-title'>
-                        <EditPostField field={title} passNewFieldValue={setTitle} toItemReview={setPostTitle} />
+                        <EditPostField field={title} passNewFieldValue={setTitle}  />
                     </div>
 
                     <div className='post-item-subtitle' >

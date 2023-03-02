@@ -79,7 +79,11 @@ export default function AuthorInput() {
       
       <h1>Edit Mode</h1>
 
-      <EditTiptap id={editModeState.editId} handleEdit={handleEdit} setPostTitle={setPostTitle}/>
+      <EditTiptap 
+        id={editModeState.editId} 
+        handleEdit={handleEdit} 
+        setPostTitle={setPostTitle}
+      />
       
         </>
       :

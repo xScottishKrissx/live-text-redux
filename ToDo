@@ -80,6 +80,13 @@ Live Text:
         ☐ The page junps when toggling edit mode.
           ...i think this is the author input rendering  every time state refreshes.
         ☐ Fix styling bug
+        ☐ Item Review
+         ...i am trying to get the item review to switch over to the current post on edit but struggling to get it to work.
+         ...so instead of fitting the edited item review into the new item review, im going to create a second item review just for the edited item.
+         ...hopefully this will lead me to figure out how to do it from the one component if possible.
+         ☐ I can use a useEffect but that would also update the live version.
+              ...maybe if a post is being edited it should be hidden
+              ...nah, that just seems a bit arbitrary and there are reasons a post can remain up even if it needs to be changed
 
       ☐ Post Control Bar
         ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateArray } from '../../features/live-text'
 
@@ -12,6 +12,9 @@ export default function PostControl({id, handleEdit, body, subtitle, title, edit
     const liveText = useSelector((state) => state.livetext.value)
     const getCurrentPost = liveText.filter(x => x.id === id)
     const getOtherPosts = liveText.filter(x => x.id !== id)
+
+    
+
 
     const handleDelete = () =>{
         console.log("Delete: " + id)
@@ -46,6 +49,10 @@ export default function PostControl({id, handleEdit, body, subtitle, title, edit
         }
         handleEdit(false)
 
+    }
+
+    const closeEdit = () =>{
+        handleEdit(false)
     }
 
   return (

@@ -1,7 +1,7 @@
 import { useEditor, EditorContent, onUpdate } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
-export default function EditPostField({field, passNewFieldValue,toItemReview}) {
+export default function EditPostField({field, passNewFieldValue}) {
 
    
     const editor = useEditor({
@@ -20,7 +20,7 @@ export default function EditPostField({field, passNewFieldValue,toItemReview}) {
         onUpdate:({editor}) => {
             const json = editor.getHTML()
             passNewFieldValue(json)
-            toItemReview(json)
+            // toItemReview(json)
         },
 
     })
