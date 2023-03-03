@@ -22,9 +22,9 @@ export default function ItemReview({data}) {
           subtitle={postSubtitle} 
           body={postBody} 
           // type={postType} 
-          // image={postImageName} 
-          // tweet={insertTweet} 
-          // youtube={insertYoutube} 
+          image={postImageName} 
+          tweet={insertTweet} 
+          youtube={insertYoutube} 
         />
       </div>
     </div>

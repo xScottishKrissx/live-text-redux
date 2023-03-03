@@ -14,7 +14,6 @@ function App() {
   const previewItem = useSelector((state) => state.preview.value)
 
   const dispatch = useDispatch()
-  console.log(editModeState.editing)
   return (
     <div className="App">
       <div className="main-wrapper">

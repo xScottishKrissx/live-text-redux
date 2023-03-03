@@ -17,6 +17,7 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     const dispatch = useDispatch()
     // localStorage.clear()
 
+
     const liveText = useSelector((state) => state.livetext.value)
     const editModeState = useSelector((state) => state.edit.value)
     const [editMode, setEditMode] = useState(editModeState.editing)
@@ -51,17 +52,13 @@ export default function Post({title, subtitle, body, type, id, timestamp, hidden
     }
 
     const handleEdit = (editing, editId,) => {
-        // console.log(editId, editing)
-        // setEditMode(!editing) 
         dispatch(setEdit({editing: !editModeState.editing, editId}))
-        // console.log(editModeState)
-        // console.log(editTitle, editSubtitle, editBody)
     }
     
     const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
-    
     const editingIsActiveOnThisPost = editModeState.editing === true && editModeState.editId === id
     const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
+
     return (
     
         <div key={id}  className={ `${editingIsActiveOnThisPost ? "post-item-container-editMode" : "post-item-container" }` } >

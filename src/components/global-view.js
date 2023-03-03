@@ -33,7 +33,6 @@ export default function GlobalView() {
     const timeSincePostCreation = (Date.now() - x.timestamp) / 1000
     const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
 
-
     return(
       <div 
         className={'post-item ' + x.type + ' ' + changeClassWithTime} 

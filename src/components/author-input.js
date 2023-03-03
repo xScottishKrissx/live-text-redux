@@ -77,7 +77,7 @@ export default function AuthorInput() {
       
       <>
       
-      <h1>Edit Mode</h1>
+      {/* <h1>Edit Mode</h1> */}
 
       <EditTiptap 
         id={editModeState.editId} 

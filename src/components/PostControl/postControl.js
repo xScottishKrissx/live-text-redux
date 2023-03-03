@@ -6,15 +6,12 @@ import './postControl.css'
 
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 
-export default function PostControl({id, handleEdit, body, subtitle, title, editMode, hide}) {
+export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide}) {
     // localStorage.clear()
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
     const getCurrentPost = liveText.filter(x => x.id === id)
     const getOtherPosts = liveText.filter(x => x.id !== id)
-
-    
-
 
     const handleDelete = () =>{
         console.log("Delete: " + id)
@@ -31,7 +28,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, edit
 
     const saveEdit = () =>{
         const editCurrentPost = getCurrentPost.map(item =>{
-            if(item.id === id) return {...item, body, title, subtitle}
+            if(item.id === id) return {...item, body, title, subtitle, tweet, youtube, image, type, }
         })
         updateWebsite(editCurrentPost)          
     }
