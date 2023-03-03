@@ -69,6 +69,24 @@ Live Text:
                 ...it would certainly make the code a lot slimmer and easier to maintain.
                 ....give me about 2 years to figure this out.
                 ....i've just realised i still need to hoom the edit field up to the item-review section so that might actually bring the 2 codebases together anyway. Let's see what happens.
+              ☐ Yes, i can use the new edit post component as a new post component.
+                ☐ It's a lot of work and theres' going to be issues but I have made good progress so far and will be worth it when the transition is complete. The existing components are also a bit crap so it will be better to maintain and use.
+                
+                Todo:
+                  ☐ Recreate fields:
+                    ☐ TItle
+                    ☐ Subtitle
+                    ☐ Type
+                    ☐ Tweet
+                    ☐ Youtube
+                    ☐ Body
+                    ☐ Tags
+                  ☐ Issues
+                    ☐ THe clear content functionality doesn't work now, figure out an alternative
+                      ...otherwise you can keep adding the same post by clicking the create new post button
+                    ☐ Create a check to ensure a minimum amount of content has been added before a form can be submitted
+                      ...title, subtitle, body etc...
+
               ☐ Ensure all of the buttons are working as intended.
               ✔ Style the form @done(23-03-03 17:46)
               ✔ Saving a post doesn't close the edit mode in the post. @done(23-03-03 17:46)
@@ -99,7 +117,7 @@ Live Text:
         ✔ Style control bar @done(23-02-09 18:52)
           ... also made the jump between to edit less jarring by moving the timestamp and social media bar out of the edit mode check.
         ✔ Should be hidden if not logged in. @done(23-02-09 19:14)
-            
+        
 
       ☐ Add Summary Bar
         ☐ Place above live text in logged in

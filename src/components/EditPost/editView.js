@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import PostControl from "../PostControl/postControl";
 import EditPostField from "./editPostField";
 
-import { MenuBar } from "../Tiptap/Tiptap";
-import { useEditor } from "@tiptap/react";
-
 import { addToPreview } from "../../features/previewEdit";
 
 import './editView.css'
@@ -13,31 +10,20 @@ import EditTextArea from "./editTextArea";
 import EditType from "./editType";
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
-const EditTiptap = ({
-
-    id, 
-    readyPostTitle, 
-    // subtitle, 
-    // body, 
-    handleEdit,
-    // setPostTitle
-
-}) =>{
+const EditTiptap = ({ id, handleEdit }) =>{
     const dispatch = useDispatch()
-    const liveText = useSelector((state) => state.livetext.value)
-    const getCurrentPost = liveText.filter(x => x.id === id)
-    // console.log(getCurrentPost[0])
-    const {title, subtitle, body, tweet, youtube, image } = getCurrentPost[0]
-
-    
     const tweetIdRef =  useRef()
     const youtubeUrlRef =  useRef()
+
+    const liveText = useSelector((state) => state.livetext.value)
+    const getCurrentPost = liveText.filter(x => x.id === id)
+    const {title, subtitle, body, tweet, youtube, image } = getCurrentPost[0]
     
     const [postTitle, setTitle] = useState(title)
     const [postSubtitle, setSubtitle] = useState(subtitle)
     const [postType, setPostType] = useState("")
     const [postBody, setBody] = useState(body)
-        const [postImageName, setPostImageName] = useState(image)
+    const [postImageName, setPostImageName] = useState(image)
     const [insertTweet, setTweet] = useState(tweet)
     const [insertYoutube, setYoutube] = useState(youtube)
 
