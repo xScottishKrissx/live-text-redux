@@ -14,6 +14,8 @@ export default function AuthorInput() {
 
   const handleEdit = (x) => dispatch(setEdit({editing:x, editId: null}))
 
+  console.log(editModeState.editing)
+
   return (
     <div className='author-input-wrapper'>
 
@@ -22,7 +24,7 @@ export default function AuthorInput() {
       :
         <NewPost handleEdit={handleEdit}/>
       }
-      
+
     </div>
   )
 }

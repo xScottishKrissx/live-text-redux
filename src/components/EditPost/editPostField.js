@@ -1,9 +1,13 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import { useSelector, useDispatch } from "react-redux";
+import { setForm } from "../../features/resetForm";
 
-export default function EditPostField({field, passNewFieldValue}) {
+export default function EditPostField({field, passNewFieldValue, clearContent}) {
 
-   
+    const dispatch = useDispatch()
+    const resetStatus = useSelector((state) => state.reset.value)
+    // console.log(resetStatus)
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -17,10 +21,20 @@ export default function EditPostField({field, passNewFieldValue}) {
             },
         },
 
+        
         onUpdate:({editor}) => {
             const json = editor.getHTML()
             passNewFieldValue(json)
+
+            if(resetStatus === true){
+                editor.commands.clearContent()
+                dispatch(setForm(false))
+            }
         },
+
+        
+        
+
 
     })
 

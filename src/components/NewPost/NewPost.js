@@ -37,7 +37,7 @@ export default function NewPost({handleEdit}) {
             />
             <div className='author-input-wrapper'>
                 <div className='author-input-form'>
-                    <Title field={""} passNewFieldValue={setPostTitle}/>
+                    <Title field={""} passNewFieldValue={setPostTitle}  />
                     <Subtitle field={""} passNewFieldValue={setPostSubTitle} />
                     <Twitter setTweet={setTweet} value={insertTweet}/>
                     <Youtube setYoutube={setYoutube} value={insertYoutube} />

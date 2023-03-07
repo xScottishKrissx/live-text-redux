@@ -11,13 +11,15 @@ import itemReducer from './features/item'
 import liveTextReducer from './features/live-text'
 import editModeReducer from './features/editState'
 import previewEditReducer from './features/previewEdit';
+import resetForm from './features/resetForm';
 
 const store = configureStore({
   reducer:{
     items: itemReducer,
     livetext: liveTextReducer,
     edit: editModeReducer,
-    preview: previewEditReducer
+    preview: previewEditReducer,
+    reset: resetForm
   }
 })
 
