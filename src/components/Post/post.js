@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './post.css'
@@ -16,7 +16,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
     const liveText = useSelector((state) => state.livetext.value)
     const editModeState = useSelector((state) => state.edit.value)
     const {editing, editId} = editModeState
-    const [editMode, setEditMode] = useState(editModeState.editing)
+    // const [editMode, setEditMode] = useState(editModeState.editing)
 
     if(!liveText) return
     
@@ -30,7 +30,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
             
             <PostTimestamp timestamp={timestamp} />
             <PostContent
-                editMode={editMode}
+                editMode={editing}
                 editModeState={editModeState}
 
                 handleEdit={handleEdit}

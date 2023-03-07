@@ -1,4 +1,4 @@
-import React,{useRef, useEffect} from 'react'
+import React, {useRef} from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
 
 // TipTap
@@ -54,23 +54,14 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
         },
     })
 
-// Set the input of the text area a different...this can be done in css, why did i do this?
-    // useEffect(() =>{
-    //     if(!editor) return
-    //     editor.setOptions({
-    //         editorProps: {
-    //           attributes: {
-    //             class: 'author-input-text-editor-input'
-    //           },
-    //         },
-    //     })
-    // },[editor])
+
 
     const getFileName = (e) =>{
         let getValue = imageName.current.value
         const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
         setPostImageName(readyImageName)
-      }
+    }
+    
     const removeImage = () =>{
         imageName.current.value = ""
         setPostImageName(null)

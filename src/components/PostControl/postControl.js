@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateArray } from '../../features/live-text'
 
@@ -38,8 +38,6 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
           const updateLiveTextArray = [newPost[0]].concat(liveText)
           dispatch(updateArray(updateLiveTextArray))
           localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
-          console.log("Clear Form")
-
           setPostImageName("")
 
 
@@ -84,12 +82,24 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         handleEdit(false)
     }
 
+    let minChars = 10
+    const allowPost = title.length > minChars && body.length > minChars
   return (
     <div className='post-control-bar'>
         {editMode ? 
-            <button onClick={saveEdit}><FaSave /> Save </button>
+                // Edit an Existing Post
+                allowPost ?
+                    <button onClick={saveEdit}><FaSave /> Save </button>
+                    :
+                    <button ><FaSave />Save: Title and Body Required </button>
+
                 :
-            <button onClick={()=>createNewPost()}><FaEdit /> Create New Post</button>
+
+                // Creating a New Post
+                allowPost ? 
+                <button onClick={()=>createNewPost()}><FaEdit /> Create New Post</button>
+                : 
+                <button><FaEdit />Create New Post: Title and Body Required</button>
         }
         {editMode ? <button onClick={handleDelete}><FaTrash/> Delete</button> : null }
         

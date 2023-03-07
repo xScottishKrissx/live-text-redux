@@ -15,12 +15,10 @@ import {
     FaAlignCenter,
     FaAlignRight,
     FaAlignJustify,
-    FaLink,
-    FaUnlink,
     FaEraser,
     FaUndo,
     FaRedo,
-    FaImage
+
  } from 'react-icons/fa'
 
 export default function TipTapMenuButtons({editor}) {

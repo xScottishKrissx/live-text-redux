@@ -1,25 +1,7 @@
 import React from 'react'
 import {FloatingMenu} from '@tiptap/react'
 
-import { 
-    FaBold, 
-    FaItalic, 
-    FaUnderline, 
-    FaStrikethrough, 
-    FaCode, 
-    FaListUl, 
-    FaListOl,
-    FaAlignLeft,
-    FaAlignCenter,
-    FaAlignRight,
-    FaAlignJustify,
-    FaLink,
-    FaUnlink,
-    FaEraser,
-    FaUndo,
-    FaRedo,
-    FaImage
- } from 'react-icons/fa'
+import { FaListUl, FaListOl,} from 'react-icons/fa'
 
 export default function FloatingMenuBar({editor}) {
   return (

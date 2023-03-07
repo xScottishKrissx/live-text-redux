@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './global-view.css'
 
 import { useSelector } from 'react-redux'
@@ -29,7 +29,6 @@ export default function GlobalView() {
   const displayLiveText = liveTextArray.map((x, index) => {
 
     if(!loggedIn && x.hidden ) return 
-    // console.log(index)
     const timeSincePostCreation = (Date.now() - x.timestamp) / 1000
     const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
 

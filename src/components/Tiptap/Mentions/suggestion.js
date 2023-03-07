@@ -7,7 +7,7 @@ import { Japan } from '../../Tags/names'
 const mapNames = Japan.map((x,index) => { return x.name})
 // console.log(mapNames)
 
-export default {
+export default  {
   items: ({ query }) => { return mapNames    
       .filter(item => item.toLowerCase().startsWith(query.toLowerCase()))
       // .slice(0, 5)

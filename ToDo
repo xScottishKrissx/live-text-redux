@@ -65,29 +65,30 @@ Live Text:
             ✔ This allows all benefits of using the full form instead of trying to cram in all of the options into the post. @done(23-02-23 18:50)
             ✔ I'm pretty proud i managed this to be honest. @done(23-02-23 18:50)
             Next Steps:
-              ☐ Can the new post and edit post forms use the same codebase?
+              ✔ Can the new post and edit post forms use the same codebase? @done(23-03-07 17:16)
                 ...it would certainly make the code a lot slimmer and easier to maintain.
                 ....give me about 2 years to figure this out.
                 ....i've just realised i still need to hoom the edit field up to the item-review section so that might actually bring the 2 codebases together anyway. Let's see what happens.
-              ☐ Yes, i can use the new edit post component as a new post component.
-                ☐ It's a lot of work and theres' going to be issues but I have made good progress so far and will be worth it when the transition is complete. The existing components are also a bit crap so it will be better to maintain and use.
+              ✔ Yes, i can use the new edit post component as a new post component. @done(23-03-07 17:16)
+                ✔ It's a lot of work and theres' going to be issues but I have made good progress so far and will be worth it when the transition is complete. The existing components are also a bit crap so it will be better to maintain and use. @done(23-03-07 17:16)
+                ✔ I have mostly achieved this. I still have the edit post and new post as separate components but the code duplication has been signficantly reduced. I am happy with where I am now @done(23-03-07 17:16)
                 
                 Todo:
-                  ☐ Recreate fields:
-                    ☐ TItle
-                    ☐ Subtitle
-                    ☐ Type
-                    ☐ Tweet
-                    ☐ Youtube
-                    ☐ Body
-                    ☐ Tags
+                  ✔ Recreate fields: @done(23-03-07 17:16)
+                    ✔ TItle @done(23-03-07 17:16)
+                    ✔ Subtitle @done(23-03-07 17:16)
+                    ✔ Type @done(23-03-07 17:16)
+                    ✔ Tweet @done(23-03-07 17:16)
+                    ✔ Youtube @done(23-03-07 17:16)
+                    ✔ Body @done(23-03-07 17:16)
+                    ✔ Tags @done(23-03-07 17:16)
                   ☐ Issues
-                    ☐ THe clear content functionality doesn't work now, figure out an alternative
+                    ☐ The clear content functionality doesn't work now, figure out an alternative
                       ...otherwise you can keep adding the same post by clicking the create new post button
-                    ☐ Create a check to ensure a minimum amount of content has been added before a form can be submitted
+                    ✔ Create a check to ensure a minimum amount of content has been added before a form can be submitted @done(23-03-07 17:55)
                       ...title, subtitle, body etc...
 
-              ☐ Ensure all of the buttons are working as intended.
+              ✔ Ensure all of the buttons are working as intended. @done(23-03-07 17:16)
               ✔ Style the form @done(23-03-03 17:46)
               ✔ Saving a post doesn't close the edit mode in the post. @done(23-03-03 17:46)
         ✔ Add formatting options to edit fields @done(23-03-03 17:46)
