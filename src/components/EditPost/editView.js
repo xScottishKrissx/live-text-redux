@@ -8,6 +8,9 @@ import { addToPreview } from "../../features/previewEdit";
 import './editView.css'
 import EditTextArea from "./editTextArea";
 import EditType from "./editType";
+import Title from "../InputForm/title";
+import Subtitle from "../InputForm/Subtitle";
+import Twitter from "../InputForm/Twitter";
 
 const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
 const EditTiptap = ({ id, handleEdit }) =>{
@@ -51,29 +54,19 @@ const EditTiptap = ({ id, handleEdit }) =>{
                 {/* { headlineIcon ? <img src={"https://via.placeholder.com/50x50"} /> : ""}  */}
 
                 <div className='author-input-form'>
-                    <div className='author-input-form-title'>
-                        <div className="author-input-field">
-                            <h3>Title</h3>
-                            <EditPostField field={title} passNewFieldValue={setTitle}  />
-                        </div>
-                    </div>
+                    <Title field={title} passNewFieldValue={setTitle}/>
+                    <Subtitle field={subtitle} passNewFieldValue={setSubtitle} />
 
-                    <div className='author-input-form-subtitle' >
-                        <div className='author-input-field'>
-                            <h3>Subtitle</h3>
-                            <EditPostField field={subtitle} passNewFieldValue={setSubtitle} />
-                        </div>
-                    </div>
 
-                    
-                    <div className='author-input-form-insert-tweet'>
+                    <Twitter setTweet={setTweet} value={insertTweet}/>
+                    {/* <div className='author-input-form-insert-tweet'>
                         <div className='author-input-field'>
                             <h3>Tweet Id (optional) </h3>
                             <div>
                                 <input ref={tweetIdRef} type="text" onChange={(e)=>setTweet(e.target.value)} value={insertTweet}/>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     
                     <div className='author-input-form-insert-youtube'>
