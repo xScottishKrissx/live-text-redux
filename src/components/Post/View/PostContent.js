@@ -8,10 +8,6 @@ export default function PostContent({loggedIn, handleEdit, editMode, id,title, s
     const editModeState = useSelector((state) => state.edit.value)
     const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
     
-    const readyPostTitle = title.replace('@', '')
-    const readysubtitle = subtitle.replace('@', '')
-    const readyBody = body.replace('@', '')
-    
     const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
 
     return (
@@ -28,16 +24,25 @@ export default function PostContent({loggedIn, handleEdit, editMode, id,title, s
                 
                 <div className='post-item-headline-content '>
                     <div className='post-item-title'>                            
-                        <div dangerouslySetInnerHTML={createMarkup(readyPostTitle)}></div>
+                        {title ? 
+                            <div dangerouslySetInnerHTML={createMarkup(title.replace('@', ''))}></div> 
+                        : null }
                     </div>
-                    <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(readysubtitle)}></div>
+
+                    {subtitle ? 
+                        <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(subtitle.replace('@', ''))}></div> 
+                    : null }
                 </div>
 
             </div>
 
-            {image ? <img src={require("../../../Assets/" + image)} /> : null}
+            {image ? 
+                <img src={require("../../../Assets/" + image)} /> 
+            : null}
 
-            <div dangerouslySetInnerHTML={createMarkup(readyBody)}></div>
+            {body ? 
+                <div dangerouslySetInnerHTML={createMarkup(body.replace('@', ''))}></div> 
+            : null}
 
         </div>
     )

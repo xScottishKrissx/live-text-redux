@@ -19,7 +19,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
     const [editMode, setEditMode] = useState(editModeState.editing)
 
     if(!liveText) return
-    if(!title || !body ) return
+    
 
     const handleEdit = (editing, editId,) =>  dispatch(setEdit({ editing, editId})) 
     const editingIsActiveOnThisPost = editing && editId === id
