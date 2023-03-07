@@ -1,22 +1,20 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PostControl from "../PostControl/postControl";
-import EditPostField from "./editPostField";
 
+import PostControl from "../PostControl/postControl";
 import { addToPreview } from "../../features/previewEdit";
 
-import './editView.css'
-import EditTextArea from "./editTextArea";
-import EditType from "./editType";
-import Title from "../InputForm/title";
+import Title from "../InputForm/Title";
 import Subtitle from "../InputForm/Subtitle";
 import Twitter from "../InputForm/Twitter";
+import Youtube from "../InputForm/Youtube";
+import Type from "../InputForm/Type";
+import TextArea from "../InputForm/TextArea";
 
-const typeRange = ["Goal","Offside", "Yellow Card", "Red Card", "Breaking","Update"]
+import './editView.css'
+
 const EditTiptap = ({ id, handleEdit }) =>{
     const dispatch = useDispatch()
-    const tweetIdRef =  useRef()
-    const youtubeUrlRef =  useRef()
 
     const liveText = useSelector((state) => state.livetext.value)
     const getCurrentPost = liveText.filter(x => x.id === id)
@@ -56,40 +54,10 @@ const EditTiptap = ({ id, handleEdit }) =>{
                 <div className='author-input-form'>
                     <Title field={title} passNewFieldValue={setTitle}/>
                     <Subtitle field={subtitle} passNewFieldValue={setSubtitle} />
-
-
                     <Twitter setTweet={setTweet} value={insertTweet}/>
-                    {/* <div className='author-input-form-insert-tweet'>
-                        <div className='author-input-field'>
-                            <h3>Tweet Id (optional) </h3>
-                            <div>
-                                <input ref={tweetIdRef} type="text" onChange={(e)=>setTweet(e.target.value)} value={insertTweet}/>
-                            </div>
-                        </div>
-                    </div> */}
-
-                    
-                    <div className='author-input-form-insert-youtube'>
-                        <div className='author-input-field'>
-                            <h3>Youtube Video Url (optional) </h3>
-                            <div>
-                                <input ref={youtubeUrlRef} type="text" onChange={(e)=>setYoutube(e.target.value)} value={insertYoutube} />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="author-input-form-type-select">
-                        <div className='author-input-form-type-select-items'>
-                            <EditType typeRange={typeRange} setPostType={setPostType} />
-                        </div>
-                    </div>
-
-                    <div className="author-input-form-text-area">
-                        <div className='author-input-text-editor'>
-                            <EditTextArea field={body} passNewFieldValue={setBody} setPostImageName={setPostImageName}/>
-                        </div>
-                    </div>
-
+                     <Youtube value={insertYoutube} setYoutube={setYoutube} />
+                    <Type setPostType={setPostType} />
+                    <TextArea field={body} passNewFieldValue={setBody} setPostImageName={setPostImageName} />
                 </div>
             </div>
 

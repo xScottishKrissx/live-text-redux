@@ -8,7 +8,7 @@ import './postControl.css'
 
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 
-export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide, setClearContent, setPostImageName}) {
+export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName}) {
     // localStorage.clear()
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
@@ -39,7 +39,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
           dispatch(updateArray(updateLiveTextArray))
           localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
           console.log("Clear Form")
-          setClearContent(true)
+
           setPostImageName("")
 
 
