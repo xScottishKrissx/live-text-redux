@@ -86,6 +86,7 @@ Live Text:
                     ☐ The clear content functionality doesn't work now, figure out an alternative
                       ...otherwise you can keep adding the same post by clicking the create new post button
                       ☐ I've created the functionality for editing post but need to add it for new posts
+                        ☐ Ok so i couldnt figure out how to clear the fields after adding a new post so i have created an overlay that will force the author to manually reset the field. This can double as final confirmation because i give up. i dont know to do thos any other way.
                     ✔ Create a check to ensure a minimum amount of content has been added before a form can be submitted @done(23-03-07 17:55)
                       ...title, subtitle, body etc...
 

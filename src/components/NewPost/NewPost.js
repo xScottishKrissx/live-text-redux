@@ -11,7 +11,7 @@ import Youtube from '../InputForm/Youtube'
 import Type from '../InputForm/Type'
 import TextArea from '../InputForm/TextArea'
 
-export default function NewPost({handleEdit}) {
+export default function NewPost({handleEdit, confirmPost}) {
     const dispatch = useDispatch()
 
     const [postTitle, setPostTitle] = useState("")
@@ -26,6 +26,8 @@ export default function NewPost({handleEdit}) {
         dispatch(addItem({postTitle,postSubtitle, postType, postBody, postImageName, insertTweet, insertYoutube}))
     },[postTitle,postSubtitle, postBody, postType, postImageName, insertTweet, insertYoutube])
 
+    console.log(postTitle)
+
     return (
         <div>
             <PostControl  
@@ -34,6 +36,7 @@ export default function NewPost({handleEdit}) {
                 title={postTitle} 
                 body={postBody} 
                 subtitle={postSubtitle} 
+                confirmPost={confirmPost}
             />
             <div className='author-input-wrapper'>
                 <div className='author-input-form'>

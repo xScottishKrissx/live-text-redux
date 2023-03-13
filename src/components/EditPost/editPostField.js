@@ -25,11 +25,6 @@ export default function EditPostField({field, passNewFieldValue, clearContent}) 
         onUpdate:({editor}) => {
             const json = editor.getHTML()
             passNewFieldValue(json)
-
-            if(resetStatus === true){
-                editor.commands.clearContent()
-                dispatch(setForm(false))
-            }
         },
 
         
