@@ -142,3 +142,18 @@
     width: inherit;
 }
 
+.confirm-post-overlay{
+    height: 500px;
+    /* background-color: white; */
+    box-shadow: none;
+    animation: test123 0.5s;
+}
+
+@keyframes test123 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

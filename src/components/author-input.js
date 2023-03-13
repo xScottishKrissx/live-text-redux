@@ -30,24 +30,34 @@ export default function AuthorInput() {
 
   return (
     <>
-    {
-      showOverlay === true ? 
 
-      <div>
-        <button onClick={()=>setOverlay(false)}>New Post</button>
-      </div>
-  :
-    <div className='author-input-wrapper'>
-      {editModeState.editing ? 
-        <EditTiptap id={editModeState.editId} handleEdit={handleEdit} />
-        :
-        <NewPost handleEdit={handleEdit} confirmPost={confirmPost} />
-      }
-
-    </div>
+      <div className='author-input-wrapper'>
+      {showOverlay === true ? 
+      <div className='confirm-post-overlay'> 
+        <h1>Post Added</h1>
         
-      
+        <h3>Create New Post?</h3>
+        <button onClick={()=>setOverlay(false)}>Create New Post</button> 
+        
+        <h3>View Public View</h3>
+        <button onClick={()=>setOverlay(false)}>Show Public View</button> 
+
+        <h3>Loggout</h3>
+        <button>Logout</button>
+
+        <h4>Delete Live Text</h4>
+        <button>Delete</button>
+      </div>
+    :
+      <>
+        {editModeState.editing ? 
+          <EditTiptap id={editModeState.editId} handleEdit={handleEdit} />
+          :
+          <NewPost handleEdit={handleEdit} confirmPost={confirmPost} />
+        }
+        </>
       }
-      </>
+      </div>
+    </>
   )
 }
