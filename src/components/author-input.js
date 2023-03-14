@@ -5,33 +5,21 @@ import { setEdit } from '../features/editState'
 import EditTiptap from './EditPost/editView'
 import NewPost from './NewPost/NewPost'
 
-import { setForm } from '../features/resetForm'
-
 import './author-input.css'
 
 export default function AuthorInput() {
   const dispatch = useDispatch()
-
   const editModeState = useSelector((state) => state.edit.value)
-  const handleEdit = (x) => {
-   
-    dispatch(setEdit({editing:x, editId: null}))
-  }
 
-  const [showOverlay, setOverlay] = useState(false)
-  const confirmPost = () =>{
-    console.log("Handle New Post")
-    setOverlay(true)
-  }
+  const [showOverlay, setOverlay] = useState(true)
 
-  // console.log(editModeState.editing)
-
-
+  const handleEdit = (x) => dispatch(setEdit({editing:x, editId: null}))
 
   return (
     <>
 
       <div className='author-input-wrapper'>
+      <button onClick={()=>setOverlay(true)}>Display Control Panel</button>
       {showOverlay === true ? 
       <div className='confirm-post-overlay'> 
         <h1>Post Added</h1>
@@ -45,17 +33,17 @@ export default function AuthorInput() {
         <h3>Loggout</h3>
         <button>Logout</button>
 
-        <h4>Delete Live Text</h4>
-        <button>Delete</button>
+        <h4>Manage Live Text</h4>
+        <button>Manage</button>
       </div>
     :
       <>
         {editModeState.editing ? 
           <EditTiptap id={editModeState.editId} handleEdit={handleEdit} />
           :
-          <NewPost handleEdit={handleEdit} confirmPost={confirmPost} />
+          <NewPost handleEdit={handleEdit} confirmPost={()=>setOverlay(!showOverlay)} />
         }
-        </>
+      </>
       }
       </div>
     </>

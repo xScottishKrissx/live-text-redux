@@ -26,7 +26,6 @@ export default function NewPost({handleEdit, confirmPost}) {
         dispatch(addItem({postTitle,postSubtitle, postType, postBody, postImageName, insertTweet, insertYoutube}))
     },[postTitle,postSubtitle, postBody, postType, postImageName, insertTweet, insertYoutube])
 
-    console.log(postTitle)
 
     return (
         <div>

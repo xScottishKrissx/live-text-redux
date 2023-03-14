@@ -1,5 +1,6 @@
 .author-input-wrapper{
     /* outline: 1px solid black; */
+    animation: test123 0.5s;
     /* background-color: grey; */
     background-color: var(--authorInputBackgroundColour);
     box-shadow: 5px 5px 5px 5px var(--authorInputBackgroundColour);

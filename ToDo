@@ -136,6 +136,18 @@ Live Text:
           ...it only appears in the item review window, so not actually an issue but still annoying
       ✔ Add Twitter card @done(23-02-21 11:53)
       ☐ Create Login / Logout system
+
+      Control Panel:
+        ☐ A single panel to do a variety of things.
+          ✔ Create New Post @done(23-03-14 15:47)
+          ☐ View Public View(hide the control panel and display the summary panel)
+          ☐ Logout(like above but with user account interaction)
+          ☐ Manage live texts
+            ☐ Im thinking that a single account can have multiple live texts in their account that they can view and manage.
+            ☐ This panel will allow simple interactions between these accounts
+              ☐ Create new live texts
+              ☐ Delete Live Texts
+              ☐ View Live Texts
       
 
 
