@@ -146,6 +146,8 @@ Live Text:
             ☐ Im thinking that a single account can have multiple live texts in their account that they can view and manage.
             ☐ This panel will allow simple interactions between these accounts
               ☐ Create new live texts
+                ☐ Create a button that lets you add live texts to an array.
+                ☐ Now I need to add new posts to a specfic live text array
               ☐ Delete Live Texts
               ☐ View Live Texts
       
