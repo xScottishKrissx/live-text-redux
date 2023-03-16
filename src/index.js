@@ -12,6 +12,7 @@ import liveTextReducer from './features/live-text'
 import editModeReducer from './features/editState'
 import previewEditReducer from './features/previewEdit';
 import resetForm from './features/resetForm';
+import setActiveLiveTextReducer  from './features/activeLiveText';
 
 const store = configureStore({
   reducer:{
@@ -19,7 +20,8 @@ const store = configureStore({
     livetext: liveTextReducer,
     edit: editModeReducer,
     preview: previewEditReducer,
-    reset: resetForm
+    reset: resetForm,
+    active:setActiveLiveTextReducer
   }
 })
 

@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const getLocalStorage =  JSON.parse(localStorage.getItem("live-text"))
+// const getLocalStorage =  JSON.parse(localStorage.getItem("live-text"))
+const getLocalStorage =  JSON.parse(localStorage.getItem("liveTextMaster"))
 const defaultState = getLocalStorage ||  [] 
 
-console.log(defaultState)
+// console.log(defaultState)
 
 // const text = []
 // const thing1 = {"name" : "chris", "age":20, "job":"bricky"}
@@ -17,8 +18,6 @@ export const liveTextSlice = createSlice({
     reducers:{
         updateArray:(state,action) =>{
             state.value = action.payload
-            
-            
         }
     }
 })

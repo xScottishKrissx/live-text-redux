@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateArray } from '../../features/live-text'
 
@@ -9,15 +9,20 @@ import './postControl.css'
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 import { setForm } from '../../features/resetForm'
 
-export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, confirmPost}) {
+export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, confirmPost, liveTextId}) {
     // localStorage.clear()
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
+    const activeLiveText = useSelector((state) => state.active.value)
+    // console.log(activeLiveText)
+    const getCurrentLiveText = liveText.filter(x => x.id === activeLiveText)
 
     const getCurrentPost = liveText.filter(x => x.id === id)
     const getOtherPosts = liveText.filter(x => x.id !== id)
 
-    
+    const [item, setItem] = useState({id:activeLiveText.item.id, content:[{title:"Test"}]})
+    // localStorage.clear()
+    // console.log(item.id)
     const createNewPost = () =>{
         console.log("Create New Post")
 
@@ -34,17 +39,47 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
             tweet:tweet,
             youtube:youtube
           }]
-
+          console.log(item.content)
           console.log(newPost)
-      
+        //   console.log(item.content.concat(newPost))
+          const thing = item.content.concat(newPost)
+          console.log(thing)
+          
+  
+          setItem({
+            ...item,
+            content:thing
+          })
+
+          console.log(item)
+
+        //   console.log(item)
+
+        //   console.log(activeLiveText.item)
+        //   let test = activeLiveText
+        //   let thingy = [...test.item.content, newPost[0]]
+        //   console.log(thingy)
+
+
+        //   activeLiveText.item.content.unshift([...newPost[0]])
+        //   const thing = Object.assign([...activeLiveText.item.content], [...newPost[0]])
+        //   console.log(thing)
+        //   console.log(activeLiveText)
           // console.log(insertTweet)
-          const updateLiveTextArray = [newPost[0]].concat(liveText)
-          dispatch(updateArray(updateLiveTextArray))
-          localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
-          setPostImageName("")
-          dispatch(setForm(true))
+        //   const updateLiveTextArray = [newPost[0]].concat(liveText)
+        //   const updateLiveTextArray = activeLiveText.item.content.unshift(newPost[0])
+            // const updateLiveTextArray = [...activeLiveText.item.content, newPost[0]]
+        //   console.log(updateLiveTextArray)
+
+
+        //   console.log(liveText)
+        //   console.log(updateLiveTextArray)
+        //   dispatch(updateArray(updateLiveTextArray))
+        //   localStorage.setItem("live-text", JSON.stringify(updateLiveTextArray))
+        //   setPostImageName("")
+        //   dispatch(setForm(true))
  
-          confirmPost()
+        //   confirmPost()
 
 
     }

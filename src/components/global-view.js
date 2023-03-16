@@ -4,18 +4,31 @@ import './global-view.css'
 import { useSelector } from 'react-redux'
 import Post from './Post/post'
 
+
 export default function GlobalView() {
 
   const loggedIn = true
   // localStorage.clear()
 
   const liveText = useSelector((state) => state.livetext.value)
-  // console.log(liveText)
-  if(!liveText) return
+  const activeLiveText = useSelector((state) => state.active.value)
+  // console.log(activeLiveText)
+  // return
+  if(!liveText || !activeLiveText.item) return
+  // console.log(activeLiveText.item)
+  
+  const getActiveLiveText = liveText.filter(x => x.id === activeLiveText.item.id)
+  // console.log(getActiveLiveText)
+  // if(!getActiveLiveText) return
+
   
   // Sort items by timestamp
-  const liveTextArray = [...liveText]
-  liveTextArray.sort((a, b) => {
+  const liveTextArray = [...getActiveLiveText]
+  // console.log(liveTextArray[0].content)
+  // if(!liveTextArray[0].content) return
+
+  liveTextArray[0].content.sort((a, b) => {
+    console.log(liveTextArray)
     const valA = a.timestamp; 
     const valB = b.timestamp; 
     if (valA < valB) { return 1; }
@@ -25,10 +38,10 @@ export default function GlobalView() {
 
 
 
-
-  const displayLiveText = liveTextArray.map((x, index) => {
-
+  // console.log("Hello")
+  const displayLiveText = liveTextArray[0].content.map((x, index) => {
     if(!loggedIn && x.hidden ) return 
+
     const timeSincePostCreation = (Date.now() - x.timestamp) / 1000
     const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
 
@@ -37,6 +50,7 @@ export default function GlobalView() {
         className={'post-item ' + x.type + ' ' + changeClassWithTime} 
         key={x.id} 
         >
+          
         <Post
         
           id={x.id}

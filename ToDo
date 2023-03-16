@@ -147,6 +147,7 @@ Live Text:
             ☐ This panel will allow simple interactions between these accounts
               ☐ Create new live texts
                 ☐ Create a button that lets you add live texts to an array.
+                  ☐ Christ that took ages. The solution is actually a lot simpler than I was trying which means I'm overthinking things too much. I'm still not actually done as I have new posts being added to an array inside an object that contains the current live text content. I now need to save this content to the master live text and render that in the global view.
                 ☐ Now I need to add new posts to a specfic live text array
               ☐ Delete Live Texts
               ☐ View Live Texts
