@@ -9,18 +9,18 @@ import './postControl.css'
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 import { setForm } from '../../features/resetForm'
 
-export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, confirmPost, liveTextId}) {
+export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, confirmPost}) {
     // localStorage.clear()
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
     const activeLiveText = useSelector((state) => state.active.value)
-    // console.log(activeLiveText)
+    console.log(activeLiveText)
     const getCurrentLiveText = liveText.filter(x => x.id === activeLiveText)
 
     const getCurrentPost = liveText.filter(x => x.id === id)
     const getOtherPosts = liveText.filter(x => x.id !== id)
 
-    const [item, setItem] = useState({id:activeLiveText.item.id, content:[{title:"Test"}]})
+    // const [item, setItem] = useState()
     // localStorage.clear()
     // console.log(item.id)
     const createNewPost = () =>{
@@ -39,19 +39,22 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
             tweet:tweet,
             youtube:youtube
           }]
-          console.log(item.content)
+
+
+
+        //   console.log(item.content)
           console.log(newPost)
+          console.log(activeLiveText)
+
+
         //   console.log(item.content.concat(newPost))
-          const thing = item.content.concat(newPost)
-          console.log(thing)
+        //   const thing = item.content.concat(newPost)
+        //   console.log(thing)
           
   
-          setItem({
-            ...item,
-            content:thing
-          })
+        //   setItem({ ...item, content:thing })
 
-          console.log(item)
+        //   console.log(item)
 
         //   console.log(item)
 

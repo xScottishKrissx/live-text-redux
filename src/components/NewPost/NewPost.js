@@ -36,7 +36,6 @@ export default function NewPost({handleEdit, confirmPost, liveTextId}) {
                 body={postBody} 
                 subtitle={postSubtitle} 
                 confirmPost={confirmPost}
-                liveTextId={liveTextId}
             />
             <div className='author-input-wrapper'>
                 <div className='author-input-form'>

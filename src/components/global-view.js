@@ -11,30 +11,32 @@ export default function GlobalView() {
   // localStorage.clear()
 
   const liveText = useSelector((state) => state.livetext.value)
+  // console.log(liveText)
   const activeLiveText = useSelector((state) => state.active.value)
   // console.log(activeLiveText)
-  // return
-  if(!liveText || !activeLiveText.item) return
+  if(!liveText || !activeLiveText) return
   // console.log(activeLiveText.item)
   
-  const getActiveLiveText = liveText.filter(x => x.id === activeLiveText.item.id)
+  const getActiveLiveText = liveText.filter(x => x.id === activeLiveText.id)
   // console.log(getActiveLiveText)
   // if(!getActiveLiveText) return
-
+  
   
   // Sort items by timestamp
   const liveTextArray = [...getActiveLiveText]
+  // console.log(liveTextArray)
+  // return
   // console.log(liveTextArray[0].content)
-  // if(!liveTextArray[0].content) return
+  if(!liveTextArray[0]?.content) return
 
-  liveTextArray[0].content.sort((a, b) => {
-    console.log(liveTextArray)
-    const valA = a.timestamp; 
-    const valB = b.timestamp; 
-    if (valA < valB) { return 1; }
-    if (valA > valB) { return -1; }
-    return 0;
-  });
+  // liveTextArray[0].content.sort((a, b) => {
+  //   console.log(liveTextArray)
+  //   const valA = a.timestamp; 
+  //   const valB = b.timestamp; 
+  //   if (valA < valB) { return 1; }
+  //   if (valA > valB) { return -1; }
+  //   return 0;
+  // });
 
 
 

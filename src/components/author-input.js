@@ -12,35 +12,41 @@ import './author-input.css'
 
 export default function AuthorInput() {
   const dispatch = useDispatch()
+  /////// Handle Edit
   const editModeState = useSelector((state) => state.edit.value)
-  const activeLiveTextState = useSelector((state) => state.active.value)
-  // console.log(activeLiveTextState)
-
   const [showOverlay, setOverlay] = useState(true)
   const handleEdit = (x) => dispatch(setEdit({editing:x, editId: null}))
 
+
+  ////// Handle Live Texts
+  const activeLiveTextState = useSelector((state) => state.active.value.id)
   const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
   const [liveTexts, setLiveTexts] = useState(liveTextMaster)
-  const [activeLiveText, setActiveLiveTextState] = useState()
+
+  // Create a new live text / column
   const createNewLiveText = () => {
     const newLiveText = {id:uuidv4(), content:[]}
-    setLiveTexts(liveTexts.concat(newLiveText))
-    localStorage.setItem("liveTextMaster", JSON.stringify(liveTexts))
+    const addToMasterArray = liveTexts.concat(newLiveText)
+    setLiveTexts(addToMasterArray)
+    localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
   }
 
-  const handleSetActive = (item) =>{
-      dispatch(setActiveLiveText({item}))
+  // Set a live text as the current active live text (the one new posts will be added to.)
+  const handleSetActive = (x) =>{
+      console.log(x)
+      dispatch(setActiveLiveText(x))
+      localStorage.setItem("activeLiveText", JSON.stringify(x))
   }
 
+  // Display the list of available live texts / columns
   const displayLiveTexts = liveTexts.map((x, index) => {
-    // console.log(x)
     return (
       <div key={index}>
-        {x.id} -- <button onClick={()=>handleSetActive(x)}>View</button>
+        {x.id} -- <button onClick={()=>handleSetActive(x)}>Activate</button>
       </div>
     )
   })
-  // localStorage.clear()
+
   return (
     <>
 
@@ -63,7 +69,7 @@ export default function AuthorInput() {
         <h4>Create Live Text</h4>
         
         <button onClick={createNewLiveText}>Create</button>
-        {/* <h4>Active Live Text - {activeLiveText}</h4> */}
+        <h4>Active Live Text - {activeLiveTextState}</h4>
 
         <h4>Manage Live Texts</h4>
         {displayLiveTexts}

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const defaultState = {item:null}
+const defaultState = JSON.parse( localStorage.getItem("activeLiveText")) || {}
 
 
 export const activeLiveTextSlice = createSlice({
@@ -11,7 +11,7 @@ export const activeLiveTextSlice = createSlice({
             // console.log(state)
             // console.log(action)
             state.value = action.payload
-            // console.log(action.payload)
+            console.log(action.payload)
         }
     }
 })
