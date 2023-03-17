@@ -14,7 +14,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
     const activeLiveText = useSelector((state) => state.active.value)
-    console.log(activeLiveText)
+    // console.log(activeLiveText)
     const getCurrentLiveText = liveText.filter(x => x.id === activeLiveText)
 
     const getCurrentPost = liveText.filter(x => x.id === id)
@@ -41,11 +41,18 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
           }]
 
 
+        const columnData = { [uuidv4()]: { items:newPost } }
+        console.log(newPost)
+        console.log(columnData)
 
         //   console.log(item.content)
-          console.log(newPost)
           console.log(activeLiveText)
+        //   let copy = {...activeLiveText}
 
+
+        //   console.log(copy)
+          
+          //   let temp = copy.content.concat(newPost)
 
         //   console.log(item.content.concat(newPost))
         //   const thing = item.content.concat(newPost)

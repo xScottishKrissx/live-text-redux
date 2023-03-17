@@ -22,11 +22,13 @@ export default function AuthorInput() {
   const activeLiveTextState = useSelector((state) => state.active.value.id)
   const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
   const [liveTexts, setLiveTexts] = useState(liveTextMaster)
+  console.log(liveTexts)
 
   // Create a new live text / column
   const createNewLiveText = () => {
-    const newLiveText = {id:uuidv4(), content:[]}
-    const addToMasterArray = liveTexts.concat(newLiveText)
+    // const newLiveText = {id:uuidv4(), content:[]}
+    const newColumn = {[uuidv4()]: {name:"placeholder", items:[]}}
+    const addToMasterArray = liveTexts.concat(newColumn)
     setLiveTexts(addToMasterArray)
     localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
   }
@@ -39,14 +41,17 @@ export default function AuthorInput() {
   }
 
   // Display the list of available live texts / columns
-  const displayLiveTexts = liveTexts.map((x, index) => {
-    return (
-      <div key={index}>
-        {x.id} -- <button onClick={()=>handleSetActive(x)}>Activate</button>
-      </div>
+  const displayLiveTexts = Object.keys(liveTexts).map((key, i) =>{
+    return(
+      Object.entries(liveTexts[i]).map(([columnId, columnContent]) =>{
+        return(
+          <div key={columnId}>
+            {columnContent.name}-{columnId}
+          </div>
+        )
+      })
     )
   })
-
   return (
     <>
 
