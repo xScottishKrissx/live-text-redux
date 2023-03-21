@@ -154,8 +154,17 @@ Live Text:
                   ☐ I had to redo most of the post control, author input and global view functions to make this work.
                     ☐ There's a lot that has been changed and it wasn't easy to get here, but I have succeeded in making panel that lets you switch between columns(live-texts) from a single control panel
                     ☐ There a lot that needs to be done but the biggest part of this has been achieved. This was a struggle, no lie, but It makes the website better.
-              ☐ Delete Live Texts
-              ☐ View Live Texts
+            Post Control Panel Cleanup and Todo:
+              ✔ Clean Up Author Input File @done(23-03-21 16:02)
+              ✔ Create component for control panel @done(23-03-21 16:01)
+                ✔ Create component for column management @done(23-03-21 16:02)
+              ☐ When creating a live text, require it to have a name
+                ☐ Show this name in the post view.
+              ☐ Create public view
+              ☐ Fix Post Control
+                ☐ Hide button
+                ☐ Delete button
+              ☐ Fix Edit function
       
 
 
