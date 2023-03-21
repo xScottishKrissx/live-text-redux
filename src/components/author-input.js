@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setEdit } from '../features/editState'
 
@@ -7,26 +7,36 @@ import NewPost from './NewPost/NewPost'
 
 import './author-input.css'
 import ControlPanel from './ControlPanel/controlPanel'
+import { setCPanelVis } from '../features/cpanelVis'
 
 
 export default function AuthorInput() {
   const dispatch = useDispatch()
   /////// Handle Edit
   const editModeState = useSelector((state) => state.edit.value)
+  const cPanelVisState = useSelector((state) => state.cPanelVis.value)
+
   const [showControlPanel, setControlPanelVis] = useState(true)
-  const handleEdit = (x) => dispatch(setEdit({editing:x, editId: null}))
+
+  const handleEdit = (x) => {
+    dispatch(setEdit({editing:x, editId: null}))
+  }
+
+  const toggleCPanel = (x) =>{ dispatch(setCPanelVis(!cPanelVisState)) }
+
 
   return (
     <>
 
       <div className='author-input-wrapper'>
-        <button onClick={()=>setControlPanelVis(true)}>Go to Control Panel</button>
-        {showControlPanel === true ? 
+        <button onClick={toggleCPanel}>Toggle CPanel</button>
+        {cPanelVisState === true ? 
             <ControlPanel setControlPanelVis={setControlPanelVis} />
           :
             <>
               {editModeState.editing ? 
                 <EditTiptap id={editModeState.editId} handleEdit={handleEdit} />
+                // "Edit Tiptap"
                 :
                 <NewPost handleEdit={handleEdit} confirmPost={()=>setControlPanelVis(!showControlPanel)} />
               }

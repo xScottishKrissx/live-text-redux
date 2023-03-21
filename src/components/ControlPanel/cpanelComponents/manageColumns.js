@@ -1,9 +1,13 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCPanelVis } from '../../../features/cpanelVis'
 
 export default function ManageColumns({data, handleSetActive, activeLiveTextState, setControlPanelVis}) {
-
+  const dispatch = useDispatch()
+  const cPanelVis = useSelector((state) => state.cPanelVis.value)
   const goToNewPostInput = (content, id) =>{
-    setControlPanelVis(false)
+    // setControlPanelVis(false)
+    dispatch(setCPanelVis(!cPanelVis))
     handleSetActive(id, content)
   }
   return (

@@ -18,6 +18,8 @@ const EditTiptap = ({ id, handleEdit }) =>{
 
     const liveText = useSelector((state) => state.livetext.value)
     const getCurrentPost = liveText.filter(x => x.id === id)
+    console.log(getCurrentPost)
+
     const {title, subtitle, body, tweet, youtube, image } = getCurrentPost[0]
     
     const [postTitle, setTitle] = useState(title)

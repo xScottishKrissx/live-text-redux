@@ -165,6 +165,7 @@ Live Text:
                 ☐ Hide button
                 ☐ Delete button
               ☐ Fix Edit function
+                ☐ Had to change how to toggle the CPanel first, which I have and can now deal with refactoring the rest of the post control component.
       
 
 

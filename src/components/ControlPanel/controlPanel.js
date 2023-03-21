@@ -38,7 +38,10 @@ export default function ControlPanel({setControlPanelVis}) {
         <button onClick={clearColumns}>Clear</button>
             
         <h3>Logout - <button>Logout</button> </h3>
+
         <h3>Manage Live Texts - <button onClick={createNewLiveText}>Create New</button> </h3>
+        
+        
         <h4>Active Live Text - {activeLiveTextState}</h4>
 
         <ManageColumns 
