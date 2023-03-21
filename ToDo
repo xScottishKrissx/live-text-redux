@@ -149,6 +149,11 @@ Live Text:
                 ☐ Create a button that lets you add live texts to an array.
                   ☐ Christ that took ages. The solution is actually a lot simpler than I was trying which means I'm overthinking things too much. I'm still not actually done as I have new posts being added to an array inside an object that contains the current live text content. I now need to save this content to the master live text and render that in the global view.
                 ☐ Now I need to add new posts to a specfic live text array
+                ☐ That took even longer.
+                  ☐ About a week actually.
+                  ☐ I had to redo most of the post control, author input and global view functions to make this work.
+                    ☐ There's a lot that has been changed and it wasn't easy to get here, but I have succeeded in making panel that lets you switch between columns(live-texts) from a single control panel
+                    ☐ There a lot that needs to be done but the biggest part of this has been achieved. This was a struggle, no lie, but It makes the website better.
               ☐ Delete Live Texts
               ☐ View Live Texts
       

@@ -8,6 +8,7 @@ import './postControl.css'
 
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 import { setForm } from '../../features/resetForm'
+import { clearConfig } from 'dompurify'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, confirmPost}) {
     // localStorage.clear()
@@ -15,10 +16,27 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const liveText = useSelector((state) => state.livetext.value)
     const activeLiveText = useSelector((state) => state.active.value)
     // console.log(activeLiveText)
-    const getCurrentLiveText = liveText.filter(x => x.id === activeLiveText)
+    
+    const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
+    const [liveTexts, setLiveTexts] = useState(liveTextMaster)
+    // console.log(liveTexts)
+
+    // const getCurrentColumn = liveTexts.map((x,property) =>{
+    //     // console.log(x)
+    //     if(x[property] === activeLiveText){
+    //         return console.log(x)
+    //     }
+    // })
+
+    const getCurrentColumn = liveTexts.filter(x => x[activeLiveText])
+    const getRemainingColumns = liveTexts.filter(x => !x[activeLiveText])
+    
+    // console.log(getRemainingColumns)
 
     const getCurrentPost = liveText.filter(x => x.id === id)
     const getOtherPosts = liveText.filter(x => x.id !== id)
+    // console.log(liveTexts[activeLiveText])
+
 
     // const [item, setItem] = useState()
     // localStorage.clear()
@@ -26,7 +44,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const createNewPost = () =>{
         console.log("Create New Post")
 
-        const newPost = [{
+        const newPost = {
             id: uuidv4(), 
             body:body, 
             title:title, 
@@ -38,15 +56,38 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
             image:image,
             tweet:tweet,
             youtube:youtube
-          }]
+          }
 
+        // console.log(newPost)
+        const newPostData = { [uuidv4()]: { type:"NewPost", items:newPost } }
+        // console.log(newPostData)
+        
 
-        const columnData = { [uuidv4()]: { items:newPost } }
-        console.log(newPost)
-        console.log(columnData)
+        // console.log(liveTexts)
+        // console.log(activeLiveText)
+        // console.log([liveTexts[0][activeLiveText].items])
+        // const addPostToColumn = liveTexts[0][activeLiveText].items.push(newPostData)
+        // console.log(getCurrentColumn)
+        // console.log(liveTexts)
+
+        getCurrentColumn[0][activeLiveText].items.push(newPostData)
+        // console.log(getCurrentColumn)
+        // console.log(liveTexts)
+        const updatedLiveTexts = [...getCurrentColumn, ...getRemainingColumns]
+        // console.log(updatedLiveTexts)
+
+        setLiveTexts(updatedLiveTexts)
+        dispatch(updateArray(updatedLiveTexts))
+        localStorage.setItem("liveTextMaster", JSON.stringify(updatedLiveTexts))
+ 
+        // console.log(activeLiveText)
+
+        // console.log(test)
+        // const currentPosts = 
+
+        // console.log(newPost)
 
         //   console.log(item.content)
-          console.log(activeLiveText)
         //   let copy = {...activeLiveText}
 
 

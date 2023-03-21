@@ -11,6 +11,7 @@ import './author-input.css'
 
 
 export default function AuthorInput() {
+  // localStorage.clear()
   const dispatch = useDispatch()
   /////// Handle Edit
   const editModeState = useSelector((state) => state.edit.value)
@@ -19,23 +20,25 @@ export default function AuthorInput() {
 
 
   ////// Handle Live Texts
-  const activeLiveTextState = useSelector((state) => state.active.value.id)
+  const activeLiveTextState = useSelector((state) => state.active.value) 
+  // console.log(activeLiveTextState)
   const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
   const [liveTexts, setLiveTexts] = useState(liveTextMaster)
-  console.log(liveTexts)
+  // console.log(liveTexts)
 
   // Create a new live text / column
   const createNewLiveText = () => {
     // const newLiveText = {id:uuidv4(), content:[]}
-    const newColumn = {[uuidv4()]: {name:"placeholder", items:[]}}
+    const newColumn = {[uuidv4()]: {type:"Column", items:[]}}
     const addToMasterArray = liveTexts.concat(newColumn)
     setLiveTexts(addToMasterArray)
     localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
   }
 
   // Set a live text as the current active live text (the one new posts will be added to.)
-  const handleSetActive = (x) =>{
-      console.log(x)
+  const handleSetActive = (x, y) =>{
+      // console.log(x)
+      console.log(y)
       dispatch(setActiveLiveText(x))
       localStorage.setItem("activeLiveText", JSON.stringify(x))
   }
@@ -47,11 +50,14 @@ export default function AuthorInput() {
         return(
           <div key={columnId}>
             {columnContent.name}-{columnId}
+            <button onClick={()=>handleSetActive(columnId, columnContent)}>Activate</button>
           </div>
         )
       })
     )
   })
+  // console.log(activeLiveTextState)
+  
   return (
     <>
 

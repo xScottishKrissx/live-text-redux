@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const defaultState = JSON.parse( localStorage.getItem("activeLiveText")) || {}
+const defaultState = JSON.parse( localStorage.getItem("activeLiveText")) || []
 
 
 export const activeLiveTextSlice = createSlice({
