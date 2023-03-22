@@ -14,6 +14,7 @@ export default function ControlPanel({setControlPanelVis}) {
 
     const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
+    console.log(liveTextMaster)
 
     const clearColumns = () =>{
         localStorage.clear()

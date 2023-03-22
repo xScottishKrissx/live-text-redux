@@ -29,6 +29,8 @@ export default function PostContent({loggedIn, handleEdit, editMode, id,title, s
                         : null }
                     </div>
 
+                    PostId: {id}
+
                     {subtitle ? 
                         <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(subtitle.replace('@', ''))}></div> 
                     : null }

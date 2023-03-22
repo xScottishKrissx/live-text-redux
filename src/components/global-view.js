@@ -27,11 +27,11 @@ export default function GlobalView() {
 
 
   const displayLiveText = useActiveColumnItems.map((x, index) => {
-
     if(!loggedIn) return  
     const getPostContent = Object.values(x)
+    const getPostId = Object.keys(x)[0]
     const getPostItems = getPostContent[0].items
-    const {id, title, subtitle, body, type, timestamp, hidden, image, tweet, youtube} = getPostItems
+    const {title, subtitle, body, type, timestamp, hidden, image, tweet, youtube} = getPostItems
     if(hidden) return
     const timeSincePostCreation = (Date.now() - timestamp) / 1000
     const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
@@ -39,12 +39,12 @@ export default function GlobalView() {
     return(
       <div 
         className={'post-item ' + type + ' ' + changeClassWithTime} 
-        key={id} 
+        key={index} 
         >
           
         <Post
         
-          id={id}
+          id={getPostId}
           title={title}
           subtitle={subtitle}
           body={body}

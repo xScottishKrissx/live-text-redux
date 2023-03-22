@@ -8,9 +8,10 @@ import './postControl.css'
 
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 import { setForm } from '../../features/resetForm'
+import { setCPanelVis } from '../../features/cpanelVis'
 import { clearConfig } from 'dompurify'
 
-export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, confirmPost}) {
+export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName}) {
     // localStorage.clear()
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
@@ -30,7 +31,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         console.log("Create New Post")
 
         const newPost = {
-            id: uuidv4(), 
+            // id: uuidv4(), 
             body:body, 
             title:title, 
             subtitle:subtitle, 
@@ -50,7 +51,8 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         dispatch(updateArray(updatedLiveTexts))
         localStorage.setItem("liveTextMaster", JSON.stringify(updatedLiveTexts))
         setPostImageName("")
-        confirmPost()
+
+        dispatch(setCPanelVis(true))
     }
 
 

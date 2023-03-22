@@ -16,11 +16,16 @@ import './editView.css'
 const EditTiptap = ({ id, handleEdit }) =>{
     const dispatch = useDispatch()
 
+    // console.log(id)
     const liveText = useSelector((state) => state.livetext.value)
-    const getCurrentPost = liveText.filter(x => x.id === id)
-    console.log(getCurrentPost)
+    const activeLiveText = useSelector((state) => state.active.value)
+    const getCurrentColumn = liveText.filter(x => x[activeLiveText])
+    const currentColumnItems = getCurrentColumn[0][activeLiveText].items
+    const getCurrentPost = currentColumnItems.filter(x => x[id])
 
-    const {title, subtitle, body, tweet, youtube, image } = getCurrentPost[0]
+    // return
+
+    const {title, subtitle, body, tweet, youtube, image } = getCurrentPost[0][id].items
     
     const [postTitle, setTitle] = useState(title)
     const [postSubtitle, setSubtitle] = useState(subtitle)

@@ -36,9 +36,8 @@ export default function AuthorInput() {
             <>
               {editModeState.editing ? 
                 <EditTiptap id={editModeState.editId} handleEdit={handleEdit} />
-                // "Edit Tiptap"
                 :
-                <NewPost handleEdit={handleEdit} confirmPost={()=>setControlPanelVis(!showControlPanel)} />
+                <NewPost handleEdit={handleEdit} />
               }
             </>
         }
