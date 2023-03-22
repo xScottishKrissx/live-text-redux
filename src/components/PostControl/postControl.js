@@ -24,8 +24,13 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const getCurrentColumn = liveTexts.filter(x => x[activeLiveText])
     const getRemainingColumns = liveTexts.filter(x => !x[activeLiveText])
     
-    const getCurrentPost = liveText.filter(x => x.id === id)
-    const getOtherPosts = liveText.filter(x => x.id !== id)
+    // const getCurrentPost = liveText.filter(x => x.id === id)
+    // const getOtherPosts = liveText.filter(x => x.id !== id)
+
+    // const getCurrentColumn = liveText.filter(x => x[activeLiveText])
+    const currentColumnItems = getCurrentColumn[0][activeLiveText].items
+    const getCurrentPost = currentColumnItems.filter(x => x[id])
+    const getOtherPosts = currentColumnItems.filter(x => !x[id])
 
     const createNewPost = () =>{
         console.log("Create New Post")
@@ -71,10 +76,38 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     }
 
     const saveEdit = () =>{
-        const editCurrentPost = getCurrentPost.map(item =>{
-            if(item.id === id) return {...item, body, title, subtitle, tweet, youtube, image, type, }
+
+        let getPostId = Object.keys(getCurrentPost[0])
+        let getColumnId = Object.keys(getCurrentColumn[0])
+        // Update Post
+        let currentPostItems = getCurrentPost[0][getPostId[0]].items
+        const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type,}
+        const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
+
+        ////////// Update Column
+        let getColumnItems = getCurrentColumn[0][getColumnId].items
+        const updateColumn = getColumnItems.map(x =>{
+            if(x[getPostId]){
+                return {...x, [getPostId]: updateCurrentPost,}
+            }else{
+                return x
+            }
         })
-        updateWebsite(editCurrentPost)          
+
+        /////////// Update Live Texts
+        const updateLiveTexts = liveTexts.map(x =>{
+            if(x[getColumnId]){
+                return{...x, [getColumnId]:  {type:"Column", items:updateColumn}}
+            }else{
+                return x
+            }
+
+        })
+        // Update Website
+        dispatch(updateArray(updateLiveTexts))
+        dispatch(setCPanelVis(true))
+        handleEdit(false)
+        localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))      
     }
 
     const updateWebsite = (changedPost) =>{

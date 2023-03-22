@@ -167,6 +167,7 @@ Live Text:
               ☐ Fix Edit function
                 ☐ Had to change how to toggle the CPanel first, which I have and can now deal with refactoring the rest of the post control component.
                 ✔ Clicking Edit button now renders current post into edit view @done(23-03-22 11:55)
+                ✔ Recreated edit function @done(23-03-22 18:21)
       
 
 
