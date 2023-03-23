@@ -11,7 +11,7 @@ import { setForm } from '../../features/resetForm'
 import { setCPanelVis } from '../../features/cpanelVis'
 import { clearConfig } from 'dompurify'
 
-export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName}) {
+export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden}) {
     // localStorage.clear()
     const dispatch = useDispatch()
     const liveText = useSelector((state) => state.livetext.value)
@@ -20,7 +20,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
 
-    console.log(liveTexts)
+    // console.log(liveTexts)
     const getCurrentColumn = liveTexts.filter(x => x[activeLiveText])
     const getRemainingColumns = liveTexts.filter(x => !x[activeLiveText])
     
@@ -67,15 +67,11 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
 
     const handleDelete = () =>{
         console.log("Delete: " + id)
-        // updateWebsite()
+        /////////// Update Column
         const thing = Object.entries(getCurrentColumn).map(([id, items]) =>{
             let filterThing =  items[getColumnId].items.filter(x => !x[getPostId])
             return filterThing[0]
         })
-
-        console.log(currentColumnItems)
-        console.log(thing)
-
         /////////// Update Live Texts
         const updateLiveTexts = liveTexts.map(x =>{
             if(x[getColumnId]){
@@ -85,21 +81,47 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
             }
 
         })
-        console.log(updateLiveTexts)
 
         // Update Website
         dispatch(updateArray(updateLiveTexts))
-        dispatch(setCPanelVis(true))
-        handleEdit(false)
+        // dispatch(setCPanelVis(true))
+        // handleEdit(false)
         localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))   
     }
 
     const handleHide = (setHide) =>{
-        const setHidden = getCurrentPost.map(item =>{
-            if(item.id === id) return {...item, hidden:setHide}
-        })       
-        updateWebsite(setHidden)
-        console.log("Hide")
+        console.log(setHide)
+        console.log(getCurrentColumn)
+        // Update Post
+        let currentPostItems = getCurrentPost[0][getPostId[0]].items
+        const newPostItems = {...currentPostItems, hidden:setHide}
+        const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
+        // console.log(updateCurrentPost)
+        // Update Column
+        let getColumnItems = getCurrentColumn[0][getColumnId].items
+        const updateColumn = getColumnItems.map(x =>{
+            if(x[getPostId]){
+                return {...x, [getPostId]: updateCurrentPost,}
+            }else{
+                return x
+            }
+        })
+        console.log(updateColumn)
+        // Update Live Text
+        const updateLiveTexts = liveTexts.map(x =>{
+            if(x[getColumnId]){
+                return{...x, [getColumnId]:  {type:"Column", items:updateColumn}}
+            }else{
+                return x
+            }
+
+        })
+
+        // Update Website
+        dispatch(updateArray(updateLiveTexts))
+        // dispatch(setCPanelVis(true))
+        // handleEdit(false)
+        localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))  
     }
 
     const saveEdit = () =>{
@@ -160,6 +182,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
 
     let minChars = 10
     const allowPost = title.length > minChars && body.length > minChars
+    console.log(hidden)
     return (
         <div className='post-control-bar'>
             {editMode ? 
@@ -184,7 +207,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
             }
             {editMode ? <button onClick={handleDelete}><FaTrash/> Delete</button> : null }
             
-            {hide ?
+            {hidden ?
                 <button className='post-control-bar-isHidden' onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
                 :
                 <button onClick={()=>handleHide(true)}><FaEye /> Visible</button>

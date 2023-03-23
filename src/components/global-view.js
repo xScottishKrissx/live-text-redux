@@ -32,7 +32,7 @@ export default function GlobalView() {
     const getPostId = Object.keys(x)[0]
     const getPostItems = getPostContent[0].items
     const {title, subtitle, body, type, timestamp, hidden, image, tweet, youtube} = getPostItems
-    if(hidden) return
+    // if(hidden) return
     const timeSincePostCreation = (Date.now() - timestamp) / 1000
     const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
 

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import DOMPurify from 'dompurify'
 // Logged in - A prop for now but should be read from state in the future when login system in place
 
-export default function PostContent({loggedIn, handleEdit, editMode, id,title, subtitle, body, image}) {
+export default function PostContent({loggedIn, handleEdit, editMode, id,title, subtitle, body, image, hidden}) {
 
     const editModeState = useSelector((state) => state.edit.value)
     const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
@@ -17,6 +17,8 @@ export default function PostContent({loggedIn, handleEdit, editMode, id,title, s
                     {toggleEditButton ? <button onClick={()=>handleEdit(!editMode, id)}>Edit Me</button> : null }
                 </>
             : null }
+
+            {hidden === true ? "Hidden" : "Not Hidden"}
 
             <div className='post-item-headline-wrapper'>
 

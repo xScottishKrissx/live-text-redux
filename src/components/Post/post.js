@@ -10,7 +10,7 @@ import PostTwitter from './View/PostTwitter';
 import PostYoutube from './View/PostYoutube';
 import { setCPanelVis } from '../../features/cpanelVis';
 
-export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube}) {
+export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden}) {
     const dispatch = useDispatch()
     // localStorage.clear()
 
@@ -45,6 +45,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
                 subtitle={subtitle}
                 body={body}
                 image={image}
+                hidden={hidden}
 
             />
             <PostTwitter tweet={tweet}/>

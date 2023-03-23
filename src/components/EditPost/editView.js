@@ -25,7 +25,7 @@ const EditTiptap = ({ id, handleEdit }) =>{
 
     // return
 
-    const {title, subtitle, body, tweet, youtube, image } = getCurrentPost[0][id].items
+    const {title, subtitle, body, tweet, youtube, image, hidden } = getCurrentPost[0][id].items
     
     const [postTitle, setTitle] = useState(title)
     const [postSubtitle, setSubtitle] = useState(subtitle)
@@ -52,6 +52,7 @@ const EditTiptap = ({ id, handleEdit }) =>{
                 body={postBody} 
                 image={postImageName}
                 handleEdit={handleEdit}
+                hidden={hidden}
             />
 
             <div className='author-input-wrapper'>
