@@ -20,7 +20,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
 
-
+    console.log(liveTexts)
     const getCurrentColumn = liveTexts.filter(x => x[activeLiveText])
     const getRemainingColumns = liveTexts.filter(x => !x[activeLiveText])
     
@@ -31,6 +31,9 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const currentColumnItems = getCurrentColumn[0][activeLiveText].items
     const getCurrentPost = currentColumnItems.filter(x => x[id])
     const getOtherPosts = currentColumnItems.filter(x => !x[id])
+
+    let getPostId = Object.keys(getCurrentPost[0])
+    let getColumnId = Object.keys(getCurrentColumn[0])
 
     const createNewPost = () =>{
         console.log("Create New Post")
@@ -64,7 +67,31 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
 
     const handleDelete = () =>{
         console.log("Delete: " + id)
-        updateWebsite()
+        // updateWebsite()
+        const thing = Object.entries(getCurrentColumn).map(([id, items]) =>{
+            let filterThing =  items[getColumnId].items.filter(x => !x[getPostId])
+            return filterThing[0]
+        })
+
+        console.log(currentColumnItems)
+        console.log(thing)
+
+        /////////// Update Live Texts
+        const updateLiveTexts = liveTexts.map(x =>{
+            if(x[getColumnId]){
+                return{...x, [getColumnId]:  {type:"Column", items:thing}}
+            }else{
+                return x
+            }
+
+        })
+        console.log(updateLiveTexts)
+
+        // Update Website
+        dispatch(updateArray(updateLiveTexts))
+        dispatch(setCPanelVis(true))
+        handleEdit(false)
+        localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))   
     }
 
     const handleHide = (setHide) =>{
@@ -77,8 +104,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
 
     const saveEdit = () =>{
 
-        let getPostId = Object.keys(getCurrentPost[0])
-        let getColumnId = Object.keys(getCurrentColumn[0])
+
         // Update Post
         let currentPostItems = getCurrentPost[0][getPostId[0]].items
         const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type,}

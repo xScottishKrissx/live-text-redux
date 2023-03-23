@@ -164,6 +164,7 @@ Live Text:
               ☐ Fix Post Control
                 ☐ Hide button
                 ☐ Delete button
+                  ☐ Done, but again the code needs to be slimmed down like the edit button.
               ☐ Fix Edit function
                 ☐ Had to change how to toggle the CPanel first, which I have and can now deal with refactoring the rest of the post control component.
                 ✔ Clicking Edit button now renders current post into edit view @done(23-03-22 11:55)
