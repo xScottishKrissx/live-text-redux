@@ -13,7 +13,6 @@ import { setCPanelVis } from '../../features/cpanelVis';
 export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden}) {
     const dispatch = useDispatch()
     // localStorage.clear()
-
     const liveText = useSelector((state) => state.livetext.value)
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
     const editModeState = useSelector((state) => state.edit.value)

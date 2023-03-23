@@ -6,34 +6,34 @@ import {v4 as uuidv4} from 'uuid'
 
 import './postControl.css'
 
+import { setCPanelVis } from '../../features/cpanelVis'
+
+import updateLiveText from './PostControlComponents/updateLiveText'
+import PostControlView from './postControlView'
+import handleDelete from './PostControlComponents/handleDelete'
+
+
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 import { setForm } from '../../features/resetForm'
-import { setCPanelVis } from '../../features/cpanelVis'
-import { clearConfig } from 'dompurify'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden}) {
     // localStorage.clear()
     const dispatch = useDispatch()
-    const liveText = useSelector((state) => state.livetext.value)
     const activeLiveText = useSelector((state) => state.active.value)
     
     const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
 
-    // console.log(liveTexts)
     const getCurrentColumn = liveTexts.filter(x => x[activeLiveText])
     const getRemainingColumns = liveTexts.filter(x => !x[activeLiveText])
-    
-    // const getCurrentPost = liveText.filter(x => x.id === id)
-    // const getOtherPosts = liveText.filter(x => x.id !== id)
-
-    // const getCurrentColumn = liveText.filter(x => x[activeLiveText])
+   
     const currentColumnItems = getCurrentColumn[0][activeLiveText].items
     const getCurrentPost = currentColumnItems.filter(x => x[id])
-    const getOtherPosts = currentColumnItems.filter(x => !x[id])
 
-    let getPostId = Object.keys(getCurrentPost[0])
+    let getPostId = getCurrentPost.length > 0 ? Object.keys(getCurrentPost[0]) : "newPost"
     let getColumnId = Object.keys(getCurrentColumn[0])
+    let currentPostItems = getCurrentPost.length > 0 ? getCurrentPost[0][getPostId[0]].items : "newPost"
+    let getColumnItems = getCurrentColumn[0][getColumnId].items
 
     const createNewPost = () =>{
         console.log("Create New Post")
@@ -54,164 +54,71 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         const newPostData = { [uuidv4()]: { type:"NewPost", items:newPost } }
         getCurrentColumn[0][activeLiveText].items.push(newPostData)
         const updatedLiveTexts = [...getCurrentColumn, ...getRemainingColumns]
-
-        setLiveTexts(updatedLiveTexts)
-        dispatch(updateArray(updatedLiveTexts))
-        localStorage.setItem("liveTextMaster", JSON.stringify(updatedLiveTexts))
+        
         setPostImageName("")
-
-        dispatch(setCPanelVis(true))
-    }
-
-
-
-    const handleDelete = () =>{
-        console.log("Delete: " + id)
-        /////////// Update Column
-        const thing = Object.entries(getCurrentColumn).map(([id, items]) =>{
-            let filterThing =  items[getColumnId].items.filter(x => !x[getPostId])
-            return filterThing[0]
-        })
-        /////////// Update Live Texts
-        const updateLiveTexts = liveTexts.map(x =>{
-            if(x[getColumnId]){
-                return{...x, [getColumnId]:  {type:"Column", items:thing}}
-            }else{
-                return x
-            }
-
-        })
-
-        // Update Website
-        dispatch(updateArray(updateLiveTexts))
-        // dispatch(setCPanelVis(true))
-        // handleEdit(false)
-        localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))   
+        console.log("Hello")
+        updateWebsite(updatedLiveTexts, handleEdit)
     }
 
     const handleHide = (setHide) =>{
-        console.log(setHide)
-        console.log(getCurrentColumn)
-        // Update Post
-        let currentPostItems = getCurrentPost[0][getPostId[0]].items
         const newPostItems = {...currentPostItems, hidden:setHide}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
-        // console.log(updateCurrentPost)
-        // Update Column
-        let getColumnItems = getCurrentColumn[0][getColumnId].items
-        const updateColumn = getColumnItems.map(x =>{
-            if(x[getPostId]){
-                return {...x, [getPostId]: updateCurrentPost,}
-            }else{
-                return x
-            }
-        })
-        console.log(updateColumn)
-        // Update Live Text
-        const updateLiveTexts = liveTexts.map(x =>{
-            if(x[getColumnId]){
-                return{...x, [getColumnId]:  {type:"Column", items:updateColumn}}
-            }else{
-                return x
-            }
-
-        })
-
-        // Update Website
-        dispatch(updateArray(updateLiveTexts))
-        // dispatch(setCPanelVis(true))
-        // handleEdit(false)
-        localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))  
+        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite) 
     }
 
-    const saveEdit = () =>{
-
-
-        // Update Post
-        let currentPostItems = getCurrentPost[0][getPostId[0]].items
-        const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type,}
+    const handleSaveEdit = () =>{
+        const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
-
-        ////////// Update Column
-        let getColumnItems = getCurrentColumn[0][getColumnId].items
-        const updateColumn = getColumnItems.map(x =>{
-            if(x[getPostId]){
-                return {...x, [getPostId]: updateCurrentPost,}
-            }else{
-                return x
-            }
-        })
-
-        /////////// Update Live Texts
-        const updateLiveTexts = liveTexts.map(x =>{
-            if(x[getColumnId]){
-                return{...x, [getColumnId]:  {type:"Column", items:updateColumn}}
-            }else{
-                return x
-            }
-
-        })
-        // Update Website
-        dispatch(updateArray(updateLiveTexts))
+        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite)   
+    }
+     
+    const updateWebsite = (newMasterLiveText) =>{
+        dispatch(updateArray(newMasterLiveText))
         dispatch(setCPanelVis(true))
         handleEdit(false)
-        localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))      
+        localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
     }
-
-    const updateWebsite = (changedPost) =>{
-
-
-        console.log("New Post")
-        if(changedPost){
-            const mergeObjects = [...getOtherPosts, ...changedPost]
-            dispatch(updateArray(mergeObjects))
-            localStorage.setItem("live-text", JSON.stringify(mergeObjects))   
-        }
-        else{
-            dispatch(updateArray(getOtherPosts))
-            localStorage.setItem("live-text", JSON.stringify(getOtherPosts))   
-        }
-        dispatch(setForm(true))
-        handleEdit(false)
-
-    }
-
-    const closeEdit = () =>{
-        handleEdit(false)
-    }
-
     let minChars = 10
     const allowPost = title.length > minChars && body.length > minChars
-    console.log(hidden)
     return (
+
         <div className='post-control-bar'>
-            {editMode ? 
-                    // Edit an Existing Post
-                    allowPost ?
-                        <button onClick={saveEdit}><FaSave /> Save </button>
-                        :
-                        <button ><FaSave />Save: Title and Body Required </button>
-
+        {editMode ? 
+                // Edit an Existing Post
+                allowPost ?
+                    <button onClick={handleSaveEdit}><FaSave /> Save </button>
                     :
+                    <button ><FaSave />Save: Title and Body Required </button>
 
-                    // Creating a New Post
-                    allowPost ? 
-                    <button onClick={
-                        ()=>{
-                            createNewPost()
-                            dispatch(setForm(true))
-
-                    }}><FaEdit /> Create New Post</button>
-                    : 
-                    <button><FaEdit />Create New Post: Title and Body Required</button>
-            }
-            {editMode ? <button onClick={handleDelete}><FaTrash/> Delete</button> : null }
-            
-            {hidden ?
-                <button className='post-control-bar-isHidden' onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
                 :
-                <button onClick={()=>handleHide(true)}><FaEye /> Visible</button>
-            }
-        </div>
+                // Creating a New Post
+                allowPost ? 
+                <button onClick={ ()=>{ 
+                    createNewPost() 
+                    dispatch(setForm(true))}}>
+                    <FaEdit /> Create New Post</button>
+                : 
+                <button><FaEdit />Create New Post: Title and Body Required</button>
+        }
+        {editMode ? <button onClick={handleDelete}><FaTrash/> Delete</button> : null }
+        
+        {hidden ?
+            <button className='post-control-bar-isHidden' onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
+            :
+            <button onClick={()=>handleHide(true)}><FaEye /> Visible</button>
+        }
+    </div>
+        
+        // <PostControlView
+        //     title={title}
+        //     body={body}
+        //     hidden={hidden}
+
+        //     editMode={editMode}
+        //     handleSaveEdit={handleSaveEdit}
+        //     createNewPost={createNewPost}
+        //     handleDelete={handleDelete(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite)}
+        //     handleHide={handleHide}
+        // />
     )
 }
