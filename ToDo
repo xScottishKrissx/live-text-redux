@@ -3,7 +3,7 @@ Live Text:
     ✔ Setup Redux @done(22-12-01 11:29)
     ✔ Setup Github @done(22-12-01 11:35)
   To-Do:
-    ☐ Do the UI/Prototype
+    ✔ Do the UI/Prototype @done(23-03-24 14:17)
       ✔ I have the form input styled @done(22-12-20 14:59)
 
       Global View
@@ -17,7 +17,7 @@ Live Text:
         ✔ bring title and subtitle closer together @done(23-02-17 18:19)
         ✔ improve new tag @done(23-02-21 11:48)
         ✔ change font @done(23-02-17 18:23)
-      ☐ Adding Posts
+      ✔ Adding Posts @done(23-03-24 14:17)
         ✔ Animate post when it's new @done(23-02-13 17:50)
           ✔ Give it a new tag that is removed after 30 seconds? @done(23-02-13 17:50)
           ✔ The main issue i had is that the key was using index which doesn't change on render so i just switched to the post id and it worked...i wasted so much time on this i am actually annoyed. At least the problem is solved and new posts animate on render and won't animate after a set amount of time @done(23-02-13 17:51)
@@ -28,8 +28,9 @@ Live Text:
           ✔ This should be an easy way to get myself back into the swing of things. @done(23-01-13 16:53)
           ✔ Pretty simple with day.js @done(23-01-13 16:53)
         ✔ Different style depending on update type @done(23-02-16 12:02)
-        ☐ Add Share bar
-          
+        Share bar:
+          ☐ Create the Share Bar
+
         ✔ Add indicator that post is new, that changes after 60 seconds @done(23-02-14 13:57)
           ✔ I have the core in place, just need to style it @done(23-02-14 15:59)
         ✔ There is a post duplication bug that duplicates the post array over and over. It's not endless it's just duplicating what's currently in the array...which is then duplicated. @done(23-02-13 17:22)
@@ -37,8 +38,8 @@ Live Text:
             ✔ It's the delete button, it's doubling the array on delete... @done(23-02-13 17:22)
             ✔ Fixed it, i was accidentally copying the array without the delete post onto the another array without the deleted post instead of just saving the array without the delete post to begin with. @done(23-02-13 17:22)
         ✔ Make the tags menu look better @done(23-02-22 17:07)
-        ☐ Add file upload to replace/add to the current add images button
-          ☐ Done, just need to clean up the code a bit
+        ✔ Add file upload to replace/add to the current add images button @done(23-03-24 14:17)
+          ✔ Done, just need to clean up the code a bit @done(23-03-24 14:17)
           ✔ style input @done(23-02-22 17:17)
             ✔ The current styling is to bland, need to do something about this.At least the functionality is in, i just need to rethink my approach here. @done(23-02-22 17:43)
           ✔ Ability to cancel image upload @done(23-02-17 18:12)
@@ -48,7 +49,7 @@ Live Text:
           
 
       ✔ Ability to cancel adding post @done(22-12-20 17:03)
-      ☐ Ability to edit post 
+      ✔ Ability to edit post @done(23-03-24 14:17)
         ✔ Fields to edit @done(23-02-08 13:39)
           ✔ Title @done(23-02-08 13:39)
           ✔ Subtitle @done(23-02-08 13:39)
@@ -56,7 +57,7 @@ Live Text:
         ✔ Close edit mode on save @done(23-02-08 13:59)
         ✔ Remove border around fields @done(23-02-09 18:26)
         ✔ It should be obvious the post is being edited. @done(23-02-09 18:26)
-        ☐ Im thinking about changing the post/edit structure. I would like the new post and edit stuff to be in the same block but I'm not sure I want to comit to that sort of refactor at this point at it would require a rewrite of the core of the website.
+        ✔ Im thinking about changing the post/edit structure. I would like the new post and edit stuff to be in the same block but I'm not sure I want to comit to that sort of refactor at this point at it would require a rewrite of the core of the website. @done(23-03-24 14:17)
           I think an extensive floating menu might be the best option at the moment.
           ...then i think that having a big input form doing nothing is a waste.
           ...not sure how to proceed, hence the lack of progress over the last day.
@@ -83,11 +84,11 @@ Live Text:
                     ✔ Body @done(23-03-07 17:16)
                     ✔ Tags @done(23-03-07 17:16)
                   ☐ Issues
-                    ☐ The clear content functionality doesn't work now, figure out an alternative
+                    ✔ The clear content functionality doesn't work now, figure out an alternative @done(23-03-24 14:16)
                       ...otherwise you can keep adding the same post by clicking the create new post button
-                      ☐ I've created the functionality for editing post but need to add it for new posts
-                        ☐ Ok so i couldnt figure out how to clear the fields after adding a new post so i have created an overlay that will force the author to manually reset the field. This can double as final confirmation because i give up. i dont know to do thos any other way.
-                        ☐ This might actually be a a good thing as I can turn the overlay in a control panel of sorts. I was going to create a separate panel for logging out, view public view etc but with this new overlay i can just it for those purposes.
+                      I've created the functionality for editing post but need to add it for new posts
+                        Ok so i couldnt figure out how to clear the fields after adding a new post so i have created an overlay that will force the author to manually reset the field. This can double as final confirmation because i give up. i dont know to do thos any other way.
+                        This might actually be a a good thing as I can turn the overlay in a control panel of sorts. I was going to create a separate panel for logging out, view public view etc but with this new overlay i can just it for those purposes.
                     ✔ Create a check to ensure a minimum amount of content has been added before a form can be submitted @done(23-03-07 17:55)
                       ...title, subtitle, body etc...
 
@@ -116,14 +117,14 @@ Live Text:
               ✔ Fill out remaining form entries @done(23-03-03 17:46)
               ✔ Saving an edit on a post with an image, removes the image. @done(23-03-03 17:46)
 
-      ☐ Post Control Bar
+      Post Control Bar:
         ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)
         ✔ Style control bar @done(23-02-09 18:52)
           ... also made the jump between to edit less jarring by moving the timestamp and social media bar out of the edit mode check.
         ✔ Should be hidden if not logged in. @done(23-02-09 19:14)
         
 
-      ☐ Add Summary Bar
+      Summary Bar:
         ☐ Place above live text in logged in
         ☐ Place to the left in logged out
 
@@ -135,51 +136,62 @@ Live Text:
         ✔ ...but the youtube placeholder displays even if you don't add a video. @done(23-02-22 16:19)
           ...it only appears in the item review window, so not actually an issue but still annoying
       ✔ Add Twitter card @done(23-02-21 11:53)
-      ☐ Create Login / Logout system
+      Create Login / Logout system:
+        ☐ Do the thing...
 
       Control Panel:
         ☐ A single panel to do a variety of things.
           ✔ Create New Post @done(23-03-14 15:47)
           ☐ View Public View(hide the control panel and display the summary panel)
           ☐ Logout(like above but with user account interaction)
-          ☐ Manage live texts
-            ☐ Im thinking that a single account can have multiple live texts in their account that they can view and manage.
-            ☐ This panel will allow simple interactions between these accounts
-              ☐ Create new live texts
-                ☐ Create a button that lets you add live texts to an array.
-                  ☐ Christ that took ages. The solution is actually a lot simpler than I was trying which means I'm overthinking things too much. I'm still not actually done as I have new posts being added to an array inside an object that contains the current live text content. I now need to save this content to the master live text and render that in the global view.
-                ☐ Now I need to add new posts to a specfic live text array
-                ☐ That took even longer.
-                  ☐ About a week actually.
-                  ☐ I had to redo most of the post control, author input and global view functions to make this work.
-                    ☐ There's a lot that has been changed and it wasn't easy to get here, but I have succeeded in making panel that lets you switch between columns(live-texts) from a single control panel
-                    ☐ There a lot that needs to be done but the biggest part of this has been achieved. This was a struggle, no lie, but It makes the website better.
-            Post Control Panel Cleanup and Todo:
-              ✔ Clean Up Author Input File @done(23-03-21 16:02)
-              ✔ Create component for control panel @done(23-03-21 16:01)
-                ✔ Create component for column management @done(23-03-21 16:02)
-              ☐ When creating a live text, require it to have a name
-                ☐ Show this name in the post view.
-              ☐ Create public view
-              ☐ When a column has 0 entries, show this in the view
-              ☐ Fix Post Control
-                ☐ Hide button
-                  ✔ Done, but again the code needs to be slimmed down like the edit button. @done(23-03-24 12:09)
-                ☐ Delete button
-                  ✔ Done, but again the code needs to be slimmed down like the edit button. @done(23-03-24 12:09)
-              ☐ Fix Edit function
-                ☐ Had to change how to toggle the CPanel first, which I have and can now deal with refactoring the rest of the post control component.
-                ✔ Clicking Edit button now renders current post into edit view @done(23-03-22 11:55)
-                ✔ Recreated edit function @done(23-03-22 18:21)
-                ☐ Pressing hide shouldnt close the edit view
-                ☐ I'm rebuidling the edit activation as it's become a bit of a mess at this point. I think that I can do better now.
-                  ☐ The problem is that the hide choice is not being respected on save so it's causing issues.
-                  ☐ I actually think the problem is in the save button. Reloading the page keeps the edit mode and hide as is but saving using the button in post control is resetting things for some reason.
-                  ☐ ....i forgot to add hidden to newPostItems object.
-                  /// kill me.
-                  ✔ You should'nt be able to toggle CPanel if editMode is active @done(23-03-24 14:05)
-                  ✔ Toggling the Cpanel/Adding New Post and then pressing the edit button sets edit mode true but hide the edit view. This is wrong and breaks the UI @done(23-03-24 14:11)
-                    ✔ Maybe only display the edit button when the CPanel is active. @done(23-03-24 14:11)
+          Manage live texts:
+            ✔ Im thinking that a single account can have multiple live texts in their account that they can view and manage. @done(23-03-24 14:15)
+            This panel will allow simple interactions between these accounts
+              ✔ Create new live texts @done(23-03-24 14:15)
+                ✔ Create a button that lets you add live texts to an array. @done(23-03-24 14:15)
+                  Christ that took ages. The solution is actually a lot simpler than I was trying which means I'm overthinking things too much. I'm still not actually done as I have new posts being added to an array inside an object that contains the current live text content. I now need to save this content to the master live text and render that in the global view.
+                Now I need to add new posts to a specfic live text array
+                That took even longer.
+                  About a week actually.
+                  I had to redo most of the post control, author input and global view functions to make this work.
+                    There's a lot that has been changed and it wasn't easy to get here, but I have succeeded in making panel that lets you switch between columns(live-texts) from a single control panel
+                    There a lot that needs to be done but the biggest part of this has been achieved. This was a struggle, no lie, but It makes the website better.
+
+            ☐ Ability to name columns
+              ☐ Done, just need to add styles
+            ☐ Add amount of posts in each column
+            ☐ Ability delete Column
+              ☐ Priority
+            ☐ Include name
+            ☐ View Date of creation
+            ☐ Ability to hide columns
+            ☐ When a column has 0 entries, show this in the view
+          Post Control Panel Cleanup and Todo:
+            ✔ Clean Up Author Input File @done(23-03-21 16:02)
+            ✔ Create component for control panel @done(23-03-21 16:01)
+              ✔ Create component for column management @done(23-03-21 16:02)
+            ☐ When creating a live text, require it to have a name / title / headline
+              ☐ Show this name in the post view.
+            ☐ Create public view
+
+            ✔ Fix Post Control @done(23-03-24 14:14)
+              ✔ Hide button @done(23-03-24 14:14)
+                ✔ Done, but again the code needs to be slimmed down like the edit button. @done(23-03-24 12:09)
+              ✔ Delete button @done(23-03-24 14:14)
+                ✔ Done, but again the code needs to be slimmed down like the edit button. @done(23-03-24 12:09)
+            ✔ Fix Edit function @done(23-03-24 14:14)
+              ✔ Had to change how to toggle the CPanel first, which I have and can now deal with refactoring the rest of the post control component. @done(23-03-24 14:14)
+              ✔ Clicking Edit button now renders current post into edit view @done(23-03-22 11:55)
+              ✔ Recreated edit function @done(23-03-22 18:21)
+              ✔ Pressing hide shouldnt close the edit view @done(23-03-24 14:14)
+              ✔ I'm rebuidling the edit activation as it's become a bit of a mess at this point. I think that I can do better now. @done(23-03-24 14:14)
+                The problem is that the hide choice is not being respected on save so it's causing issues.
+                I actually think the problem is in the save button. Reloading the page keeps the edit mode and hide as is but saving using the button in post control is resetting things for some reason.
+                ✔ ....i forgot to add hidden to newPostItems object. @done(23-03-24 14:14)
+                /// kill me.
+                ✔ You should'nt be able to toggle CPanel if editMode is active @done(23-03-24 14:05)
+                ✔ Toggling the Cpanel/Adding New Post and then pressing the edit button sets edit mode true but hide the edit view. This is wrong and breaks the UI @done(23-03-24 14:11)
+                  ✔ Maybe only display the edit button when the CPanel is active. @done(23-03-24 14:11)
       
 
 
