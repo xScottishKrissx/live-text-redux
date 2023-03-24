@@ -159,9 +159,10 @@ Live Text:
 
             ☐ Ability to name columns
               ☐ Done, just need to add styles
+              ☐ The Create new button should appear next to the title field
+              ☐ Creating new column should empty title field
             ☐ Add amount of posts in each column
-            ☐ Ability delete Column
-              ☐ Priority
+            ✔ Ability delete Column @done(23-03-24 16:18)
             ☐ Include name
             ☐ View Date of creation
             ☐ Ability to hide columns

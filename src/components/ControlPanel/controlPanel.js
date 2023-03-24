@@ -17,7 +17,7 @@ export default function ControlPanel({setControlPanelVis}) {
 
     const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
-    console.log(liveTextMaster)
+    // console.log(liveTextMaster)
 
     const clearColumns = () =>{
         localStorage.clear()
@@ -29,13 +29,20 @@ export default function ControlPanel({setControlPanelVis}) {
         localStorage.setItem("activeLiveText", JSON.stringify(x))
     }
 
-        // Create a new live text / column
+    // Create a new live text / column
     const [postTitle, setPostTitle] = useState("")
     const createNewLiveText = () => {
         const newColumn = {[uuidv4()]: {type:"Column", headline:postTitle, items:[]}}
         const addToMasterArray = liveTexts.concat(newColumn)
         setLiveTexts(addToMasterArray)
         localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
+    }
+
+    // Delete Column
+    const handleDeleteColumn = (id) =>{
+        const deleteColumn = liveTexts.filter(x => !x[id])
+        setLiveTexts(deleteColumn)
+        localStorage.setItem("liveTextMaster", JSON.stringify(deleteColumn))
     }
 
 
@@ -57,6 +64,7 @@ export default function ControlPanel({setControlPanelVis}) {
             setControlPanelVis={setControlPanelVis} 
             handleSetActive={handleSetActive} 
             activeLiveTextState={activeLiveTextState} 
+            handleDeleteColumn={handleDeleteColumn}
         />
   </div>
   )

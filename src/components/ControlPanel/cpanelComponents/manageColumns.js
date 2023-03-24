@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCPanelVis } from '../../../features/cpanelVis'
 
-export default function ManageColumns({data, handleSetActive, activeLiveTextState, setControlPanelVis}) {
+export default function ManageColumns({data, handleSetActive, activeLiveTextState, setControlPanelVis, handleDeleteColumn}) {
   const dispatch = useDispatch()
   const cPanelVis = useSelector((state) => state.cPanelVis.value)
   const goToNewPostInput = (content, id) =>{
@@ -12,7 +12,7 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
     handleSetActive(id, content)
   }
   const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
-  
+
   return (
     Object.keys(data).map((i) =>{
         return(
@@ -31,6 +31,8 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
                     <button onClick={()=>goToNewPostInput(columnContent, columnId)}>Add Post</button> 
                   </>        
                 }
+
+                <button onClick={()=>handleDeleteColumn(columnId)}>Delete Column Please :)</button>
 
               </div>
             )
