@@ -14,17 +14,18 @@ import TextArea from "../InputForm/TextArea";
 import './editView.css'
 
 const EditTiptap = ({ id, handleEdit }) =>{
-    const dispatch = useDispatch()
 
+    const dispatch = useDispatch()
+    
     // console.log(id)
     const liveText = useSelector((state) => state.livetext.value)
     const activeLiveText = useSelector((state) => state.active.value)
     const getCurrentColumn = liveText.filter(x => x[activeLiveText])
     const currentColumnItems = getCurrentColumn[0][activeLiveText].items
     const getCurrentPost = currentColumnItems.filter(x => x[id])
-
+    
     // return
-
+    
     const {title, subtitle, body, tweet, youtube, image, hidden } = getCurrentPost[0][id].items
     
     const [postTitle, setTitle] = useState(title)

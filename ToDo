@@ -172,6 +172,14 @@ Live Text:
                 ✔ Clicking Edit button now renders current post into edit view @done(23-03-22 11:55)
                 ✔ Recreated edit function @done(23-03-22 18:21)
                 ☐ Pressing hide shouldnt close the edit view
+                ☐ I'm rebuidling the edit activation as it's become a bit of a mess at this point. I think that I can do better now.
+                  ☐ The problem is that the hide choice is not being respected on save so it's causing issues.
+                  ☐ I actually think the problem is in the save button. Reloading the page keeps the edit mode and hide as is but saving using the button in post control is resetting things for some reason.
+                  ☐ ....i forgot to add hidden to newPostItems object.
+                  /// kill me.
+                  ✔ You should'nt be able to toggle CPanel if editMode is active @done(23-03-24 14:05)
+                  ✔ Toggling the Cpanel/Adding New Post and then pressing the edit button sets edit mode true but hide the edit view. This is wrong and breaks the UI @done(23-03-24 14:11)
+                    ✔ Maybe only display the edit button when the CPanel is active. @done(23-03-24 14:11)
       
 
 

@@ -6,19 +6,20 @@ import DOMPurify from 'dompurify'
 export default function PostContent({loggedIn, handleEdit, editMode, id,title, subtitle, body, image, hidden}) {
 
     const editModeState = useSelector((state) => state.edit.value)
+    const cPanelVisState = useSelector((state) => state.cPanelVis.value)
     const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
     
     const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
 
     return (
         <div className='post-item-body'>
-            {loggedIn ? 
+            {loggedIn && cPanelVisState? 
                 <>
                     {toggleEditButton ? <button onClick={()=>handleEdit(!editMode, id)}>Edit Me</button> : null }
                 </>
             : null }
 
-            {hidden === true ? "Hidden" : "Not Hidden"}
+            {hidden === true ? "Hidden" : "Visible"}
 
             <div className='post-item-headline-wrapper'>
 

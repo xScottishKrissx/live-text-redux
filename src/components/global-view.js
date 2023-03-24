@@ -41,7 +41,6 @@ export default function GlobalView() {
         className={'post-item ' + type + ' ' + changeClassWithTime} 
         key={index} 
         >
-          
         <Post
         
           id={getPostId}

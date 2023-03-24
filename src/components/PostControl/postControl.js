@@ -14,6 +14,7 @@ import PostControlView from './postControlView'
 import deletePost from './PostControlComponents/deletePost'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden}) {
+
     // localStorage.clear()
     const dispatch = useDispatch()
     const activeLiveText = useSelector((state) => state.active.value)
@@ -58,19 +59,25 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const handleHide = (setHide) =>{
         const newPostItems = {...currentPostItems, hidden:setHide}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
-        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite) 
+        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, "keepOpen") 
     }
 
     const handleSaveEdit = () =>{
-        const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type}
+        const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type, hidden}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
         updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite)   
     }
      
-    const updateWebsite = (newMasterLiveText) =>{
+    const updateWebsite = (newMasterLiveText, keepOpen) =>{
+        if(keepOpen?.includes("keepOpen")){
+            console.log(keepOpen)
+            // dispatch(updateArray(newMasterLiveText))
+        }else{
+            dispatch(setCPanelVis(true))
+            handleEdit(false)
+        }
+        // console.log(newMasterLiveText)
         dispatch(updateArray(newMasterLiveText))
-        dispatch(setCPanelVis(true))
-        handleEdit(false)
         localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
     }
 

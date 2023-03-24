@@ -1,4 +1,4 @@
-const updateLiveText = (changedPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite) =>{
+const updateLiveText = (changedPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, keepOpen) =>{
 
     const updateColumn = getColumnItems.map(x =>{ 
         if(x[getPostId]){
@@ -16,7 +16,7 @@ const updateLiveText = (changedPost, getColumnItems, getPostId, getColumnId, liv
             return x 
             }
         })
-    updateWebsite(updateLiveTexts)        
+    updateWebsite(updateLiveTexts, keepOpen)        
 }
 
 export default updateLiveText

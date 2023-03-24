@@ -24,12 +24,13 @@ export default function AuthorInput() {
 
   const toggleCPanel = (x) =>{ dispatch(setCPanelVis(!cPanelVisState)) }
 
-
+ 
   return (
     <>
 
       <div className='author-input-wrapper'>
-        <button onClick={toggleCPanel}>Toggle CPanel</button>
+        {!editModeState.editing ?  <button onClick={toggleCPanel}>Toggle CPanel</button> : null }
+       
         {cPanelVisState === true ? 
             <ControlPanel setControlPanelVis={setControlPanelVis} />
           :
