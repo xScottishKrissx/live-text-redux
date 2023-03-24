@@ -53,10 +53,8 @@ export default function ControlPanel({setControlPanelVis}) {
             
         <h3>Logout - <button>Logout</button> </h3>
 
-        <Title passNewFieldValue={setPostTitle}/>
-        <h3>Manage Live Texts - <button onClick={createNewLiveText}>Create New</button> </h3>
-        
-        
+
+    
         <h4>Active Live Text - {activeLiveTextState}</h4>
 
         <ManageColumns 
@@ -65,7 +63,10 @@ export default function ControlPanel({setControlPanelVis}) {
             handleSetActive={handleSetActive} 
             activeLiveTextState={activeLiveTextState} 
             handleDeleteColumn={handleDeleteColumn}
+            createNewLiveText={createNewLiveText}
+            setPostTitle={setPostTitle}
         />
-  </div>
+
+        </div>
   )
 }
