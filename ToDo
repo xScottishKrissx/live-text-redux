@@ -161,15 +161,17 @@ Live Text:
               ☐ When creating a live text, require it to have a name
                 ☐ Show this name in the post view.
               ☐ Create public view
+              ☐ When a column has 0 entries, show this in the view
               ☐ Fix Post Control
                 ☐ Hide button
-                  ☐ Done, but again the code needs to be slimmed down like the edit button.
+                  ✔ Done, but again the code needs to be slimmed down like the edit button. @done(23-03-24 12:09)
                 ☐ Delete button
-                  ☐ Done, but again the code needs to be slimmed down like the edit button.
+                  ✔ Done, but again the code needs to be slimmed down like the edit button. @done(23-03-24 12:09)
               ☐ Fix Edit function
                 ☐ Had to change how to toggle the CPanel first, which I have and can now deal with refactoring the rest of the post control component.
                 ✔ Clicking Edit button now renders current post into edit view @done(23-03-22 11:55)
                 ✔ Recreated edit function @done(23-03-22 18:21)
+                ☐ Pressing hide shouldnt close the edit view
       
 
 

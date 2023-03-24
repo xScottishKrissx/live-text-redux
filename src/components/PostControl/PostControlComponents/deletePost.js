@@ -1,4 +1,4 @@
-const handleDelete = (getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite) =>{
+const deletePost = (getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite) =>{
 
     const removePost = Object.entries(getCurrentColumn).map(([id, items]) =>{ 
         return items[getColumnId].items.filter(x => !x[getPostId]) 
@@ -14,4 +14,4 @@ const handleDelete = (getCurrentColumn, getColumnId, getPostId, liveTexts, updat
     updateWebsite(updateLiveTexts, "delete")
  }
 
- export default handleDelete
+ export default deletePost

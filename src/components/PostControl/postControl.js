@@ -10,11 +10,8 @@ import { setCPanelVis } from '../../features/cpanelVis'
 
 import updateLiveText from './PostControlComponents/updateLiveText'
 import PostControlView from './postControlView'
-import handleDelete from './PostControlComponents/handleDelete'
 
-
-import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
-import { setForm } from '../../features/resetForm'
+import deletePost from './PostControlComponents/deletePost'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden}) {
     // localStorage.clear()
@@ -39,7 +36,6 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         console.log("Create New Post")
 
         const newPost = {
-            // id: uuidv4(), 
             body:body, 
             title:title, 
             subtitle:subtitle, 
@@ -49,14 +45,13 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
             image:image,
             tweet:tweet,
             youtube:youtube
-          }
+        }
 
         const newPostData = { [uuidv4()]: { type:"NewPost", items:newPost } }
         getCurrentColumn[0][activeLiveText].items.push(newPostData)
         const updatedLiveTexts = [...getCurrentColumn, ...getRemainingColumns]
         
         setPostImageName("")
-        console.log("Hello")
         updateWebsite(updatedLiveTexts, handleEdit)
     }
 
@@ -78,47 +73,19 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         handleEdit(false)
         localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
     }
-    let minChars = 10
-    const allowPost = title.length > minChars && body.length > minChars
+
+    const handleDelete = () => deletePost(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite) 
     return (
-
-        <div className='post-control-bar'>
-        {editMode ? 
-                // Edit an Existing Post
-                allowPost ?
-                    <button onClick={handleSaveEdit}><FaSave /> Save </button>
-                    :
-                    <button ><FaSave />Save: Title and Body Required </button>
-
-                :
-                // Creating a New Post
-                allowPost ? 
-                <button onClick={ ()=>{ 
-                    createNewPost() 
-                    dispatch(setForm(true))}}>
-                    <FaEdit /> Create New Post</button>
-                : 
-                <button><FaEdit />Create New Post: Title and Body Required</button>
-        }
-        {editMode ? <button onClick={handleDelete}><FaTrash/> Delete</button> : null }
-        
-        {hidden ?
-            <button className='post-control-bar-isHidden' onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
-            :
-            <button onClick={()=>handleHide(true)}><FaEye /> Visible</button>
-        }
-    </div>
-        
-        // <PostControlView
-        //     title={title}
-        //     body={body}
-        //     hidden={hidden}
-
-        //     editMode={editMode}
-        //     handleSaveEdit={handleSaveEdit}
-        //     createNewPost={createNewPost}
-        //     handleDelete={handleDelete(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite)}
-        //     handleHide={handleHide}
-        // />
+       
+        <PostControlView
+            title={title}
+            body={body}
+            hidden={hidden}
+            editMode={editMode}
+            handleSaveEdit={handleSaveEdit}
+            createNewPost={createNewPost}
+            handleDelete={handleDelete}
+            handleHide={handleHide}
+        />
     )
 }

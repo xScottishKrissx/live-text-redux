@@ -14,7 +14,7 @@ export default function PostControlView({title, body, hidden, editMode, handleSa
 
     return (
         <div className='post-control-bar'>
-            {/* {editMode ? 
+            {editMode ? 
                     // Edit an Existing Post
                     allowPost ?
                         <button onClick={handleSaveEdit}><FaSave /> Save </button>
@@ -30,14 +30,14 @@ export default function PostControlView({title, body, hidden, editMode, handleSa
                         <FaEdit /> Create New Post</button>
                     : 
                     <button><FaEdit />Create New Post: Title and Body Required</button>
-            } */}
-            {/* {editMode ? <button onClick={handleDelete}><FaTrash/> Delete</button> : null } */}
+            }
+            {editMode ? <button onClick={handleDelete}><FaTrash/> Delete</button> : null }
             
-            {/* {hidden ?
+            {hidden ?
                 <button className='post-control-bar-isHidden' onClick={()=>handleHide(false)}><FaEyeSlash/>Hidden</button>
                 :
                 <button onClick={()=>handleHide(true)}><FaEye /> Visible</button>
-            } */}
+            }
         </div>
     )
 }
