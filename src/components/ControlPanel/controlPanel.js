@@ -55,7 +55,7 @@ export default function ControlPanel({setControlPanelVis}) {
 
 
     
-        <h4>Active Live Text - {activeLiveTextState}</h4>
+        
 
         <ManageColumns 
             data={liveTexts} 

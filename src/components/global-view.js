@@ -4,9 +4,10 @@ import './global-view.css'
 import { useSelector } from 'react-redux'
 import Post from './Post/post'
 
+import DOMPurify from 'dompurify'
 
 export default function GlobalView() {
-
+  const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
   const loggedIn = true
   
   const liveText = useSelector((state) => state.livetext.value)
@@ -23,10 +24,12 @@ export default function GlobalView() {
 
   // Sort items by timestamp
   let useActiveColumnItems = [...getactiveColumnsItems].reverse()
+  let useColumnHeadline = liveTextArray[0][activeLiveText].headline
 
-
-
+  console.log(getactiveColumnsItems)
+  
   const displayLiveText = useActiveColumnItems.map((x, index) => {
+    
     if(!loggedIn) return  
     const getPostContent = Object.values(x)
     const getPostId = Object.keys(x)[0]
@@ -63,7 +66,10 @@ export default function GlobalView() {
   return (
     <div className='global-view-wrapper'>
         {loggedIn ? <p>Logged In</p> : <p>Not Logged In</p>}
-        {displayLiveText}
+        <h1 dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}></h1> 
+
+        {getactiveColumnsItems.length <= 0 ? "+ Add New Post" : displayLiveText}
+        {/* {displayLiveText} */}
     </div>
   )
 }

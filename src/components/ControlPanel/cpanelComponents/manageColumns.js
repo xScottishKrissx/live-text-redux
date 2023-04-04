@@ -5,6 +5,8 @@ import { setCPanelVis } from '../../../features/cpanelVis'
 
 import Title from '../../InputForm/Title'
 
+import { FaCheck, FaRegCircle, FaPlus, FaTrash } from 'react-icons/fa'
+
 export default function ManageColumns({data, handleSetActive, activeLiveTextState, setControlPanelVis, handleDeleteColumn, setPostTitle, createNewLiveText}) {
   const dispatch = useDispatch()
   const cPanelVis = useSelector((state) => state.cPanelVis.value)
@@ -21,22 +23,32 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
     {Object.keys(data).map((i) =>{
       return(
           Object.entries(data[i]).map(([columnId, columnContent]) =>{
+            
             return(
               <div className='manageColumns-column' key={columnId}>
 
-                
+                <div className='manageColumns-activeCheck'>{activeLiveTextState === columnId ? 
+                  <span title="Column is active" id="colIsActive"><FaCheck /></span> 
+                    : 
+                  <span title="Set Column Active" onClick={()=>handleSetActive(columnId, columnContent)}><FaRegCircle /></span>
+                  }
+                </div>
+
                 <div dangerouslySetInnerHTML={createMarkup(columnContent.headline)}></div> 
 
 
-                <button onClick={()=>handleSetActive(columnId, columnContent)}>View</button>
+                <div className='manageColumns-column-buttons'>
+
+                {/* <button onClick={()=>handleSetActive(columnId, columnContent)}>View</button> */}
 
                 {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null : 
                   <>  
-                    <button onClick={()=>goToNewPostInput(columnContent, columnId)}>Add Post</button> 
+                    <button title="Add New Post"  onClick={()=>goToNewPostInput(columnContent, columnId)}><FaPlus /></button> 
                   </>        
                 }
 
-                <button onClick={()=>handleDeleteColumn(columnId)}>Delete Column Please :)</button>
+                <button title="Delete Column" onClick={()=>handleDeleteColumn(columnId)}><FaTrash /></button>
+                </div>
 
               </div>
             )
@@ -45,7 +57,6 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
         })}
       
       <div className='manageColumns-createNewLiveColumn'>
-        <h3>Enter Title</h3>
         <div>
             <Title passNewFieldValue={setPostTitle}/>
             <button onClick={createNewLiveText}>Create New Live Text</button>

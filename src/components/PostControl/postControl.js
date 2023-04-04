@@ -12,6 +12,7 @@ import updateLiveText from './PostControlComponents/updateLiveText'
 import PostControlView from './postControlView'
 
 import deletePost from './PostControlComponents/deletePost'
+import { FaChessKing } from 'react-icons/fa'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden}) {
 
@@ -32,6 +33,8 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     let getColumnId = Object.keys(getCurrentColumn[0])
     let currentPostItems = getCurrentPost.length > 0 ? getCurrentPost[0][getPostId[0]].items : "newPost"
     let getColumnItems = getCurrentColumn[0][getColumnId].items
+    let getColumnHeadline = getCurrentColumn[0][getColumnId].headline
+    console.log(getColumnHeadline)
 
     const createNewPost = () =>{
         console.log("Create New Post")
@@ -53,24 +56,25 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         const updatedLiveTexts = [...getCurrentColumn, ...getRemainingColumns]
         
         setPostImageName("")
-        updateWebsite(updatedLiveTexts, handleEdit)
+        updateWebsite(updatedLiveTexts)
     }
 
     const handleHide = (setHide) =>{
         const newPostItems = {...currentPostItems, hidden:setHide}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
-        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, "keepOpen") 
+        updateLiveText(updateCurrentPost, getColumnItems,  getPostId, getColumnId, liveTexts, updateWebsite,  getColumnHeadline, "keepOpen") 
     }
 
     const handleSaveEdit = () =>{
+        console.log(getColumnHeadline)
         const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type, hidden}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
-        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite)   
+        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, getColumnHeadline)   
     }
      
     const updateWebsite = (newMasterLiveText, keepOpen) =>{
+        // console.log(keepOpen)
         if(keepOpen?.includes("keepOpen")){
-            console.log(keepOpen)
             // dispatch(updateArray(newMasterLiveText))
         }else{
             dispatch(setCPanelVis(true))

@@ -10,7 +10,7 @@ export default function PostContent({loggedIn, handleEdit, editMode, id,title, s
     const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
     
     const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
-    console.log(title)
+    // console.log(title)
     return (
         <div className='post-item-body'>
             {loggedIn && cPanelVisState? 

@@ -166,7 +166,8 @@ Live Text:
             ☐ Include name
             ☐ View Date of creation
             ☐ Ability to hide columns
-            ☐ When a column has 0 entries, show this in the view
+            ✔ When a column has 0 entries, show this in the view @done(23-04-04 18:01)
+            ☐ Add a new column shows the new column in the manage columns but doesnt show anything in the global view or remove the name from the form until a page refresh
           Post Control Panel Cleanup and Todo:
             ✔ Clean Up Author Input File @done(23-03-21 16:02)
             ✔ Create component for control panel @done(23-03-21 16:01)
