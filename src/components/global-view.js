@@ -26,8 +26,6 @@ export default function GlobalView() {
   let useActiveColumnItems = [...getactiveColumnsItems].reverse()
   let useColumnHeadline = liveTextArray[0][activeLiveText].headline
 
-  console.log(getactiveColumnsItems)
-  
   const displayLiveText = useActiveColumnItems.map((x, index) => {
     
     if(!loggedIn) return  
@@ -35,7 +33,6 @@ export default function GlobalView() {
     const getPostId = Object.keys(x)[0]
     const getPostItems = getPostContent[0].items
     const {title, subtitle, body, type, timestamp, hidden, image, tweet, youtube} = getPostItems
-    // if(hidden) return
     const timeSincePostCreation = (Date.now() - timestamp) / 1000
     const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
 
@@ -69,7 +66,6 @@ export default function GlobalView() {
         <h1 dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}></h1> 
 
         {getactiveColumnsItems.length <= 0 ? "+ Add New Post" : displayLiveText}
-        {/* {displayLiveText} */}
     </div>
   )
 }

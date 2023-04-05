@@ -2,60 +2,27 @@
     width: 90%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+        flex-direction: column;
 }
 
-
-.manageColumns-column div p{
-    margin: 0;
-}
 .manageColumns-column{
     cursor: default;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+        justify-content: space-between;
+        align-items: center;
     width: 100%;
 }
 .manageColumns-createNewLiveColumn{
     width: 100%;
 }
-.manageColumns-createNewLiveColumn h3{
-    margin: 0;
-}
-.manageColumns-createNewLiveColumn div{
-    display: flex;
-    width: 100%;
-}
-.manageColumns-createNewLiveColumn button{
-    border: none;
-}
 
-.manageColumns-createNewLiveColumn div div div h3{
-    display: none;
-}
-
-
-/* Check Active */
-.manageColumns-activeCheck span{
+.manageColumns-headline{
+    box-shadow: var(--buttonBoxShadow) grey;
     background-color: white;
-    color: grey;
-}
-
-#colIsActive{
-    color: grey;
-}
-
-/* Buttons */
-.manageColumns-column-buttons{
-    display: flex;
-    justify-content: center;
-}
-.manageColumns-column-buttons button, .manageColumns-activeCheck span{
-    box-shadow: 2px -2px 0px 1px grey;
-    border: none;
+        border: none;
         border-radius: 5px;
     cursor: pointer;
+    color: grey;
     display: flex;
         align-items: center;
         justify-content: center;
@@ -63,4 +30,20 @@
     font-weight: bold;
     margin: 5px;
     padding: 10px;
+    width: 100%;
 }
+
+.manageColumns-createNewLiveColumn div{
+    display: flex;
+    width: 100%;
+}
+
+.manageColumns-createNewLiveColumn div div div h3{
+    display: none;
+}
+
+/* Buttons */
+.manageColumns-column-buttons{
+    display: flex;
+}
+

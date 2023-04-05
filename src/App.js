@@ -5,6 +5,8 @@ import AuthorInput from './components/author-input';
 import GlobalView from './components/global-view';
 import ItemReview from './components/ItemReview/item-review';
 
+import "../src/components/Utility/Buttons/buttons.css"
+
 function App() {
   
   const editModeState = useSelector((state) => state.edit.value)

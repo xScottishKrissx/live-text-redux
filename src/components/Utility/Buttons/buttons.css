@@ -1,0 +1,65 @@
+.addNewButton, .deleteButton, .checkActiveButton{
+    box-shadow: var(--buttonBoxShadow) grey;
+background-color: white;
+    border: none;
+    border-radius: 5px;
+cursor: pointer;
+color: grey;
+display: flex;
+    align-items: center;
+    justify-content: center;
+font-size: 1rem;
+font-weight: bold;
+margin: 5px;
+padding: 10px;
+}
+
+.checkActiveButton:hover{
+    color: black;    
+    animation: checkActiveButtonAni 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes checkActiveButtonAni {
+    0%{
+        box-shadow: var(--buttonBoxShadow) grey;
+    }
+    100%{
+        box-shadow: var(--buttonBoxShadow) black;
+    }
+}
+
+.addNewButton:hover{
+    color: green;
+    animation: addNewButtonAni 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes addNewButtonAni {
+    0%{
+        box-shadow: var(--buttonBoxShadow) grey;
+    }
+    100%{
+        box-shadow: var(--buttonBoxShadow) green;
+    }
+}
+
+
+.deleteButton:hover{
+    color: red;
+    animation: deleteButtonAni 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes deleteButtonAni {
+    0%{
+        box-shadow: var(--buttonBoxShadow) grey;
+    }
+    100%{
+        box-shadow: var(--buttonBoxShadow) red;
+    }
+}
+
+#colIsActive{
+    color: black;
+}
