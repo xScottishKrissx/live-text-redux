@@ -1,12 +1,12 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
 import { useSelector, useDispatch } from 'react-redux'
 // My Components
 import ManageColumns from './cpanelComponents/manageColumns'
 import { setActiveLiveText } from '../../features/activeLiveText'
-import Title from '../InputForm/Title'
 
 import './controlPanel.css'
+import { updateArray } from '../../features/live-text'
 
 export default function ControlPanel({setControlPanelVis}) {
     
@@ -15,41 +15,46 @@ export default function ControlPanel({setControlPanelVis}) {
     const activeLiveTextState = useSelector((state) => state.active.value) 
 
 
-    const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
+    // const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
+    const liveTextMaster = useSelector((state) => state.livetext.value)
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
-    // console.log(liveTextMaster)
+
 
     const clearColumns = () =>{
         localStorage.clear()
         window.location.reload()
-      }
+    }
 
-    const handleSetActive = (x) =>{
-        dispatch(setActiveLiveText(x))
-        localStorage.setItem("activeLiveText", JSON.stringify(x))
+    const handleSetActive = (id) =>{
+        dispatch(setActiveLiveText(id))
+        localStorage.setItem("activeLiveText", JSON.stringify(id))
     }
 
     // Create a new live text / column
     const [postTitle, setPostTitle] = useState("")
     const minPostLength = 12
     const allowPost = postTitle.length >= minPostLength
-    console.log(allowPost)
 
     const createNewLiveText = () => {
         if(!allowPost) return
         const newColumn = {[uuidv4()]: {type:"Column", headline:postTitle, items:[]}}
-        console.log(newColumn)
+        const newColId = Object.entries(newColumn)[0][0]
+
         const addToMasterArray = liveTexts.concat(newColumn)
         setLiveTexts(addToMasterArray)
-        localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
+        dispatch(updateArray(addToMasterArray))
+        // localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
+        
         setPostTitle("")
+        handleSetActive(newColId)
     }
 
     // Delete Column
     const handleDeleteColumn = (id) =>{
         const deleteColumn = liveTexts.filter(x => !x[id])
         setLiveTexts(deleteColumn)
-        localStorage.setItem("liveTextMaster", JSON.stringify(deleteColumn))
+        dispatch(updateArray(deleteColumn))
+        // localStorage.setItem("liveTextMaster", JSON.stringify(deleteColumn))
     }
 
 
@@ -60,10 +65,6 @@ export default function ControlPanel({setControlPanelVis}) {
             
         <h3>Logout - <button>Logout</button> </h3>
 
-
-    
-        
-
         <ManageColumns 
             data={liveTexts} 
             setControlPanelVis={setControlPanelVis} 
@@ -72,9 +73,7 @@ export default function ControlPanel({setControlPanelVis}) {
             handleDeleteColumn={handleDeleteColumn}
             createNewLiveText={createNewLiveText}
             setPostTitle={setPostTitle}
-            allowPost={allowPost}
-            
-            
+            allowPost={allowPost}    
         />
 
         </div>

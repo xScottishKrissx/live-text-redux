@@ -159,16 +159,19 @@ Live Text:
 
             ☐ Ability to name columns
               ✔ Done, just need to add styles @done(23-04-05 18:02)
-              ☐ The Create new button should appear next to the title field
-              ☐ Creating new column should empty title field
+              ✔ The Create new button should appear next to the title field @done(23-04-06 16:53)
+              ✔ Creating new column should empty title field @done(23-04-06 16:53)
+              ☐ Creating a new column should set that column as active.
+                ...notideable when there is 0 columns and you create a new one it doesnt activate until a page refresh.
             ☐ Add amount of posts in each column
             ✔ Ability delete Column @done(23-03-24 16:18)
             ☐ Include name
             ☐ View Date of creation
             ☐ Ability to hide columns
             ✔ When a column has 0 entries, show this in the view @done(23-04-04 18:01)
-            ☐ Add a new column shows the new column in the manage columns but doesnt show anything in the global view or remove the name from the form until a page refresh
-              ☐ It's the same issue as before with the form input
+            ✔ Add a new column shows the new column in the manage columns but doesnt show anything in the global view or remove the name from the form until a page refresh @done(23-04-06 16:53)
+              ✔ It's the same issue as before with the form input @done(23-04-06 16:52)
+                ... used editor.commands.clearContent and then set the state from the button itself to properly reset everything
           Post Control Panel Cleanup and Todo:
             ✔ Clean Up Author Input File @done(23-03-21 16:02)
             ✔ Create component for control panel @done(23-03-21 16:01)

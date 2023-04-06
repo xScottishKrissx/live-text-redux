@@ -45,7 +45,11 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
         :
         <>
             <EditorContent editor={editor} />
-            {allowPost ? <AddNewButton handleClick={handleCreateColumn} title="Create New Column"/> : null }
+            {allowPost ? 
+                <AddNewButton handleClick={handleCreateColumn} title="Create New Column"/> 
+                : 
+                <AddNewButton greyOut title="Column name too short"/>  
+            }
         </>
 }
     </>

@@ -4,7 +4,11 @@
     display: flex;
         flex-direction: column;
 }
+.manageColumns-container > span{
+    margin-bottom: 10px;
+    margin-top: 10px;
 
+}
 .manageColumns-column{
     cursor: default;
     display: flex;
@@ -35,9 +39,16 @@
 
 .manageColumns-createNewLiveColumn div{
     display: flex;
+        align-items: center;
     width: 100%;
 }
-
+.manageColumns-createNewLiveColumn div div div div{
+    background-color: white;
+    box-shadow: var(--buttonBoxShadow) grey;
+    border: none;
+    border-radius: 5px;
+    height: 36px;
+}
 .manageColumns-createNewLiveColumn div div div h3{
     display: none;
 }

@@ -60,6 +60,13 @@ padding: 10px;
     }
 }
 
+
+/* Utility */
 #colIsActive{
     color: black;
+}
+
+.greyOut{
+    opacity: .5;
+    cursor: default;
 }
