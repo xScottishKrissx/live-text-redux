@@ -1,10 +1,10 @@
 import React from 'react'
 import Title from '../../InputForm/Title'
 
+
 import DisplayManageColumnsPanel from './displayManageColumnsPanel'
-import { FaPlus } from 'react-icons/fa'
 import AddNewButton from '../../Utility/Buttons/addNewButton'
-export default function ManageColumns({data, handleSetActive, activeLiveTextState, handleDeleteColumn, setPostTitle, createNewLiveText}) {
+export default function ManageColumns({data, handleSetActive, activeLiveTextState, handleDeleteColumn, setPostTitle, createNewLiveText, allowPost}) {
   return (
     <div className='manageColumns-container'>
 
@@ -17,8 +17,8 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
       <h1>or create a new column...</h1>
       <div className='manageColumns-createNewLiveColumn'>
         <div>
-            <Title passNewFieldValue={setPostTitle}/>
-            <AddNewButton handleClick={createNewLiveText} title="Create New Column"/>
+            <Title needButton allowPost={allowPost} field={""} passNewFieldValue={setPostTitle} handleClick={createNewLiveText}/>
+            {/* <AddNewButton handleClick={createNewLiveText} title="Create New Column"/> */}
         </div>
       </div>
 

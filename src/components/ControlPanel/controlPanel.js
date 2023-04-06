@@ -31,11 +31,18 @@ export default function ControlPanel({setControlPanelVis}) {
 
     // Create a new live text / column
     const [postTitle, setPostTitle] = useState("")
+    const minPostLength = 12
+    const allowPost = postTitle.length >= minPostLength
+    console.log(allowPost)
+
     const createNewLiveText = () => {
+        if(!allowPost) return
         const newColumn = {[uuidv4()]: {type:"Column", headline:postTitle, items:[]}}
+        console.log(newColumn)
         const addToMasterArray = liveTexts.concat(newColumn)
         setLiveTexts(addToMasterArray)
         localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
+        setPostTitle("")
     }
 
     // Delete Column
@@ -65,6 +72,9 @@ export default function ControlPanel({setControlPanelVis}) {
             handleDeleteColumn={handleDeleteColumn}
             createNewLiveText={createNewLiveText}
             setPostTitle={setPostTitle}
+            allowPost={allowPost}
+            
+            
         />
 
         </div>
