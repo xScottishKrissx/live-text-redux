@@ -1,4 +1,4 @@
-.addNewButton, .deleteButton, .checkActiveButton{
+.addNewButton, .deleteButton, .checkActiveButton,.defaultBtnStyle{
     box-shadow: var(--buttonBoxShadow) grey;
 background-color: white;
     border: none;
@@ -69,4 +69,60 @@ padding: 10px;
 .greyOut{
     opacity: .5;
     cursor: default;
+}
+
+#clearColumnsBtn:hover{
+    color: red;
+    animation: clearColumnsBtn .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes clearColumnsBtn {
+    0%{
+        box-shadow: var(--buttonBoxShadow) grey;
+    }
+    100%{
+        box-shadow: var(--buttonBoxShadow) red;
+    }
+}
+
+.toggleCPanelBtn{
+    color: green;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.toggleCPanelBtn:hover{
+    color: green;
+    animation: toggleCPanelBtn .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes toggleCPanelBtn {
+    0%{
+        box-shadow: var(--buttonBoxShadow) grey;
+    }
+    100%{
+        box-shadow: var(--buttonBoxShadow) green;
+    }
+}
+
+.loginBtn{
+    /* color: blue; */
+}
+
+.loginBtn:hover{
+    color: blue;
+    animation: loginBtnAni .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes loginBtnAni {
+    0%{
+        box-shadow: var(--buttonBoxShadow) grey;
+    }
+    100%{
+        box-shadow: var(--buttonBoxShadow) blue;
+    }
 }

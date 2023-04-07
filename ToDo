@@ -6,18 +6,18 @@ Live Text:
     ✔ Do the UI/Prototype @done(23-03-24 14:17)
       ✔ I have the form input styled @done(22-12-20 14:59)
 
-      Global View
-      ☐ Improve Appearance
-        ☐ Get the colours in place
-        ✔ Make title bold by default @done(23-02-17 18:16)
-        ✔ Style links to not be blue @done(23-02-17 18:19)
-        ✔ Add images @done(23-02-17 18:19)
-        ✔ Add social @done(23-02-21 11:48)
-          ✔ Integrated twitter cards using react-twitter-widgets library @done(23-02-21 11:45)
-        ✔ bring title and subtitle closer together @done(23-02-17 18:19)
-        ✔ improve new tag @done(23-02-21 11:48)
-        ✔ change font @done(23-02-17 18:23)
-      ✔ Adding Posts @done(23-03-24 14:17)
+      Global View / Post View:
+        ☐ Improve Appearance
+          ☐ Get the colours in place
+          ✔ Make title bold by default @done(23-02-17 18:16)
+          ✔ Style links to not be blue @done(23-02-17 18:19)
+          ✔ Add images @done(23-02-17 18:19)
+          ✔ Add social @done(23-02-21 11:48)
+            ✔ Integrated twitter cards using react-twitter-widgets library @done(23-02-21 11:45)
+          ✔ bring title and subtitle closer together @done(23-02-17 18:19)
+          ✔ improve new tag @done(23-02-21 11:48)
+          ✔ change font @done(23-02-17 18:23)
+
         ✔ Animate post when it's new @done(23-02-13 17:50)
           ✔ Give it a new tag that is removed after 30 seconds? @done(23-02-13 17:50)
           ✔ The main issue i had is that the key was using index which doesn't change on render so i just switched to the post id and it worked...i wasted so much time on this i am actually annoyed. At least the problem is solved and new posts animate on render and won't animate after a set amount of time @done(23-02-13 17:51)
@@ -28,15 +28,19 @@ Live Text:
           ✔ This should be an easy way to get myself back into the swing of things. @done(23-01-13 16:53)
           ✔ Pretty simple with day.js @done(23-01-13 16:53)
         ✔ Different style depending on update type @done(23-02-16 12:02)
-        Share bar:
-          ☐ Create the Share Bar
-
         ✔ Add indicator that post is new, that changes after 60 seconds @done(23-02-14 13:57)
           ✔ I have the core in place, just need to style it @done(23-02-14 15:59)
         ✔ There is a post duplication bug that duplicates the post array over and over. It's not endless it's just duplicating what's currently in the array...which is then duplicated. @done(23-02-13 17:22)
           ✔ Trying to figure out what's going on here. @done(23-02-13 17:22)
             ✔ It's the delete button, it's doubling the array on delete... @done(23-02-13 17:22)
             ✔ Fixed it, i was accidentally copying the array without the delete post onto the another array without the deleted post instead of just saving the array without the delete post to begin with. @done(23-02-13 17:22)
+        ☐ Create New Edit Button
+        
+        Share bar:
+          ☐ Create the Share Bar
+
+      Adding Posts / Author Input:
+
         ✔ Make the tags menu look better @done(23-02-22 17:07)
         ✔ Add file upload to replace/add to the current add images button @done(23-03-24 14:17)
           ✔ Done, just need to clean up the code a bit @done(23-03-24 14:17)
@@ -45,11 +49,24 @@ Live Text:
           ✔ Ability to cancel image upload @done(23-02-17 18:12)
           ✔ Indicate that image has been uploaded @done(23-02-17 18:12)
           ✔ The image has to stay at the top due to limitations with tiptap. I could probably figure out a way of integrating the image into the body but that's just too much work for this project. @done(23-02-17 17:23)
-            
-          
+    
+        ✔ Ability to cancel adding post @done(22-12-20 17:03)
+        ✔ Ability to edit post @done(23-03-24 14:17)
 
-      ✔ Ability to cancel adding post @done(22-12-20 17:03)
-      ✔ Ability to edit post @done(23-03-24 14:17)
+        ✔ Ability to delete post / hide post @done(23-01-20 16:37)
+        ✔ It should be more obvious that a post is hidden @done(23-02-09 19:10)
+        ✔ Ability to add video @done(23-02-22 16:19)
+          ✔ i think this is just a part of tiptap now @done(23-02-21 12:15)
+          ✔ added video... @done(23-02-21 12:15)
+            ✔ ...but the youtube placeholder displays even if you don't add a video. @done(23-02-22 16:19)
+          ...it only appears in the item review window, so not actually an issue but still annoying
+        ✔ Add Twitter card @done(23-02-21 11:53)
+        ☐ Create New Create New Post Button
+        ☐ Create New Toggle CPanel Button
+
+        ☐ Switch Inputs over to new design style shown in the Control Panel
+        
+      Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)
           ✔ Title @done(23-02-08 13:39)
           ✔ Subtitle @done(23-02-08 13:39)
@@ -104,7 +121,7 @@ Live Text:
           ...i think this is the author input rendering  every time state refreshes.
         ✘ Fix styling bug? @cancelled(23-03-03 17:47)
         ☐ Add a quicker way of removing content from fields when editing.
-        ✔ Item Review @done(23-03-03 17:47)
+        ✔ Integrate Item Review @done(23-03-03 17:47)
           ...i am trying to get the item review to switch over to the current post on edit but struggling to get it to work.
           ...so instead of fitting the edited item review into the new item review, im going to create a second item review just for the edited item.
           ...hopefully this will lead me to figure out how to do it from the one component if possible.
@@ -116,34 +133,29 @@ Live Text:
           ✔ Now i just need to fill out the rest of the possible form entries, clean up the code and then style the edit form. @done(23-03-03 17:46)
               ✔ Fill out remaining form entries @done(23-03-03 17:46)
               ✔ Saving an edit on a post with an image, removes the image. @done(23-03-03 17:46)
+        ☐ Create New Save Button
+        ☐ Create New Delete Button
+        ☐ Create New Hide Button
+
         Issues:
           Creating a new post is returning an error object is not extensible which i understand. I don't understand why the exact same object from local storage is extensible but the same array from state is not.
             ✔ It works with the local storage array but it's annoying me @done(23-04-07 15:19)
           ✔ I'm changing the post behaviour so that it doesn't return to the Control Panel when you create a new post. @done(23-04-07 16:48)
-      
-      Edit Post:
-        Issues:
           ✔ I think the previous work on changing the post structure has broken the delete button @done(23-04-07 16:58)
             ✔ I forgot to update the delete code to include the headline. @done(23-04-07 16:56)
+      
       Post Control Bar:
         ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)
         ✔ Style control bar @done(23-02-09 18:52)
           ... also made the jump between to edit less jarring by moving the timestamp and social media bar out of the edit mode check.
         ✔ Should be hidden if not logged in. @done(23-02-09 19:14)
       
-
       Summary Bar:
         ☐ Place above live text in logged in
         ☐ Place to the left in logged out
 
-      ✔ Ability to delete post / hide post @done(23-01-20 16:37)
-        ✔ It should be more obvious that a post is hidden @done(23-02-09 19:10)
-      ✔ Ability to add video @done(23-02-22 16:19)
-        ✔ i think this is just a part of tiptap now @done(23-02-21 12:15)
-        ✔ added video... @done(23-02-21 12:15)
-        ✔ ...but the youtube placeholder displays even if you don't add a video. @done(23-02-22 16:19)
-          ...it only appears in the item review window, so not actually an issue but still annoying
-      ✔ Add Twitter card @done(23-02-21 11:53)
+
+
       Create Login / Logout system:
         ☐ Do the thing...
 
@@ -169,22 +181,26 @@ Live Text:
               ✔ Done, just need to add styles @done(23-04-05 18:02)
               ✔ The Create new button should appear next to the title field @done(23-04-06 16:53)
               ✔ Creating new column should empty title field @done(23-04-06 16:53)
-              ☐ Creating a new column should set that column as active.
+              ✔ Creating a new column should set that column as active. @done(23-04-07 17:13)
                 ...notideable when there is 0 columns and you create a new one it doesnt activate until a page refresh.
+            ☐ Ability to rename columns
             ☐ Add amount of posts in each column
             ✔ Ability delete Column @done(23-03-24 16:18)
-            ☐ Include name
+            ✔ Include name @done(23-04-07 17:13)
             ☐ View Date of creation
             ☐ Ability to hide columns
             ✔ When a column has 0 entries, show this in the view @done(23-04-04 18:01)
             ✔ Add a new column shows the new column in the manage columns but doesnt show anything in the global view or remove the name from the form until a page refresh @done(23-04-06 16:53)
               ✔ It's the same issue as before with the form input @done(23-04-06 16:52)
                 ... used editor.commands.clearContent and then set the state from the button itself to properly reset everything
+            ✔ Create New Toggle CPanel Button @done(23-04-07 17:58)
+            ✔ Create New Clear Columns Button @done(23-04-07 17:58)
+            ✔ Create New Login / Logout Button @done(23-04-07 17:58)
           Post Control Panel Cleanup and Todo:
             ✔ Clean Up Author Input File @done(23-03-21 16:02)
             ✔ Create component for control panel @done(23-03-21 16:01)
               ✔ Create component for column management @done(23-03-21 16:02)
-            ☐ When creating a live text, require it to have a name / title / headline
+            ✔ When creating a column, require it to have a name / title / headline @done(23-04-07 17:13)
               ✔ Show this name in the post view. @done(23-04-05 18:01)
             ☐ Create public view
 

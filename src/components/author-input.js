@@ -8,6 +8,7 @@ import NewPost from './NewPost/NewPost'
 import './author-input.css'
 import ControlPanel from './ControlPanel/controlPanel'
 import { setCPanelVis } from '../features/cpanelVis'
+import ToggleCPanelButton from './Utility/Buttons/toggleCPanelButton'
 
 
 export default function AuthorInput() {
@@ -29,7 +30,7 @@ export default function AuthorInput() {
     <>
 
       <div className='author-input-wrapper'>
-        {!editModeState.editing ?  <button onClick={toggleCPanel}>Toggle CPanel</button> : null }
+        {!editModeState.editing ? <ToggleCPanelButton toggleCPanel={toggleCPanel} /> : null }
        
         {cPanelVisState === true ? 
             <ControlPanel setControlPanelVis={setControlPanelVis} />

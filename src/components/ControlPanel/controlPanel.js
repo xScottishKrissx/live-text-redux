@@ -7,6 +7,8 @@ import { setActiveLiveText } from '../../features/activeLiveText'
 
 import './controlPanel.css'
 import { updateArray } from '../../features/live-text'
+import ClearColumnsButton from '../Utility/Buttons/clearColumnsButton'
+import LoginLogoutButton from '../Utility/Buttons/loginLogoutButton'
 
 export default function ControlPanel({setControlPanelVis}) {
     
@@ -61,9 +63,11 @@ export default function ControlPanel({setControlPanelVis}) {
 
   return (
     <div className='confirm-post-overlay'> 
-        <button onClick={clearColumns}>Clear</button>
-            
-        <h3>Logout - <button>Logout</button> </h3>
+
+    <div className='control-panel-header-buttons'>
+        <LoginLogoutButton />
+        <ClearColumnsButton clearColumns={clearColumns} />
+    </div>
 
         <ManageColumns 
             data={liveTexts} 

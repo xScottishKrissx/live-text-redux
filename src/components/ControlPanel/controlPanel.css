@@ -1,3 +1,12 @@
+.control-panel-header-buttons{
+    /* outline: 1px solid red; */
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+}
 .manageColumns-container{
     width: 90%;
     margin: 0 auto;

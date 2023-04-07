@@ -10,7 +10,7 @@ const updateLiveText = (changedPost, getColumnItems, getPostId, getColumnId, liv
         }}
     )
     const updateLiveTexts = liveTexts.map(x =>{ 
-        console.log(x[getColumnId])
+        // console.log(x[getColumnId])
         if(x[getColumnId]){ 
             return{
                 ...x, [getColumnId]:{ type:"Column", items:updateColumn, headline: getColumnHeadline }}
