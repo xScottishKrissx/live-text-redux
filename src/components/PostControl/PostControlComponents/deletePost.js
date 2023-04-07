@@ -1,4 +1,4 @@
-const deletePost = (getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite) =>{
+const deletePost = (getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite, getColumnHeadline) =>{
 
     const removePost = Object.entries(getCurrentColumn).map(([id, items]) =>{ 
         return items[getColumnId].items.filter(x => !x[getPostId]) 
@@ -6,7 +6,7 @@ const deletePost = (getCurrentColumn, getColumnId, getPostId, liveTexts, updateW
 
     const updateLiveTexts = liveTexts.map(x =>{ 
         if(x[getColumnId]){ 
-            return{...x, [getColumnId]:  {type:"Column", items:removePost[0]}} 
+            return{...x, [getColumnId]:  {type:"Column", headline:getColumnHeadline, items:removePost[0]}} 
         }else{ 
             return x 
         }

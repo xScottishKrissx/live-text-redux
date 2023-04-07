@@ -122,7 +122,8 @@ Live Text:
           ✔ I'm changing the post behaviour so that it doesn't return to the Control Panel when you create a new post. @done(23-04-07 16:48)
       Edit Post:
         Issues:
-          ☐ I think the previous work on changing the post structure has broken the delete button
+          ✔ I think the previous work on changing the post structure has broken the delete button @done(23-04-07 16:58)
+            ✔ I forgot to update the delete code to include the headline. @done(23-04-07 16:56)
       Post Control Bar:
         ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)
         ✔ Style control bar @done(23-02-09 18:52)

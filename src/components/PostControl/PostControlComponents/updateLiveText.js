@@ -1,6 +1,6 @@
 const updateLiveText = (changedPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, getColumnHeadline, keepOpen) =>{
 
-    console.log(getColumnHeadline)
+    // console.log(getColumnHeadline)
     const updateColumn = getColumnItems.map(x =>{ 
         if(x[getPostId]){
             return {
@@ -18,7 +18,7 @@ const updateLiveText = (changedPost, getColumnItems, getPostId, getColumnId, liv
             return x 
             }
         })
-        console.log(updateLiveTexts)
+    // console.log(updateLiveTexts)
     updateWebsite(updateLiveTexts, keepOpen)        
 }
 

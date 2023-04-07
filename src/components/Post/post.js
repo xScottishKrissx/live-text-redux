@@ -19,6 +19,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
     const {editing, editId} = editModeState
     // const [editMode, setEditMode] = useState(editModeState.editing)
 
+    
     if(!liveText) return
     
 

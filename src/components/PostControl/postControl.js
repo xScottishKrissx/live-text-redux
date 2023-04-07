@@ -23,7 +23,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const activeLiveText = useSelector((state) => state.active.value)
     
     const liveTexts = JSON.parse(localStorage.getItem("liveTextMaster")) || []
-    // const [liveTexts, setLiveTexts] = useState(liveTextMaster)
+    // console.log(liveTexts)
 
     const getCurrentColumn = liveTexts.filter(x => x[activeLiveText])
     const getRemainingColumns = liveTexts.filter(x => !x[activeLiveText])
@@ -81,7 +81,9 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
     }
 
-    const handleDelete = () => deletePost(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite) 
+    const handleDelete = () => {
+        deletePost(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite, getColumnHeadline) 
+    }
     return (
        
         <PostControlView
