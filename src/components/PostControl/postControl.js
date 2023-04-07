@@ -1,24 +1,18 @@
-import React,{useState} from 'react'
+import React from 'react'
+// Redux
 import { useSelector, useDispatch } from 'react-redux'
 import { updateArray } from '../../features/live-text'
-
-import {v4 as uuidv4} from 'uuid'
-
-import './postControl.css'
-
-import { setCPanelVis } from '../../features/cpanelVis'
-
-import updateLiveText from './PostControlComponents/updateLiveText'
+// Me
 import PostControlView from './postControlView'
-
+import updateLiveText from './PostControlComponents/updateLiveText'
 import deletePost from './PostControlComponents/deletePost'
-import { FaChessKing } from 'react-icons/fa'
-
-import { setForm } from '../../features/resetForm'
+// Unique Id
+import {v4 as uuidv4} from 'uuid'
+// Style
+import './postControl.css'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden, confirmClearForm}) {
 
-    // localStorage.clear()
     const dispatch = useDispatch()
     const activeLiveText = useSelector((state) => state.active.value)
     
@@ -54,9 +48,9 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         }
 
         const newPostData = { [uuidv4()]: { type:"NewPost", items:newPost } }
-        
         getCurrentColumn[0][activeLiveText].items.push(newPostData)
         const updatedLiveTexts = [...getCurrentColumn, ...getRemainingColumns]
+
         setPostImageName("")
         updateWebsite(updatedLiveTexts)
         confirmClearForm("clearForm")
@@ -69,7 +63,6 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     }
 
     const handleSaveEdit = () =>{
-        console.log(getColumnHeadline)
         const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type, hidden}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
         updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, getColumnHeadline)   

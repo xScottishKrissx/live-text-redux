@@ -2,12 +2,12 @@
 import { useEffect } from "react";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
+import { setForm } from "../../features/resetForm";
 // Tiptap
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 // Me
 import AddNewButton from "../Utility/Buttons/addNewButton";
-import { setForm } from "../../features/resetForm";
 
 export default function EditPostField({field, passNewFieldValue, clearContent, createNewColumn, needButton, allowPost,}) {
 

@@ -120,6 +120,7 @@ Live Text:
           Creating a new post is returning an error object is not extensible which i understand. I don't understand why the exact same object from local storage is extensible but the same array from state is not.
             ✔ It works with the local storage array but it's annoying me @done(23-04-07 15:19)
           ✔ I'm changing the post behaviour so that it doesn't return to the Control Panel when you create a new post. @done(23-04-07 16:48)
+      
       Edit Post:
         Issues:
           ✔ I think the previous work on changing the post structure has broken the delete button @done(23-04-07 16:58)
