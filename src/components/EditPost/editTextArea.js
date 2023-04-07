@@ -1,5 +1,6 @@
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
+import { useSelector, useDispatch } from 'react-redux'
 
 // TipTap
 import StarterKit from '@tiptap/starter-kit'
@@ -17,6 +18,8 @@ import FloatingMenuBar from '../Tiptap/FloatingMenu/FloatingMenuBar'
 import TagsView from '../Tags/tags-view'
 // Icons
 import {FaTimes } from 'react-icons/fa'
+
+import { setForm } from '../../features/resetForm'
 
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
@@ -54,7 +57,17 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
         },
     })
 
+    // Clear form after a post is submitted/edited
+    const dispatch = useDispatch()
+    const clrForm = useSelector((state) => state.reset.value)
 
+    useEffect(() =>{
+        if(clrForm === "clearForm"){
+            editor.commands.clearContent()
+            dispatch(setForm(""))
+            return
+        }
+    })
 
     const getFileName = (e) =>{
         let getValue = imageName.current.value

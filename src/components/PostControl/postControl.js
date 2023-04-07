@@ -76,14 +76,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     }
      
     const updateWebsite = (newMasterLiveText, keepOpen) =>{
-        // console.log(keepOpen)
-        if(keepOpen?.includes("keepOpen")){
-            // dispatch(updateArray(newMasterLiveText))
-        }else{
-            // dispatch(setCPanelVis(true))
-            handleEdit(false)
-        }
-        // console.log(newMasterLiveText)
+        if(keepOpen?.includes("keepOpen")){ }else{ handleEdit(false) }
         dispatch(updateArray(newMasterLiveText))
         localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
     }

@@ -29,7 +29,6 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
             passNewFieldValue(json)
         },
 
-        
     })
 
     // Clear form after a post is submitted/edited
@@ -43,7 +42,7 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
             return
         }
     })
-
+    
     const handleCreateColumn = () =>{
         createNewColumn()
         editor.commands.clearContent()
