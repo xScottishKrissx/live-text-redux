@@ -1,15 +1,16 @@
+// React
+import { useEffect } from "react";
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+// Tiptap
 import { useEditor, EditorContent } from "@tiptap/react";
-// import { useEffect } from "react";
 import StarterKit from "@tiptap/starter-kit";
-// import { useSelector, useDispatch } from "react-redux";
-// import { setForm } from "../../features/resetForm";
+// Me
 import AddNewButton from "../Utility/Buttons/addNewButton";
-export default function EditPostField({field, passNewFieldValue, clearContent, createNewColumn, needButton, allowPost}) {
-    // console.log(needButton)
-    // const dispatch = useDispatch()
-    // const resetStatus = useSelector((state) => state.reset.value)
-    // console.log(field)
-    // console.log(resetStatus)
+import { setForm } from "../../features/resetForm";
+
+export default function EditPostField({field, passNewFieldValue, clearContent, createNewColumn, needButton, allowPost,}) {
+
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -27,12 +28,23 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
             const json = editor.getHTML()
             passNewFieldValue(json)
         },
+
+        
+    })
+
+    // Clear form after a post is submitted/edited
+    const dispatch = useDispatch()
+    const clrForm = useSelector((state) => state.reset.value)
+
+    useEffect(() =>{
+        if(clrForm === "clearForm"){
+            editor.commands.clearContent()
+            dispatch(setForm(""))
+            return
+        }
     })
 
     const handleCreateColumn = () =>{
-        // console.log("handleCreateColumn")
-        // const json = editor.getHTML()
-        // passNewFieldValue(json)
         createNewColumn()
         editor.commands.clearContent()
     }

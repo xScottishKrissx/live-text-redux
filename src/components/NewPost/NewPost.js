@@ -10,6 +10,7 @@ import Twitter from '../InputForm/Twitter'
 import Youtube from '../InputForm/Youtube'
 import Type from '../InputForm/Type'
 import TextArea from '../InputForm/TextArea'
+import { setForm } from '../../features/resetForm'
 
 export default function NewPost({handleEdit}) {
     const dispatch = useDispatch()
@@ -26,6 +27,17 @@ export default function NewPost({handleEdit}) {
         dispatch(addItem({postTitle,postSubtitle, postType, postBody, postImageName, insertTweet, insertYoutube}))
     },[postTitle,postSubtitle, postBody, postType, postImageName, insertTweet, insertYoutube])
 
+    const confirmClearForm = (x) =>{
+        dispatch(setForm("clearForm"))
+        // reset state
+        setPostTitle("")
+        setPostSubTitle("")
+        setPostType("")
+        setPostBody("")
+        setPostImageName("")
+        setTweet("")
+        setYoutube("")
+    }
 
     return (
         <div>
@@ -35,11 +47,13 @@ export default function NewPost({handleEdit}) {
                 title={postTitle} 
                 body={postBody} 
                 subtitle={postSubtitle} 
+
+                confirmClearForm={confirmClearForm}
                 
             />
             <div className='author-input-wrapper'>
                 <div className='author-input-form'>
-                    <Title field={""} passNewFieldValue={setPostTitle}  />
+                    <Title field={""} passNewFieldValue={setPostTitle} />
                     <Subtitle field={""} passNewFieldValue={setPostSubTitle} />
                     <Twitter setTweet={setTweet} value={insertTweet}/>
                     <Youtube setYoutube={setYoutube} value={insertYoutube} />

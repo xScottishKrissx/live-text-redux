@@ -23,7 +23,6 @@ export default function GlobalView() {
 
   const getactiveColumnsItems = liveTextArray[0][activeLiveText].items
   if(!getactiveColumnsItems) return
-  return
   // Sort items by timestamp
   let useActiveColumnItems = [...getactiveColumnsItems].reverse()
   let useColumnHeadline = liveTextArray[0][activeLiveText].headline

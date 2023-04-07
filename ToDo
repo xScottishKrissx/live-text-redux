@@ -116,13 +116,17 @@ Live Text:
           ✔ Now i just need to fill out the rest of the possible form entries, clean up the code and then style the edit form. @done(23-03-03 17:46)
               ✔ Fill out remaining form entries @done(23-03-03 17:46)
               ✔ Saving an edit on a post with an image, removes the image. @done(23-03-03 17:46)
-
+        Issues:
+          Creating a new post is returning an error object is not extensible which i understand. I don't understand why the exact same object from local storage is extensible but the same array from state is not.
+            ✔ It works with the local storage array but it's annoying me @done(23-04-07 15:19)
+          ☐ I'm changing the post behaviour so that it doesn't return to the Control Panel when you create a new post.
+            ☐ I have the new code working for the editPostField so i want to see if I can make this reusable instead of copying and pasting for the other post types.
       Post Control Bar:
         ✔ Create single codebase that can act as control for edit, hide and delete @done(23-02-09 18:26)
         ✔ Style control bar @done(23-02-09 18:52)
           ... also made the jump between to edit less jarring by moving the timestamp and social media bar out of the edit mode check.
         ✔ Should be hidden if not logged in. @done(23-02-09 19:14)
-        
+      
 
       Summary Bar:
         ☐ Place above live text in logged in

@@ -2,9 +2,6 @@ import React from 'react'
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash} from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
 
-
-import { setForm } from '../../features/resetForm'
-
 export default function PostControlView({title, body, hidden, editMode, handleSaveEdit, createNewPost, handleHide, handleDelete}) {
     
     const dispatch = useDispatch()
@@ -26,7 +23,7 @@ export default function PostControlView({title, body, hidden, editMode, handleSa
                     allowPost ? 
                     <button onClick={ ()=>{ 
                         createNewPost() 
-                        dispatch(setForm(true))}}>
+                    }}>
                         <FaEdit /> Create New Post</button>
                     : 
                     <button><FaEdit />Create New Post: Title and Body Required</button>

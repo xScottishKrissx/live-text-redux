@@ -8,7 +8,7 @@ import ItemReview from './components/ItemReview/item-review';
 import "../src/components/Utility/Buttons/buttons.css"
 
 function App() {
-  
+  // localStorage.clear()
   const editModeState = useSelector((state) => state.edit.value)
   const newItem = useSelector((state) => state.items.value)
   const previewItem = useSelector((state) => state.preview.value)

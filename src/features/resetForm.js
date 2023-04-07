@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const defaultState = {reset:false}
+const defaultState = ""
 
 export const resetForm = createSlice({
     name:"resetForm",

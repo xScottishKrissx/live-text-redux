@@ -14,17 +14,16 @@ import PostControlView from './postControlView'
 import deletePost from './PostControlComponents/deletePost'
 import { FaChessKing } from 'react-icons/fa'
 
-export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden}) {
+import { setForm } from '../../features/resetForm'
+
+export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden, confirmClearForm}) {
 
     // localStorage.clear()
     const dispatch = useDispatch()
     const activeLiveText = useSelector((state) => state.active.value)
     
-    const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
-    const liveTextMaster2 = useSelector((state) => state.livetext.value)
-    // console.log(liveText)
-    // console.log(liveTextMaster)
-    const [liveTexts, setLiveTexts] = useState(liveTextMaster2)
+    const liveTexts = JSON.parse(localStorage.getItem("liveTextMaster")) || []
+    // const [liveTexts, setLiveTexts] = useState(liveTextMaster)
 
     const getCurrentColumn = liveTexts.filter(x => x[activeLiveText])
     const getRemainingColumns = liveTexts.filter(x => !x[activeLiveText])
@@ -55,22 +54,12 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         }
 
         const newPostData = { [uuidv4()]: { type:"NewPost", items:newPost } }
-        // console.log(newPostData)
-        // console.log(getCurrentColumn[0][activeLiveText].items)
+        
         getCurrentColumn[0][activeLiveText].items.push(newPostData)
-        // const updatedItems = { ...getCurrentColumn[0][activeLiveText].items, ...newPostData }
-        // getCurrentColumn[0][activeLiveText].items = updatedItems
-        // const currentColumn = getCurrentColumn[0]
-        // const newItems = { ...currentColumn[activeLiveText].items, ...newPostData }
-        // const updatedColumn = { ...currentColumn, [activeLiveText]: { ...currentColumn[activeLiveText], items: newItems } }
-        // console.log(updatedColumn)
-        
         const updatedLiveTexts = [...getCurrentColumn, ...getRemainingColumns]
-        // const updatedLiveTexts = [updatedColumn, ...getRemainingColumns]
-        // console.log(updatedLiveTexts)
-        
         setPostImageName("")
         updateWebsite(updatedLiveTexts)
+        confirmClearForm("clearForm")
     }
 
     const handleHide = (setHide) =>{
@@ -91,7 +80,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         if(keepOpen?.includes("keepOpen")){
             // dispatch(updateArray(newMasterLiveText))
         }else{
-            dispatch(setCPanelVis(true))
+            // dispatch(setCPanelVis(true))
             handleEdit(false)
         }
         // console.log(newMasterLiveText)
