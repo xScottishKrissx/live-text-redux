@@ -65,7 +65,7 @@ export default function ControlPanel({setControlPanelVis}) {
     <div className='confirm-post-overlay'> 
 
     <div className='control-panel-header-buttons'>
-        <LoginLogoutButton />
+        {/* <LoginLogoutButton /> */}
         <ClearColumnsButton clearColumns={clearColumns} />
     </div>
 

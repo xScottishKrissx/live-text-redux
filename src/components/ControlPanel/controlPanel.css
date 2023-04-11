@@ -2,7 +2,7 @@
     /* outline: 1px solid red; */
     width: 90%;
     display: flex;
-    justify-content: space-between;
+        justify-content: flex-end;
     margin: 0 auto;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -22,7 +22,9 @@
     cursor: default;
     display: flex;
         justify-content: space-between;
-        align-items: center;
+        /* align-items: center; */
+        align-items: stretch;
+    margin-bottom: 10px;
     width: 100%;
 }
 .manageColumns-createNewLiveColumn{
@@ -41,8 +43,8 @@
         justify-content: center;
     font-size: 1rem;
     font-weight: bold;
-    margin: 5px;
-    padding: 10px;
+    /* margin: 5px; */
+    /* padding: 10px; */
     width: 100%;
 }
 

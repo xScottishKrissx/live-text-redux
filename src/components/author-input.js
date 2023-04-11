@@ -30,6 +30,7 @@ export default function AuthorInput() {
     <>
 
       <div className='author-input-wrapper'>
+        
         {!editModeState.editing ? <ToggleCPanelButton toggleCPanel={toggleCPanel} /> : null }
        
         {cPanelVisState === true ? 

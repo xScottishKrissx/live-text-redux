@@ -28,13 +28,15 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             <span className='checkActiveButton' title="Set Column Active" onClick={()=>handleSetActive(columnId, columnContent)}><FaRegCircle /></span>
                             }
                         </div>
-            
+                       
+
                         <div 
                             onClick={()=>handleSetActive(columnId, columnContent)} 
                             className='manageColumns-headline'
-                        >
+                            >
                                 {removeTag(columnContent.headline)}
                         </div>
+                            
             
                         <div className='manageColumns-column-buttons'>
                             {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :   
