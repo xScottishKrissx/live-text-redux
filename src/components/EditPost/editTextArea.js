@@ -108,7 +108,7 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
 {/* The actual text area */}
         <div className="author-input-text-area">
             <div className="defaultBtnStyle">
-                <span>Body</span>
+                <span>Body (type @ for tags) </span>
                 <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
         </div>
             

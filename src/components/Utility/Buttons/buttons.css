@@ -33,9 +33,13 @@ padding: 10px;
     }
 }
 
+.addNewButton{
+    background-color: black;
+    color: white;
+}
 .addNewButton:hover{
-    color: green;
-    animation: addNewButtonAni 0.5s;
+    /* color: green; */
+    /* animation: addNewButtonAni 0.5s; */
     animation-fill-mode: forwards;
 }
 

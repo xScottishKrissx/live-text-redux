@@ -18,15 +18,48 @@
     /* outline: 1px solid red; */
 
 }
-.post-control-bar .postIsCanSubmit{
-    background-color: white;
-    color: black;
+
+.post-control-bar button svg{
+    margin-left: 5px;
 }
+.post-control-bar .postCanSubmit{
+    background-color: #a2ff68;
+    color: black;
+    animation: fieldFilledAnimation .5s;
+}
+
+.post-control-bar .postCantSubmit{
+    background-color: grey;
+    opacity: 0.5;
+    
+}
+
+
 
 .post-control-bar .atMinCharLim{
     background-color: white;
     color: black;
 }
+
+.atMinCharLim{
+    animation: fieldFilledAnimation .5s;
+}
+
+@keyframes fieldFilledAnimation{
+    0%{
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(-5px);
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 .post-control-bar .belowMinCharLim{
     background-color: orangered;

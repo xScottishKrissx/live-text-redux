@@ -6,8 +6,14 @@ export default function Title({field, passNewFieldValue, handleClick, needButton
     <div className='author-input-form-title'>
         <div className="author-input-field ">
             <div className='defaultBtnStyle'> 
-              <span>Title</span>
-              <EditPostField  needButton={needButton} allowPost={allowPost} field={field} passNewFieldValue={passNewFieldValue}  createNewColumn={handleClick} />
+              <span>Title </span>
+              <EditPostField  
+                needButton={needButton} 
+                allowPost={allowPost} 
+                field={field} 
+                passNewFieldValue={passNewFieldValue}  
+                createNewColumn={handleClick}
+               />
             </div>
         </div>
     </div>

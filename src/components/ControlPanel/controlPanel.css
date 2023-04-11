@@ -51,6 +51,7 @@
 .manageColumns-createNewLiveColumn div{
     display: flex;
         align-items: center;
+        flex-direction: row;
     width: 100%;
 }
 .manageColumns-createNewLiveColumn div div div div{
@@ -59,6 +60,14 @@
     border: none;
     border-radius: 5px;
     height: 36px;
+    
+}
+.manageColumns-createNewLiveColumn div div div div span{
+    margin-right: 5px;
+}
+.manageColumns-createNewLiveColumn div div .author-input-field div:focus-visible{
+    /* background-color: red; */
+    box-shadow: 0px 3px 0px -2px grey;
 }
 .manageColumns-createNewLiveColumn div div div h3{
     display: none;
