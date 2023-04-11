@@ -1,4 +1,4 @@
-.addNewButton, .deleteButton, .checkActiveButton,.defaultBtnStyle{
+.addNewButton, .deleteButton, .checkActiveButton,.defaultBtnStyle, .author-input-text-editor-buttons button{
     box-shadow: var(--buttonBoxShadow) grey;
 background-color: white;
     border: none;

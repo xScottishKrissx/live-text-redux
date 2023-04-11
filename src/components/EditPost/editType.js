@@ -7,10 +7,10 @@ export default function EditType({typeRange, setPostType}) {
             const removeSpacesFromName = item.replace(/\s+/g, '')
             return(
                 <div 
-                key={index} 
-                onClick={()=>setPostType(removeSpacesFromName)} 
-                className={removeSpacesFromName} 
-                id={removeSpacesFromName}
+                  key={index} 
+                  onClick={()=>setPostType(removeSpacesFromName)} 
+                  className={ "defaultBtnStyle " + removeSpacesFromName} 
+                  id={removeSpacesFromName}
                 >
                 {item}
             </div>

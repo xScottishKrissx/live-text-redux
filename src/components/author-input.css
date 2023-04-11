@@ -31,6 +31,7 @@
     align-items: flex-start;
 }
 .author-input-form > div{
+    margin-top: 10px;
     width: 100%;
 }
 /* Standardising Styles */
@@ -39,9 +40,17 @@
 }
 
 .author-input-field > div{
-    background-color:#f1f1f185;
+    background-color:white;
+
     display: flex;
-       align-items: center;
+       align-items: flex-start;
+       flex-direction: column;
+    /* padding:0 ; */
+}
+.author-input-field > div > div > div{
+    /* background-color: #80808040; */
+    height: 50px;
+    display: flex;
 }
 .author-input-field:focus-visible,
 .author-input-field div:focus-visible,
@@ -51,14 +60,17 @@
 }
 /* Title, Subtitle */
 .author-input-field > div > div{
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
+    color: black;
+    cursor: text;
     width: 100%;
 }
 /* Tweet Id */
 .author-input-field > div > input{
-    background-color:#f1f1f185;
+    /* background-color:#f1f1f185; */
     border: none;
-    padding: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
     width: 100%;
 }
 
@@ -73,9 +85,10 @@
         justify-content: space-between;
 }
 .author-input-form-type-select-items div{
-    background-color: #ababab;
+    /* background-color: #ababab; */
     /* border-radius: var(--borderRadius); */
-    box-shadow: 0px 2px 5px -2px black;
+    /* box-shadow: 0px 2px 5px -2px black; */
+    color: white;
     cursor: pointer;
     /* font-family:monospace; */
     font-weight: bold;
@@ -120,10 +133,11 @@
     }
     .author-input-form-upload-image-button button{
         border: none;
-        background-color: var(--updateColour);
-        color: white;
+        /* background-color: var(--updateColour); */
+        background-color: white;
+        color: grey;
         cursor: pointer;
-        opacity: 0.5;
+        opacity: 1;
         padding: 1rem;
         display: flex;
         align-items: center;
@@ -144,6 +158,8 @@
     margin-top: var(--inputFormItemSpacing);
     width: 100%;
 }
+
+
 .author-input-form-text-area textarea{
     border: none;
     font-family: 'Roboto', sans-serif;

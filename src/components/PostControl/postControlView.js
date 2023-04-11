@@ -4,9 +4,9 @@ import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash, FaCheck, FaTimes} from 'rea
 export default function PostControlView({title, body, hidden, editMode, handleSaveEdit, createNewPost, handleHide, handleDelete}) {
     
     let minChars = 10
-    const allowPost = title.length > minChars && body.length > minChars
     const titleOk = title.length > minChars
     const bodyOk = body.length > minChars
+    const allowPost = titleOk && bodyOk
 
     return (
         <div className='post-control-bar'>

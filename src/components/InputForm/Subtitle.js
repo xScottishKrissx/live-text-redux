@@ -5,8 +5,10 @@ export default function Subtitle({field, passNewFieldValue}) {
   return (
     <div className='author-input-form-subtitle' >
         <div className='author-input-field'>
-            <h3>Subtitle</h3>
+          <div className='defaultBtnStyle'>
+            <span>Subtitle</span>
             <EditPostField field={field} passNewFieldValue={passNewFieldValue} />
+          </div>
         </div>
     </div>
   )

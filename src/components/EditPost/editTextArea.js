@@ -17,15 +17,16 @@ import TipTapMenuButtons from '../Tiptap/MenuBar/TipTapMenuButtons'
 import FloatingMenuBar from '../Tiptap/FloatingMenu/FloatingMenuBar'
 import TagsView from '../Tags/tags-view'
 // Icons
-import {FaTimes } from 'react-icons/fa'
+// import {FaTimes } from 'react-icons/fa'
 
 import { setForm } from '../../features/resetForm'
+import UploadImageBtn from '../Utility/uploadImage'
 
 export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
 
 export default function EditTextArea({field, passNewFieldValue, setPostImageName}) {
 
-    const imageName = useRef()
+    // const imageName = useRef()
 
     const editor = useEditor({
 
@@ -69,16 +70,16 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
         }
     })
 
-    const getFileName = (e) =>{
-        let getValue = imageName.current.value
-        const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
-        setPostImageName(readyImageName)
-    }
+    // const getFileName = (e) =>{
+    //     let getValue = imageName.current.value
+    //     const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
+    //     setPostImageName(readyImageName)
+    // }
     
-    const removeImage = () =>{
-        imageName.current.value = ""
-        setPostImageName(null)
-    }
+    // const removeImage = () =>{
+    //     imageName.current.value = ""
+    //     setPostImageName(null)
+    // }
 
     const addTag = (tag) =>{
         editor.commands.insertContent(tag + " ")
@@ -92,7 +93,8 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
         <FloatingMenuBar editor={editor}/>
 
 {/* Image Upload */}
-        <div className='author-input-text-editor-upload-image'>
+        <UploadImageBtn setPostImageName={setPostImageName} />
+        {/* <div className='author-input-text-editor-upload-image'>
             <form className='author-input-form-upload-image-button'>
                 <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
                 {imageName.current?.value.length > 1 ? 
@@ -101,10 +103,16 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
                     <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image +</button>     
                 }
             </form>
-        </div>
+        </div> */}
 
 {/* The actual text area */}
-        <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
+        <div className="author-input-text-area">
+            <div className="defaultBtnStyle">
+                <span>Body</span>
+                <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
+        </div>
+            
+        </div>
         <TagsView addTag={addTag} />
     </div>
   )

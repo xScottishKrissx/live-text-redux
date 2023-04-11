@@ -12,22 +12,30 @@
     display: flex;
         justify-content: space-between;
         align-items: center;
+    margin-bottom: 5px;
 }
 .tags-item-name{
     color: grey;
-    margin-right: 10px;
+    display: flex;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    font-size: .9rem;
+    /* margin-right: 10px; */
 }
 
 .tags-first-name{
     cursor: pointer;
+    margin-right: 5px;
 }
 
 .tags-last-name{
     cursor: pointer;
+
 }
 
 .tags-first-name:hover, .tags-last-name:hover{
-    border-bottom: 3px solid grey;
+    /* border-bottom: 3px solid grey; */
+    box-shadow: 0px 2px 0px 0px grey;
 }
 
 .tags-add-full-name{

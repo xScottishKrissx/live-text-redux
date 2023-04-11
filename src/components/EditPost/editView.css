@@ -6,10 +6,16 @@
 }
 
 .author-input-text-editor-input-container > div{
-    background-color: #f1f1f185;
+    /* background-color: #f1f1f185; */
     color: black;
     min-height: 100px;
-    padding-left: 0.75rem;
+    /* padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.75rem;
+    padding-top: 0.75rem; */
+}
+
+.author-input-text-area > div{
+    display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 }
