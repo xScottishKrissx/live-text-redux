@@ -29,7 +29,7 @@ export default function AuthorInput() {
   return (
     <>
 
-      <div className='author-input-wrapper'>
+      <div className='author-input-wrapper 1st'>
         
         {!editModeState.editing ? <ToggleCPanelButton toggleCPanel={toggleCPanel} /> : null }
        

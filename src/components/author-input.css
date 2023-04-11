@@ -12,15 +12,21 @@
     height: 100%;
     padding-bottom: 25px;
     padding-top: 25px;
+    /* margin: 0 auto; */
     margin-top: 3rem;
-    max-width: 480px;
+    /* width: 90%; */
+        max-width: 480px;
     /* border-radius: var(--borderRadius); */
 
+}
+.author-input-wrapper > div{
+    width: 90%;
+    margin: 0 auto;
 }
 .author-input-form{
     display: flex;
     /* background-color: orange; */
-    padding: 2rem;
+    /* padding: 2rem; */
     flex-direction: column;
     align-items: flex-start;
 }

@@ -40,7 +40,7 @@ export default function NewPost({handleEdit}) {
     }
 
     return (
-        <div>
+        <>
             <PostControl  
                 handleEdit={handleEdit}
                 setPostImageName={setPostImageName} 
@@ -51,7 +51,7 @@ export default function NewPost({handleEdit}) {
                 confirmClearForm={confirmClearForm}
                 
             />
-            <div className='author-input-wrapper'>
+            <div className='author-input-form-wrapper'>
                 <div className='author-input-form'>
                     <Title field={""} passNewFieldValue={setPostTitle} />
                     <Subtitle field={""} passNewFieldValue={setPostSubTitle} />
@@ -61,6 +61,6 @@ export default function NewPost({handleEdit}) {
                     <TextArea field={""} passNewFieldValue={setPostBody} setPostImageName={setPostImageName}/>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
