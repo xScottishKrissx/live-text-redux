@@ -8,3 +8,15 @@
     margin-bottom: 1.5rem;
 }
 
+.global-view-wrapper .colTitle{
+    cursor: default;
+    font-size: 1.75rem;
+    justify-content: flex-start;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.colTitle p{
+    margin: 0;
+    padding: 10px;
+}

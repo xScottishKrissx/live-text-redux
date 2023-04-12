@@ -10,6 +10,9 @@
     /* padding: 1rem; */
     margin-bottom: 1rem;
     background-color: white;
+    border-radius: 5px;
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
 
 }
 
@@ -136,6 +139,13 @@
     position: relative;
 }
 
+/* Edit */
+.post-item-container .editBtn{
+    background-color: grey;
+    color: white;
+
+
+}
 .post-item-container-editMode{
     border-radius: 1rem;
     outline: 5px solid yellow;
@@ -149,3 +159,5 @@
 .RedCard{ box-shadow: var(--boxShadowV2) var(--redCardColour) }
 .Breaking{ box-shadow: var(--boxShadowV2) var(--breakingColour) }
 .Update{ box-shadow: var(--boxShadowV2) var(--postBorderColour) }
+
+

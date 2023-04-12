@@ -3,23 +3,23 @@ import { useSelector } from 'react-redux'
 import DOMPurify from 'dompurify'
 // Logged in - A prop for now but should be read from state in the future when login system in place
 
-export default function PostContent({loggedIn, handleEdit, editMode, id,title, subtitle, body, image, hidden}) {
+export default function PostContent({title, subtitle, body, image, hidden}) {
 
-    const editModeState = useSelector((state) => state.edit.value)
-    const cPanelVisState = useSelector((state) => state.cPanelVis.value)
+    // const editModeState = useSelector((state) => state.edit.value)
+    // const cPanelVisState = useSelector((state) => state.cPanelVis.value)
     const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
     
-    const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
+    // const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
     // console.log(title)
     return (
         <div className='post-item-body'>
-            {loggedIn && cPanelVisState? 
+            {/* {loggedIn && cPanelVisState? 
                 <>
-                    {toggleEditButton ? <button onClick={()=>handleEdit(!editMode, id)}>Edit Me</button> : null }
+                    {toggleEditButton ? <button className='defaultBtnStyle' onClick={()=>handleEdit(!editMode, id)}>Edit Me</button> : null }
                 </>
-            : null }
+            : null } */}
 
-            {hidden === true ? "Hidden" : "Visible"}
+            {/* {hidden === true ? "Hidden" : "Visible"} */}
 
             <div className='post-item-headline-wrapper'>
 
@@ -32,7 +32,7 @@ export default function PostContent({loggedIn, handleEdit, editMode, id,title, s
                         : null }
                     </div>
 
-                    PostId: {id}
+                    {/* PostId: {id} */}
 
                     {subtitle ? 
                         <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(subtitle.replace('@', ''))}></div> 

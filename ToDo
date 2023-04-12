@@ -35,6 +35,8 @@ Live Text:
             ✔ It's the delete button, it's doubling the array on delete... @done(23-02-13 17:22)
             ✔ Fixed it, i was accidentally copying the array without the delete post onto the another array without the deleted post instead of just saving the array without the delete post to begin with. @done(23-02-13 17:22)
         ☐ Create New Edit Button
+
+        ☐ Switch appearance to new design language as seen in author input
         
         Share bar:
           ☐ Create the Share Bar
@@ -64,11 +66,14 @@ Live Text:
         ☐ Create New Create New Post Button
         ☐ Create New Toggle CPanel Button
 
-        ☐ Switch Inputs over to new design style shown in the Control Panel
+        ✔ Switch Inputs over to new design style shown in the Control Panel @done(23-04-12 12:12)
 
         ☐ Add Option for simple form and complex form
           ☐ Simple - Title + Body
           ☐ Complex - Every Option
+        
+        ☐ Title should have tags support
+        ☐ Subtitle should have tags support
         
       Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)
@@ -190,6 +195,7 @@ Live Text:
             ☐ Ability to rename columns
             ☐ Add amount of posts in each column
             ✔ Ability delete Column @done(23-03-24 16:18)
+            ☐ When deleting a column, set another column active or change UI to adjust for column deletion
             ✔ Include name @done(23-04-07 17:13)
             ☐ View Date of creation
             ☐ Ability to hide columns

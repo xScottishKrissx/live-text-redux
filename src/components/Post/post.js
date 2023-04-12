@@ -8,7 +8,8 @@ import PostTimestamp from './View/PostTimestamp';
 import PostContent from './View/PostContent';
 import PostTwitter from './View/PostTwitter';
 import PostYoutube from './View/PostYoutube';
-import { setCPanelVis } from '../../features/cpanelVis';
+import cpanelVis, { setCPanelVis } from '../../features/cpanelVis';
+import EditButton from './editButton';
 
 export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden}) {
     const dispatch = useDispatch()
@@ -28,12 +29,27 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
         dispatch( setCPanelVis(!cPanelVis))
     } 
     const editingIsActiveOnThisPost = editing && editId === id
+    // const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
 
     return (
     
         <div key={id}  className={ `${editingIsActiveOnThisPost ? "post-item-container-editMode" : "post-item-container" }` } >
             
             <PostTimestamp timestamp={timestamp} />
+            {/* {loggedIn && cPanelVis? 
+                <>
+                    {toggleEditButton ? <button className='defaultBtnStyle' onClick={()=>handleEdit(!editing, id)}>Edit Me</button> : null }
+                </>
+            : null } */}
+            <EditButton 
+                loggedIn
+                // cPanelVis={cpanelVis}
+                // editMode={editing}
+                // editModeState={editModeState}
+                id={id}
+                handleEdit={handleEdit}
+            />
+
             <PostContent
                 editMode={editing}
                 editModeState={editModeState}

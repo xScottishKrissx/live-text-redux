@@ -64,8 +64,8 @@ export default function GlobalView() {
 
   return (
     <div className='global-view-wrapper'>
-        {loggedIn ? <p>Logged In</p> : <p>Not Logged In</p>}
-        <h1 dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}></h1> 
+        {/* {loggedIn ? <p>Logged In</p> : <p>Not Logged In</p>} */}
+        <h1 className='defaultBtnStyle colTitle' dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}></h1> 
 
         {getactiveColumnsItems.length <= 0 ? "+ Add New Post" : displayLiveText}
     </div>
