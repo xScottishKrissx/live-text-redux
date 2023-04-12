@@ -117,3 +117,5 @@ body{
   overflow-wrap: break-word;
   max-width: 480px;
 }
+
+.displayNone{display: none;}

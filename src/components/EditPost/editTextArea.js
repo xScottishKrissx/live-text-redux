@@ -16,17 +16,23 @@ import suggestion from '../Tiptap/Mentions/suggestion'
 import TipTapMenuButtons from '../Tiptap/MenuBar/TipTapMenuButtons'
 import FloatingMenuBar from '../Tiptap/FloatingMenu/FloatingMenuBar'
 import TagsView from '../Tags/tags-view'
-// Icons
-// import {FaTimes } from 'react-icons/fa'
 
 import { setForm } from '../../features/resetForm'
 import UploadImageBtn from '../Utility/uploadImage'
+import {v4 as uuidv4} from 'uuid'
 
-export const MenuBar = ({editor}) =>{ if(!editor){ return null } return <TipTapMenuButtons editor={editor} />; }
+export const MenuBar = ({editor}) =>{ 
+    if(!editor){ 
+        return null 
+    } return (
+        <div >
+            <TipTapMenuButtons editor={editor} />
+        </div>
+    )
+ }
 
 export default function EditTextArea({field, passNewFieldValue, setPostImageName}) {
 
-    // const imageName = useRef()
 
     const editor = useEditor({
 
@@ -61,6 +67,7 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
     // Clear form after a post is submitted/edited
     const dispatch = useDispatch()
     const clrForm = useSelector((state) => state.reset.value)
+    const inputStyle = useSelector((state) => state.inputStyle.value)
 
     useEffect(() =>{
         if(clrForm === "clearForm"){
@@ -70,50 +77,24 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
         }
     })
 
-    // const getFileName = (e) =>{
-    //     let getValue = imageName.current.value
-    //     const readyImageName = getValue.replace(`C:\\fakepath\\`, '')
-    //     setPostImageName(readyImageName)
-    // }
-    
-    // const removeImage = () =>{
-    //     imageName.current.value = ""
-    //     setPostImageName(null)
-    // }
+    const addTag = (tag) =>{ editor.commands.insertContent(tag + " ") }
 
-    const addTag = (tag) =>{
-        editor.commands.insertContent(tag + " ")
-    }
+    return (
+        <div className='author-input-text-editor'>
 
-  return (
-    <div className='author-input-text-editor'>
-{/* The Buttons above the text area */}
-        <MenuBar editor={editor}/>
-{/* Floating Menu */}
-        <FloatingMenuBar editor={editor}/>
+            <MenuBar editor={editor} inputStyle={inputStyle} /> 
+            <FloatingMenuBar editor={editor}/>
+            {inputStyle ? <UploadImageBtn setPostImageName={setPostImageName} /> : null }
 
-{/* Image Upload */}
-        <UploadImageBtn setPostImageName={setPostImageName} />
-        {/* <div className='author-input-text-editor-upload-image'>
-            <form className='author-input-form-upload-image-button'>
-                <input ref={imageName} type="file" id="myfile" name="myfile" onChange={(e)=>getFileName(e)}/>
-                {imageName.current?.value.length > 1 ? 
-                    <button type='button' value="Browse..." onClick={()=>removeImage()}>Remove Image - <FaTimes /></button>  
-                    : 
-                    <button type='button' value="Browse..." onClick={()=>imageName.current.click()}>Upload Image +</button>     
-                }
-            </form>
-        </div> */}
-
-{/* The actual text area */}
-        <div className="author-input-text-area">
-            <div className="defaultBtnStyle">
-                <span>Body (type @ for tags) </span>
-                <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
-        </div>
+            <div className="author-input-text-area">
+                <div className="defaultBtnStyle">
+                    <span>Body (type @ for tags) </span>
+                    <EditorContent className='author-input-text-editor-input-container' editor={editor}  />
+                </div>
+            </div>
+            
+            {inputStyle ? <TagsView addTag={addTag} /> : null  }
             
         </div>
-        <TagsView addTag={addTag} />
-    </div>
-  )
+    )
 }

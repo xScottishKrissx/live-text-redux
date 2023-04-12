@@ -14,6 +14,7 @@ import previewEditReducer from './features/previewEdit';
 import resetForm from './features/resetForm';
 import setActiveLiveTextReducer  from './features/activeLiveText';
 import setControlPanelVisReducer from './features/cpanelVis'
+import setInputStyle  from './features/inputStyle';
 const store = configureStore({
   reducer:{
     items: itemReducer,
@@ -22,7 +23,8 @@ const store = configureStore({
     preview: previewEditReducer,
     reset: resetForm,
     active:setActiveLiveTextReducer,
-    cPanelVis:setControlPanelVisReducer
+    cPanelVis:setControlPanelVisReducer,
+    inputStyle: setInputStyle,
   }
 })
 

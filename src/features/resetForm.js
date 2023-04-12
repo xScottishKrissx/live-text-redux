@@ -14,3 +14,6 @@ export const resetForm = createSlice({
 
 export const {setForm}=resetForm.actions
 export default resetForm.reducer
+
+
+

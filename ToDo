@@ -63,20 +63,23 @@ Live Text:
             ✔ ...but the youtube placeholder displays even if you don't add a video. @done(23-02-22 16:19)
           ...it only appears in the item review window, so not actually an issue but still annoying
         ✔ Add Twitter card @done(23-02-21 11:53)
-        ☐ Create New Create New Post Button
-        ☐ Create New Toggle CPanel Button
+        ✔ Create New Create New Post Button @done(23-04-12 17:28)
+        ✔ Create New Toggle CPanel Button @done(23-04-12 17:28)
 
         ✔ Switch Inputs over to new design style shown in the Control Panel @done(23-04-12 12:12)
 
-        ☐ Add Option for simple form and complex form
-          ☐ Simple - Title + Body
-          ☐ Complex - Every Option
+        ✔ Add Option for simple form and complex form @done(23-04-12 18:30)
+          ✔ Simple - Title + Body @done(23-04-12 18:29)
+          ✔ Complex - Every Option @done(23-04-12 18:29)
         
         ☐ Title should have tags support
         ☐ Subtitle should have tags support
 
         ☐ The Types aren't working, showing undefined in html
         ☐ The image is also not appearing
+
+        ☐ Keyboard SUpport
+          ☐ Pressing Enter should submit the post when ready
         
       Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)

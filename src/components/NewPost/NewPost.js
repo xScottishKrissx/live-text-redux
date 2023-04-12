@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { addItem } from '../../features/item'
 import PostControl from '../PostControl/postControl'
@@ -15,6 +15,8 @@ import { setForm } from '../../features/resetForm'
 export default function NewPost({handleEdit}) {
     const dispatch = useDispatch()
 
+    const inputStyle = useSelector((state) => state.inputStyle.value)
+
     const [postTitle, setPostTitle] = useState("")
     const [postSubtitle, setPostSubTitle] = useState("")
     const [postType, setPostType] = useState("")
@@ -22,6 +24,7 @@ export default function NewPost({handleEdit}) {
     const [postImageName, setPostImageName] = useState("")
     const [insertTweet, setTweet] = useState("")
     const [insertYoutube, setYoutube] = useState("")
+
 
     useEffect(() => {
         dispatch(addItem({postTitle,postSubtitle, postType, postBody, postImageName, insertTweet, insertYoutube}))
@@ -55,12 +58,12 @@ export default function NewPost({handleEdit}) {
                 
             />
             <div className='author-input-form-wrapper'>
-                <div className='author-input-form'>
-                    <Title field={""} passNewFieldValue={setPostTitle} />
-                    <Subtitle field={""} passNewFieldValue={setPostSubTitle} />
-                    <Twitter setTweet={setTweet} value={insertTweet}/>
-                    <Youtube setYoutube={setYoutube} value={insertYoutube} />
-                    <Type setPostType={setPostType} />
+                <div className='author-input-form'>  
+                    <Title field={""} passNewFieldValue={setPostTitle} /> 
+                    {inputStyle ? <Subtitle field={""} passNewFieldValue={setPostSubTitle} /> : null }
+                    {inputStyle ? <Twitter setTweet={setTweet} value={insertTweet}/> : null }
+                    {inputStyle ? <Youtube setYoutube={setYoutube} value={insertYoutube} /> : null }
+                    {inputStyle ? <Type setPostType={setPostType} /> : null }
                     <TextArea field={""} passNewFieldValue={setPostBody} setPostImageName={setPostImageName}/>
                 </div>
             </div>

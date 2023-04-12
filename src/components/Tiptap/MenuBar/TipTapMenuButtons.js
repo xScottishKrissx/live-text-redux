@@ -1,7 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
 import AddImageButton from './addImageButton'
 import AddLinkButton from './addLinkButton'
 import './TipTapMenuButtons.css'
+
+import {v4 as uuidv4} from 'uuid'
 // Icons
 import { 
     FaBold, 
@@ -21,11 +25,13 @@ import {
 
  } from 'react-icons/fa'
 
-export default function TipTapMenuButtons({editor}) {
-   
+export default function TipTapMenuButtons({editor, key}) {
+    const inputStyle = useSelector((state) => state.inputStyle.value)
+    // if(!inputStyle) return
 
   return (
-    <div className='author-input-text-editor-buttons'>
+    inputStyle ? 
+    <div key={uuidv4()} className='author-input-text-editor-buttons'>
                 <button
                     onClick={() => editor.chain().focus().toggleBold().run()}
                     disabled={ !editor.can().chain().focus().toggleBold().run()}
@@ -147,5 +153,8 @@ export default function TipTapMenuButtons({editor}) {
 
 
     </div>
+    :
+    null
+  
   )
 }
