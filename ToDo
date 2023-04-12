@@ -74,6 +74,9 @@ Live Text:
         
         ☐ Title should have tags support
         ☐ Subtitle should have tags support
+
+        ☐ The Types aren't working, showing undefined in html
+        ☐ The image is also not appearing
         
       Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)
@@ -145,6 +148,10 @@ Live Text:
         ☐ Create New Save Button
         ☐ Create New Delete Button
         ☐ Create New Hide Button
+        ☐ The Control Bar is a mess with the new style, fix this
+        ☐ The types need to be fixed
+        ☐ The padding for the names is off
+        ☐ Deleting a post should return you to the control panel
 
         Issues:
           Creating a new post is returning an error object is not extensible which i understand. I don't understand why the exact same object from local storage is extensible but the same array from state is not.

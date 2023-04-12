@@ -44,10 +44,13 @@ export default function NewPost({handleEdit}) {
             <PostControl  
                 handleEdit={handleEdit}
                 setPostImageName={setPostImageName} 
+
                 title={postTitle} 
                 body={postBody} 
                 subtitle={postSubtitle} 
-
+                image={postImageName}
+                twitter={insertTweet}
+                youtube={insertYoutube}
                 confirmClearForm={confirmClearForm}
                 
             />

@@ -1,24 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import DOMPurify from 'dompurify'
 // Logged in - A prop for now but should be read from state in the future when login system in place
-
+import { cleanInput } from '../../Utility/cleanInput'
 export default function PostContent({title, subtitle, body, image, hidden}) {
 
-    // const editModeState = useSelector((state) => state.edit.value)
-    // const cPanelVisState = useSelector((state) => state.cPanelVis.value)
     const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
-    
-    // const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
-    // console.log(title)
+
     return (
         <div className='post-item-body'>
-            {/* {loggedIn && cPanelVisState? 
-                <>
-                    {toggleEditButton ? <button className='defaultBtnStyle' onClick={()=>handleEdit(!editMode, id)}>Edit Me</button> : null }
-                </>
-            : null } */}
-
+ 
             {/* {hidden === true ? "Hidden" : "Visible"} */}
 
             <div className='post-item-headline-wrapper'>
@@ -27,16 +17,10 @@ export default function PostContent({title, subtitle, body, image, hidden}) {
                 
                 <div className='post-item-headline-content '>
                     <div className='post-item-title'>                            
-                        {title ? 
-                            <div dangerouslySetInnerHTML={createMarkup(title.replace('@', ''))}></div> 
-                        : null }
+                         {title ? <div>{cleanInput(title)}</div> : null }
                     </div>
 
-                    {/* PostId: {id} */}
-
-                    {subtitle ? 
-                        <div className='post-item-subtitle' dangerouslySetInnerHTML={createMarkup(subtitle.replace('@', ''))}></div> 
-                    : null }
+                    {subtitle ? <div className='post-item-subtitle'>{cleanInput(subtitle)}</div> : null }
                 </div>
 
             </div>
@@ -45,9 +29,9 @@ export default function PostContent({title, subtitle, body, image, hidden}) {
                 <img src={require("../../../Assets/" + image)} /> 
             : null}
 
-            {body ? 
-                <div dangerouslySetInnerHTML={createMarkup(body.replace('@', ''))}></div> 
-            : null}
+            {/* I need to use this instead of the above because I need to preserve the spacing and i can't figure out how to keep the p tags while stripping everything else. */}
+            {body ? <div dangerouslySetInnerHTML={createMarkup(body.replace('@', ''))}></div> : null}
+         
 
         </div>
     )

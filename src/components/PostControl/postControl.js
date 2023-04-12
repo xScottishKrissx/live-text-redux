@@ -34,7 +34,6 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
 
     const createNewPost = () =>{
         console.log("Create New Post")
-
         const newPost = {
             body:body, 
             title:title, 

@@ -10,6 +10,7 @@ export default function ItemReview({data}) {
     <div className='item-review-container'>
       <div className={'post-item ' + postType}>
         <Post 
+          hideEditBtn
           title={postTitle} 
           subtitle={postSubtitle} 
           body={postBody} 

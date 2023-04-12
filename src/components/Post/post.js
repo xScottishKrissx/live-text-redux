@@ -8,47 +8,34 @@ import PostTimestamp from './View/PostTimestamp';
 import PostContent from './View/PostContent';
 import PostTwitter from './View/PostTwitter';
 import PostYoutube from './View/PostYoutube';
-import cpanelVis, { setCPanelVis } from '../../features/cpanelVis';
+import { setCPanelVis } from '../../features/cpanelVis';
 import EditButton from './editButton';
 
-export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden}) {
+export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden, hideEditBtn}) {
     const dispatch = useDispatch()
     // localStorage.clear()
     const liveText = useSelector((state) => state.livetext.value)
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
     const editModeState = useSelector((state) => state.edit.value)
     const {editing, editId} = editModeState
-    // const [editMode, setEditMode] = useState(editModeState.editing)
-
     
     if(!liveText) return
     
-
     const handleEdit = (editing, editId,) =>  {
         dispatch( setEdit({ editing, editId}) )
         dispatch( setCPanelVis(!cPanelVis))
     } 
     const editingIsActiveOnThisPost = editing && editId === id
-    // const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
-
+    // console.log(image)
     return (
     
         <div key={id}  className={ `${editingIsActiveOnThisPost ? "post-item-container-editMode" : "post-item-container" }` } >
             
-            <PostTimestamp timestamp={timestamp} />
-            {/* {loggedIn && cPanelVis? 
-                <>
-                    {toggleEditButton ? <button className='defaultBtnStyle' onClick={()=>handleEdit(!editing, id)}>Edit Me</button> : null }
-                </>
-            : null } */}
-            <EditButton 
-                loggedIn
-                // cPanelVis={cpanelVis}
-                // editMode={editing}
-                // editModeState={editModeState}
-                id={id}
-                handleEdit={handleEdit}
-            />
+            <div className='post-item-container-top-bar'>
+                <PostTimestamp timestamp={timestamp} />
+                {hideEditBtn ? null : <EditButton loggedIn id={id} handleEdit={handleEdit} />}
+            </div>
+
 
             <PostContent
                 editMode={editing}
