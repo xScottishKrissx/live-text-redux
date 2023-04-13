@@ -159,7 +159,7 @@ Live Text:
         ✔ The padding for the names is off @done(23-04-13 17:21)
         ✔ Saving an edit should return you to the control panel @done(23-04-13 17:21)
         ✔ Deleting a post should return you to the control panel @done(23-04-13 17:35)
-        ☐ Integrate the simple/complex form views.
+        ✔ Integrate the simple/complex form views. @done(23-04-13 17:48)
         ☐ Change the indicator that the post is being edited.
             ☐ It should be much more obvious which post is being edited.
 

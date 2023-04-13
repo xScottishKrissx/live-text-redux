@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import PostControl from "../PostControl/postControl";
 import { addToPreview } from "../../features/previewEdit";
+import PostControl from "../PostControl/postControl";
 
 import Title from "../InputForm/Title";
 import Subtitle from "../InputForm/Subtitle";
@@ -18,13 +18,13 @@ const EditTiptap = ({ id, handleEdit }) =>{
     const dispatch = useDispatch()
     
     // console.log(id)
+    const inputStyle = useSelector((state) => state.inputStyle.value)
+
     const liveText = useSelector((state) => state.livetext.value)
     const activeLiveText = useSelector((state) => state.active.value)
     const getCurrentColumn = liveText.filter(x => x[activeLiveText])
     const currentColumnItems = getCurrentColumn[0][activeLiveText].items
     const getCurrentPost = currentColumnItems.filter(x => x[id])
-    
-    // return
     
     const {title, subtitle, body, tweet, youtube, image, hidden } = getCurrentPost[0][id].items
     
@@ -60,10 +60,10 @@ const EditTiptap = ({ id, handleEdit }) =>{
             <div className='author-input-edit-form-wrapper'>
                 <div className='author-input-form'>
                     <Title field={title} passNewFieldValue={setTitle}/>
-                    <Subtitle field={subtitle} passNewFieldValue={setSubtitle} />
-                    <Twitter setTweet={setTweet} value={insertTweet}/>
-                    <Youtube value={insertYoutube} setYoutube={setYoutube} />
-                    <Type setPostType={setPostType} />
+                    {inputStyle ? <Subtitle field={subtitle} passNewFieldValue={setSubtitle} /> :null}
+                    {inputStyle ? <Twitter setTweet={setTweet} value={insertTweet}/> :null}
+                    {inputStyle ? <Youtube value={insertYoutube} setYoutube={setYoutube} /> :null}
+                    {inputStyle ? <Type setPostType={setPostType} /> :null}
                     <TextArea field={body} passNewFieldValue={setBody} setPostImageName={setPostImageName} />
                 </div>
             </div>

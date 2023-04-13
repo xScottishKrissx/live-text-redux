@@ -8,10 +8,10 @@ import NewPost from './NewPost/NewPost'
 import './author-input.css'
 import ControlPanel from './ControlPanel/controlPanel'
 import { setCPanelVis } from '../features/cpanelVis'
-import ToggleCPanelButton from './Utility/Buttons/toggleCPanelButton'
+// import ToggleCPanelButton from './Utility/Buttons/toggleCPanelButton'
 import InputStyleButton from './Utility/Buttons/inputStyleButton'
 
-
+import { FaStepBackward } from 'react-icons/fa'
 export default function AuthorInput() {
   const dispatch = useDispatch()
   /////// Handle Edit
@@ -24,11 +24,11 @@ export default function AuthorInput() {
     dispatch(setEdit({editing:x, editId: null}))
   }
 
-  const toggleCPanel = (x) =>{ dispatch(setCPanelVis(!cPanelVisState)) }
+  // const toggleCPanel = (x) =>{ dispatch(setCPanelVis(!cPanelVisState)) }
 
   const returnToCPanel = () =>{
     handleEdit(false)
-    toggleCPanel()
+    dispatch(setCPanelVis(!cPanelVisState)) 
   }
  
   return (
@@ -37,22 +37,13 @@ export default function AuthorInput() {
       <div className='author-input-wrapper 1st'>
         
         <div className='author-input-wrapper-top-bar'>
-          {!editModeState.editing ? 
-          // <ToggleCPanelButton toggleCPanel={toggleCPanel} /> 
-          // <button className='defaultBtnStyle' onClick={returnToCPanel}>Return</button>
-          // null
-          null
-          : 
-          // <button className='defaultBtnStyle' onClick={returnToCPanel}>Return</button>
-          null
-         }
-          {/* <ToggleCPanelButton toggleCPanel={toggleCPanel} /> */}
+
           {!cPanelVisState ? 
           <>
-            <button className='defaultBtnStyle' onClick={returnToCPanel}> ...Return</button>
+            <button className='defaultBtnStyle' onClick={returnToCPanel}> <FaStepBackward /> Back </button>
             <InputStyleButton /> 
           </>
-            :  null     }
+            :  null}
         </div>
 
        
