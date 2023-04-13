@@ -13,6 +13,7 @@ export default function GlobalView() {
   const liveText = useSelector((state) => state.livetext.value)
   // const liveTextMaster = JSON.parse(localStorage.getItem("liveTextMaster")) || []
   const activeLiveText = useSelector((state) => state.active.value)
+  const editModeState = useSelector((state) => state.edit.value)
   // console.log(liveText)
   // console.log(liveTextMaster)
   if(!liveText || !activeLiveText) return
@@ -38,10 +39,15 @@ export default function GlobalView() {
     const timeSincePostCreation = (Date.now() - timestamp) / 1000
     const changeClassWithTime = timeSincePostCreation < 70 && index === 0 ? "newPost " + index : ""
 
+    // Checking Edit Mode
+    const {editing, editId} = editModeState
+    const editingIsActiveOnThisPost = editing && editId === getPostId
+
     return(
       <div 
         className={'post-item ' + type + ' ' + changeClassWithTime} 
         key={index} 
+        id={`${editingIsActiveOnThisPost ? "post-item-edit-mode" : null }`}
         >
         <Post
         

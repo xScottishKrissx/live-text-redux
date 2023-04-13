@@ -20,3 +20,8 @@
     margin: 0;
     padding: 10px;
 }
+
+#post-item-edit-mode{
+    background-color: var(--authorInputBackgroundColour);
+    transform: translateX(-20px);
+}

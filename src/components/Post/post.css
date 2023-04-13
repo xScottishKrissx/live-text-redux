@@ -139,12 +139,6 @@
 
 
 }
-.post-item-container-editMode{
-    border-radius: 1rem;
-    outline: 5px solid yellow;
-    /* border-bottom: 10px solid yellow; */
-    padding: 2rem;
-}
 
 .Goal .post-item-container, .Goal{ box-shadow: var(--boxShadowV2) var(--goalColour) }
 .Offside .post-item-container{ box-shadow: var(--boxShadowV2) var(--offsideColour) }

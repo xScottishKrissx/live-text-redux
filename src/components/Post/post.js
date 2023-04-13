@@ -17,7 +17,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
     const liveText = useSelector((state) => state.livetext.value)
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
     const editModeState = useSelector((state) => state.edit.value)
-    const {editing, editId} = editModeState
+    const {editing} = editModeState
     
     if(!liveText) return
     
@@ -25,11 +25,10 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
         dispatch( setEdit({ editing, editId}) )
         dispatch( setCPanelVis(!cPanelVis))
     } 
-    const editingIsActiveOnThisPost = editing && editId === id
-    // console.log(image)
+
     return (
     
-        <div key={id}  className={ `${editingIsActiveOnThisPost ? "post-item-container-editMode" : "post-item-container" }` } >
+        <div key={id} className="post-item-container" >
             
             <div className='post-item-container-top-bar'>
                 <PostTimestamp timestamp={timestamp} />

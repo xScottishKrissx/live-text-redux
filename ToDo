@@ -37,6 +37,9 @@ Live Text:
         ☐ Create New Edit Button
 
         ☐ Switch appearance to new design language as seen in author input
+        ☐ Separate Global View into components
+          ☐ 1 - Get the information needed for the view
+          ☐ 2 - A Component for the View
         
         Share bar:
           ☐ Create the Share Bar
@@ -160,8 +163,8 @@ Live Text:
         ✔ Saving an edit should return you to the control panel @done(23-04-13 17:21)
         ✔ Deleting a post should return you to the control panel @done(23-04-13 17:35)
         ✔ Integrate the simple/complex form views. @done(23-04-13 17:48)
-        ☐ Change the indicator that the post is being edited.
-            ☐ It should be much more obvious which post is being edited.
+        ✔ Change the indicator that the post is being edited. @done(23-04-13 18:01)
+            ✔ It should be much more obvious which post is being edited. @done(23-04-13 18:01)
 
         Issues:
           Creating a new post is returning an error object is not extensible which i understand. I don't understand why the exact same object from local storage is extensible but the same array from state is not.
