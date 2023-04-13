@@ -72,8 +72,8 @@ Live Text:
           ✔ Simple - Title + Body @done(23-04-12 18:29)
           ✔ Complex - Every Option @done(23-04-12 18:29)
         
-        ☐ Title should have tags support
-        ☐ Subtitle should have tags support
+        ✔ Title should have tags support @done(23-04-13 16:14)
+        ✔ Subtitle should have tags support @done(23-04-13 16:14)
 
         ☐ The Types aren't working, showing undefined in html
         ☐ The image is also not appearing

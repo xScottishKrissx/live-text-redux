@@ -6,14 +6,22 @@ import { setForm } from "../../features/resetForm";
 // Tiptap
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import suggestion from "../Tiptap/Mentions/suggestion";
 // Me
 import AddNewButton from "../Utility/Buttons/addNewButton";
+import Mention from "@tiptap/extension-mention";
 
 export default function EditPostField({field, passNewFieldValue, clearContent, createNewColumn, needButton, allowPost,}) {
 
     const editor = useEditor({
         extensions: [
             StarterKit,
+            Mention.configure({
+                HTMLAttributes:{
+                    class:'mention'
+                },
+                suggestion
+            })
         ],
 
         content: field,
