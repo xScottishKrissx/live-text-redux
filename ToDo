@@ -43,14 +43,19 @@ Live Text:
 
       Adding Posts / Author Input:
 
-        ✔ Make the tags menu look better @done(23-02-22 17:07)
-        ✔ Add file upload to replace/add to the current add images button @done(23-03-24 14:17)
-          ✔ Done, just need to clean up the code a bit @done(23-03-24 14:17)
-          ✔ style input @done(23-02-22 17:17)
-            ✔ The current styling is to bland, need to do something about this.At least the functionality is in, i just need to rethink my approach here. @done(23-02-22 17:43)
-          ✔ Ability to cancel image upload @done(23-02-17 18:12)
-          ✔ Indicate that image has been uploaded @done(23-02-17 18:12)
-          ✔ The image has to stay at the top due to limitations with tiptap. I could probably figure out a way of integrating the image into the body but that's just too much work for this project. @done(23-02-17 17:23)
+        Tags:
+          ✔ Make the tags menu look better @done(23-02-22 17:07)
+          ✔ Add file upload to replace/add to the current add images button @done(23-03-24 14:17)
+            ✔ Done, just need to clean up the code a bit @done(23-03-24 14:17)
+            ✔ style input @done(23-02-22 17:17)
+              ✔ The current styling is to bland, need to do something about this.At least the functionality is in, i just need to rethink my approach here. @done(23-02-22 17:43)
+          ✔ Title should have tags support @done(23-04-13 16:14)
+          ✔ Subtitle should have tags support @done(23-04-13 16:14)
+          ☐ There should be single tags menu with all available tags, instead of the hard coded Japan option
+
+        ✔ Ability to cancel image upload @done(23-02-17 18:12)
+        ✔ Indicate that image has been uploaded @done(23-02-17 18:12)
+        ✔ The image has to stay at the top due to limitations with tiptap. I could probably figure out a way of integrating the image into the body but that's just too much work for this project. @done(23-02-17 17:23)
     
         ✔ Ability to cancel adding post @done(22-12-20 17:03)
         ✔ Ability to edit post @done(23-03-24 14:17)
@@ -72,11 +77,8 @@ Live Text:
           ✔ Simple - Title + Body @done(23-04-12 18:29)
           ✔ Complex - Every Option @done(23-04-12 18:29)
         
-        ✔ Title should have tags support @done(23-04-13 16:14)
-        ✔ Subtitle should have tags support @done(23-04-13 16:14)
-
-        ☐ The Types aren't working, showing undefined in html
-        ☐ The image is also not appearing
+        ✔ The Types aren't working, showing undefined in html @done(23-04-13 16:26)
+        ✔ The image is also not appearing @done(23-04-13 16:17)
 
         ☐ Keyboard SUpport
           ☐ Pressing Enter should submit the post when ready

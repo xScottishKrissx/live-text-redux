@@ -52,6 +52,7 @@ export default function NewPost({handleEdit}) {
                 body={postBody} 
                 subtitle={postSubtitle} 
                 image={postImageName}
+                type={postType}
                 twitter={insertTweet}
                 youtube={insertYoutube}
                 confirmClearForm={confirmClearForm}

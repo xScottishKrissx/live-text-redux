@@ -32,13 +32,14 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     let getColumnHeadline = getCurrentColumn[0][getColumnId].headline
     // console.log(getColumnHeadline)
 
+
     const createNewPost = () =>{
         console.log("Create New Post")
         const newPost = {
             body:body, 
             title:title, 
             subtitle:subtitle, 
-            type:type,
+            type: !type ? "update" : type,
             timestamp:Date.now(),
             hidden:false,
             image:image,
@@ -53,6 +54,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         setPostImageName("")
         updateWebsite(updatedLiveTexts)
         confirmClearForm("clearForm")
+        
     }
 
     const handleHide = (setHide) =>{
