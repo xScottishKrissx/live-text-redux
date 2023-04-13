@@ -3,11 +3,13 @@ import './global-view.css'
 
 import { useSelector } from 'react-redux'
 import Post from './Post/post'
-
-import DOMPurify from 'dompurify'
+import { createMarkup } from './Utility/createMarkup'
+// import DOMPurify from 'dompurify'
 
 export default function GlobalView() {
-  const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
+
+  
+  // const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
   const loggedIn = true
   
   const liveText = useSelector((state) => state.livetext.value)

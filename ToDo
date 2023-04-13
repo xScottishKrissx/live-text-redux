@@ -38,8 +38,8 @@ Live Text:
 
         ☐ Switch appearance to new design language as seen in author input
         ☐ Separate Global View into components
-          ☐ 1 - Get the information needed for the view
-          ☐ 2 - A Component for the View
+          ✔ 1 - Get the information needed for the view @done(23-04-13 18:22)
+          ✔ 2 - A Component for the View @done(23-04-13 18:22)
         
         Share bar:
           ☐ Create the Share Bar

@@ -1,11 +1,8 @@
 import React from 'react'
-import DOMPurify from 'dompurify'
-// Logged in - A prop for now but should be read from state in the future when login system in place
+import { createMarkup } from '../../Utility/createMarkup'
 import { cleanInput } from '../../Utility/cleanInput'
+
 export default function PostContent({title, subtitle, body, image, hidden}) {
-
-    const createMarkup = (html) =>{ return{ __html:DOMPurify.sanitize(html) } }
-
     return (
         <div className='post-item-body'>
  
@@ -13,8 +10,6 @@ export default function PostContent({title, subtitle, body, image, hidden}) {
 
             <div className='post-item-headline-wrapper'>
 
-                {/* { headlineIcon ? <img src={"https://via.placeholder.com/50x50"} /> : ""}  */}
-                
                 <div className='post-item-headline-content '>
                     <div className='post-item-title'>                            
                          {title ? <div>{cleanInput(title)}</div> : null }
