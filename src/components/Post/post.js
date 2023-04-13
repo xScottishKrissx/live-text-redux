@@ -11,7 +11,7 @@ import PostYoutube from './View/PostYoutube';
 import { setCPanelVis } from '../../features/cpanelVis';
 import EditButton from './editButton';
 
-export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden, hideEditBtn, type}) {
+export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden, hideEditBtn}) {
     const dispatch = useDispatch()
     // localStorage.clear()
     const liveText = useSelector((state) => state.livetext.value)
@@ -36,7 +36,6 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
                 {hideEditBtn ? null : <EditButton loggedIn id={id} handleEdit={handleEdit} />}
             </div>
 
-            Type: {type}
             <PostContent
                 editMode={editing}
                 editModeState={editModeState}

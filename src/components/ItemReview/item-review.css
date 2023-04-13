@@ -1,19 +1,5 @@
 /* Item Review */
 .item-review-container{
-    /* outline: 1px solid var(--backgroundColour); */
-    /* box-shadow: var(--boxShadowV2) var(--backgroundColour); */
-    color: black;
-    padding: 1rem;
-    margin-bottom: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
-.item-review-confirm-button{
-    margin: 1rem;
-}
-.item-review-confirm-button p{
-    color: black;
-} 
-
-/* .item-review-container .post-item .post-item-container div img{
-    width: 100%;
-} */
-
