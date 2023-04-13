@@ -45,9 +45,10 @@ export default function NewPost({handleEdit}) {
     return (
         <>
             <PostControl  
-                handleEdit={handleEdit}
                 setPostImageName={setPostImageName} 
-
+                confirmClearForm={confirmClearForm}
+                
+                handleEdit={handleEdit}
                 title={postTitle} 
                 body={postBody} 
                 subtitle={postSubtitle} 
@@ -55,7 +56,6 @@ export default function NewPost({handleEdit}) {
                 type={postType}
                 twitter={insertTweet}
                 youtube={insertYoutube}
-                confirmClearForm={confirmClearForm}
                 
             />
             <div className='author-input-form-wrapper'>

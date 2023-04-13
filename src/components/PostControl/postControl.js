@@ -10,6 +10,7 @@ import deletePost from './PostControlComponents/deletePost'
 import {v4 as uuidv4} from 'uuid'
 // Style
 import './postControl.css'
+import { setCPanelVis } from '../../features/cpanelVis'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden, confirmClearForm}) {
 
@@ -67,6 +68,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type, hidden}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
         updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, getColumnHeadline)   
+        dispatch(setCPanelVis(true))
     }
      
     const updateWebsite = (newMasterLiveText, keepOpen) =>{
@@ -77,6 +79,7 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
 
     const handleDelete = () => {
         deletePost(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite, getColumnHeadline) 
+        dispatch(setCPanelVis(true))
     }
     return (
        

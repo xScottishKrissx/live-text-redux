@@ -10,8 +10,12 @@
         flex: var(--columnSpacing);
         flex-direction: column;
     height: 100%;
+    /* padding: 25px; */
     padding-bottom: 25px;
     padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
     /* margin: 0 auto; */
     margin-top: 3rem;
     /* width: 90%; */
@@ -20,8 +24,8 @@
 
 }
 .author-input-wrapper > div{
-    width: 90%;
-    margin: 0 auto;
+    /* width: 90%; */
+    /* margin: 0 auto; */
 }
 .author-input-wrapper-top-bar{
     display: flex;
@@ -39,6 +43,7 @@
     /* padding: 2rem; */
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 .author-input-form > div{
     margin-top: 10px;

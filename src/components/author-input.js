@@ -26,6 +26,10 @@ export default function AuthorInput() {
 
   const toggleCPanel = (x) =>{ dispatch(setCPanelVis(!cPanelVisState)) }
 
+  const returnToCPanel = () =>{
+    handleEdit(false)
+    toggleCPanel()
+  }
  
   return (
     <>
@@ -33,8 +37,22 @@ export default function AuthorInput() {
       <div className='author-input-wrapper 1st'>
         
         <div className='author-input-wrapper-top-bar'>
-          {!editModeState.editing ? <ToggleCPanelButton toggleCPanel={toggleCPanel} /> : null }
-          {!cPanelVisState ? <InputStyleButton /> :  null     }
+          {!editModeState.editing ? 
+          // <ToggleCPanelButton toggleCPanel={toggleCPanel} /> 
+          // <button className='defaultBtnStyle' onClick={returnToCPanel}>Return</button>
+          // null
+          null
+          : 
+          // <button className='defaultBtnStyle' onClick={returnToCPanel}>Return</button>
+          null
+         }
+          {/* <ToggleCPanelButton toggleCPanel={toggleCPanel} /> */}
+          {!cPanelVisState ? 
+          <>
+            <button className='defaultBtnStyle' onClick={returnToCPanel}> ...Return</button>
+            <InputStyleButton /> 
+          </>
+            :  null     }
         </div>
 
        

@@ -2,33 +2,41 @@
     /* outline: 1px solid black; */
     display: flex;
         /* justify-content: space-evenly; */
-        align-items: center;
+        align-items: flex-start;
+        flex-direction: column;
     /* margin: 1rem 0rem 1rem 0rem; */
     margin-top: 1rem !important;
     border-bottom: 1px solid var(--backgroundColour);
 }
-.post-control-bar button{
+.post-control-bar-main-control{
+    display: flex;
+        align-items: center;
+    margin-bottom: 1rem;
+}
+
+.post-control-bar .post-control-bar-main-control button{
     border: none;
     /* background-color: transparent; */
     background-color: orangered;
     color: white;
     padding: .5rem;
     cursor: pointer;
+    white-space: nowrap;
 
     /* outline: 1px solid red; */
 
 }
 
-.post-control-bar button svg{
+.post-control-bar .post-control-bar-main-control button svg{
     margin-left: 5px;
 }
-.post-control-bar .postCanSubmit{
+.post-control-bar .post-control-bar-main-control .postCanSubmit{
     background-color: #a2ff68;
     color: black;
     animation: fieldFilledAnimation .5s;
 }
 
-.post-control-bar .postCantSubmit{
+.post-control-bar .post-control-bar-main-control .postCantSubmit{
     background-color: grey;
     opacity: 0.5;
     
@@ -36,7 +44,7 @@
 
 
 
-.post-control-bar .atMinCharLim{
+.post-control-bar .post-control-bar-main-control .atMinCharLim{
     background-color: white;
     color: black;
 }
@@ -61,17 +69,21 @@
 }
 
 
-.post-control-bar .belowMinCharLim{
+.post-control-bar .post-control-bar-main-control .belowMinCharLim{
     background-color: orangered;
     color: white;
 }
 
-.post-control-bar button svg{
+.post-control-bar .post-control-bar-main-control button svg, .post-control-bar-edit-options button svg{
     margin-right: 5px;
+}
+
+.post-control-bar-edit-options{
+    display: flex;
 }
 
 .post-control-bar-isHidden{
     background-color: orangered !important;
-    color: white;
+    color: white !important;
 }
 

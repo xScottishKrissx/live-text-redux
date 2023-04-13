@@ -150,13 +150,18 @@ Live Text:
           ✔ Now i just need to fill out the rest of the possible form entries, clean up the code and then style the edit form. @done(23-03-03 17:46)
               ✔ Fill out remaining form entries @done(23-03-03 17:46)
               ✔ Saving an edit on a post with an image, removes the image. @done(23-03-03 17:46)
-        ☐ Create New Save Button
-        ☐ Create New Delete Button
-        ☐ Create New Hide Button
-        ☐ The Control Bar is a mess with the new style, fix this
-        ☐ The types need to be fixed
-        ☐ The padding for the names is off
-        ☐ Deleting a post should return you to the control panel
+        ✔ Create New Save Button @done(23-04-13 16:58)
+        ✔ Create New Delete Button @done(23-04-13 16:58)
+            ☐ Add Confirmation Box
+        ✔ Create New Hide Button @done(23-04-13 17:21)
+        ✔ The Control Bar is a mess with the new style, fix this @done(23-04-13 17:21)
+        ✔ The types need to be fixed @done(23-04-13 17:15)
+        ✔ The padding for the names is off @done(23-04-13 17:21)
+        ✔ Saving an edit should return you to the control panel @done(23-04-13 17:21)
+        ✔ Deleting a post should return you to the control panel @done(23-04-13 17:35)
+        ☐ Integrate the simple/complex form views.
+        ☐ Change the indicator that the post is being edited.
+            ☐ It should be much more obvious which post is being edited.
 
         Issues:
           Creating a new post is returning an error object is not extensible which i understand. I don't understand why the exact same object from local storage is extensible but the same array from state is not.
@@ -219,6 +224,7 @@ Live Text:
             ✔ Create New Toggle CPanel Button @done(23-04-07 17:58)
             ✔ Create New Clear Columns Button @done(23-04-07 17:58)
             ✔ Create New Login / Logout Button @done(23-04-07 17:58)
+            ✔ Removed the Toggle Control Panel and replaced it with a return button when not visible @done(23-04-13 17:34)
           Post Control Panel Cleanup and Todo:
             ✔ Clean Up Author Input File @done(23-03-21 16:02)
             ✔ Create component for control panel @done(23-03-21 16:01)

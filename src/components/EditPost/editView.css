@@ -1,6 +1,10 @@
 .ProseMirror:focus-visible{
     outline: none !important;
 }
+
+.author-input-edit-form-wrapper{
+
+}
 .post-item-container-editMode{
     /* transform: translateY(1000px); */
 }

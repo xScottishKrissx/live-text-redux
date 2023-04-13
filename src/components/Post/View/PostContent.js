@@ -9,7 +9,7 @@ export default function PostContent({title, subtitle, body, image, hidden}) {
     return (
         <div className='post-item-body'>
  
-            {/* {hidden === true ? "Hidden" : "Visible"} */}
+            {hidden === true ? <strong>Hidden</strong> : null }
 
             <div className='post-item-headline-wrapper'>
 

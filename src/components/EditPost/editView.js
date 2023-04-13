@@ -45,26 +45,24 @@ const EditTiptap = ({ id, handleEdit }) =>{
             <PostControl 
                 editMode 
                 id={id} 
+                hidden={hidden}
+                
+                handleEdit={handleEdit}
                 title={postTitle} 
+                body={postBody} 
                 subtitle={postSubtitle} 
+                image={postImageName}
                 type={postType}
                 tweet={insertTweet}
                 youtube={insertYoutube}
-                body={postBody} 
-                image={postImageName}
-                handleEdit={handleEdit}
-                hidden={hidden}
             />
 
-            <div className='author-input-wrapper'>
-
-                {/* { headlineIcon ? <img src={"https://via.placeholder.com/50x50"} /> : ""}  */}
-
+            <div className='author-input-edit-form-wrapper'>
                 <div className='author-input-form'>
                     <Title field={title} passNewFieldValue={setTitle}/>
                     <Subtitle field={subtitle} passNewFieldValue={setSubtitle} />
                     <Twitter setTweet={setTweet} value={insertTweet}/>
-                     <Youtube value={insertYoutube} setYoutube={setYoutube} />
+                    <Youtube value={insertYoutube} setYoutube={setYoutube} />
                     <Type setPostType={setPostType} />
                     <TextArea field={body} passNewFieldValue={setBody} setPostImageName={setPostImageName} />
                 </div>

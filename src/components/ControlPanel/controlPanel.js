@@ -37,7 +37,7 @@ export default function ControlPanel({setControlPanelVis}) {
     const minPostLength = 12
     const allowPost = postTitle.length >= minPostLength
 
-    const createNewLiveText = () => {
+    const createNewColumn = () => {
         if(!allowPost) return
         const newColumn = {[uuidv4()]: {type:"Column", headline:postTitle, items:[]}}
         const newColId = Object.entries(newColumn)[0][0]
@@ -75,7 +75,7 @@ export default function ControlPanel({setControlPanelVis}) {
             handleSetActive={handleSetActive} 
             activeLiveTextState={activeLiveTextState} 
             handleDeleteColumn={handleDeleteColumn}
-            createNewLiveText={createNewLiveText}
+            createNewLiveText={createNewColumn}
             setPostTitle={setPostTitle}
             allowPost={allowPost}    
         />
