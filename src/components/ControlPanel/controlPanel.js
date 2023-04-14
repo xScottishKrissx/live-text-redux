@@ -33,8 +33,12 @@ export default function ControlPanel({setControlPanelVis}) {
 
     // Create a new live text / column
     const [postTitle, setPostTitle] = useState("")
+    const [columnTitle, setColumnTitle] = useState("")
     const minPostLength = 12
-    const allowPost = postTitle.length >= minPostLength
+    const maxPostLength = 60
+
+    const allowPost = postTitle.length >= minPostLength && postTitle.length <= maxPostLength
+    const allowColumnTitle = columnTitle.length >= minPostLength && columnTitle.length <= maxPostLength
 
     const createNewColumn = () => {
         if(!allowPost) return
@@ -61,8 +65,8 @@ export default function ControlPanel({setControlPanelVis}) {
     // Change Column Headline
     const handleRenameColumn = (id) =>{
         const getColumn = liveTexts.filter(x => x[id])
-        if(postTitle.length < 12 )return
-        const updateHeadline = {...getColumn[0][id], headline:postTitle}
+        if( !allowColumnTitle)return
+        const updateHeadline = {...getColumn[0][id], headline:columnTitle}
         const updateLiveTexts = liveTexts.map(x =>{ 
             if(x[id]){ 
                 return{
@@ -73,6 +77,7 @@ export default function ControlPanel({setControlPanelVis}) {
             })
         setLiveTexts(updateLiveTexts)
         dispatch(updateArray(updateLiveTexts))
+
         localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))   
     }
 
@@ -94,7 +99,9 @@ export default function ControlPanel({setControlPanelVis}) {
             handleDeleteColumn={handleDeleteColumn}
             createNewLiveText={createNewColumn}
             setPostTitle={setPostTitle}
+            setColumnTitle={setColumnTitle}
             allowPost={allowPost}   
+            allowColumnTitle={allowColumnTitle}
             handleRenameColumn={handleRenameColumn} 
         />
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { FaTrash, FaTimes, FaCheck } from 'react-icons/fa'
+import { FaTrash, FaTimes, FaCheck, FaUndo } from 'react-icons/fa'
 
 export default function DeleteButton({handleClick, title, showText}) {
   const [deleteVisible, setBtnVis] = useState(false)
@@ -9,18 +9,18 @@ export default function DeleteButton({handleClick, title, showText}) {
     setBtnVis(false)
   }
   return (
-    <>
+    <div className={`${deleteVisible ? 'deleteButtonWrapper deleteActive' :'deleteButtonWrapper'}`}>
         {deleteVisible ?
-        <button className='deleteButton' title={title} onClick={handleDelete}>
-          <FaCheck />
+        <button className='deleteButton marginLeft0' title={title} onClick={handleDelete}>
+           <FaTrash />
           {showText ? "Delete" : null}
         </button>
         :null
         }
 
         {deleteVisible ? 
-          <button className='deleteButton' title="Cancel Delete" onClick={()=>setBtnVis(false)}>
-            <FaTimes />
+          <button className='deleteButton marginRight0' title="Cancel Delete" onClick={()=>setBtnVis(false)}>
+            <FaUndo />
             {showText ? "Cancel" : null}
           </button>
           :
@@ -31,6 +31,6 @@ export default function DeleteButton({handleClick, title, showText}) {
         }
 
 
-    </>
+    </div>
   )
 }

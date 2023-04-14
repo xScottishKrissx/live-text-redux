@@ -62,8 +62,8 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
     <>
     {!needButton ? 
 
-        <EditorContent editor={editor} />
-     
+            <EditorContent editor={editor} />
+        
     
         :
         <>

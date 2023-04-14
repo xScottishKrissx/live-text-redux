@@ -47,6 +47,8 @@
 }
 .manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle div div{
     height: auto;
+    overflow-wrap: anywhere;
+    
 }
 .manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle div div p{
     margin: 0;
@@ -70,6 +72,8 @@
     font-weight: bold;
     /* margin: 5px; */
     /* padding: 10px; */
+    overflow-wrap: anywhere;
+    padding: 5px;
     width: 100%;
 }
 
@@ -101,5 +105,8 @@
 /* Buttons */
 .manageColumns-column-buttons{
     display: flex;
+    overflow-wrap: anywhere;
 }
 
+
+.manageColumns-activeCheck{display: flex;}

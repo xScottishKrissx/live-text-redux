@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCPanelVis } from '../../../features/cpanelVis'
 import { removeTag } from '../../Utility/removeTag'
 import AddNewButton from '../../Utility/Buttons/addNewButton'
-import { FaCheck, FaRegCircle, FaEdit, FaSave } from 'react-icons/fa'
+import { FaCheck, FaRegCircle, FaEdit, FaSave, FaUndo } from 'react-icons/fa'
 import DeleteButton from '../../Utility/Buttons/deleteButton'
 import Title from '../../InputForm/Title'
 
-export default function DisplayManageColumnsPanel({data, activeLiveTextState, handleSetActive, handleDeleteColumn, setPostTitle, handleRenameColumn}) {
+export default function DisplayManageColumnsPanel({data, activeLiveTextState, handleSetActive, handleDeleteColumn, setColumnTitle, handleRenameColumn, allowColumnTitle, }) {
 
     const dispatch = useDispatch()
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
@@ -21,19 +21,29 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
         editId:"",
         editing:false
     })
-    const startRename = (x) =>{
-        setEditMode({editId:x, editing:!editMode.editing})
+    const {editing, editId} = editMode
+
+    const startRename = (x, currentHeadline) =>{
+        setEditMode({editId:x, editing:!editing})
+        setColumnTitle(currentHeadline)
     }
 
     const handleRename = (columnId) =>{
         handleRenameColumn(columnId)
-        setEditMode({editId:"", editing:!editMode.editing})
+        setEditMode({editId:"", editing:!editing})
+    }
+
+    const handleUndo = (currentHeadline) =>{
+        setColumnTitle(currentHeadline)
+        setEditMode({editId:"", editing:!editing})
     }
     
     const displayManageColumnsPanel = Object.keys(data).map((i) =>{
         return(
             Object.entries(data[i]).map(([columnId, columnContent]) =>{
-               const editModeActive = editMode.editing && editMode.editId === columnId
+               const editModeActive = editing && editId === columnId
+               const {headline} = columnContent
+               
                 return(
                     <div className='manageColumns-column' key={columnId}>
         
@@ -46,14 +56,9 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                        
 
                         {editModeActive ? 
-                        <>
-                        
-                        <Title  field={removeTag(columnContent.headline)} passNewFieldValue={setPostTitle} />
-                        
-                        </>                        
-                        // "Edit Mode" 
+                            <Title  field={removeTag(headline)} passNewFieldValue={setColumnTitle} />                
                         : 
-                        <div onClick={()=>handleSetActive(columnId, columnContent)} className='manageColumns-headline'>{removeTag(columnContent.headline)}</div>
+                            <div onClick={()=>handleSetActive(columnId, columnContent)} className='manageColumns-headline'>{removeTag(headline)}</div>
                         
                         }
                             
@@ -62,13 +67,24 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :   
                                 <AddNewButton title="Add New Post" handleClick={()=>goToNewPostInput(columnContent,columnId)} />
                             }
+
                             <DeleteButton title="Delete Column" handleClick={()=>handleDeleteColumn(columnId)} />
 
+
                             {editModeActive ? 
-                            <button className='defaultBtnStyle' onClick={()=>handleRename(columnId)}><FaSave /></button>
+                            <div className='editButtonWrapper editActive'>
+                                <button className='defaultBtnStyle marginLeft0' title="Cancel Name Change" onClick={()=>handleUndo(headline)}><FaUndo /></button>
+                                {/* Change UI if tile is too short/long */}
+                                {allowColumnTitle ? 
+                                    <button className='defaultBtnStyle marginRight0' title="Confirm Name Change" onClick={()=>handleRename(columnId)}><FaSave /></button>
+                                    : 
+                                    <button className='defaultBtnStyle greyOut marginRight0' title="Error"><FaSave /></button>
+                                }
+
+                            </div>
                             
                             :
-                            <button onClick={()=>startRename(columnId)} className='defaultBtnStyle'><FaEdit/></button>
+                            <button onClick={()=>startRename(columnId, headline)} title="Rename Column" className='defaultBtnStyle'><FaEdit/></button>
                             }
                         </div>
         
