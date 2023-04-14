@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCPanelVis } from '../../../features/cpanelVis'
 import { removeTag } from '../../Utility/removeTag'
 import AddNewButton from '../../Utility/Buttons/addNewButton'
-import { FaCheck, FaRegCircle } from 'react-icons/fa'
+import { FaCheck, FaRegCircle, FaEdit, FaSave } from 'react-icons/fa'
 import DeleteButton from '../../Utility/Buttons/deleteButton'
 import Title from '../../InputForm/Title'
 
@@ -23,7 +23,11 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
     })
     const startRename = (x) =>{
         setEditMode({editId:x, editing:!editMode.editing})
-        
+    }
+
+    const handleRename = (columnId) =>{
+        handleRenameColumn(columnId)
+        setEditMode({editId:"", editing:!editMode.editing})
     }
     
     const displayManageColumnsPanel = Object.keys(data).map((i) =>{
@@ -45,7 +49,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                         <>
                         
                         <Title  field={removeTag(columnContent.headline)} passNewFieldValue={setPostTitle} />
-                        <button className='defaultBtnStyle' onClick={()=>handleRenameColumn(columnId)}>Conf</button>
+                        
                         </>                        
                         // "Edit Mode" 
                         : 
@@ -60,8 +64,12 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             }
                             <DeleteButton title="Delete Column" handleClick={()=>handleDeleteColumn(columnId)} />
 
+                            {editModeActive ? 
+                            <button className='defaultBtnStyle' onClick={()=>handleRename(columnId)}><FaSave /></button>
                             
-                            <button onClick={()=>startRename(columnId)} className='defaultBtnStyle'>Rename</button>
+                            :
+                            <button onClick={()=>startRename(columnId)} className='defaultBtnStyle'><FaEdit/></button>
+                            }
                         </div>
         
                     </div>

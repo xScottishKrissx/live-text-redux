@@ -213,6 +213,11 @@ Live Text:
               ✔ Creating a new column should set that column as active. @done(23-04-07 17:13)
                 ...notideable when there is 0 columns and you create a new one it doesnt activate until a page refresh.
             ☐ Ability to rename columns
+              ✔ Enter a new title and save the title @done(23-04-14 13:56)
+              ☐ Ensure a min char limit
+              ☐ Ensure Max char limit
+              ☐ Change UI to reflect change can be saved
+
             ☐ Add amount of posts in each column
             ✔ Ability delete Column @done(23-03-24 16:18)
             ☐ When deleting a column, set another column active or change UI to adjust for column deletion

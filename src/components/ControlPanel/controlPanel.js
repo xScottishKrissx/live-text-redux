@@ -61,6 +61,7 @@ export default function ControlPanel({setControlPanelVis}) {
     // Change Column Headline
     const handleRenameColumn = (id) =>{
         const getColumn = liveTexts.filter(x => x[id])
+        if(postTitle.length < 12 )return
         const updateHeadline = {...getColumn[0][id], headline:postTitle}
         const updateLiveTexts = liveTexts.map(x =>{ 
             if(x[id]){ 

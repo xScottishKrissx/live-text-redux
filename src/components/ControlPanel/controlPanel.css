@@ -27,6 +27,31 @@
     margin-bottom: 10px;
     width: 100%;
 }
+.manageColumns-column .author-input-form-title {
+    display: flex;
+    align-self: center;
+    width: 100%;
+}
+.manageColumns-column .author-input-form-title .author-input-field{
+    width: 100%;
+}
+.manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle{
+    /* background-color: red; */
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 8px;
+}
+.manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle span{
+    margin-right: 5px;
+}
+.manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle div div{
+    height: auto;
+}
+.manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle div div p{
+    margin: 0;
+    padding: 0;
+}
 .manageColumns-createNewLiveColumn{
     width: 100%;
 }
