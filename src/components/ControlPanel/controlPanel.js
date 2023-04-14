@@ -21,7 +21,6 @@ export default function ControlPanel({setControlPanelVis}) {
     const liveTextMaster = useSelector((state) => state.livetext.value)
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
 
-
     const clearColumns = () =>{
         localStorage.clear()
         window.location.reload()
@@ -59,6 +58,23 @@ export default function ControlPanel({setControlPanelVis}) {
         // localStorage.setItem("liveTextMaster", JSON.stringify(deleteColumn))
     }
 
+    // Change Column Headline
+    const handleRenameColumn = (id) =>{
+        const getColumn = liveTexts.filter(x => x[id])
+        const updateHeadline = {...getColumn[0][id], headline:postTitle}
+        const updateLiveTexts = liveTexts.map(x =>{ 
+            if(x[id]){ 
+                return{
+                    ...x, [id]: updateHeadline}
+            }else{ 
+                return x 
+                }
+            })
+        setLiveTexts(updateLiveTexts)
+        dispatch(updateArray(updateLiveTexts))
+        localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))   
+    }
+
 
 
   return (
@@ -77,7 +93,8 @@ export default function ControlPanel({setControlPanelVis}) {
             handleDeleteColumn={handleDeleteColumn}
             createNewLiveText={createNewColumn}
             setPostTitle={setPostTitle}
-            allowPost={allowPost}    
+            allowPost={allowPost}   
+            handleRenameColumn={handleRenameColumn} 
         />
 
         </div>

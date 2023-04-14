@@ -206,7 +206,7 @@ Live Text:
                     There's a lot that has been changed and it wasn't easy to get here, but I have succeeded in making panel that lets you switch between columns(live-texts) from a single control panel
                     There a lot that needs to be done but the biggest part of this has been achieved. This was a struggle, no lie, but It makes the website better.
 
-            ☐ Ability to name columns
+            ✔ Ability to name columns @done(23-04-14 12:36)
               ✔ Done, just need to add styles @done(23-04-05 18:02)
               ✔ The Create new button should appear next to the title field @done(23-04-06 16:53)
               ✔ Creating new column should empty title field @done(23-04-06 16:53)

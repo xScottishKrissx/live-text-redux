@@ -4,7 +4,7 @@ import Title from '../../InputForm/Title'
 
 import DisplayManageColumnsPanel from './displayManageColumnsPanel'
 // import AddNewButton from '../../Utility/Buttons/addNewButton'
-export default function ManageColumns({data, handleSetActive, activeLiveTextState, handleDeleteColumn, setPostTitle, createNewLiveText, allowPost}) {
+export default function ManageColumns({data, handleSetActive, activeLiveTextState, handleDeleteColumn, setPostTitle, createNewLiveText, allowPost, handleRenameColumn}) {
   return (
     <div className='manageColumns-container'>
 
@@ -13,6 +13,8 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
         activeLiveTextState={activeLiveTextState} 
         handleSetActive={handleSetActive} 
         handleDeleteColumn={handleDeleteColumn}
+        setPostTitle={setPostTitle}
+        handleRenameColumn={handleRenameColumn}
       />
       <span>or create a new column...</span>
       <div className='manageColumns-createNewLiveColumn'>
