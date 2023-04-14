@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash, FaCheck, FaTimes} from 'react-icons/fa'
+import DeleteButton from '../Utility/Buttons/deleteButton'
 
 export default function PostControlView({title, body, hidden, editMode, handleSaveEdit, createNewPost, handleHide, handleDelete}) {
     
@@ -42,7 +43,9 @@ export default function PostControlView({title, body, hidden, editMode, handleSa
             </div>
 
             <div className='post-control-bar-edit-options'>
-                {editMode ? <button className='defaultBtnStyle' onClick={handleDelete}><FaTrash/> Delete</button> : null }
+                {editMode ? 
+                    <DeleteButton showText handleClick={handleDelete} title="Delete Post" />
+                : null }
                 
                 {editMode ? 
                     hidden ?
