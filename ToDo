@@ -226,7 +226,7 @@ Live Text:
             ✔ Include name @done(23-04-07 17:13)
             ☐ View Date of creation
             ☐ Ability to hide columns
-            ☐ Add Max Char Limit
+            ✔ Add Max Char Limit @done(23-04-18 15:28)
             ✔ When a column has 0 entries, show this in the view @done(23-04-04 18:01)
             ✔ Add a new column shows the new column in the manage columns but doesnt show anything in the global view or remove the name from the form until a page refresh @done(23-04-06 16:53)
               ✔ It's the same issue as before with the form input @done(23-04-06 16:52)

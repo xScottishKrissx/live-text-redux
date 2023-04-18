@@ -110,3 +110,7 @@
 
 
 .manageColumns-activeCheck{display: flex;}
+
+.manageColumns-postAmount .defaultBtnStyle{
+    white-space: nowrap;
+}

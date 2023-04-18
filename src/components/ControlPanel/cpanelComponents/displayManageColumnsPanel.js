@@ -25,10 +25,13 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
     const {editing, editId} = editMode
     
     const displayManageColumnsPanel = Object.keys(data).map((i) =>{
+        
         return(
             Object.entries(data[i]).map(([columnId, columnContent]) =>{
                const editModeActive = editing && editId === columnId
                const {headline} = columnContent
+               console.log(columnContent.items.length)
+               const postCount = columnContent.items.length
                
                 return(
                     <div className='manageColumns-column' key={columnId}>
@@ -55,6 +58,10 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             </div>
                         
                         }
+
+                        <div className="manageColumns-postAmount">
+                            <button className='defaultBtnStyle'> {postCount} {postCount > 0 ? "Posts" : "Post"}</button>
+                        </div>
                             
 {/* Control Panel Buttons */}
     {/* Add New Post to this column */}
