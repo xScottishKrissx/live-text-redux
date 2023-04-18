@@ -220,7 +220,8 @@ Live Text:
               ✔ Adding a new title also adds it to the new column box...which isn't ideal @done(23-04-14 17:41)
               ✔ Clean up DisplayMangeColumnsPanel file, it's getting a but crowded @done(23-04-14 18:05)
 
-            ☐ Add amount of posts in each column
+            ✔ Add amount of posts in each column @done(23-04-18 15:47)
+              ☐ Done, but the UI is getting a bit cramped. I want to add a second line to the column that can be toggled to show extra information like post amount, date created etc
             ✔ Ability delete Column @done(23-03-24 16:18)
             ☐ When deleting a column, set another column active or change UI to adjust for column deletion
             ✔ Include name @done(23-04-07 17:13)

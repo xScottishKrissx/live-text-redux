@@ -113,4 +113,54 @@
 
 .manageColumns-postAmount .defaultBtnStyle{
     white-space: nowrap;
+    background-color: #dbdbdb;
+    color: #8d8d8d;
+    cursor: default;
+}
+
+.manageColumns-row{
+    /* box-shadow: 0px 2px 5px -1px #818181; */
+    margin-top: 10px;
+    padding-top: 10px;
+    /* outline: 1px solid #818181; */
+}
+
+
+.manageColumns-toggleExtraInfo button span{
+    display: flex;
+}
+.dropdown{
+    /* box-shadow: 0px 2px 5px -1px #818181; */
+    justify-content: flex-start;
+}
+
+.rotateTo0{
+    animation: rotate0Ani .3s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes rotate0Ani{
+    0%{
+        transform: rotateZ(180deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+
+
+.rotateTo180{
+    animation: rotate180Ani .3s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes rotate180Ani{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(180deg);
+    }
 }

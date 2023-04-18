@@ -31,7 +31,7 @@ export default function EditColumnTitle({
     const editModeActive = editing && editId === columnId
 
   return (
-    <>
+    <div className='editButtonContainer'>
     {editModeActive ? 
         <div className='editButtonWrapper editActive'>
 {/* Undo rename and close the rename function */}
@@ -63,6 +63,6 @@ export default function EditColumnTitle({
 // Display the rename buttons above
         <button onClick={()=>startRename(columnId, headline)} title="Rename Column" className='defaultBtnStyle'><FaEdit/></button>
     }
-    </>
+    </div>
   )
 }
