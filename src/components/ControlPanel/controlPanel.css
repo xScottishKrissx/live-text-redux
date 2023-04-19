@@ -164,3 +164,22 @@
         transform: rotateZ(180deg);
     }
 }
+
+/* Edit Button */
+.editButtonContainer, .manageColumns-toggleExtraInfo {
+    display: flex;
+}
+/* Hide Column Button */
+.manageColumns-manageHide button{
+    margin-left: 0 !important;
+}
+.manageColumns-manageHide button span  svg{
+    display: flex;
+}
+.columnHidden{
+    opacity: 0.5;
+}
+
+.columnVisible{
+
+}

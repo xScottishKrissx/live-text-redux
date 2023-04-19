@@ -229,7 +229,9 @@ Live Text:
             ✔ View Date of creation @done(23-04-19 10:53)
               ✔ Add date to new column process @done(23-04-19 10:53)
               ✔ Display on page @done(23-04-19 10:53)
-            ☐ Ability to hide columns
+            ✔ Ability to hide columns @done(23-04-19 11:41)
+              ☐ Still need to represent this with the global view
+              
             ✔ Add Max Char Limit @done(23-04-18 15:28)
             ✔ When a column has 0 entries, show this in the view @done(23-04-04 18:01)
             ✔ Add a new column shows the new column in the manage columns but doesnt show anything in the global view or remove the name from the form until a page refresh @done(23-04-06 16:53)

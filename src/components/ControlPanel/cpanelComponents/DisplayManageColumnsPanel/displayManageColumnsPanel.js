@@ -10,8 +10,9 @@ import ExtraInfo from './extraInfo/extraInfo'
 import ToggleExtraInfo from './extraInfo/toggleExtraInfo'
 import SetColumnActive from './setColumnActive'
 import ColumnTitleView from './columnTitleView'
+import HideColumn from './hideColumn'
 
-export default function DisplayManageColumnsPanel({data, activeLiveTextState, handleSetActive, handleDeleteColumn, setColumnTitle, handleRenameColumn, allowColumnTitle, }) {
+export default function DisplayManageColumnsPanel({data, activeLiveTextState, handleSetActive, handleDeleteColumn, setColumnTitle, handleRenameColumn, allowColumnTitle, handleHideColumn}) {
 
     const dispatch = useDispatch()
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
@@ -43,7 +44,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
         return(
             Object.entries(data[i]).map(([columnId, columnContent]) =>{
                const editModeActive = editing && editId === columnId
-               const {headline} = columnContent
+               const {headline, createdOn, hidden} = columnContent
                const postCount = columnContent.items.length
 
                const colIsActive = activeLiveTextState === columnId
@@ -60,7 +61,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             columnId={columnId}
                             columnContent={columnContent}
                         />
-
+                        <HideColumn hidden={hidden} columnId={columnId} handleHideColumn={handleHideColumn} />
                        
 {/* Rename / Display Column Title */}
                         <ColumnTitleView
@@ -105,7 +106,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             </div>
                         </div>
                                 
-                        <ExtraInfo allowExtraInfoView={allowExtraInfoView} postCount={postCount} createdOn={columnContent.createdOn}/>
+                        <ExtraInfo allowExtraInfoView={allowExtraInfoView} postCount={postCount} createdOn={createdOn}/>
                      </div>
                 )
             })  
