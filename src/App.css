@@ -118,4 +118,13 @@ body{
   max-width: 480px;
 }
 
+/* Generic Styles */
 .displayNone{display: none;}
+.marginLeft0{ margin-left:0; }
+.marginRight0{ margin-right: 0; }
+
+/* Targeted Styles */
+.warningBtn{
+  background-color: red;
+  color: white;
+}

@@ -212,7 +212,7 @@ Live Text:
               ✔ Creating new column should empty title field @done(23-04-06 16:53)
               ✔ Creating a new column should set that column as active. @done(23-04-07 17:13)
                 ...notideable when there is 0 columns and you create a new one it doesnt activate until a page refresh.
-            ☐ Ability to rename columns
+            ✔ Ability to rename columns @done(23-04-19 10:20)
               ✔ Enter a new title and save the title @done(23-04-14 13:56)
               ✔ Ensure a min char limit @done(23-04-14 17:08)
               ✔ Ensure Max char limit @done(23-04-14 17:08)
@@ -221,11 +221,14 @@ Live Text:
               ✔ Clean up DisplayMangeColumnsPanel file, it's getting a but crowded @done(23-04-14 18:05)
 
             ✔ Add amount of posts in each column @done(23-04-18 15:47)
-              ☐ Done, but the UI is getting a bit cramped. I want to add a second line to the column that can be toggled to show extra information like post amount, date created etc
+              ✔ Done, but the UI is getting a bit cramped. I want to add a second line to the column that can be toggled to show extra information like post amount, date created etc @done(23-04-18 17:24)
             ✔ Ability delete Column @done(23-03-24 16:18)
             ☐ When deleting a column, set another column active or change UI to adjust for column deletion
+            ✔ The delete all button should have a confirmation button @done(23-04-19 10:32)
             ✔ Include name @done(23-04-07 17:13)
             ☐ View Date of creation
+              ☐ Add date to new column process
+              ☐ Display on page
             ☐ Ability to hide columns
             ✔ Add Max Char Limit @done(23-04-18 15:28)
             ✔ When a column has 0 entries, show this in the view @done(23-04-04 18:01)

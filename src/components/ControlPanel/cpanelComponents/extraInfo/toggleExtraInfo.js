@@ -6,13 +6,13 @@ export default function ToggleExtraInfo({allowExtraInfoView, extraInfo, columnId
         {allowExtraInfoView ? 
             <button className='defaultBtnStyle' onClick={()=>extraInfo(false)}>
               <span className='rotateTo180'>
-                <FaChevronUp />
+                <FaChevronDown />
               </span>
             </button>
             :
             <button className='defaultBtnStyle' onClick={()=>extraInfo(columnId, true)}>
               <span className='rotateTo0'>
-                <FaChevronUp />
+                <FaChevronDown />
               </span>
             </button>
         }
