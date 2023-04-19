@@ -226,9 +226,9 @@ Live Text:
             ☐ When deleting a column, set another column active or change UI to adjust for column deletion
             ✔ The delete all button should have a confirmation button @done(23-04-19 10:32)
             ✔ Include name @done(23-04-07 17:13)
-            ☐ View Date of creation
-              ☐ Add date to new column process
-              ☐ Display on page
+            ✔ View Date of creation @done(23-04-19 10:53)
+              ✔ Add date to new column process @done(23-04-19 10:53)
+              ✔ Display on page @done(23-04-19 10:53)
             ☐ Ability to hide columns
             ✔ Add Max Char Limit @done(23-04-18 15:28)
             ✔ When a column has 0 entries, show this in the view @done(23-04-04 18:01)

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCPanelVis } from '../../../features/cpanelVis'
-import { removeTag } from '../../Utility/removeTag'
-import AddNewButton from '../../Utility/Buttons/addNewButton'
-import DeleteButton from '../../Utility/Buttons/deleteButton'
-import Title from '../../InputForm/Title'
+import { setCPanelVis } from '../../../../features/cpanelVis'
+import { removeTag } from '../../../Utility/removeTag'
+import AddNewButton from '../../../Utility/Buttons/addNewButton'
+import DeleteButton from '../../../Utility/Buttons/deleteButton'
+import Title from '../../../InputForm/Title'
 import EditColumnTitle from './editColumnTitle'
 import ExtraInfo from './extraInfo/extraInfo'
 import ToggleExtraInfo from './extraInfo/toggleExtraInfo'
@@ -105,7 +105,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             </div>
                         </div>
                                 
-                        <ExtraInfo allowExtraInfoView={allowExtraInfoView} postCount={postCount} />
+                        <ExtraInfo allowExtraInfoView={allowExtraInfoView} postCount={postCount} createdOn={columnContent.createdOn}/>
                      </div>
                 )
             })  

@@ -7,7 +7,7 @@ import { setActiveLiveText } from '../../features/activeLiveText'
 
 import './controlPanel.css'
 import { updateArray } from '../../features/live-text'
-import ClearColumnsButton from '../Utility/Buttons/clearColumnsButton'
+import ClearColumnsButton from './cpanelComponents/clearColumnsButton'
 import LoginLogoutButton from '../Utility/Buttons/loginLogoutButton'
 
 export default function ControlPanel({setControlPanelVis}) {
@@ -42,7 +42,7 @@ export default function ControlPanel({setControlPanelVis}) {
 
     const createNewColumn = () => {
         if(!allowPost) return
-        const newColumn = {[uuidv4()]: {type:"Column", headline:postTitle, items:[]}}
+        const newColumn = {[uuidv4()]: {type:"Column", headline:postTitle, items:[], createdOn:Date.now()}}
         const newColId = Object.entries(newColumn)[0][0]
 
         const addToMasterArray = liveTexts.concat(newColumn)

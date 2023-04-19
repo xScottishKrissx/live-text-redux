@@ -1,7 +1,7 @@
 import React from 'react'
 // Me
-import Title from '../../InputForm/Title'
-import { removeTag } from '../../Utility/removeTag'
+import Title from '../../../InputForm/Title'
+import { removeTag } from '../../../Utility/removeTag'
 
 export default function ColumnTitleView({editModeActive, columnContent, setColumnTitle, handleSetActive, columnId}) {
 

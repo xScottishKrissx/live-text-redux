@@ -1,11 +1,10 @@
 import React,{useState, useEffect} from 'react'
-import dayjs from 'dayjs';
+import { formatTimestamp } from '../../Utility/formatTimestamp';
 
 export default function PostTimestamp({ timestamp }) {
 
     const checkTimeSincePost = (Date.now() - timestamp) / 1000
     const [checkNewPost, setNewPost] = useState(false) 
-    const formatTimestamp = dayjs(timestamp).format('HH:mm - dddd, MMM YYYY')
 
     useEffect(() =>{
         if(checkTimeSincePost < 60){
@@ -19,7 +18,7 @@ export default function PostTimestamp({ timestamp }) {
 
     return (
         <div className='post-item-time-stamp'> 
-            <div className='post-item-time-stamp-item'> {formatTimestamp}  </div>
+            <div className='post-item-time-stamp-item'> {formatTimestamp(timestamp)}  </div>
             {checkNewPost ? <div className='post-item-new-post-indicator'>New</div> : null }
         </div>
     )

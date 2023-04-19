@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Title from '../../InputForm/Title'
 
 
-import DisplayManageColumnsPanel from './displayManageColumnsPanel'
+import DisplayManageColumnsPanel from './DisplayManageColumnsPanel/displayManageColumnsPanel'
 // import AddNewButton from '../../Utility/Buttons/addNewButton'
 export default function ManageColumns({data, handleSetActive, activeLiveTextState, handleDeleteColumn, setPostTitle, createNewLiveText, allowPost, handleRenameColumn, setColumnTitle, allowColumnTitle}) {
 

@@ -1,6 +1,7 @@
 import React from 'react'
+import { formatTimestamp } from '../../../../Utility/formatTimestamp'
 
-export default function ExtraInfo({allowExtraInfoView, postCount}) {
+export default function ExtraInfo({allowExtraInfoView, postCount, createdOn}) {
   return (
     <>
         {allowExtraInfoView  ?
@@ -10,7 +11,7 @@ export default function ExtraInfo({allowExtraInfoView, postCount}) {
                 </div>
 
                 <div className="manageColumns-postAmount">
-                    <button className='defaultBtnStyle'> Created 12/1/2023</button>
+                    <button className='defaultBtnStyle'> {formatTimestamp(createdOn)}</button>
                 </div>
             </div>
 
