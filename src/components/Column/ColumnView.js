@@ -1,8 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { createMarkup } from '../Utility/createMarkup'
+import ChangePageButton from './columnComponents/changePageButton'
 import DisplayColumn from './DisplayColumn'
 
 export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, useHiddenValue}) {
+
+  const columnItemsCount = getactiveColumnsItems.length
+  
+  const itemsOnPage = 3
+  const [pages, setPages] = useState({ start:0, end:itemsOnPage, })
+  const {start, end} = pages
+  
+  let useActiveColumnItems = [...getactiveColumnsItems].reverse()
+  let newPages = useActiveColumnItems.slice(start,end)
+ 
   return (
     <div className='global-view-wrapper'>
 
@@ -13,11 +24,17 @@ export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, u
            dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}>
         </h1> 
 
-        {getactiveColumnsItems.length <= 0 ? 
-          "+ Add New Post" 
-        : 
-            <DisplayColumn getactiveColumnsItems={getactiveColumnsItems} />
-        
+        {columnItemsCount === 0 ? "+ Add New Post" : 
+          <>
+            <DisplayColumn getactiveColumnsItems={newPages} />
+            <ChangePageButton 
+              pagesState={pages} 
+              setPages={setPages}
+              itemsOnPage={itemsOnPage}
+              columnItemsCount={columnItemsCount} 
+            />        
+          </>
+          
         }
     </div>
   )

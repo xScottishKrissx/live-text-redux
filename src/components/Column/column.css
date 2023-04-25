@@ -25,3 +25,9 @@
     background-color: var(--authorInputBackgroundColour);
     transform: translateX(-20px);
 }
+
+/* Change Page Buttons */
+.changePageButtonContainer{
+    display: flex ;
+        justify-content: space-evenly;
+}

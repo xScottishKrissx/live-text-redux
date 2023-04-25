@@ -41,6 +41,9 @@ Live Text:
           ✔ 1 - Get the information needed for the view @done(23-04-13 18:22)
           ✔ 2 - A Component for the View @done(23-04-13 18:22)
         
+        ☐ Add Pagination
+          ☐ When a certain amount of posts are added (10) add a button that lets you change the posts rendered on the page.
+        
         Share bar:
           ☐ Create the Share Bar
 

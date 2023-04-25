@@ -21,10 +21,14 @@ export default function Columns() {
     let useHiddenValue =  liveTextArray[0][activeLiveText].hidden
 
   return (
-    <ColumnsView 
-        getactiveColumnsItems={getactiveColumnsItems}
-        useColumnHeadline={useColumnHeadline}
-        useHiddenValue={useHiddenValue}
-    />
+    <>
+    
+          <ColumnsView 
+              getactiveColumnsItems={getactiveColumnsItems}
+              useColumnHeadline={useColumnHeadline}
+              useHiddenValue={useHiddenValue}
+          />
+          
+        </>
   )
 }

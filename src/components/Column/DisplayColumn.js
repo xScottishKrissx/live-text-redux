@@ -5,11 +5,10 @@ import Post from '../Post/post'
 
 export default function DisplayColumn({getactiveColumnsItems}) {
 
-    let useActiveColumnItems = [...getactiveColumnsItems].reverse()
     const loggedIn = true
     const editModeState = useSelector((state) => state.edit.value)
 
-    const displayLiveText = useActiveColumnItems.map((x, index) => {
+    const displayLiveText = getactiveColumnsItems.map((x, index) => {
     
         if(!loggedIn) return  
         const getPostContent = Object.values(x)
@@ -43,6 +42,8 @@ export default function DisplayColumn({getactiveColumnsItems}) {
               tweet={tweet}
               youtube={youtube}
             />
+
+            
           </div>
         )
       })
