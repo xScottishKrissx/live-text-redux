@@ -85,7 +85,7 @@ export default function ControlPanel({setControlPanelVis}) {
     }
 
 
-
+    
   return (
     <div className='confirm-post-overlay'> 
 

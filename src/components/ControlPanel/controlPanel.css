@@ -178,6 +178,7 @@
 }
 .columnHidden{
     opacity: 0.5;
+    color: red !important;
 }
 
 .columnVisible{

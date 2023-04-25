@@ -18,11 +18,13 @@ export default function Columns() {
     if(!getactiveColumnsItems) return
 
     let useColumnHeadline = liveTextArray[0][activeLiveText].headline
+    let useHiddenValue =  liveTextArray[0][activeLiveText].hidden
 
   return (
     <ColumnsView 
         getactiveColumnsItems={getactiveColumnsItems}
         useColumnHeadline={useColumnHeadline}
+        useHiddenValue={useHiddenValue}
     />
   )
 }
