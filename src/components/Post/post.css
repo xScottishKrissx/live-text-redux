@@ -12,7 +12,8 @@
     outline: 1px solid var(--backgroundColour);
     box-shadow: var(--boxShadowV2) var(--postBorderColour);
     /* outline: 1px solid red; */
-    padding: 2rem;
+    /* padding: 2rem; */
+    padding: 1rem 2rem 1rem 2rem;
     position: relative;
 }
 
@@ -46,7 +47,7 @@
 }
 .post-item-time-stamp{
     display: flex;
-    padding: 10px;
+    padding: 10px 0px 10px 0px;
 }
 
     .post-item-new-post-indicator{
@@ -148,3 +149,33 @@
 .Update .post-item-container{ box-shadow: var(--boxShadowV2) var(--postBorderColour) }
 
 
+/* Post Item Share Bar */
+.post-item-share-bar{
+    /* outline: 1px solid red; */
+    display: flex;
+        justify-content: flex-end;
+}
+
+.post-item-share-bar div{
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 5px;
+    display: flex;
+        align-items: center;
+}
+.post-item-share-bar div svg{
+    font-size: 1.1rem;
+}
+
+.share-bar-twitter{
+    color: #45a2ef ;
+}
+.share-bar-facebook{
+    color: #425b97;
+}
+.share-bar-share{
+    color: black;
+}
+.share-bar-share span{
+    margin-left: 3px;
+}

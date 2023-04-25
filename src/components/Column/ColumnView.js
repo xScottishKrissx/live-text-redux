@@ -17,12 +17,11 @@ export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, u
   return (
     <div className='global-view-wrapper'>
 
+        {/* Display UI if column is hidden */}
         {useHiddenValue ? <h2 className='defaultBtnStyle columnHidden'>Column Hidden</h2> : null}
 
-        <h1 
-          className='defaultBtnStyle colTitle'
-           dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}>
-        </h1> 
+        {/* Column Headline */}
+        <h1 className='defaultBtnStyle colTitle' dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}></h1> 
 
         {columnItemsCount === 0 ? "+ Add New Post" : 
           <>

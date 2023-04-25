@@ -1,8 +1,7 @@
 import './App.css';
 
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import AuthorInput from './components/author-input';
-// import GlobalView from './components/global-view';
 import ItemReview from './components/ItemReview/item-review';
 
 import "../src/components/Utility/Buttons/buttons.css"
@@ -22,8 +21,6 @@ function App() {
 
         <div className='right-column'>
           {editModeState.editing ? <ItemReview data={previewItem} /> : <ItemReview data={newItem} /> }
-
-          {/* <GlobalView /> */}
           <Columns />
         </div>
 

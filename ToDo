@@ -34,18 +34,20 @@ Live Text:
           ✔ Trying to figure out what's going on here. @done(23-02-13 17:22)
             ✔ It's the delete button, it's doubling the array on delete... @done(23-02-13 17:22)
             ✔ Fixed it, i was accidentally copying the array without the delete post onto the another array without the deleted post instead of just saving the array without the delete post to begin with. @done(23-02-13 17:22)
-        ☐ Create New Edit Button
+        ✔ Create New Edit Button @done(23-04-25 11:18)
 
-        ☐ Switch appearance to new design language as seen in author input
+        ✔ Switch appearance to new design language as seen in author input @done(23-04-25 11:18)
         ✔ Separate Global View into components @done(23-04-14 12:04)
           ✔ 1 - Get the information needed for the view @done(23-04-13 18:22)
           ✔ 2 - A Component for the View @done(23-04-13 18:22)
         
-        ☐ Add Pagination
-          ☐ When a certain amount of posts are added (10) add a button that lets you change the posts rendered on the page.
+        ✔ Add Pagination @done(23-04-25 11:17)
+          ✔ When a certain amount of posts are added add a button that lets you change the posts rendered on the page. @done(23-04-25 11:17)
         
         Share bar:
           ☐ Create the Share Bar
+            ✔ UI created @done(23-04-25 11:44)
+            ☐ Do i want the buttons to work?
 
       Adding Posts / Author Input:
 
@@ -140,7 +142,7 @@ Live Text:
         ✔ Ability to change optional id:- @done(23-03-03 17:46)
           ✔ Twitter Id @done(23-03-03 17:46)
           ✔ Youtube Id @done(23-03-03 17:46)
-        ☐ The page junps when toggling edit mode.
+        ✘ The page junps when toggling edit mode. @cancelled(23-04-25 11:46)
           ...i think this is the author input rendering  every time state refreshes.
         ✘ Fix styling bug? @cancelled(23-03-03 17:47)
         ✘ Add a quicker way of removing content from fields when editing. @cancelled(23-04-14 12:06)

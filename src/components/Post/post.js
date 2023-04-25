@@ -11,6 +11,8 @@ import PostYoutube from './View/PostYoutube';
 import { setCPanelVis } from '../../features/cpanelVis';
 import EditButton from './editButton';
 
+import PostShareBar from './View/PostShareBar';
+
 export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden, hideEditBtn}) {
     const dispatch = useDispatch()
     // localStorage.clear()
@@ -50,7 +52,9 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
 
             />
             <PostTwitter tweet={tweet}/>
-            <PostYoutube youtube={youtube} />        
+            <PostYoutube youtube={youtube} />      
+            <PostShareBar />
+
     </div>
     )
 }
