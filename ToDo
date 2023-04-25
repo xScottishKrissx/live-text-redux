@@ -27,6 +27,7 @@ Live Text:
         ✔ Add Time Stamp @done(23-01-13 16:53)
           ✔ This should be an easy way to get myself back into the swing of things. @done(23-01-13 16:53)
           ✔ Pretty simple with day.js @done(23-01-13 16:53)
+          ☐ Add the day number to the timestamp
         ✔ Different style depending on update type @done(23-02-16 12:02)
         ✔ Add indicator that post is new, that changes after 60 seconds @done(23-02-14 13:57)
           ✔ I have the core in place, just need to style it @done(23-02-14 15:59)
@@ -191,7 +192,16 @@ Live Text:
 
 
       Create Login / Logout system:
-        ☐ Do the thing...
+        ☐ Added Google Authentication Sign In
+        ☐ Next, i should create a firestore so that users can have store information on the website.
+          ☐ It's the same processs as the netflix app but with GOogle Signin rather than email, password
+          ✔ Step 1 - Sign In With Google @done(23-04-25 16:15)
+          ☐ Step 2 - Use Google Unique Id to create a user in the database
+          ☐ So i've managed to create a database collection with the same id as the auth id.
+            ☐ The main issue is that signing will overwrite whatever is saved in the database
+            ☐ I've made a bit of a meal of this so will probably need to restart but i dont think it should be too hard
+          
+
 
       Control Panel:
         ☐ A single panel to do a variety of things.

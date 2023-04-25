@@ -17,6 +17,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
     const dispatch = useDispatch()
     // localStorage.clear()
     const liveText = useSelector((state) => state.livetext.value)
+    // console.log(liveText)
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
     const editModeState = useSelector((state) => state.edit.value)
     const {editing} = editModeState

@@ -1,0 +1,11 @@
+.user-loggedIn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.user-loggedIn p{
+    padding: 0;
+    margin: 0;
+}

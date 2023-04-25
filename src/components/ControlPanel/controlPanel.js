@@ -9,6 +9,7 @@ import './controlPanel.css'
 import { updateArray } from '../../features/live-text'
 import ClearColumnsButton from './cpanelComponents/clearColumnsButton'
 import LoginLogoutButton from '../Utility/Buttons/loginLogoutButton'
+import User from '../User/User'
 
 export default function ControlPanel({setControlPanelVis}) {
     // Redux
@@ -91,6 +92,7 @@ export default function ControlPanel({setControlPanelVis}) {
 
     <div className='control-panel-header-buttons'>
         {/* <LoginLogoutButton /> */}
+        
         <ClearColumnsButton clearColumns={clearColumns} />
     </div>
 

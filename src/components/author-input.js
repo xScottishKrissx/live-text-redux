@@ -12,6 +12,7 @@ import { setCPanelVis } from '../features/cpanelVis'
 import InputStyleButton from './Utility/Buttons/inputStyleButton'
 
 import { FaStepBackward } from 'react-icons/fa'
+import User from './User/User'
 export default function AuthorInput() {
   const dispatch = useDispatch()
   /////// Handle Edit
@@ -35,7 +36,7 @@ export default function AuthorInput() {
     <>
 
       <div className='author-input-wrapper 1st'>
-        
+        <User />
         <div className='author-input-wrapper-top-bar'>
 
           {!cPanelVisState ? 
