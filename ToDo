@@ -214,7 +214,7 @@ Live Text:
             ☐ Logging in, there's no active column
               ☐ I'd like this to be something that can be remembered in storage
             ✔ The save columns button should be a background function of the website @done(23-04-27 17:41)
-            ☐ There should be a login slice that keeps track of whether the user is logged in
+            ✔ There should be a login slice that keeps track of whether the user is logged in @done(23-04-27 18:25)
             ☐ The Logout UI should just be the UI without the author-input component.
             ☐ The new user UI needs to be improved
             ☐ The UI in general    needs tidied

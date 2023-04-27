@@ -2,23 +2,39 @@ import React,{useState, useEffect} from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 // Firebase
-import { auth, provider, firestore } from '../../firebase'
-import { setDoc, doc, getFirestore, getDoc} from 'firebase/firestore'
+import { provider, firestore } from '../../firebase'
+import { setDoc, doc, getFirestore, getDoc, addDoc} from 'firebase/firestore'
 import { signInWithPopup, signOut, } from '@firebase/auth'
+import { getAuth, onAuthStateChanged } from "@firebase/auth";
 // Me
 import { updateArray } from '../../features/live-text'
 import './user.css'
+import { setLoggedIn } from '../../features/loggedIn'
 
 export default function User() {
 
     const dispatch = useDispatch()
+    const auth = getAuth()
+
     const liveTextMaster = useSelector((state) => state.livetext.value)
+    const loggedInState = useSelector((state) => state.loggedIn.value)
 
     const [userInfo, setUserInfo] = useState({
         id:localStorage.getItem("userId") || "", 
         info:liveTextMaster , 
         email:localStorage.getItem("userEmail") || ""
     })
+
+    onAuthStateChanged(auth, (user) =>{
+        if(user){
+            // console.log("User Logged In")
+            dispatch(setLoggedIn(true))
+        }else{
+            // console.log("User Not Logged In")
+            dispatch(setLoggedIn(false))
+        }
+    })
+
   
     const signInWithGoogle = () =>{
         signInWithPopup(auth, provider)
@@ -32,9 +48,11 @@ export default function User() {
                     if(!docSnapshot.exists()){
                         // New Account! Creating New Account
                         setDoc(doc(firestore, 'users', currentUserId), {email: currentUserEmail, info:{}})
+                        // dispatch(setLoggedIn(true))
                     }else{
                         // Account Exists, do something else
                         dispatch(updateArray(JSON.parse(docSnapshot.data().info)))
+                        
                         setUserInfo({
                             id:currentUserId, 
                             email:currentUserEmail, 
@@ -54,8 +72,9 @@ export default function User() {
     }
 
     const saveColumns = async () =>{
-        console.log("Save")
+        // console.log("Save")
         // console.log(JSON.stringify(liveTextMaster))
+        // console.log(userInfo.id)
         await setDoc(doc(firestore, 'users', userInfo.id),{
             email:userInfo.email,
             info:JSON.stringify(liveTextMaster)
@@ -63,13 +82,16 @@ export default function User() {
     }
 
     useEffect(()=>{
-        saveColumns()
+        if(loggedInState === true) saveColumns()
     },[liveTextMaster])
 
     const signOutPlease = () =>{
-      signOut(auth).then(() =>{})
+      console.log("Signing Out")
+      signOut(auth)
+      dispatch(setLoggedIn(false))
+      setUserInfo({ id:"",  email:"", info:"" })
       localStorage.clear()
-      window.location.reload()
+    //   window.location.reload()
     }
 
     
@@ -84,10 +106,7 @@ export default function User() {
             </div>
         : 
             <button className='defaultBtnStyle' onClick={()=>signInWithGoogle()}>Sign in</button>
-        }
-
-        {/* <button className='defaultBtnStyle' onClick={saveColumns}>Save Columns</button> */}
-       
+        }       
     </div>
   )
 }
