@@ -192,14 +192,14 @@ Live Text:
 
 
       Create Login / Logout system:
-        ☐ Added Google Authentication Sign In
-        ☐ Next, i should create a firestore so that users can have store information on the website.
-          ☐ It's the same processs as the netflix app but with GOogle Signin rather than email, password
+        ✔ Added Google Authentication Sign In @done(23-04-27 17:35)
+        ✔ Next, i should create a firestore so that users can have store information on the website. @done(23-04-27 17:35)
+          It's the same processs as the netflix app but with GOogle Signin rather than email, password
           ✔ Step 1 - Sign In With Google @done(23-04-25 16:15)
-          ☐ Step 2 - Use Google Unique Id to create a user in the database
-          ☐ So i've managed to create a database collection with the same id as the auth id.
-            ☐ The main issue is that signing in will overwrite whatever is saved in the database
-            ☐ I've made a bit of a meal of this so will probably need to restart but i dont think it should be too hard
+          ✔ Step 2 - Use Google Unique Id to create a user in the database @done(23-04-27 17:34)
+          So i've managed to create a database collection with the same id as the auth id.
+            The main issue is that signing in will overwrite whatever is saved in the database
+            I've made a bit of a meal of this so will probably need to restart but i dont think it should be too hard
             ✔ Lol, just realised im using code for V8 of firebase, when I actually have v9 installed @done(23-04-26 17:45)
               ....that was a waste of like 3 hours...
             ✔ Ok after that i did manage to get a system in place @done(23-04-26 17:47)
@@ -207,16 +207,17 @@ Live Text:
               ✔ A new record is created and you're logged in @done(23-04-26 17:47)
               ✔ If you're signing in, then your columns are loaded into the page @done(23-04-26 17:47)
 
-            ☐ The basics are in place but there are issues
-              Issues / ToDo:
-                ✔ After logging in, columns are loaded into the livetext array but the page isn't updated @done(23-04-27 17:17)
-                  ✔ Done, added a useEffect to the Control Panel to set the state of live texts as soon as the main website array gets it's information @done(23-04-27 17:17)
-                ☐ Logging in, there's no active column
-                  ☐ I'd like this to be something that can be remembered in storage
-                ☐ The save columns button should be a background function of the website
-                ☐ The Logout UI should just be the UI without the author-input component.
-                ☐ The new user UI needs to be improved
-                ☐ The UI in general needs tidied
+        The basics are in place but there are issues
+          Issues / ToDo:
+            ✔ After logging in, columns are loaded into the livetext array but the page isn't updated @done(23-04-27 17:17)
+              ✔ Done, added a useEffect to the Control Panel to set the state of live texts as soon as the main website array gets it's information @done(23-04-27 17:17)
+            ☐ Logging in, there's no active column
+              ☐ I'd like this to be something that can be remembered in storage
+            ✔ The save columns button should be a background function of the website @done(23-04-27 17:41)
+            ☐ There should be a login slice that keeps track of whether the user is logged in
+            ☐ The Logout UI should just be the UI without the author-input component.
+            ☐ The new user UI needs to be improved
+            ☐ The UI in general    needs tidied
 
 
       Control Panel:

@@ -12,11 +12,11 @@ import './user.css'
 export default function User() {
 
     const dispatch = useDispatch()
-    const liveText = useSelector((state) => state.livetext.value)
+    const liveTextMaster = useSelector((state) => state.livetext.value)
 
     const [userInfo, setUserInfo] = useState({
         id:localStorage.getItem("userId") || "", 
-        info:liveText , 
+        info:liveTextMaster , 
         email:localStorage.getItem("userEmail") || ""
     })
   
@@ -47,21 +47,24 @@ export default function User() {
 
                 localStorage.setItem("userEmail", currentUserEmail)
                 localStorage.setItem("userId", currentUserId)
-            })
-            
+            })            
             .catch((error) =>{
                 console.error(error)
             })
-        }
+    }
 
     const saveColumns = async () =>{
         console.log("Save")
-        console.log(JSON.stringify(liveText))
+        // console.log(JSON.stringify(liveTextMaster))
         await setDoc(doc(firestore, 'users', userInfo.id),{
             email:userInfo.email,
-            info:JSON.stringify(liveText)
+            info:JSON.stringify(liveTextMaster)
         })
     }
+
+    useEffect(()=>{
+        saveColumns()
+    },[liveTextMaster])
 
     const signOutPlease = () =>{
       signOut(auth).then(() =>{})
@@ -83,7 +86,7 @@ export default function User() {
             <button className='defaultBtnStyle' onClick={()=>signInWithGoogle()}>Sign in</button>
         }
 
-        <button className='defaultBtnStyle' onClick={saveColumns}>Save Columns</button>
+        {/* <button className='defaultBtnStyle' onClick={saveColumns}>Save Columns</button> */}
        
     </div>
   )
