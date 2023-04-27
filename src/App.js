@@ -15,8 +15,8 @@ function App() {
   const editModeState = useSelector((state) => state.edit.value)
   const newItem = useSelector((state) => state.items.value)
   const previewItem = useSelector((state) => state.preview.value)
-
-
+  const liveText = useSelector((state) => state.livetext.value)
+  // console.log(liveText)
 
   return (
     <div className="App">

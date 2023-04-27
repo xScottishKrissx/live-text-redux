@@ -16,6 +16,8 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
 
     const dispatch = useDispatch()
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
+    const liveTextMaster = useSelector((state) => state.livetext.value)
+
     
     const goToNewPostInput = (content, id) =>{
         dispatch(setCPanelVis(!cPanelVis))
@@ -38,9 +40,9 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
         editing:false
     })
     const {editing, editId} = editMode
-    
+
     const displayManageColumnsPanel = Object.keys(data).map((i) =>{
-        
+       
         return(
             Object.entries(data[i]).map(([columnId, columnContent]) =>{
                const editModeActive = editing && editId === columnId

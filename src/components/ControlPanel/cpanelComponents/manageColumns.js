@@ -7,7 +7,6 @@ import DisplayManageColumnsPanel from './DisplayManageColumnsPanel/displayManage
 export default function ManageColumns({data, handleSetActive, activeLiveTextState, handleDeleteColumn, setPostTitle, createNewLiveText, allowPost, handleRenameColumn, setColumnTitle, allowColumnTitle, handleHideColumn}) {
 
 
-
   return (
     <div className='manageColumns-container'>
 

@@ -8,17 +8,21 @@ import { setActiveLiveText } from '../../features/activeLiveText'
 import './controlPanel.css'
 import { updateArray } from '../../features/live-text'
 import ClearColumnsButton from './cpanelComponents/clearColumnsButton'
-import LoginLogoutButton from '../Utility/Buttons/loginLogoutButton'
-import User from '../User/User'
+// import LoginLogoutButton from '../Utility/Buttons/loginLogoutButton'
+// import User from '../User/User'
+import { useEffect } from 'react'
 
 export default function ControlPanel({setControlPanelVis}) {
+    // console.log(test)
     // Redux
     const dispatch = useDispatch()
     const activeLiveTextState = useSelector((state) => state.active.value) 
-
-
     const liveTextMaster = useSelector((state) => state.livetext.value)
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
+
+    useEffect(()=>{
+        setLiveTexts(liveTextMaster)
+    },[liveTextMaster])
 
     const clearColumns = () =>{
         localStorage.clear()
@@ -33,6 +37,7 @@ export default function ControlPanel({setControlPanelVis}) {
     // Create a new live text / column
     const [postTitle, setPostTitle] = useState("")
     const [columnTitle, setColumnTitle] = useState("")
+    
     const minPostLength = 12
     const maxPostLength = 60
 

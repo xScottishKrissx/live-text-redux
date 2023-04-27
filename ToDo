@@ -209,7 +209,10 @@ Live Text:
 
             ☐ The basics are in place but there are issues
               Issues / ToDo:
-                ☐ After loggin in, columns are loaded into the livetext array but the page isn't updated
+                ✔ After logging in, columns are loaded into the livetext array but the page isn't updated @done(23-04-27 17:17)
+                  ✔ Done, added a useEffect to the Control Panel to set the state of live texts as soon as the main website array gets it's information @done(23-04-27 17:17)
+                ☐ Logging in, there's no active column
+                  ☐ I'd like this to be something that can be remembered in storage
                 ☐ The save columns button should be a background function of the website
                 ☐ The Logout UI should just be the UI without the author-input component.
                 ☐ The new user UI needs to be improved
