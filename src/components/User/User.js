@@ -24,6 +24,7 @@ export default function User() {
         info:liveTextMaster , 
         email:localStorage.getItem("userEmail") || ""
     })
+    const {id} = userInfo
 
     onAuthStateChanged(auth, (user) =>{
         if(user){
@@ -35,16 +36,18 @@ export default function User() {
         }
     })
 
-  
+    // let test = "";
     const signInWithGoogle = () =>{
         signInWithPopup(auth, provider)
             .then((result)=>{
 
                 const currentUserId = result.user.uid
+                // test = currentUserId
                 const currentUserEmail = result.user.email
                 const userQuery = doc(firestore, 'users', currentUserId)
 
                 getDoc(userQuery).then((docSnapshot) => {
+                    console.log(docSnapshot.data().email)
                     if(!docSnapshot.exists()){
                         // New Account! Creating New Account
                         setDoc(doc(firestore, 'users', currentUserId), {email: currentUserEmail, info:{}})
@@ -54,15 +57,20 @@ export default function User() {
                         dispatch(updateArray(JSON.parse(docSnapshot.data().info)))
                         
                         setUserInfo({
-                            id:currentUserId, 
-                            email:currentUserEmail, 
+                            id:docSnapshot.id, 
+                            email:docSnapshot.data().email, 
                             info:JSON.parse(docSnapshot.data().info)
                         })
+                        // console.log(userInfo.id)
+                        console.log(docSnapshot.data().email)
+                        console.log(currentUserEmail)
+                        localStorage.setItem("userEmail", currentUserEmail)
                         
                     }
+                    // console.log(userInfo.id)
 
                 })
-
+                // console.log(userInfo.id)
                 localStorage.setItem("userEmail", currentUserEmail)
                 localStorage.setItem("userId", currentUserId)
             })            
@@ -70,19 +78,28 @@ export default function User() {
                 console.error(error)
             })
     }
-
-    const saveColumns = async () =>{
-        // console.log("Save")
+    // console.log(userInfo.id)
+    
+    const saveColumnsToFirestore = async () =>{
+        console.log("Save")
         // console.log(JSON.stringify(liveTextMaster))
-        // console.log(userInfo.id)
-        await setDoc(doc(firestore, 'users', userInfo.id),{
-            email:userInfo.email,
-            info:JSON.stringify(liveTextMaster)
-        })
+        // console.log(id)
+        
+        if(userInfo.id){
+            // console.log(test)
+            // console.log(loggedInState)
+            await setDoc(doc(firestore, 'users', userInfo.id),{
+                email:userInfo.email,
+                info:JSON.stringify(liveTextMaster)
+            })
+
+        }
     }
 
     useEffect(()=>{
-        if(loggedInState === true) saveColumns()
+        // console.log(loggedInState)
+        // console.log(userInfo.email)
+        if(userInfo.email === true) saveColumnsToFirestore()
     },[liveTextMaster])
 
     const signOutPlease = () =>{
@@ -98,7 +115,7 @@ export default function User() {
 
   return (
     <div className='user-container'>
-        {userInfo.email ? 
+        {loggedInState === true ? 
             <div className='user-loggedIn'>
                 <p>{userInfo.email}</p> 
                 

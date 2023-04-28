@@ -1,38 +1,21 @@
+import { useSelector, useDispatch } from 'react-redux'
+
+import LoggedIn from './components/loggedIn';
+import LoggedOut from './components/loggedOut';
+
 import './App.css';
-import {useSelector} from 'react-redux'
-import AuthorInput from './components/author-input';
-import ItemReview from './components/ItemReview/item-review';
-
 import "../src/components/Utility/Buttons/buttons.css"
-import Columns from './components/Column/Column';
-
-
-
-
 
 function App() {
-  // localStorage.clear()
-  const editModeState = useSelector((state) => state.edit.value)
-  const newItem = useSelector((state) => state.items.value)
-  const previewItem = useSelector((state) => state.preview.value)
-  const liveText = useSelector((state) => state.livetext.value)
-  // console.log(liveText)
-
+  const loggedInState = useSelector((state) => state.loggedIn.value)
   return (
     <div className="App">
 
-
-
-
-
       <div className="main-wrapper">
+      {loggedInState === true ? <LoggedIn /> : <LoggedOut /> }
+      
+      
 
-        <AuthorInput />
-
-        <div className='right-column'>
-          {editModeState.editing ? <ItemReview data={previewItem} /> : <ItemReview data={newItem} /> }
-          <Columns />
-        </div>
 
       </div>
     </div>

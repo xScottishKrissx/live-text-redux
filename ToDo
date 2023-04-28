@@ -218,6 +218,8 @@ Live Text:
             ☐ The Logout UI should just be the UI without the author-input component.
             ☐ The new user UI needs to be improved
             ☐ The UI in general    needs tidied
+        Logged Out Ui:
+          ☐ Create a single centred panel that lets users login
 
 
       Control Panel:

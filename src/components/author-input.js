@@ -36,7 +36,7 @@ export default function AuthorInput({test}) {
 
       <div className='author-input-wrapper 1st'>
         <User test={test} />
-        {loggedInState === false ? null : 
+        
           <>
           
           <div className='author-input-wrapper-top-bar'>
@@ -64,7 +64,7 @@ export default function AuthorInput({test}) {
 
 
           </>
-        }
+        
       </div>
     </>
   )
