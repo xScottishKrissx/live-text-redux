@@ -11,6 +11,7 @@ import ClearColumnsButton from './cpanelComponents/clearColumnsButton'
 // import LoginLogoutButton from '../Utility/Buttons/loginLogoutButton'
 // import User from '../User/User'
 import { useEffect } from 'react'
+import saveColumns from '../User/saveToFirestore'
 
 export default function ControlPanel({setControlPanelVis}) {
     // console.log(test)
@@ -56,6 +57,7 @@ export default function ControlPanel({setControlPanelVis}) {
         
         setPostTitle("")
         handleSetActive(newColId)
+        saveColumns(addToMasterArray)
     }
 
     // Delete Column
@@ -63,6 +65,7 @@ export default function ControlPanel({setControlPanelVis}) {
         const deleteColumn = liveTexts.filter(x => !x[id])
         setLiveTexts(deleteColumn)
         dispatch(updateArray(deleteColumn))
+        saveColumns(deleteColumn)
         // localStorage.setItem("liveTextMaster", JSON.stringify(deleteColumn))
     }
 
@@ -88,6 +91,7 @@ export default function ControlPanel({setControlPanelVis}) {
         setLiveTexts(updateLiveTexts)
         dispatch(updateArray(updateLiveTexts))
         localStorage.setItem("liveTextMaster", JSON.stringify(updateLiveTexts))  
+        saveColumns(updateLiveTexts)
     }
 
 
