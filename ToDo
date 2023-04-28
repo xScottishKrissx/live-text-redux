@@ -218,6 +218,7 @@ Live Text:
             ☐ The Logout UI should just be the UI without the author-input component.
             ☐ The new user UI needs to be improved
             ☐ The UI in general    needs tidied
+            ☐ BUG:: Logging Out -> Refresh Page -> Sign In = Delete Columns
         Logged Out Ui:
           ☐ Create a single centred panel that lets users login
 

@@ -12,11 +12,7 @@ function App() {
     <div className="App">
 
       <div className="main-wrapper">
-      {loggedInState === true ? <LoggedIn /> : <LoggedOut /> }
-      
-      
-
-
+        {loggedInState ? <LoggedIn /> : <LoggedOut /> }
       </div>
     </div>
   );
