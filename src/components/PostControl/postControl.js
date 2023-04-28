@@ -11,7 +11,6 @@ import {v4 as uuidv4} from 'uuid'
 // Style
 import './postControl.css'
 import { setCPanelVis } from '../../features/cpanelVis'
-import saveColumns from '../User/saveToFirestore'
 
 export default function PostControl({id, handleEdit, body, subtitle, title, type,tweet, youtube, image, editMode, hide,setPostImageName, hidden, confirmClearForm}) {
 
@@ -77,7 +76,6 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         if(keepOpen?.includes("keepOpen")){ }else{ handleEdit(false) }
         dispatch(updateArray(newMasterLiveText))
         localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
-        saveColumns(newMasterLiveText)
     }
 
     const handleDelete = () => {

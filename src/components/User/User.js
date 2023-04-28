@@ -10,8 +10,6 @@ import { getAuth } from "@firebase/auth";
 import { updateArray } from '../../features/live-text'
 import './user.css'
 import { setLoggedIn } from '../../features/loggedIn'
-import SaveToFirestore from './saveToFirestore'
-import saveColumns from './saveToFirestore'
 
 export default function User() {
 
@@ -28,30 +26,7 @@ export default function User() {
     })
     const {id, info, email} = userInfo
 
-    // Update firestore when a change is made to columns and posts
-    // useEffect(()=>{
-    //     const saveColumnsToFirestore = async () =>{
-    //         console.log("Save")
-    //         if(id){
-    //             await setDoc(doc(firestore, 'users', id),{
-    //                 email:email,
-    //                 info:JSON.stringify(liveTextMaster)
-    //             })
-    //         }
-    //     }
-    //     saveColumnsToFirestore()
-    // },[liveTextMaster])
 
-    // const saveColumnsToFirestore = async () =>{
-    //     console.log("Save")
-    //     if(id){
-    //         await setDoc(doc(firestore, 'users', id),{
-    //             email:email,
-    //             info:JSON.stringify(liveTextMaster)
-    //         })
-    //     }
-    // }
-    
 
     // Sign In With Google
     const signInWithGoogle = () =>{
@@ -81,21 +56,6 @@ export default function User() {
                         })
 
                         
-                    
-
-                    // if(!docSnapshot.exists()){
-                    //     // New Account! Creating New Account
-                    //     setDoc(doc(firestore, 'users', currentUserId), {email: currentUserEmail, info:{}})
-                    // }else{
-                    //     // Account Exists, retrieve information
-                    //     dispatch(updateArray(JSON.parse(docSnapshot.data().info)))
-                        
-                    //     setUserInfo({
-                    //         id:docSnapshot.id, 
-                    //         email:docSnapshot.data().email, 
-                    //         info:JSON.parse(docSnapshot.data().info)
-                    //     })
-                    // }
 
                 })
                 localStorage.setItem("userEmail", currentUserEmail)
@@ -106,14 +66,8 @@ export default function User() {
             })
     }
     
-
-
-
-
     const signOutPlease = () =>{
         console.log("Signing Out")
-
-        saveColumns(liveTextMaster)
         signOut(auth)
         dispatch(setLoggedIn(false))
         localStorage.clear()

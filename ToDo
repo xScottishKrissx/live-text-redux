@@ -222,6 +222,8 @@ Live Text:
               I think this might be a sign of a much larger issue with the way my project is setup
               I think the local storage is the priority information source rather than the database which is causing issues when the local storage is cleared. This triggers the setDoc which clears the information in the firestore.
               ✔ I removed the useEffect which updates everytime the main array changes and replaced it with a manual SaveColumns function that is called everytime postControl and manageColumns updates the main array. Not sure if this is optimal but it's what I came up with. @done(23-04-28 18:35)
+              ✔ Could this work with the live text slice? @done(23-04-28 18:40)
+                ✔ Yup @done(23-04-28 18:40)
         Logged Out Ui:
           ☐ Create a single centred panel that lets users login
 
