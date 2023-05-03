@@ -16,6 +16,7 @@ import setActiveLiveTextReducer  from './features/activeLiveText';
 import setControlPanelVisReducer from './features/cpanelVis'
 import setInputStyle  from './features/inputStyle';
 import setLoggedIn  from './features/loggedIn';
+import cPanelInputStyle from './features/cPanelInputStyle';
 const store = configureStore({
   reducer:{
     items: itemReducer,
@@ -26,7 +27,8 @@ const store = configureStore({
     active:setActiveLiveTextReducer,
     cPanelVis:setControlPanelVisReducer,
     inputStyle: setInputStyle,
-    loggedIn:setLoggedIn
+    loggedIn:setLoggedIn,
+    cPanelStyle:cPanelInputStyle
   }
 })
 

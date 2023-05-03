@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCPanelVis } from '../../../../features/cpanelVis'
 import { removeTag } from '../../../Utility/removeTag'
+import cPanelInputStyle from '../../../../features/cPanelInputStyle'
 import AddNewButton from '../../../Utility/Buttons/addNewButton'
 import DeleteButton from '../../../Utility/Buttons/deleteButton'
 import Title from '../../../InputForm/Title'
@@ -16,7 +17,9 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
 
     const dispatch = useDispatch()
     const cPanelVis = useSelector((state) => state.cPanelVis.value)
+    const cPanelStyle = useSelector((state) => state.cPanelStyle.value)
     const liveTextMaster = useSelector((state) => state.livetext.value)
+    
 
     
     const goToNewPostInput = (content, id) =>{
@@ -63,7 +66,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             columnId={columnId}
                             columnContent={columnContent}
                         />
-                        <HideColumn hidden={hidden} columnId={columnId} handleHideColumn={handleHideColumn} />
+                        {cPanelStyle ? <HideColumn hidden={hidden} columnId={columnId} handleHideColumn={handleHideColumn} /> : null }
                        
 {/* Rename / Display Column Title */}
                         <ColumnTitleView
@@ -77,6 +80,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             
 {/* Control Panel Buttons */}
         {/* Add New Post to this column */}
+        
                             <div className='manageColumns-column-buttons'>
                                 {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :   
                                     <AddNewButton 
@@ -85,10 +89,13 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                     />
                                 }
         {/* Delete Column */}
+                                {cPanelStyle ? 
+                                <>
+                                
                                 <DeleteButton 
                                     title="Delete Column" 
                                     handleClick={()=>handleDeleteColumn(columnId)} 
-                                />
+                                    />
         {/* Edit Column Title */}
                                 <EditColumnTitle 
                                     headline={headline}
@@ -98,13 +105,15 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                     editMode={editMode}
                                     setColumnTitle={setColumnTitle}
                                     handleRenameColumn={handleRenameColumn}
-                                />
+                                    />
         {/* Show Extra Information */}
                                 <ToggleExtraInfo 
                                     allowExtraInfoView={allowExtraInfoView}
                                     extraInfo={extraInfo}
                                     columnId={columnId}
-                                />
+                                    />
+                                    </>
+                                : null }
                             </div>
                         </div>
                                 

@@ -13,8 +13,8 @@ import InputStyleButton from './Utility/Buttons/inputStyleButton'
 
 import { FaStepBackward } from 'react-icons/fa'
 import User from './User/User'
-import loggedIn from '../features/loggedIn'
-export default function AuthorInput({test}) {
+
+export default function AuthorInput() {
   const dispatch = useDispatch()
   /////// Handle Edit
   const editModeState = useSelector((state) => state.edit.value)
@@ -35,7 +35,7 @@ export default function AuthorInput({test}) {
     <>
 
       <div className='author-input-wrapper 1st'>
-        <User test={test} />
+        <User  />
         
           <>
           
@@ -51,7 +51,7 @@ export default function AuthorInput({test}) {
 
         
           {cPanelVisState === true ? 
-            <ControlPanel setControlPanelVis={setControlPanelVis} test={test}/>
+            <ControlPanel setControlPanelVis={setControlPanelVis} />
             :
             <>
             {editModeState.editing ? 

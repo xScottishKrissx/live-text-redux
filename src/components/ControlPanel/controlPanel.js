@@ -11,6 +11,7 @@ import ClearColumnsButton from './cpanelComponents/clearColumnsButton'
 // import LoginLogoutButton from '../Utility/Buttons/loginLogoutButton'
 // import User from '../User/User'
 import { useEffect } from 'react'
+import CPanelViewStyleButton from '../Utility/Buttons/cPanelViewStyleButton'
 
 export default function ControlPanel({setControlPanelVis}) {
     // console.log(test)
@@ -18,6 +19,7 @@ export default function ControlPanel({setControlPanelVis}) {
     const dispatch = useDispatch()
     const activeLiveTextState = useSelector((state) => state.active.value) 
     const liveTextMaster = useSelector((state) => state.livetext.value)
+
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
 
     useEffect(()=>{
@@ -43,6 +45,8 @@ export default function ControlPanel({setControlPanelVis}) {
 
     const allowPost = postTitle.length >= minPostLength && postTitle.length <= maxPostLength
     const allowColumnTitle = columnTitle.length >= minPostLength && columnTitle.length <= maxPostLength
+
+
 
     const createNewColumn = () => {
         if(!allowPost) return
@@ -90,14 +94,13 @@ export default function ControlPanel({setControlPanelVis}) {
     }
 
 
-    
+
   return (
     <div className='confirm-post-overlay'> 
 
     <div className='control-panel-header-buttons'>
-        {/* <LoginLogoutButton /> */}
-        
         <ClearColumnsButton clearColumns={clearColumns} />
+        <CPanelViewStyleButton />
     </div>
 
         <ManageColumns 
