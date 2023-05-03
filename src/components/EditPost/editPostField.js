@@ -14,6 +14,7 @@ import Mention from "@tiptap/extension-mention";
 import { FaUndo } from "react-icons/fa";
 export default function EditPostField({field, passNewFieldValue, clearContent, createNewColumn, needButton, allowPost,}) {
 
+    
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -22,8 +23,11 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
                     class:'mention'
                 },
                 suggestion
-            })
+            }),
+            
         ],
+
+        
 
         content: field,
 
@@ -32,6 +36,8 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
                 class: 'focus-visible:outline-none',
             },
         },
+
+
 
         onUpdate:({editor}) => {
             const json = editor.getHTML()
@@ -51,23 +57,27 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
             return
         }
     })
+
     
     const handleCreateColumn = () =>{
         createNewColumn()
         editor.commands.clearContent()
     }
 
+    // Keyboard Support for the Control Panel Title Field
+    const handleKeyPress = (event) => event.key === 'Enter' && handleCreateColumn() 
+
    
   return (
     <>
     {!needButton ? 
 
-            <EditorContent editor={editor} />
+            <EditorContent editor={editor}/>
         
     
         :
         <>
-            <EditorContent editor={editor} />
+            <EditorContent editor={editor} onKeyDown={handleKeyPress} />
             {allowPost ? 
                 <AddNewButton handleClick={handleCreateColumn} title="Create New Column"/> 
                 : 

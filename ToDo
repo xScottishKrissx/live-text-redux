@@ -308,6 +308,7 @@ Live Text:
                 ✔ Toggling the Cpanel/Adding New Post and then pressing the edit button sets edit mode true but hide the edit view. This is wrong and breaks the UI @done(23-03-24 14:11)
                   ✔ Maybe only display the edit button when the CPanel is active. @done(23-03-24 14:11)
             ✔ Create Simple / Complex view for control panel @done(23-05-03 10:58)
+            ✔ Pressing enter in the column field should trigger the post the same as pressing the button @done(23-05-03 11:32)
 
 
 // React redux for state management

@@ -50,7 +50,8 @@ export default function ControlPanel({setControlPanelVis}) {
 
     const createNewColumn = () => {
         if(!allowPost) return
-        const newColumn = {[uuidv4()]: {type:"Column", headline:postTitle, hidden:false, items:[], createdOn:Date.now()}}
+        let fixTitleTags = postTitle.replace('</p><p>', '')
+        const newColumn = {[uuidv4()]: {type:"Column", headline:fixTitleTags, hidden:false, items:[], createdOn:Date.now()}}
         const newColId = Object.entries(newColumn)[0][0]
 
         const addToMasterArray = liveTexts.concat(newColumn)
