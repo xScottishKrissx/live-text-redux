@@ -6,12 +6,21 @@
     margin: 0 auto;
         /* margin-top: 10px; */
         margin-bottom: 10px;
+    
+    padding-left: 25px;
+    padding-right: 25px;
 }
 .manageColumns-container{
     /* width: 90%; */
     /* margin: 0 auto; */
     display: flex;
         flex-direction: column;
+
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.manageColumns-container h3{
+    margin-bottom: 0px;
 }
 .manageColumns-container > span{
     margin-bottom: 10px;
@@ -55,7 +64,20 @@
     padding: 0;
 }
 .manageColumns-createNewLiveColumn{
+
+    background-color: black;
     width: 100%;
+}
+
+.manageColumns-createNewLiveColumn h3{
+    padding-left: 25px;
+    padding-right: 25px;    
+    margin-bottom: 20px;
+
+}
+.manageColumns-createNewLiveColumn > div{
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .manageColumns-headline{
@@ -77,7 +99,8 @@
     width: 100%;
 }
 
-.manageColumns-createNewLiveColumn div{
+.manageColumns-createNewLiveColumn > div{
+    background-color: red;
     display: flex;
         align-items: center;
         flex-direction: row;

@@ -8,8 +8,12 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
 
 
   return (
-    <div className='manageColumns-container'>
 
+    <>
+    
+    <div className='manageColumns-container'>
+      
+      <h3>Manage Columns</h3>
       <DisplayManageColumnsPanel 
         data={data} 
         activeLiveTextState={activeLiveTextState} 
@@ -20,15 +24,18 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
         handleDeleteColumn={handleDeleteColumn}
         handleRenameColumn={handleRenameColumn}
         handleHideColumn={handleHideColumn}
-      />
- 
-      <span>or create a new column...</span>
-      <div className='manageColumns-createNewLiveColumn'>
-        <div>
-            <Title needButton allowPost={allowPost} field={""} passNewFieldValue={setPostTitle} handleClick={createNewLiveText}/>
-        </div>
-      </div>
+        />
+
+
 
     </div>
+
+        <div className='manageColumns-createNewLiveColumn'>
+          <h3>Create New Column</h3>
+          <div>
+              <Title needButton allowPost={allowPost} field={""} passNewFieldValue={setPostTitle} handleClick={createNewLiveText}/>
+          </div>
+        </div>
+        </>
     )
 }

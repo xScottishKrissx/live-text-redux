@@ -11,10 +11,11 @@
         flex-direction: column;
     height: 100%;
     /* padding: 25px; */
-    padding-bottom: 25px;
-    padding-top: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
+    
+    /* padding-bottom: 25px; */
+    /* padding-top: 25px; */
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
     
     /* margin: 0 auto; */
     margin-top: 3rem;
@@ -150,21 +151,5 @@
     outline: none;
     resize: vertical;
     width: inherit;
-}
-
-.confirm-post-overlay{
-    /* height: 500px; */
-    /* background-color: white; */
-    box-shadow: none;
-    animation: test123 0.5s;
-}
-
-@keyframes test123 {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
 }
 

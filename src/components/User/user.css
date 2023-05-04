@@ -1,3 +1,6 @@
+.user-container{
+    margin-bottom: 2rem;
+}
 .user-loggedIn{
     display: flex;
     align-items: center;
