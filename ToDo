@@ -44,7 +44,7 @@ Live Text:
         
         ✔ Add Pagination @done(23-04-25 11:17)
           ✔ When a certain amount of posts are added add a button that lets you change the posts rendered on the page. @done(23-04-25 11:17)
-          ☐ Add page numbers between prev/next page buttons
+          ✔ Add page numbers between prev/next page buttons @done(23-05-04 13:52)
         
         Share bar:
           ☐ Create the Share Bar

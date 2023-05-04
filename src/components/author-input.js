@@ -2,13 +2,13 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setEdit } from '../features/editState'
 
+import User from './User/User'
+import PostControlBar from './PostControl/PostControlComponents/PostControlBar'
+import ControlPanel from './ControlPanel/controlPanel'
 import EditTiptap from './EditPost/editView'
 import NewPost from './NewPost/NewPost'
 
 import './author-input.css'
-import ControlPanel from './ControlPanel/controlPanel'
-import User from './User/User'
-import PostControlBar from './PostControl/PostControlComponents/PostControlBar'
 
 export default function AuthorInput() {
   const dispatch = useDispatch()
