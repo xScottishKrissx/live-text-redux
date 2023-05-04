@@ -2,12 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px;
+    /* padding: 5px; */
+    padding-bottom: 5px;
 }
 
-.user-loggedIn p{
-    padding: 0;
-    margin: 0;
+.user-loggedIn span{
+    /* padding: 0; */
+    /* margin: 0; */
+    background-color: #505050;
+    color: white;
+    cursor: default;
+    font-weight: initial;
 }
 
 /* Logged Out */

@@ -22,14 +22,13 @@ export default function PostControlBar() {
  
       
   return (
-    <div className='author-input-wrapper-top-bar '>
-
-        {!cPanelVisState ? 
-        <>
-          <button className='defaultBtnStyle' onClick={returnToCPanel}> <FaStepBackward /> Back </button>
-          <InputStyleButton /> 
-        </>
-        :  null}
-    </div>
+        !cPanelVisState ? 
+          <div className='author-input-wrapper-top-bar '>
+            <>
+              <button className='defaultBtnStyle' onClick={returnToCPanel}> <FaStepBackward /> Back </button>
+              <InputStyleButton /> 
+            </>
+          </div>
+        :  null
   )
 }

@@ -80,7 +80,7 @@ export default function User() {
     <div className='user-container'>
         {loggedInState ? 
             <div className='user-loggedIn'>
-                <p>{email}</p> 
+                <span className='defaultBtnStyle'>{email}</span> 
                 
                 <button className='defaultBtnStyle' onClick={()=>signOutPlease()}>Sign Out</button>
             </div>

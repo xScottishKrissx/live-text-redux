@@ -1,6 +1,7 @@
 {
   "name": "live-text",
   "version": "0.1.0",
+  "homepage": "https://www.christopherdunne.co.uk/livetext",
   "private": true,
   "dependencies": {
     "@draft-js-plugins/editor": "^4.1.3",
