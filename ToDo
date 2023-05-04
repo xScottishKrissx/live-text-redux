@@ -44,6 +44,7 @@ Live Text:
         
         ✔ Add Pagination @done(23-04-25 11:17)
           ✔ When a certain amount of posts are added add a button that lets you change the posts rendered on the page. @done(23-04-25 11:17)
+          ☐ Add page numbers between prev/next page buttons
         
         Share bar:
           ☐ Create the Share Bar
@@ -91,6 +92,7 @@ Live Text:
 
         ✔ Keyboard SUpport @done(23-05-04 12:17)
           ✔ Pressing Control + Enter should submit the post when ready @done(23-05-04 12:17)
+          ☐ Should keyboard controls on page
         
       Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)
@@ -309,7 +311,7 @@ Live Text:
                   ✔ Maybe only display the edit button when the CPanel is active. @done(23-03-24 14:11)
             ✔ Create Simple / Complex view for control panel @done(23-05-03 10:58)
             ✔ Pressing enter in the column field should trigger the post the same as pressing the button @done(23-05-03 11:32)
-            ☐ Change the focus styles for the add post button.
+            ✔ Change the focus styles for the add post button. @done(23-05-04 12:25)
               //should improve accessibility as the black outline doesn't stand out again the black square
 
 

@@ -42,6 +42,9 @@ padding: 10px;
     /* animation: addNewButtonAni 0.5s; */
     animation-fill-mode: forwards;
 }
+.addNewButton:focus{
+    outline: 3px solid white;
+}
 
 @keyframes addNewButtonAni {
     0%{
