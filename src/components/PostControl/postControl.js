@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 import { updateArray } from '../../features/live-text'
@@ -33,6 +33,19 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     let getColumnHeadline = getCurrentColumn[0][getColumnId].headline
     // console.log(getColumnHeadline)
 
+    
+    useEffect(() => {
+        
+        // Keyboard support for Control + Enter
+        const handleKeyPress = (event) => event.ctrlKey && event.key === "Enter" && createNewPost()
+        
+        window.addEventListener('keydown', handleKeyPress);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress);
+        }
+    }, [title, body])
+    
 
     const createNewPost = () =>{
         console.log("Create New Post")
@@ -55,7 +68,6 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         setPostImageName("")
         updateWebsite(updatedLiveTexts)
         confirmClearForm("clearForm")
-        
     }
 
     const handleHide = (setHide) =>{
@@ -73,7 +85,11 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     }
      
     const updateWebsite = (newMasterLiveText, keepOpen) =>{
-        if(keepOpen?.includes("keepOpen")){ }else{ handleEdit(false) }
+        // const handleKeyPress = (event) => event.ctrlKey && event.key === "Enter" && createNewPost()
+       
+        // if(keepOpen?.includes("keepOpen")){ }else{ handleEdit(false) }
+        if(keepOpen === "keepOpen"){ }else{ handleEdit(false) }
+
         dispatch(updateArray(newMasterLiveText))
         localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
     }

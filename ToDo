@@ -89,8 +89,8 @@ Live Text:
         ✔ The Types aren't working, showing undefined in html @done(23-04-13 16:26)
         ✔ The image is also not appearing @done(23-04-13 16:17)
 
-        ☐ Keyboard SUpport
-          ☐ Pressing Enter should submit the post when ready
+        ✔ Keyboard SUpport @done(23-05-04 12:17)
+          ✔ Pressing Control + Enter should submit the post when ready @done(23-05-04 12:17)
         
       Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)
@@ -309,6 +309,8 @@ Live Text:
                   ✔ Maybe only display the edit button when the CPanel is active. @done(23-03-24 14:11)
             ✔ Create Simple / Complex view for control panel @done(23-05-03 10:58)
             ✔ Pressing enter in the column field should trigger the post the same as pressing the button @done(23-05-03 11:32)
+            ☐ Change the focus styles for the add post button.
+              //should improve accessibility as the black outline doesn't stand out again the black square
 
 
 // React redux for state management

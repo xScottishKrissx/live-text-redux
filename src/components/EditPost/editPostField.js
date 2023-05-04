@@ -66,13 +66,13 @@ export default function EditPostField({field, passNewFieldValue, clearContent, c
 
     // Keyboard Support for the Control Panel Title Field
     const handleKeyPress = (event) => event.key === 'Enter' && handleCreateColumn() 
-
+    
    
   return (
     <>
     {!needButton ? 
 
-            <EditorContent editor={editor}/>
+            <EditorContent editor={editor}  />
         
     
         :
