@@ -63,6 +63,7 @@ export default function NewPost({handleEdit}) {
                 
             />
             <div className='author-input-form-wrapper'>
+                
                 <div className='author-input-form'>  
                     <Title field={""} passNewFieldValue={setPostTitle} /> 
                     {inputStyle ? <Subtitle field={""} passNewFieldValue={setPostSubTitle} /> : null }

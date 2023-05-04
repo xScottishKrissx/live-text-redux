@@ -1,3 +1,9 @@
+.author-input-wrapper-top-bar{
+    display: flex;
+        align-items: center;
+        justify-content: space-between;
+}
+
 .post-control-bar{
     /* outline: 1px solid black; */
     display: flex;
@@ -8,6 +14,8 @@
     margin-top: 1rem !important;
     border-bottom: 1px solid var(--backgroundColour);
 }
+
+
 .post-control-bar-main-control{
     display: flex;
         align-items: center;

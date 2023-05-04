@@ -27,11 +27,7 @@
     /* width: 90%; */
     /* margin: 0 auto; */
 }
-.author-input-wrapper-top-bar{
-    display: flex;
-        align-items: center;
-        justify-content: space-between;
-}
+
 /* setInputStyle */
 .author-input-form-wrapper .setInputStyle{
     color: red;
