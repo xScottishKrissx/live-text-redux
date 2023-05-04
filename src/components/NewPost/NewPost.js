@@ -1,16 +1,20 @@
 import React,{useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { addItem } from '../../features/item'
+// Main Post Control Component
 import PostControl from '../PostControl/postControl'
-
+// Input
 import Title from '../InputForm/Title'
 import Subtitle from '../InputForm/Subtitle'
 import Twitter from '../InputForm/Twitter'
 import Youtube from '../InputForm/Youtube'
 import Type from '../InputForm/Type'
 import TextArea from '../InputForm/TextArea'
+// Redux
 import { setForm } from '../../features/resetForm'
+import { addItem } from '../../features/item'
+// Utility
+import KeyboardShortcuts from '../Utility/keyboardShortcuts'
 
 export default function NewPost({handleEdit}) {
     const dispatch = useDispatch()
@@ -67,6 +71,10 @@ export default function NewPost({handleEdit}) {
                     {inputStyle ? <Type setPostType={setPostType} /> : null }
                     <TextArea field={""} passNewFieldValue={setPostBody} setPostImageName={setPostImageName}/>
                 </div>
+
+                <KeyboardShortcuts location={"post"}/>
+                
+
             </div>
         </>
     )

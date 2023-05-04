@@ -27,7 +27,7 @@ Live Text:
         ✔ Add Time Stamp @done(23-01-13 16:53)
           ✔ This should be an easy way to get myself back into the swing of things. @done(23-01-13 16:53)
           ✔ Pretty simple with day.js @done(23-01-13 16:53)
-          ☐ Add the day number to the timestamp
+          ✔ Add the day number to the timestamp @done(23-05-04 13:06)
         ✔ Different style depending on update type @done(23-02-16 12:02)
         ✔ Add indicator that post is new, that changes after 60 seconds @done(23-02-14 13:57)
           ✔ I have the core in place, just need to style it @done(23-02-14 15:59)
@@ -92,7 +92,7 @@ Live Text:
 
         ✔ Keyboard SUpport @done(23-05-04 12:17)
           ✔ Pressing Control + Enter should submit the post when ready @done(23-05-04 12:17)
-          ☐ Should keyboard controls on page
+          ✔ Show keyboard controls on page @done(23-05-04 13:06)
         
       Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)

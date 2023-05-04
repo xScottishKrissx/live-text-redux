@@ -12,6 +12,7 @@ import ClearColumnsButton from './cpanelComponents/clearColumnsButton'
 // import User from '../User/User'
 import { useEffect } from 'react'
 import CPanelViewStyleButton from '../Utility/Buttons/cPanelViewStyleButton'
+import KeyboardShortcuts from '../Utility/keyboardShortcuts'
 
 export default function ControlPanel({setControlPanelVis}) {
     // console.log(test)
@@ -120,6 +121,8 @@ export default function ControlPanel({setControlPanelVis}) {
             handleRenameColumn={handleRenameColumn} 
             handleHideColumn={handleHideColumn}
         />
+
+        <KeyboardShortcuts location={"column"}/>
 
         </div>
   )
