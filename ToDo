@@ -213,11 +213,11 @@ Live Text:
           Issues / ToDo:
             ✔ After logging in, columns are loaded into the livetext array but the page isn't updated @done(23-04-27 17:17)
               ✔ Done, added a useEffect to the Control Panel to set the state of live texts as soon as the main website array gets it's information @done(23-04-27 17:17)
-            ☐ Logging in, there's no active column
-              ☐ I'd like this to be something that can be remembered in storage
+            ✔ Logging in, there's no active column @done(23-05-04 18:14)
+              ✔ I'd like this to be something that can be remembered in storage @done(23-05-04 18:14)
             ✔ The save columns button should be a background function of the website @done(23-04-27 17:41)
             ✔ There should be a login slice that keeps track of whether the user is logged in @done(23-04-27 18:25)
-            ☐ The Logout UI should just be the UI without the author-input component.
+            ✔ The Logout UI should just be the UI without the author-input component. @done(23-05-04 18:15)
             ☐ The new user UI needs to be improved
             ☐ The UI in general    needs tidied
             ✔ BUG:: Logging Out -> Refresh Page -> Sign In = Delete Columns @done(23-04-28 18:35)
@@ -227,7 +227,7 @@ Live Text:
               ✔ Could this work with the live text slice? @done(23-04-28 18:40)
                 ✔ Yup @done(23-04-28 18:40)
         Logged Out Ui:
-          ☐ Create a single centred panel that lets users login
+          ✔ Create a single centred panel that lets users login @done(23-05-04 18:15)
 
 
       Control Panel:
@@ -267,6 +267,7 @@ Live Text:
             ✔ Ability delete Column @done(23-03-24 16:18)
             ☐ When deleting a column, set another column active or change UI to adjust for column deletion
             ✔ The delete all button should have a confirmation button @done(23-04-19 10:32)
+              ✔ The delete all button is loggin users out, when it should just clear all columns @done(23-05-04 17:23)
             ✔ Include name @done(23-04-07 17:13)
             ✔ View Date of creation @done(23-04-19 10:53)
               ✔ Add date to new column process @done(23-04-19 10:53)

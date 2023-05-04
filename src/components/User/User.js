@@ -10,6 +10,7 @@ import { getAuth } from "@firebase/auth";
 import { updateArray } from '../../features/live-text'
 import './user.css'
 import { setLoggedIn } from '../../features/loggedIn'
+import LoggedOutView from './LoggedOutView'
 
 export default function User() {
 
@@ -44,7 +45,7 @@ export default function User() {
 
                    !docSnapshot.exists() ?
                         // New Account! Creating New Account
-                        setDoc(doc(firestore, 'users', currentUserId), {email: currentUserEmail, info:{}})
+                        setDoc(doc(firestore, 'users', currentUserId), {email: currentUserEmail, info:[]})
                     :
                         // Account Exists, retrieve information
                         dispatch(updateArray(JSON.parse(docSnapshot.data().info)))
@@ -84,7 +85,9 @@ export default function User() {
                 <button className='defaultBtnStyle' onClick={()=>signOutPlease()}>Sign Out</button>
             </div>
         : 
-            <button className='defaultBtnStyle' onClick={()=>signInWithGoogle()}>Sign in</button>
+        <>
+            <LoggedOutView signInWithGoogle={signInWithGoogle}/>
+        </>
         }       
     </div>
   )

@@ -23,7 +23,7 @@ export default function AuthorInput() {
     <>
 
       <div className='author-input-wrapper 1st '>
-        <User  />
+        <User/>
         
           <>
           <PostControlBar />

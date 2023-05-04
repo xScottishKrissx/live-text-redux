@@ -9,7 +9,7 @@ import "../src/components/Utility/Buttons/buttons.css"
 function App() {
   const loggedInState = useSelector((state) => state.loggedIn.value)
   return (
-    <div className="App">
+    <div className={`${loggedInState ? "App loggedIn" : "App loggedOut"}`}>
 
       <div className="main-wrapper">
         {loggedInState ? <LoggedIn /> : <LoggedOut /> }

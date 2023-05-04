@@ -4,6 +4,7 @@ import saveToFireStore from "../components/User/saveToFirestore";
 const getLocalStorage = JSON.parse(localStorage.getItem("liveTextMaster"))
 const defaultState = getLocalStorage ||  [] 
 // console.log(defaultState)
+// console.log(defaultState)
 export const liveTextSlice = createSlice({
     name:"live-text",
     initialState: {value:defaultState},

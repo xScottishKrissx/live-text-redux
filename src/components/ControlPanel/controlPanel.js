@@ -20,34 +20,32 @@ export default function ControlPanel({setControlPanelVis}) {
     const dispatch = useDispatch()
     const activeLiveTextState = useSelector((state) => state.active.value) 
     const liveTextMaster = useSelector((state) => state.livetext.value)
-
+    
+    // Create a new live text / column
+    const [postTitle, setPostTitle] = useState("")
+    const [columnTitle, setColumnTitle] = useState("")
     const [liveTexts, setLiveTexts] = useState(liveTextMaster)
-
+    
+    const minPostLength = 12
+    const maxPostLength = 60
+    
+    const allowPost = postTitle.length >= minPostLength && postTitle.length <= maxPostLength
+    const allowColumnTitle = columnTitle.length >= minPostLength && columnTitle.length <= maxPostLength
+    
     useEffect(()=>{
         setLiveTexts(liveTextMaster)
     },[liveTextMaster])
-
-    const clearColumns = () =>{
-        localStorage.clear()
-        window.location.reload()
-    }
-
+    
     const handleSetActive = (id) =>{
         dispatch(setActiveLiveText(id))
         localStorage.setItem("activeLiveText", JSON.stringify(id))
     }
-
-    // Create a new live text / column
-    const [postTitle, setPostTitle] = useState("")
-    const [columnTitle, setColumnTitle] = useState("")
     
-    const minPostLength = 12
-    const maxPostLength = 60
-
-    const allowPost = postTitle.length >= minPostLength && postTitle.length <= maxPostLength
-    const allowColumnTitle = columnTitle.length >= minPostLength && columnTitle.length <= maxPostLength
-
-
+    const clearColumns = () =>{
+        setLiveTexts([])
+        dispatch(updateArray([]))
+        window.location.reload()
+    }
 
     const createNewColumn = () => {
         if(!allowPost) return
@@ -58,7 +56,7 @@ export default function ControlPanel({setControlPanelVis}) {
         const addToMasterArray = liveTexts.concat(newColumn)
         setLiveTexts(addToMasterArray)
         dispatch(updateArray(addToMasterArray))
-        // localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
+        localStorage.setItem("liveTextMaster", JSON.stringify(addToMasterArray))
         
         setPostTitle("")
         handleSetActive(newColId)
