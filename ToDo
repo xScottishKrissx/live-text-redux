@@ -54,6 +54,9 @@ Live Text:
           ✔ Add page numbers between prev/next page buttons @done(23-05-04 13:52)
         ☐ If there is enough space, the page should display 3 columns wide
           // e.g. control - item review - column 
+          ☐ The main container is a mess. I am very tempted to rip it out and do it again because trying to do tweaks is like trying to juggle 12 things at once.
+            ☐ In what has become the most hilariously dumb way of designing a web page ever, i have started from the middle and Im now working my way through the design. Doing it this is way was just an accident, i was messing around with some stuff and started to put some designs and ideas together that I liked enough to carry on with. 
+            ☐ I really should start planning these things out better before getting to work on the actual project
         
         Share bar:
           ☐ Create the Share Bar

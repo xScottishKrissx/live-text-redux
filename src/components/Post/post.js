@@ -35,7 +35,7 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
             
             <div className='post-item-container-top-bar'>
                 <PostTimestamp timestamp={timestamp} />
-                {hideEditBtn ? null : <EditButton loggedIn id={id} handleEdit={handleEdit} />}
+                {/* {hideEditBtn ? null : <EditButton loggedIn id={id} handleEdit={handleEdit} />} */}
             </div>
 
             <PostContent

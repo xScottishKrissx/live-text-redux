@@ -22,7 +22,7 @@ export default function AuthorInput() {
   return (
     <>
 
-      <div className='author-input-wrapper 1st '>
+      <div className='left-column author-input-wrapper 1st '>
         <User/>
         
           <>

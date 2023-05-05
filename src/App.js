@@ -11,7 +11,7 @@ function App() {
   return (
     <div className={`${loggedInState ? "App loggedIn" : "App loggedOut"}`}>
 
-      <div className="main-wrapper">
+      <div className="main-wrapper addBorder">
         {loggedInState ? <LoggedIn /> : <LoggedOut /> }
       </div>
     </div>

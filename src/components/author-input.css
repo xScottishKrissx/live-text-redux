@@ -1,33 +1,23 @@
 .author-input-wrapper{
-    /* outline: 1px solid black; */
-    animation: test123 0.5s;
-    /* background-color: grey; */
+    /* animation: test123 0.5s;
     background-color: var(--authorInputBackgroundColour);
-    /* box-shadow: 5px 5px 5px 5px var(--authorInputBackgroundColour); */
     box-shadow: var(  --buttonBoxShadow) grey;
     border-radius: 5px;
     display: flex;
         flex: var(--columnSpacing);
         flex-direction: column;
     height: 100%;
-    /* padding: 25px; */
-    
-    /* padding-bottom: 25px; */
-    /* padding-top: 25px; */
-    /* padding-left: 20px; */
-    /* padding-right: 20px; */
-    
-    /* margin: 0 auto; */
     margin-top: 3rem;
-    /* width: 90%; */
-        max-width: 480px;
-    /* border-radius: var(--borderRadius); */
+        max-width: 480px; */
 
 }
 .author-input-wrapper > div{
     /* width: 90%; */
     /* margin: 0 auto; */
 }
+
+
+
 
 /* setInputStyle */
 .author-input-form-wrapper .setInputStyle{

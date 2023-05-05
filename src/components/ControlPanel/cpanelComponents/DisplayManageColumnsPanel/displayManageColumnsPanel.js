@@ -55,11 +55,17 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                const colIsActive = activeLiveTextState === columnId
                const allowExtraInfoView = extraInfoDisplay && extraInfoColId === columnId
                 return(
-                    <div className={`${allowExtraInfoView ? 'manageColumns-row extraInfoActive' : 'manageColumns-row'}`} key={columnId}>
-                        <div className='manageColumns-column' key={columnId}>
+                    <div 
+                        className={`${allowExtraInfoView ? 'manageColumns-row extraInfoActive'  : 'manageColumns-row'}`} 
+                        key={columnId} 
+                        id={`${colIsActive ? "column-active" : "" }`}
+                    >
+                        <div className='manageColumns-column'  key={columnId}>
 
 
 {/* Set Column Active, Change UI for each column */}
+                    <div className='manageColumns-itemControls'>
+
                         {editModeActive ? null :
                             <SetColumnActive 
                             colIsActive={colIsActive}
@@ -70,14 +76,15 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                         }
                         {cPanelStyle ? 
                             editModeActive ? null : 
-                                <HideColumn 
-                                    hidden={hidden} 
-                                    columnId={columnId} 
-                                    handleHideColumn={handleHideColumn} 
-                                /> 
+                            <HideColumn 
+                            hidden={hidden} 
+                            columnId={columnId} 
+                            handleHideColumn={handleHideColumn} 
+                            /> 
                             
-                        : null }
+                            : null }
                        
+                    </div>
 {/* Rename / Display Column Title */}
                         <ColumnTitleView
                             editModeActive={editModeActive}

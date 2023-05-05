@@ -8,7 +8,7 @@
     margin-bottom: 1.5rem;
 }
 
-.global-view-wrapper .colTitle{
+.global-view-wrapper .colTitle, .item-review-container .colTitle{
     cursor: default;
     font-size: 1.75rem;
     justify-content: flex-start;

@@ -8,6 +8,7 @@ export default function ItemReview({data}) {
   const {postType, postTitle, postSubtitle, postBody, postImageName, insertTweet, insertYoutube} = data
   return (
     <div className='item-review-container'>
+      <h2 className='defaultBtnStyle colTitle'><p>Item Review</p></h2>
       <div className={'post-item ' + postType}>
         <Post 
           hideEditBtn
