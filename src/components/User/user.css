@@ -1,12 +1,17 @@
 .user-container{
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
+    
 }
 .user-loggedIn{
+    border-bottom: 10px solid white;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+        align-items: center;
+        justify-content: space-between;
     /* padding: 5px; */
-    padding-bottom: 5px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .user-loggedIn span{
