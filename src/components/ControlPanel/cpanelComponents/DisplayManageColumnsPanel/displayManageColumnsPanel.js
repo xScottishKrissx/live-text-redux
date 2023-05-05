@@ -60,13 +60,23 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
 
 
 {/* Set Column Active, Change UI for each column */}
-                        <SetColumnActive 
+                        {editModeActive ? null :
+                            <SetColumnActive 
                             colIsActive={colIsActive}
                             handleSetActive={handleSetActive}
                             columnId={columnId}
                             columnContent={columnContent}
-                        />
-                        {cPanelStyle ? <HideColumn hidden={hidden} columnId={columnId} handleHideColumn={handleHideColumn} /> : null }
+                            />
+                        }
+                        {cPanelStyle ? 
+                            editModeActive ? null : 
+                                <HideColumn 
+                                    hidden={hidden} 
+                                    columnId={columnId} 
+                                    handleHideColumn={handleHideColumn} 
+                                /> 
+                            
+                        : null }
                        
 {/* Rename / Display Column Title */}
                         <ColumnTitleView
@@ -80,22 +90,25 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                             
 {/* Control Panel Buttons */}
         {/* Add New Post to this column */}
-        
+                            
                             <div className='manageColumns-column-buttons'>
-                                {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :   
-                                    <AddNewButton 
-                                        title="Add New Post" 
-                                        handleClick={()=>goToNewPostInput(columnContent,columnId)} 
-                                    />
+                                {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :
+                                    editModeActive ? null : 
+                                        <AddNewButton 
+                                            title="Add New Post" 
+                                            handleClick={()=>goToNewPostInput(columnContent,columnId)} 
+                                        />
+                                   
                                 }
         {/* Delete Column */}
                                 {cPanelStyle ? 
                                 <>
-                                
-                                <DeleteButton 
-                                    title="Delete Column" 
-                                    handleClick={()=>handleDeleteColumn(columnId)} 
+                                {editModeActive ? null : 
+                                    <DeleteButton 
+                                        title="Delete Column" 
+                                        handleClick={()=>handleDeleteColumn(columnId)} 
                                     />
+                            }
         {/* Edit Column Title */}
                                 <EditColumnTitle 
                                     headline={headline}

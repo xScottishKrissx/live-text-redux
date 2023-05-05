@@ -10,7 +10,7 @@ export default function ColumnTitleView({editModeActive, columnContent, setColum
     return (
         <>
             {editModeActive ? 
-                <Title field={removeTag(headline)} passNewFieldValue={setColumnTitle} />                
+                <Title field={removeTag(headline)} passNewFieldValue={setColumnTitle} hideLabel />                
             : 
                 <div onClick={()=>handleSetActive(columnId, columnContent)} className='manageColumns-headline' >
                     {removeTag(headline)}

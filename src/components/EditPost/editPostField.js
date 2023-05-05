@@ -12,7 +12,7 @@ import AddNewButton from "../Utility/Buttons/addNewButton";
 import Mention from "@tiptap/extension-mention";
 
 import { FaUndo } from "react-icons/fa";
-export default function EditPostField({field, passNewFieldValue, clearContent, createNewColumn, needButton, allowPost,}) {
+export default function EditPostField({field, passNewFieldValue, clearContent, createNewColumn, needButton, allowPost}) {
 
     
     const editor = useEditor({

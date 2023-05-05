@@ -11,7 +11,7 @@ export default function DeleteButton({handleClick, title, showText}) {
   return (
     <div className={`${deleteVisible ? 'deleteButtonWrapper deleteActive' :'deleteButtonWrapper'}`}>
         {deleteVisible ?
-        <button className='deleteButton marginLeft0' title={title} onClick={handleDelete}>
+        <button className='deleteButton marginLeft0 warningBtn' title={title} onClick={handleDelete}>
            <FaTrash />
           {showText ? "Delete" : null}
         </button>
@@ -20,11 +20,11 @@ export default function DeleteButton({handleClick, title, showText}) {
 
         {deleteVisible ? 
           <button className='deleteButton marginRight0' title="Cancel Delete" onClick={()=>setBtnVis(false)}>
-            <FaUndo />
+            <FaTimes />
             {showText ? "Cancel" : null}
           </button>
           :
-          <button className='deleteButton' title={title} onClick={()=>setBtnVis(true)}>
+          <button className='deleteButton ' title={title} onClick={()=>setBtnVis(true)}>
             <FaTrash />
             {showText ? "Delete" : null}
           </button>

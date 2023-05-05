@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { FaUndo, FaSave, FaEdit } from 'react-icons/fa'
+import { FaUndo, FaSave, FaEdit, FaTimes } from 'react-icons/fa'
 export default function EditColumnTitle({
     allowColumnTitle,
     columnId,
@@ -34,15 +34,6 @@ export default function EditColumnTitle({
     <div className='editButtonContainer'>
     {editModeActive ? 
         <div className='editButtonWrapper editActive'>
-{/* Undo rename and close the rename function */}
-            <button 
-                className='defaultBtnStyle marginLeft0' 
-                title="Cancel Name Change" 
-                onClick={()=>handleUndo(headline)}
-            >
-                <FaUndo />
-            </button>
-
 {/* Change UI if title is too short/long */}
 {/* Change the UI if the column title can be posted, then allow the change to happen */}
             {allowColumnTitle ? 
@@ -56,6 +47,16 @@ export default function EditColumnTitle({
                 : 
                 <button className='defaultBtnStyle greyOut marginRight0' title="Error"><FaSave /></button>
             }
+{/* Undo rename and close the rename function */}
+            <button 
+                className='defaultBtnStyle marginLeft0' 
+                title="Cancel Name Change" 
+                onClick={()=>handleUndo(headline)}
+            >
+                {/* <FaUndo /> */}
+                <FaTimes />
+            </button>
+
 
         </div>
     

@@ -69,7 +69,7 @@ padding: 10px;
     margin-right: 5px;
 }
 .deleteButton:hover{
-    color: red;
+    /* color: red; */
     animation: deleteButtonAni 0.5s;
     animation-fill-mode: forwards;
 }

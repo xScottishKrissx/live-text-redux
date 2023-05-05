@@ -13,6 +13,9 @@
     padding-left: 25px;
     padding-right: 25px;
 }
+.control-panel-header-buttons button svg{
+    margin-right: 5px;
+}
 .manageColumns-container{
     /* width: 90%; */
     /* margin: 0 auto; */
@@ -212,6 +215,9 @@
     display: flex;
 }
 /* Hide Column Button */
+.manageColumns-manageHide{
+    display: flex;
+}
 .manageColumns-manageHide button{
     margin-left: 0 !important;
 }
@@ -226,3 +232,24 @@
 .columnVisible{
 
 }
+
+/* Clear Columns Btn */
+.clearColumnsBtnContainer{
+    display: flex;
+}
+.clearColumnsBtnActive{
+    display: flex;
+    /* transform: translateX(-200px); */
+    /* animation: showClearColumnBtns .1s; */
+    /* animation-fill-mode: forwards; */
+}
+ /* @keyframes showClearColumnBtns {
+    0%{
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+ } */

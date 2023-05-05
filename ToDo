@@ -52,6 +52,8 @@ Live Text:
         ✔ Add Pagination @done(23-04-25 11:17)
           ✔ When a certain amount of posts are added add a button that lets you change the posts rendered on the page. @done(23-04-25 11:17)
           ✔ Add page numbers between prev/next page buttons @done(23-05-04 13:52)
+        ☐ If there is enough space, the page should display 3 columns wide
+          // e.g. control - item review - column 
         
         Share bar:
           ☐ Create the Share Bar
@@ -321,6 +323,8 @@ Live Text:
             ✔ Pressing enter in the column field should trigger the post the same as pressing the button @done(23-05-03 11:32)
             ✔ Change the focus styles for the add post button. @done(23-05-04 12:25)
               //should improve accessibility as the black outline doesn't stand out again the black square
+            ☐ Ability to sort the columns by title, date created etc
+            ☐ Deletting a column should set another column as active
       Portfolio:
         ☐ Create Post
         ☐ Add to Homepage
