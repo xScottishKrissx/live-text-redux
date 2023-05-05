@@ -13,7 +13,6 @@ export default function ManageColumns({data, handleSetActive, activeLiveTextStat
     
     <div className='manageColumns-container'>
       
-      <h3>Manage Columns</h3>
       <DisplayManageColumnsPanel 
         data={data} 
         activeLiveTextState={activeLiveTextState} 

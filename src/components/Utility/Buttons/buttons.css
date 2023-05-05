@@ -18,7 +18,7 @@ margin-right: 5px;
 padding: 10px;
 }
 .defaultBtnStyle span{
-    margin-right: 5px;
+    /* margin-right: 5px; */
 }
 
 .checkActiveButton:hover{
@@ -155,3 +155,80 @@ padding: 10px;
 }
 
 
+/* View Style Button */
+/* created by ChatGPT, modified by me */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .toggle-button.focused {
+    outline: 2px solid black;
+    border-radius: 5px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    background-color: red;
+    height: 100%;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    /* background-color: white; */
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 5px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    /* background-color: red; */
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 5px;
+  }
+  .slider:after{
+    background-color: black;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+    background-color: #505050;
+    background-color: #ccc;
+    /* background-color: white; */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #505050;
+    background-color: #ccc;
+    /* background-color: white; */
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: black;
+    background-color: #505050;
+  }
+  
