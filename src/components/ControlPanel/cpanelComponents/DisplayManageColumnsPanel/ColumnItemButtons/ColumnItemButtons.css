@@ -1,0 +1,35 @@
+.manageColumns-column-buttons{
+    display: flex;
+        flex-direction: column;
+        overflow-wrap: anywhere;
+  }
+
+  .manageColumns-column-buttons .deleteButtonWrapper button{
+    margin: 0;
+      margin-bottom: 5px;
+    width: 100%;
+  }
+  .manageColumns-column-buttons .deleteActive{
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .manageColumns-column-buttons .editButtonContainer button{    
+    margin: 0;
+      margin-bottom: 5px;
+    width: 100%;
+  }
+  .manageColumns-column-buttons .editButtonContainer .editActive{
+    box-shadow: none;
+    margin: 0;
+      margin-top: 5px;
+    width: 100%;
+  }
+
+  .manageColumns-column-buttons .manageColumns-toggleExtraInfo button{
+    margin: 0;
+      margin-bottom: 5px;
+    width: 100%;
+  }
+

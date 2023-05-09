@@ -133,6 +133,7 @@ body{
     }
     .manageColumns-columnTitle .manageColumns-addNewButton{display: none;}
     #column-active .manageColumns-columnTitle .manageColumns-addNewButton{display: flex;}
+
   .manageColumns-column-buttons{
     flex-direction: row;
     justify-content: space-between;
@@ -210,9 +211,7 @@ body{
   .manageColumns-column-buttons .editButtonContainer button{
     margin-bottom: 0;
   }
-  #column-active .manageColumns-columnTitle .manageColumns-addNewButton{
-    /* display:none */
-  }
+
   .manageColumns-column-buttons .editButtonContainer .editActive{
     justify-content: space-around;
     margin: 0;

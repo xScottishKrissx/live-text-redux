@@ -2,8 +2,8 @@ import React from 'react'
 // Redux
 import { useSelector } from 'react-redux'
 // Me
-import SetColumnActive from '../setColumnActive'
-import HideColumn from '../hideColumn'
+import SetColumnActive from './setColumnActive'
+import HideColumn from './hideColumn'
 
 // Style
 import './ColumnItemControls.css'

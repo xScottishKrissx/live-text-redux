@@ -1,32 +1,34 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setCPanelVis } from '../../../../features/cpanelVis'
-import { removeTag } from '../../../Utility/removeTag'
-import cPanelInputStyle from '../../../../features/cPanelInputStyle'
-import AddNewButton from '../../../Utility/Buttons/addNewButton'
-import DeleteButton from '../../../Utility/Buttons/deleteButton'
-import Title from '../../../InputForm/Title'
-import EditColumnTitle from './editColumnTitle'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { setCPanelVis } from '../../../../features/cpanelVis'
+// import { removeTag } from '../../../Utility/removeTag'
+// import cPanelInputStyle from '../../../../features/cPanelInputStyle'
+// import AddNewButton from '../../../Utility/Buttons/addNewButton'
+// import DeleteButton from '../../../Utility/Buttons/deleteButton'
+// import Title from '../../../InputForm/Title'
+// import EditColumnTitle from './editColumnTitle'
 import ExtraInfo from './extraInfo/extraInfo'
-import ToggleExtraInfo from './extraInfo/toggleExtraInfo'
-import SetColumnActive from './setColumnActive'
-import ColumnTitleView from './columnTitleView'
-import HideColumn from './hideColumn'
+// import ToggleExtraInfo from './extraInfo/toggleExtraInfo'
+// import SetColumnActive from './ColumnItemControls/setColumnActive'
+// import ColumnTitleView from './columnTitleView'
+// import HideColumn from './ColumnItemControls/hideColumn'
 import ColumnItemControls from './ColumnItemControls/ColumnItemControls'
+import ColumnItemTitle from './ColumnItemTitle/ColumnItemTitle'
+import ColumnItemButtons from './ColumnItemButtons/ColumnItemButtons'
 
 export default function DisplayManageColumnsPanel({data, activeLiveTextState, handleSetActive, handleDeleteColumn, setColumnTitle, handleRenameColumn, allowColumnTitle, handleHideColumn}) {
 
-    const dispatch = useDispatch()
-    const cPanelVis = useSelector((state) => state.cPanelVis.value)
-    const cPanelStyle = useSelector((state) => state.cPanelStyle.value)
-    const liveTextMaster = useSelector((state) => state.livetext.value)
+    // const dispatch = useDispatch()
+    // const cPanelVis = useSelector((state) => state.cPanelVis.value)
+    // const cPanelStyle = useSelector((state) => state.cPanelStyle.value)
+    // const liveTextMaster = useSelector((state) => state.livetext.value)
     
 
     
-    const goToNewPostInput = (content, id) =>{
-        dispatch(setCPanelVis(!cPanelVis))
-        handleSetActive(id, content)
-    }
+    // const goToNewPostInput = (content, id) =>{
+    //     dispatch(setCPanelVis(!cPanelVis))
+    //     handleSetActive(id, content)
+    // }
     
     // SHow Extra Information
     const [showExtraInfo, setShowExtraInfo] = useState({
@@ -66,16 +68,15 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
 
 {/* Set Column Active, Change UI for each column */}
                     <ColumnItemControls
-                        editModeActive={editModeActive}
-                        colIsActive={colIsActive}
-                        hidden={hidden} 
-
-                        handleSetActive={handleSetActive}
-                        handleHideColumn={handleHideColumn} 
-
                         columnId={columnId}
                         columnContent={columnContent}
+                        colIsActive={colIsActive}
 
+                        editModeActive={editModeActive}
+
+                        hidden={hidden} 
+                        handleSetActive={handleSetActive}
+                        handleHideColumn={handleHideColumn} 
                     />
                     {/* <div className='manageColumns-itemControls'>
 
@@ -99,8 +100,15 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                        
                     </div> */}
 {/* Rename / Display Column Title */}
-
-                        <div className={`${editModeActive ? 'manageColumns-columnTitle editTitle' : 'manageColumns-columnTitle' }`}>
+                        <ColumnItemTitle 
+                            activeLiveTextState={activeLiveTextState}
+                            columnContent={columnContent}
+                            columnId={columnId}
+                            editModeActive={editModeActive}
+                            handleSetActive={handleSetActive}
+                            setColumnTitle={setColumnTitle}
+                        />
+                        {/* <div className={`${editModeActive ? 'manageColumns-columnTitle editTitle' : 'manageColumns-columnTitle' }`}>
 
                             <ColumnTitleView
                                 editModeActive={editModeActive}
@@ -108,8 +116,9 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                 setColumnTitle={setColumnTitle}
                                 handleSetActive={handleSetActive}
                                 columnId={columnId}
+                                activeLiveTextState={activeLiveTextState}
+                                handleClick={()=>goToNewPostInput(columnContent,columnId)}
                                 />
-        {/* Add New Post to this column */}
                             <div className="manageColumns-addNewButton">
                                 {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :
                                     editModeActive ? null : 
@@ -120,13 +129,28 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                     
                                 }
                             </div>
-                        </div>
+                        </div> */}
 
                             
 {/* Control Panel Buttons */}
+                            <ColumnItemButtons
+                                allowColumnTitle={allowColumnTitle}
+                                allowExtraInfoView={allowExtraInfoView}
+                                
+                                columnId={columnId}
+                                
+                                editMode={editMode}
+                                editModeActive={editModeActive}
+                                extraInfo={extraInfo}
+                                
+                                handleDeleteColumn={handleDeleteColumn}
+                                handleRenameColumn={handleRenameColumn}
+                                headline={headline}
 
-                            <div className={`${editModeActive ? 'manageColumns-column-buttons editTitle' : 'manageColumns-column-buttons' }`}>
-        {/* Delete Column */}
+                                setEditMode={setEditMode}
+                                setColumnTitle={setColumnTitle}
+                            />
+                            {/* <div className={`${editModeActive ? 'manageColumns-column-buttons editTitle' : 'manageColumns-column-buttons' }`}>
                                 {cPanelStyle ? 
                                 <>
                                 {editModeActive ? null : 
@@ -135,7 +159,6 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                         handleClick={()=>handleDeleteColumn(columnId)} 
                                     />
                             }
-        {/* Edit Column Title */}
                                 <EditColumnTitle 
                                     headline={headline}
                                     allowColumnTitle={allowColumnTitle}
@@ -145,7 +168,6 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                     setColumnTitle={setColumnTitle}
                                     handleRenameColumn={handleRenameColumn}
                                     />
-        {/* Show Extra Information */}
                                 <ToggleExtraInfo 
                                     allowExtraInfoView={allowExtraInfoView}
                                     extraInfo={extraInfo}
@@ -153,7 +175,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                 />
                                     </>
                                 : null }
-                            </div>
+                            </div> */}
                         </div>
                                 
                         <ExtraInfo allowExtraInfoView={allowExtraInfoView} postCount={postCount} createdOn={createdOn}/>
