@@ -82,35 +82,23 @@ body{
   }
 }
 
-.main-wrapper{
-  font-family: 'Roboto', sans-serif;
-}
-/* .main-wrapper{
-  display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-  color: #fff;;
-  margin: 0 auto;
-  max-width: 1200px;
-} */
-
-
-@media screen and (min-width:768px) {
+/* @media screen and (min-width:768px) { */
   .main-wrapper{
     display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-evenly;
       padding: 25px;
+    font-family: 'Roboto', sans-serif;
+    max-width: 2200px;
+    margin: 0 auto;
   }
   .left-column{
     /* outline: 10px solid red; */
-    width: 50%;
+    /* width: 50%; */
+
   }
-  .left-column > div{
-    width: 90%;
-    margin: 0 auto;
-    /* max-width: 500px; */
-  }
+
+
 
   .manageColumns-row{
     border-radius: 5px;
@@ -222,13 +210,30 @@ body{
 
   .right-column{
     /* outline: 10px solid blue; */
-    width: 50%;
+    /* width: 50%; */
   }
 
 
 
+/* } */
+@media screen and (min-width:768px) {
+  .main-wrapper{
+    flex-direction: row;
+    
+  }
+  .left-column{    width: 50%;  max-width: 600px; }
+  .left-column > div{
+    width: 90%;
+    margin: 0 auto;
+    /* max-width: 500px; */
+  }
+  .right-column{width: 50%;}
 }
 @media screen and (min-width:992px) { 
+  .main-wrapper{
+    flex-direction: row;
+  }
+  .left-column{    width: 50%; }
   .manageColumns-row{
     height: 85px;
   }
@@ -279,11 +284,86 @@ body{
   }
 }
 @media screen and (min-width:1200px) { 
+  #column-active{
+    box-shadow: none;
+  }
+  .manageColumns-row{
+    box-shadow: none;
+    height: auto;
+  }
+  .manageColumns-column{
+    flex-direction: row;
+  }
+  .manageColumns-columnTitle{
+    margin: 0;
+    margin-left: 5px;
+    margin-right: 5px;
 
+    width: 100%;
+  }
+  #column-active .manageColumns-column .manageColumns-headline{
+    margin-right: 5px;
+  }
+  .manageColumns-headline{
+    margin-bottom: 0;
+    margin-right: 5px;
+  }
+  .manageColumns-itemControls .manageColumns-activeCheck{
+    margin-right: 0;
+  }
+  .manageColumns-itemControls > div button{
+    margin-bottom: 0;
+  }
+  .manageColumns-columnTitle .manageColumns-addNewButton{
+    display: flex;
+    width: 15%;
+  }
+  .manageColumns-column-buttons{
+    gap: 5px;
+  }
+  .manageColumns-column-buttons div, .manageColumns-column-buttons button{
+    width: 100%;
+  }
+
+  .manageColumns-column-buttons .deleteButtonWrapper button{
+    margin-bottom: 0;
+  }
+  .manageColumns-column-buttons .deleteActive{
+    gap: 5px;
+  }
+  .manageColumns-column-buttons .editButtonContainer button{
+    margin-bottom: 0;
+  }
+  #column-active .manageColumns-columnTitle .manageColumns-addNewButton{
+    /* display:none */
+  }
+  .manageColumns-column-buttons .editButtonContainer .editActive{
+    justify-content: space-around;
+    margin: 0;
+  }
+  .editActive button{
+    font-size: 1.5rem;
+  }
+  #column-active .editTitle{
+    flex-direction: row;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  #column-active .editTitle .manageColumns-addNewButton{
+    display: none;
+  }
+
+  #column-action .manageColumns-addNewButton{
+    display: none;
+  }
+  .manageColumns-column-buttons .manageColumns-toggleExtraInfo button{
+    margin-bottom: 0;
+  }
 }
 @media screen and (min-width:1500px) { 
   .left-column{
     /* width: 50%; */
+
   }
   .right-column{
     width: 50%;
