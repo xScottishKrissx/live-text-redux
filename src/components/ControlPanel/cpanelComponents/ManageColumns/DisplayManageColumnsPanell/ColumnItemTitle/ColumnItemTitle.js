@@ -1,10 +1,11 @@
 import React from 'react'
 // Redux
 import { useDispatch, useSelector } from 'react-redux'
-import { setCPanelVis } from '../../../../../features/cpanelVis'
+import { setCPanelVis } from '../../../../../../features/cpanelVis'
 // Me
-import ColumnTitleView from '../columnTitleView'
-import AddNewButton from '../../../../Utility/Buttons/addNewButton'
+// import ColumnTitleView from '../ColumnItemButtons/columnTitleView'
+import ColumnTitleView from '../ColumnItemButtons/columnTitleView'
+import AddNewButton from '../../../../../Utility/Buttons/addNewButton'
 export default function ColumnItemTitle({
     editModeActive,
     columnContent,

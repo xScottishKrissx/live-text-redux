@@ -2,8 +2,8 @@ import React from 'react'
 // Redux
 import { useSelector } from 'react-redux'
 // Me
-import DeleteButton from '../../../../Utility/Buttons/deleteButton'
-import EditColumnTitle from '../editColumnTitle'
+import DeleteButton from '../../../../../Utility/Buttons/deleteButton'
+import EditColumnTitle from './editColumnTitle'
 import ToggleExtraInfo from '../extraInfo/toggleExtraInfo'
 // Style
 import './ColumnItemButtons.css'

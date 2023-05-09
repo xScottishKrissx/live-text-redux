@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatTimestamp } from '../../../../Utility/formatTimestamp'
+import { formatTimestamp } from '../../../../../Utility/formatTimestamp'
 
 export default function ExtraInfo({allowExtraInfoView, postCount, createdOn}) {
   return (

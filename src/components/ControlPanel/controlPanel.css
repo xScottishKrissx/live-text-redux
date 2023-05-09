@@ -28,24 +28,7 @@
 .control-panel-header-buttons button svg{
     margin-right: 5px;
 }
-.manageColumns-container{
-    /* width: 90%; */
-    /* margin: 0 auto; */
-    display: flex;
-        flex-direction: column;
 
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
-}
-.manageColumns-container h3{
-    margin-bottom: 0px;
-}
-.manageColumns-container > span{
-    margin-bottom: 10px;
-    margin-top: 10px;
-
-}
 .manageColumns-column{
     cursor: default;
     display: flex;
@@ -115,31 +98,7 @@
     flex-wrap: wrap;
   }
 
-.manageColumns-createNewLiveColumn{
-    border-bottom: 10px solid white;
-    border-top: 10px solid white;
-    display: flex;  
-        flex-direction: column;
-    background-color: black;
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 30px;
-}
 
-.manageColumns-createNewLiveColumn h3{
-    padding-left: 25px;
-    padding-right: 25px;    
-    margin: 0;
-        margin-bottom: 10px;
-
-}
-.manageColumns-createNewLiveColumn > div .author-input-form-title{
-
-    padding-left: 25px;
-    padding-right: 25px;
-
-    width: 100%;
-}
 
 .manageColumns-headline{
     box-shadow: var(--buttonBoxShadow) grey;
@@ -165,37 +124,7 @@
 }
 
 
-.manageColumns-createNewLiveColumn > div{
-    /* background-color: red; */
-    display: flex;
-        align-items: center;
-        flex-direction: row;
-    width: 100%;
-}
-.manageColumns-createNewLiveColumn div div div div{
-    background-color: white;
-    box-shadow: var(--buttonBoxShadow) grey;
-    border: none;
-    border-radius: 5px;
-    /* height: 36px; */
-    height: auto;
-    
-}
-.manageColumns-createNewLiveColumn div div div div p{
-    margin: 0;
-    padding: 0;
-    /* color: red; */
-}
-.manageColumns-createNewLiveColumn div div div div span{
-    margin-right: 5px;
-}
-.manageColumns-createNewLiveColumn div div .author-input-field div:focus-visible{
-    /* background-color: red; */
-    box-shadow: 0px 3px 0px -2px grey;
-}
-.manageColumns-createNewLiveColumn div div div h3{
-    display: none;
-}
+
 
 /* Buttons */
 
@@ -290,17 +219,4 @@
 }
 .clearColumnsBtnActive{
     display: flex;
-    /* transform: translateX(-200px); */
-    /* animation: showClearColumnBtns .1s; */
-    /* animation-fill-mode: forwards; */
 }
- /* @keyframes showClearColumnBtns {
-    0%{
-        transform: translateX(-200px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 1;
-    }
- } */
