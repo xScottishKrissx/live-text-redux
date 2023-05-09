@@ -51,10 +51,21 @@
     display: flex;
         justify-content: space-between;
         /* align-items: center; */
+        flex-direction: column;
         align-items: stretch;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     width: 100%;
 }
+
+#column-active{
+    box-shadow: 0px 0px 0px 5px #505050;
+    height: auto;
+  }
+
+#column-active .manageColumns-column   .manageColumns-headline{
+    margin-bottom: 0;
+}
+
 .manageColumns-column .author-input-form-title {
     display: flex;
     align-self: center;
@@ -68,7 +79,8 @@
     flex-direction: row;
     align-items: center;
     margin: 0;
-    padding: 8px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 .manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle span{
     margin-right: 5px;
@@ -82,6 +94,59 @@
     margin: 0;
     padding: 0;
 }
+
+
+
+
+  .manageColumns-addNewButton{
+    width: 100%;
+  }
+
+  .manageColumns-addNewButton .addNewButton{
+    margin: 0;
+      margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .manageColumns-column-buttons{
+    flex-direction: column;
+  }
+
+
+  .manageColumns-column-buttons .deleteButtonWrapper button{
+    margin: 0;
+      margin-bottom: 5px;
+    width: 100%;
+  }
+  .manageColumns-column-buttons .deleteActive{
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .manageColumns-column-buttons .editButtonContainer button{    
+    margin: 0;
+      margin-bottom: 5px;
+    width: 100%;
+  }
+  .manageColumns-column-buttons .editButtonContainer .editActive{
+    box-shadow: none;
+    margin: 0;
+      margin-top: 5px;
+    width: 100%;
+  }
+
+  .manageColumns-column-buttons .manageColumns-toggleExtraInfo button{
+    margin: 0;
+      margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .manageColumns-column + .dropdown{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
 .manageColumns-createNewLiveColumn{
     border-bottom: 10px solid white;
     border-top: 10px solid white;
@@ -123,9 +188,14 @@
     /* margin: 5px; */
     /* padding: 10px; */
     overflow-wrap: anywhere;
-    padding: 5px;
+    padding: 0;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
     width: 100%;
 }
+
 
 .manageColumns-createNewLiveColumn > div{
     /* background-color: red; */
@@ -176,12 +246,16 @@
 }
 
 .manageColumns-row{
-    /* box-shadow: 0px 2px 5px -1px #818181; */
-    margin-top: 10px;
-    padding-top: 10px;
-    /* outline: 1px solid #818181; */
-}
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 5px #00000030;
+    margin-top: 25px;
+    padding: 5px;
 
+    height: 100px;
+    height: 115px;
+
+    overflow: hidden;
+  }
 
 .manageColumns-toggleExtraInfo button span{
     display: flex;

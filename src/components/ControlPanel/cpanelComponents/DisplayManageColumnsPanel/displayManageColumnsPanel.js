@@ -12,6 +12,7 @@ import ToggleExtraInfo from './extraInfo/toggleExtraInfo'
 import SetColumnActive from './setColumnActive'
 import ColumnTitleView from './columnTitleView'
 import HideColumn from './hideColumn'
+import ColumnItemControls from './ColumnItemControls/ColumnItemControls'
 
 export default function DisplayManageColumnsPanel({data, activeLiveTextState, handleSetActive, handleDeleteColumn, setColumnTitle, handleRenameColumn, allowColumnTitle, handleHideColumn}) {
 
@@ -64,27 +65,39 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
 
 
 {/* Set Column Active, Change UI for each column */}
-                    <div className='manageColumns-itemControls'>
+                    <ColumnItemControls
+                        editModeActive={editModeActive}
+                        colIsActive={colIsActive}
+                        hidden={hidden} 
+
+                        handleSetActive={handleSetActive}
+                        handleHideColumn={handleHideColumn} 
+
+                        columnId={columnId}
+                        columnContent={columnContent}
+
+                    />
+                    {/* <div className='manageColumns-itemControls'>
 
                         {editModeActive ? null :
                             <SetColumnActive 
-                            colIsActive={colIsActive}
-                            handleSetActive={handleSetActive}
-                            columnId={columnId}
-                            columnContent={columnContent}
+                                colIsActive={colIsActive}
+                                handleSetActive={handleSetActive}
+                                columnId={columnId}
+                                columnContent={columnContent}
                             />
                         }
                         {cPanelStyle ? 
                             editModeActive ? null : 
                             <HideColumn 
-                            hidden={hidden} 
-                            columnId={columnId} 
-                            handleHideColumn={handleHideColumn} 
+                                hidden={hidden} 
+                                columnId={columnId} 
+                                handleHideColumn={handleHideColumn} 
                             /> 
                             
-                            : null }
+                        : null }
                        
-                    </div>
+                    </div> */}
 {/* Rename / Display Column Title */}
 
                         <div className={`${editModeActive ? 'manageColumns-columnTitle editTitle' : 'manageColumns-columnTitle' }`}>

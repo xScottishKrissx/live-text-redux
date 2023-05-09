@@ -82,7 +82,7 @@ body{
   }
 }
 
-/* @media screen and (min-width:768px) { */
+
   .main-wrapper{
     display: flex;
       flex-direction: column;
@@ -92,140 +92,16 @@ body{
     max-width: 2200px;
     margin: 0 auto;
   }
-  .left-column{
-    /* outline: 10px solid red; */
-    /* width: 50%; */
 
-  }
-
-
-
-  .manageColumns-row{
-    border-radius: 5px;
-    box-shadow: 0px 0px 0px 5px #00000030;
-    margin-top: 25px;
-    padding: 5px;
-
-    height: 100px;
-    height: 115px;
-
-    overflow: hidden;
-  }
-  #column-active{
-    box-shadow: 0px 0px 0px 5px #505050;
-    height: auto;
-  }
-
-  .manageColumns-column{
-    flex-direction: column;
-    margin-bottom: 0;
-  }
-  .manageColumns-itemControls{
-    display: flex;
-    flex-direction: row;
-  }
-  .manageColumns-itemControls > div{
-    width: 100%;
-  }
-  .manageColumns-itemControls > div button{
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 5px;
-    width: inherit;
-
-  }
-  .manageColumns-itemControls  .manageColumns-activeCheck{
-    margin-right: 5px;
-  }
-  .manageColumns-itemControls .manageColumns-manageHide{
-    margin-left: 5px;
-  }
-
-  .manageColumns-headline{
-    padding: 0;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-  #column-active .manageColumns-column   .manageColumns-headline{
-    margin-bottom: 0;
-  }
-  .manageColumns-column .author-input-form-title .author-input-field .defaultBtnStyle {
-    padding-bottom: 20px;
-    padding-top: 20px;
-  }
-
-  .manageColumns-addNewButton{
-    width: 100%;
-  }
-  .manageColumns-addNewButton .addNewButton{
-    /* padding: 0; */
-    margin: 0;
-      margin-bottom: 15px;
-    width: 100%;
-  }
-  .manageColumns-column-buttons{
-    flex-direction: column;
-  }
-
-  .manageColumns-column-buttons div, .manageColumns-column-buttons button{
-    /* flex: 1 0 50%; */
-    /* width: 50%;
-    height: 100px; */
-  }
-  .manageColumns-column-buttons .deleteButtonWrapper button{
-    margin: 0;
-      margin-bottom: 5px;
-    width: 100%;
-  }
-  .manageColumns-column-buttons .deleteActive{
-    box-shadow: none;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .manageColumns-column-buttons .editButtonContainer button{    
-    margin: 0;
-      margin-bottom: 5px;
-    width: 100%;
-  }
-  .manageColumns-column-buttons .editButtonContainer .editActive{
-    box-shadow: none;
-    margin: 0;
-      margin-top: 5px;
-    width: 100%;
-  }
-
-  .manageColumns-column-buttons .manageColumns-toggleExtraInfo button{
-    margin: 0;
-      margin-bottom: 5px;
-    width: 100%;
-  }
-
-  .manageColumns-column + .dropdown{
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .right-column{
-    /* outline: 10px solid blue; */
-    /* width: 50%; */
-  }
-
-
-
-/* } */
+/* Media Queries */
 @media screen and (min-width:768px) {
   .main-wrapper{
     flex-direction: row;
-    
   }
   .left-column{    width: 50%;  max-width: 600px; }
   .left-column > div{
     width: 90%;
     margin: 0 auto;
-    /* max-width: 500px; */
   }
   .right-column{width: 50%;}
 }
