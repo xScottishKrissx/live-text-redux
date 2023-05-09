@@ -86,27 +86,33 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                        
                     </div>
 {/* Rename / Display Column Title */}
-                        <ColumnTitleView
-                            editModeActive={editModeActive}
-                            columnContent={columnContent}
-                            setColumnTitle={setColumnTitle}
-                            handleSetActive={handleSetActive}
-                            columnId={columnId}
-                        />
+
+                        <div className={`${editModeActive ? 'manageColumns-columnTitle editTitle' : 'manageColumns-columnTitle' }`}>
+
+                            <ColumnTitleView
+                                editModeActive={editModeActive}
+                                columnContent={columnContent}
+                                setColumnTitle={setColumnTitle}
+                                handleSetActive={handleSetActive}
+                                columnId={columnId}
+                                />
+        {/* Add New Post to this column */}
+                            <div className="manageColumns-addNewButton">
+                                {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :
+                                    editModeActive ? null : 
+                                    <AddNewButton 
+                                    title="Add New Post" 
+                                    handleClick={()=>goToNewPostInput(columnContent,columnId)} 
+                                    />
+                                    
+                                }
+                            </div>
+                        </div>
 
                             
 {/* Control Panel Buttons */}
-        {/* Add New Post to this column */}
-                            
-                            <div className='manageColumns-column-buttons'>
-                                {activeLiveTextState.length === 0 && activeLiveTextState !== columnId ? null :
-                                    editModeActive ? null : 
-                                        <AddNewButton 
-                                            title="Add New Post" 
-                                            handleClick={()=>goToNewPostInput(columnContent,columnId)} 
-                                        />
-                                   
-                                }
+
+                            <div className={`${editModeActive ? 'manageColumns-column-buttons editTitle' : 'manageColumns-column-buttons' }`}>
         {/* Delete Column */}
                                 {cPanelStyle ? 
                                 <>
@@ -131,7 +137,7 @@ export default function DisplayManageColumnsPanel({data, activeLiveTextState, ha
                                     allowExtraInfoView={allowExtraInfoView}
                                     extraInfo={extraInfo}
                                     columnId={columnId}
-                                    />
+                                />
                                     </>
                                 : null }
                             </div>
