@@ -10,6 +10,7 @@
     padding-top: 10px;
 }
 .control-panel-title-bar h3{
+     color: white;
      margin: 0;
 
 }
@@ -96,6 +97,8 @@
   .manageColumns-column + .dropdown{
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
   }
 
 
@@ -216,7 +219,10 @@
 /* Clear Columns Btn */
 .clearColumnsBtnContainer{
     display: flex;
+    width: 100%;
 }
 .clearColumnsBtnActive{
     display: flex;
+        justify-content: space-between;
+    width: 100%;
 }

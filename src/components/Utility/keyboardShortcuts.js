@@ -7,7 +7,7 @@ export default function KeyboardShortcuts({location}) {
         <ul>
 
         {location === "column" ?    
-            <li>Use <span className='defaultBtnStyle'>Enter</span> to add a {location} when ready</li>
+            <li>Press <span className='defaultBtnStyle'>Enter</span> to add a {location} when title is ready</li>
         :null }
 
         {location === "post" ?    

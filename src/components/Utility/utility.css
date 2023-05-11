@@ -1,6 +1,6 @@
 /* Keyboard Shortcuts */
 .keyboard-shortcuts{
-    background-color: #505050;
+    background-color: var(--infoSignal);
     /* opacity: 0.5; */
     padding: 5px;
     padding-left: 25px;

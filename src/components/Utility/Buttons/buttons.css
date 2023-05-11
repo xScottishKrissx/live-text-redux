@@ -13,8 +13,8 @@ font-size: 1rem;
 font-weight: bold;
 /* height: 100%; */
 /* margin: 5px; */
-margin-left: 5px;
-margin-right: 5px;
+/* margin-left: 5px; */
+/* margin-right: 5px; */
 padding: 10px;
 }
 .defaultBtnStyle span{
@@ -37,7 +37,7 @@ padding: 10px;
 }
 
 .addNewButton{
-    background-color: black;
+    background-color: var(--newPostSignal);
     color: white;
 }
 .addNewButton:hover{
@@ -157,6 +157,19 @@ padding: 10px;
 
 /* View Style Button */
 /* created by ChatGPT, modified by me */
+.cPanelViewStyleContainer{
+    display: flex;
+        align-items: center;
+    /* gap: 10px; */
+    color: white;
+    /* outline: 1px solid black; */
+}
+.simpleView{
+
+}
+.detailedView{
+    /* flex-direction: row-reverse; */
+}
 .switch {
     position: relative;
     display: inline-block;
@@ -164,7 +177,7 @@ padding: 10px;
     height: 34px;
   }
   .toggle-button.focused {
-    outline: 2px solid black;
+    /* outline: 2px solid black; */
     border-radius: 5px;
   }
   
@@ -178,7 +191,9 @@ padding: 10px;
     background-color: red;
     height: 100%;
   }
-  
+  .switch input:focus{
+    outline: none;
+  }
   .slider {
     position: absolute;
     cursor: pointer;
@@ -208,27 +223,35 @@ padding: 10px;
   }
   .slider:after{
     background-color: black;
+    
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
-    background-color: #505050;
+    /* background-color: #2196F3; */
+    /* background-color: #505050; */
     background-color: #ccc;
+    /* background-color: red; */
+    padding: 0 !important;
+    margin: 0 !important;
+
     /* background-color: white; */
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-    box-shadow: 0 0 1px #505050;
+    /* box-shadow: 0 0 1px #2196F3; */
+    /* box-shadow: 0 0 1px #505050; */
     background-color: #ccc;
+    
     /* background-color: white; */
   }
   
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    /* -webkit-transform: translateX(26px); */
+    /* -ms-transform: translateX(26px); */
+    /* transform: translateX(26px); */
+    width: 52px;
+
     background-color: black;
-    background-color: #505050;
+    background-color: var(--infoSignal);
   }
   

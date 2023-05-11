@@ -16,7 +16,8 @@ export default function CPanelViewStyleButton() {
     let isChecked = cPanelStyle ? true : false
 
     return (
-    <>
+    <div className={`${isChecked ? 'cPanelViewStyleContainer detailedView' : 'cPanelViewStyleContainer simpleView'}`}>
+        <span>{isChecked ? "Detailed" : "Simple"}</span>
         <label className={`toggle-button ${focused ? "switch focused" : "switch"}`}>
             <input 
                 type="checkbox" 
@@ -25,9 +26,9 @@ export default function CPanelViewStyleButton() {
                 onClick={toggleView} 
                 onFocus={handleFocus} 
                 onBlur={handleBlur}
-            />
+                />
             <span className="slider"></span>
         </label>
-    </>
+    </div>
     )
 }

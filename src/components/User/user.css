@@ -17,7 +17,8 @@
 .user-loggedIn span{
     /* padding: 0; */
     /* margin: 0; */
-    background-color: #505050;
+
+    background-color: var(--infoSignal);
     color: white;
     cursor: default;
     font-weight: initial;

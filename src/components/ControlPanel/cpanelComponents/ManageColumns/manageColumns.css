@@ -21,17 +21,18 @@
 
 
 .manageColumns-createNewLiveColumn{
-    border-bottom: 10px solid white;
-    border-top: 10px solid white;
+    border-bottom: 10px solid var(--backgroundColour);
+    border-top: 10px solid var(--backgroundColour);
     display: flex;  
         flex-direction: column;
-    background-color: black;
+    background-color: var(--newPostSignal);
     width: 100%;
     padding-top: 20px;
     padding-bottom: 30px;
 }
 
 .manageColumns-createNewLiveColumn h3{
+    color: white;
     padding-left: 25px;
     padding-right: 25px;    
     margin: 0;
