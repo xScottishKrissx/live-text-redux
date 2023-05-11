@@ -14,14 +14,20 @@ export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, u
   let useActiveColumnItems = [...getactiveColumnsItems].reverse()
   let newPages = useActiveColumnItems.slice(start,end)
  
+  const [toggle, setToggle] = useState(false)
+
   return (
-    <div className='global-view-wrapper'>
+    <div className={`${toggle ? 'global-view-wrapper expand' : 'global-view-wrapper'}`}>
 
         {/* Display UI if column is hidden */}
         {useHiddenValue ? <h2 className='defaultBtnStyle columnHidden'>Column Hidden</h2> : null}
 
         {/* Column Headline */}
-        <h1 className='defaultBtnStyle colTitle' dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}></h1> 
+        <h2 
+          onClick={()=>setToggle(!toggle)}
+          className='defaultBtnStyle colTitle'
+          dangerouslySetInnerHTML={createMarkup(useColumnHeadline)}>
+        </h2> 
 
         {columnItemsCount === 0 ? "+ Add New Post" : 
           <>

@@ -19,7 +19,8 @@ import KeyboardShortcuts from '../Utility/keyboardShortcuts'
 export default function NewPost({handleEdit}) {
     const dispatch = useDispatch()
 
-    const inputStyle = useSelector((state) => state.inputStyle.value)
+    // const inputStyle = useSelector((state) => state.inputStyle.value)
+    const inputStyle = useSelector((state) => state.cPanelStyle.value)
 
     const [postTitle, setPostTitle] = useState("")
     const [postSubtitle, setPostSubTitle] = useState("")

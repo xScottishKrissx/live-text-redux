@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setEdit } from '../features/editState'
 
@@ -18,14 +18,16 @@ export default function AuthorInput() {
 
   const handleEdit = (x) => dispatch(setEdit({editing:x, editId: null})) 
 
-
+  const [toggle, setToggle] = useState(false)
   return (
     <>
 
-      <div className='left-column author-input-wrapper 1st '>
-        <User/>
+      <div 
+        className={`${toggle ? 'left-column author-input-wrapper expand' : 'left-column author-input-wrapper '}`}>
+        {/* <User/> */}
         
           <>
+          <h2 onClick={()=>setToggle(!toggle)} className='defaultBtnStyle colTitle'><p>Control Panel</p></h2>
           <PostControlBar />
 
           {cPanelVisState === true ? 

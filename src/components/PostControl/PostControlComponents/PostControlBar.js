@@ -8,6 +8,7 @@ import { setCPanelVis } from '../../../features/cpanelVis'
 // Icons
 import { FaStepBackward } from 'react-icons/fa'
 import InputStyleButton from '../../Utility/Buttons/inputStyleButton'
+import CPanelViewStyleButton from '../../Utility/Buttons/cPanelViewStyleButton'
 
 export default function PostControlBar() {
     
@@ -26,7 +27,8 @@ export default function PostControlBar() {
           <div className='author-input-wrapper-top-bar '>
             <>
               <button className='defaultBtnStyle' onClick={returnToCPanel}> <FaStepBackward /> Back </button>
-              <InputStyleButton /> 
+              {/* <InputStyleButton />  */}
+              <CPanelViewStyleButton />
             </>
           </div>
         :  null

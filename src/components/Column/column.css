@@ -1,19 +1,25 @@
 
 
 .global-view-wrapper{
+
     border-radius: var(--borderRadius);
     /* outline: 1px solid var(--backgroundColour); */
     /* box-shadow: 5px 5px 0px 0px var(--backgroundColour); */
     color: black;
     margin-bottom: 1.5rem;
+
+    height: 70px;
+    overflow: hidden;
+    /* outline: 1px solid red; */
 }
 
-.global-view-wrapper .colTitle, .item-review-container .colTitle{
+.global-view-wrapper .colTitle, .item-review-container .colTitle, .left-column .colTitle{
+    border-bottom: 10px solid var(--backgroundColour);
+    /* background-color: red; */
     cursor: default;
     font-size: 1.75rem;
     justify-content: flex-start;
     margin: 0;
-    margin-bottom: 20px;
 }
 
 .colTitle p{

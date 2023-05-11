@@ -3,15 +3,15 @@
     
 }
 .user-loggedIn{
-    border-bottom: 10px solid white;
+    border-bottom: 10px solid var(--backgroundColour);
     display: flex;
         align-items: center;
         justify-content: space-between;
     /* padding: 5px; */
     padding-bottom: 25px;
-    padding-top: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
+    /* padding-top: 25px; */
+    /* padding-left: 25px; */
+    /* padding-right: 25px; */
 }
 
 .user-loggedIn span{

@@ -6,6 +6,7 @@ import ItemReview from './ItemReview/item-review'
 import Columns from './Column/Column'
 
 import '../App.css'
+import User from './User/User'
 
 export default function LoggedIn() {
 
@@ -16,11 +17,15 @@ export default function LoggedIn() {
 
   return (
     <>
-        <AuthorInput />
 
-        <div className='right-column'>
-            {editModeState.editing ? <ItemReview data={previewItem} /> : <ItemReview data={newItem} /> }
-            <Columns />
+        <User />
+
+        <div className='content-container'>
+          <AuthorInput />
+          <div className='right-column'>
+              {editModeState.editing ? <ItemReview data={previewItem} /> : <ItemReview data={newItem} /> }
+              <Columns />
+          </div>
         </div>
     </>
   )

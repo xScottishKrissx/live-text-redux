@@ -10,6 +10,21 @@
     margin-top: 3rem;
         max-width: 480px; */
 
+    border-radius: var(--borderRadius);
+    
+    /* border-top-right-radius: var(--borderRadius); */
+    height: 70px;
+    overflow: hidden;
+    /* outline: 1px solid red; */
+    margin-bottom: 10px;
+
+}
+.left-column{
+    /* box-shadow: 5px 0px 0px 1px var(--infoSignal) !important; */
+    outline: 5px solid #8080805c;
+}
+.expand{
+    height: auto !important;
 }
 .author-input-wrapper > div{
     /* width: 90%; */

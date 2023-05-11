@@ -101,18 +101,32 @@ body{
 /* Media Queries */
 @media screen and (min-width:768px) {
   .main-wrapper{
-    flex-direction: row;
+    flex-direction: column;
   }
-  .left-column{    width: 50%;  max-width: 600px; }
+  .left-column{    
+    height: auto;
+    width: 50%;  
+    max-width: 600px; 
+  }
   .left-column > div{
-    width: 90%;
-    margin: 0 auto;
+    /* width: 90%; */
+    /* margin: 0 auto; */
+  }
+  .content-container{
+    display: flex;
+      flex-direction: row;
+      gap: 10px;
   }
   .right-column{width: 50%;}
+  .item-review-container,.global-view-wrapper{
+    height: auto;
+  }
 }
+
+
 @media screen and (min-width:992px) { 
   .main-wrapper{
-    flex-direction: row;
+    flex-direction: column;
   }
   .left-column{    width: 50%; }
   .manageColumns-row{
@@ -163,6 +177,9 @@ body{
   .manageColumns-column-buttons .editButtonContainer .editActive{
     margin-bottom: 5px;
     justify-content: space-between;
+  }
+  .keyboard-shortcuts{
+    display: block;
   }
 }
 @media screen and (min-width:1200px) { 
@@ -248,12 +265,13 @@ body{
   .right-column{
     width: 50%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 10px;
   }
   .right-column > div{
     width: 50%;
-    padding: 10px;
+    /* padding: 10px; */
     /* display: flex; */
     /* gap: 10px; */
     max-width: 500px;
