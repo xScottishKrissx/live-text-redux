@@ -13,7 +13,7 @@
     /* outline: 1px solid red; */
 }
 
-.global-view-wrapper .colTitle, .item-review-container .colTitle, .left-column .colTitle{
+.global-view-wrapper .item-review-container .colTitle, .left-column .colTitle{
     border-bottom: 10px solid var(--backgroundColour);
     /* background-color: red; */
     cursor: default;
@@ -22,7 +22,20 @@
     margin: 0;
 }
 
-.colTitle p{
+.colTitle{
+    background-color: white;
+    display: flex;
+    width: 100%;
+}
+.colTitle h2{
+    /* background-color: red; */
+    cursor: default;
+    font-size: 1.75rem;
+    justify-content: flex-start;
+    margin: 0;
+    /* width: 100%; */
+}
+.colTitle h2 p{
     margin: 0;
     padding: 10px;
 }

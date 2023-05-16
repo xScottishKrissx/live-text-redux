@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Post from '../Post/post'
+import ColumnHeading from '../Utility/columnHeading'
 import './item-review.css'
 
 export default function ItemReview({data}) {
@@ -9,7 +10,13 @@ export default function ItemReview({data}) {
   const {postType, postTitle, postSubtitle, postBody, postImageName, insertTweet, insertYoutube} = data
   return (
     <div className={`${toggle ? 'item-review-container expand' : 'item-review-container'}`}>
-      <h2 onClick={()=>setToggle(!toggle)} className='defaultBtnStyle colTitle'><p>Item Review</p></h2>
+
+      <ColumnHeading
+        textToDisplay="Item Review"
+        setToggle={()=>setToggle(!toggle)} 
+        toggle={toggle} 
+      />
+      
       <div className={'post-item ' + postType}>
         <Post 
           hideEditBtn

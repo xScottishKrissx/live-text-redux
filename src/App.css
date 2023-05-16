@@ -103,8 +103,10 @@ body{
   .main-wrapper{
     flex-direction: column;
   }
+  .colTitle .togglePanelBtn{display: none;}
   .left-column{    
     height: auto;
+    outline: none;
     width: 50%;  
     max-width: 600px; 
   }
@@ -128,7 +130,10 @@ body{
   .main-wrapper{
     flex-direction: column;
   }
-  .left-column{    width: 50%; }
+  .left-column{   
+      outline: none;
+     width: 50%;
+     }
   .manageColumns-row{
     height: 85px;
   }
@@ -177,6 +182,9 @@ body{
   .manageColumns-column-buttons .editButtonContainer .editActive{
     margin-bottom: 5px;
     justify-content: space-between;
+  }
+  .manageColumns-createNewLiveColumn{
+    border-bottom: 10px solid var(--backgroundColour);
   }
   .keyboard-shortcuts{
     display: block;

@@ -8,7 +8,10 @@ import ControlPanel from './ControlPanel/controlPanel'
 import EditTiptap from './EditPost/editView'
 import NewPost from './NewPost/NewPost'
 
+import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 import './author-input.css'
+import ToggleExtraInfo from './ControlPanel/cpanelComponents/ManageColumns/DisplayManageColumnsPanell/extraInfo/toggleExtraInfo'
+import ColumnHeading from './Utility/columnHeading'
 
 export default function AuthorInput() {
   const dispatch = useDispatch()
@@ -27,7 +30,13 @@ export default function AuthorInput() {
         {/* <User/> */}
         
           <>
-          <h2 onClick={()=>setToggle(!toggle)} className='defaultBtnStyle colTitle'><p>Control Panel</p></h2>
+
+          <ColumnHeading 
+            setToggle={()=>setToggle(!toggle)} 
+            toggle={toggle} 
+            textToDisplay="Control Panel" 
+          />
+
           <PostControlBar />
 
           {cPanelVisState === true ? 

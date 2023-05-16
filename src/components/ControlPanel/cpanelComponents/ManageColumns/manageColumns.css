@@ -21,7 +21,7 @@
 
 
 .manageColumns-createNewLiveColumn{
-    border-bottom: 10px solid var(--backgroundColour);
+
     border-top: 10px solid var(--backgroundColour);
     display: flex;  
         flex-direction: column;
