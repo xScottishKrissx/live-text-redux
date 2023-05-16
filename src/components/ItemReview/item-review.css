@@ -5,8 +5,9 @@
     border-radius: var(--borderRadius);
     height: 70px;
     overflow: hidden;
-    /* outline: 1px solid red; */
+    outline: 5px solid #8080805c;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 .item-review-container .expand{
     height: auto !important;

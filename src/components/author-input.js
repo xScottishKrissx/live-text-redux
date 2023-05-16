@@ -8,9 +8,8 @@ import ControlPanel from './ControlPanel/controlPanel'
 import EditTiptap from './EditPost/editView'
 import NewPost from './NewPost/NewPost'
 
-import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 import './author-input.css'
-import ToggleExtraInfo from './ControlPanel/cpanelComponents/ManageColumns/DisplayManageColumnsPanell/extraInfo/toggleExtraInfo'
+
 import ColumnHeading from './Utility/columnHeading'
 
 export default function AuthorInput() {

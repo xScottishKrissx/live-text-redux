@@ -99,6 +99,11 @@ body{
   }
 
 /* Media Queries */
+.right-column{
+  display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 @media screen and (min-width:768px) {
   .main-wrapper{
     flex-direction: column;
@@ -120,8 +125,11 @@ body{
       gap: 10px;
   }
   .right-column{width: 50%;}
+  
   .item-review-container,.global-view-wrapper{
     height: auto;
+    margin-top: 0;
+    outline: none;
   }
 }
 
@@ -131,7 +139,6 @@ body{
     flex-direction: column;
   }
   .left-column{   
-      outline: none;
      width: 50%;
      }
   .manageColumns-row{
