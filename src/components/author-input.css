@@ -10,6 +10,7 @@
     margin-top: 3rem;
         max-width: 480px; */
 
+    background-color: #0000002e;
     border-radius: var(--borderRadius);
     
     /* border-top-right-radius: var(--borderRadius); */
@@ -19,6 +20,7 @@
     margin-bottom: 10px;
 
 }
+
 .left-column{
     /* box-shadow: 5px 0px 0px 1px var(--infoSignal) !important; */
     outline: 5px solid #8080805c;
@@ -29,17 +31,27 @@
 .author-input-wrapper > div{
     /* width: 90%; */
     /* margin: 0 auto; */
+    /* padding-left: 25px;
+    padding-top: 25px;
+    padding-right: 25px; */
 }
 
 
 
 
 /* setInputStyle */
+.author-input-form-wrapper{
+    /* border-bottom: 10px solid var(--backgroundColour); */
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
 .author-input-form-wrapper .setInputStyle{
     color: red;
 }
 
 .author-input-form{
+    cursor: default;
     display: flex;
     /* background-color: orange; */
     /* padding: 2rem; */
@@ -55,20 +67,24 @@
 .author-input-field{
     color: black;
 }
+.author-input-field .defaultBtnStyle {
 
+    cursor: default;
+    flex-direction: column;
+    /* margin-right: 5px; */   
+    /* gap: 10px; */
+}
 .author-input-field > div{
     background-color:white;
 
     display: flex;
-       /* align-items: flex-start; */
-       align-items: center;
-       /* flex-direction: column; */
-    /* padding:0 ; */
+       align-items: flex-start;
 }
 .author-input-field > div > div > div{
     /* background-color: #80808040; */
-    height: 50px;
+    min-height: 50px;
     display: flex;
+        overflow-wrap: anywhere;
 }
 .author-input-field:focus-visible,
 .author-input-field div:focus-visible,
@@ -81,6 +97,7 @@
     /* padding-left: 1rem; */
     color: black;
     cursor: text;
+    /* outline: 1px solid red; */
     width: 100%;
 }
 /* Tweet Id */
@@ -102,7 +119,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
 }
-.author-input-form-type-select-items div{
+.author-input-form-type-select-items div, .author-input-form-type-select-items button{
     /* background-color: #ababab; */
     /* border-radius: var(--borderRadius); */
     /* box-shadow: 0px 2px 5px -2px black; */
@@ -117,7 +134,7 @@
     white-space: nowrap;
 }
 
-.author-input-form-type-select-items div:active{
+.author-input-form-type-select-items div:active, .author-input-form-type-select-items button:active{
     box-shadow: 0px 0px 0px 0px black;
 }
 #Goal{

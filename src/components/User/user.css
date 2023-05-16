@@ -6,7 +6,8 @@
     border-bottom: 10px solid var(--backgroundColour);
     display: flex;
         align-items: center;
-        justify-content: space-between;
+        /* justify-content: space-between; */
+    gap: 10px;
     /* padding: 5px; */
     padding-bottom: 25px;
     /* padding-top: 25px; */

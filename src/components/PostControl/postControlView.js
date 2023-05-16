@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash, FaCheck, FaTimes} from 'react-icons/fa'
+import { FaSave, FaEdit, FaTrash, FaEye, FaEyeSlash, FaCheck, FaTimes, FaStepForward} from 'react-icons/fa'
 import DeleteButton from '../Utility/Buttons/deleteButton'
 
 export default function PostControlView({title, body, hidden, editMode, handleSaveEdit, createNewPost, handleHide, handleDelete}) {
@@ -36,9 +36,9 @@ export default function PostControlView({title, body, hidden, editMode, handleSa
                     :
                     // Creating a New Post
                     allowPost ? 
-                        <button className='defaultBtnStyle postCanSubmit' onClick={ ()=>{ createNewPost() }}> <FaEdit /> Post Nows</button>
+                        <button className='defaultBtnStyle postCanSubmit' onClick={ ()=>{ createNewPost() }}> Post Now <FaStepForward /></button>
                         : 
-                        <button className='defaultBtnStyle postCantSubmit'> <FaEdit />Post Now</button>
+                        <button className='defaultBtnStyle postCantSubmit'> Req. Fields Empty </button>
                 }
             </div>
 

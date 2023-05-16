@@ -74,10 +74,10 @@ export default function NewPost({handleEdit}) {
                     <TextArea field={""} passNewFieldValue={setPostBody} setPostImageName={setPostImageName}/>
                 </div>
 
-                <KeyboardShortcuts location={"post"}/>
                 
 
             </div>
+            <KeyboardShortcuts location={"post"}/>
         </>
     )
 }
