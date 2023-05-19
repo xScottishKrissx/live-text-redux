@@ -12,6 +12,7 @@ import { setCPanelVis } from '../../features/cpanelVis';
 import EditButton from './editButton';
 
 import PostShareBar from './View/PostShareBar';
+import HiddenMessage from '../Utility/hiddenMessage';
 
 export default function Post({title, subtitle, body, id, timestamp, loggedIn, image, tweet, youtube, hidden, hideEditBtn}) {
     const dispatch = useDispatch()
@@ -32,7 +33,8 @@ export default function Post({title, subtitle, body, id, timestamp, loggedIn, im
     return (
     
         <div key={id} className="post-item-container" >
-            
+            {/* {hidden ? <h2 className='defaultBtnStyle columnHidden'>Post Hidden</h2> : null} */}
+            <HiddenMessage hidden={hidden} thingThatsHidden="Post" />
             <div className='post-item-container-top-bar'>
                 <PostTimestamp timestamp={timestamp} />
                 {hideEditBtn ? null : <EditButton loggedIn id={id} handleEdit={handleEdit} />}

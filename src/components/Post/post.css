@@ -2,10 +2,12 @@
 
 .post-item{
     color: black;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     background-color: white;
     border-radius: 5px;
     overflow: hidden;
+    /* margin: 5px; */
+    /* outline: 1px solid red; */
 }
 
 .post-item-container{
@@ -141,8 +143,14 @@
 .post-item-container .editBtn{
     background-color: grey;
     color: white;
+}
 
-
+#post-item-edit-mode{
+    /* background-color: var(--authorInputBackgroundColour); */
+    /* outline: 10px solid red; */
+    /* transform: translateX(-20px); */
+    /* box-shadow: 2px 2px 2px 2px red !important; */
+    outline: 2px solid #8080805c;
 }
 
 .Goal .post-item-container, .Goal{ box-shadow: var(--boxShadowV2) var(--goalColour) }

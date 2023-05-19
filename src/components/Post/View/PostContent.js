@@ -1,12 +1,14 @@
 import React from 'react'
 import { createMarkup } from '../../Utility/createMarkup'
 import { cleanInput } from '../../Utility/cleanInput'
+import HideColumn from '../../ControlPanel/cpanelComponents/ManageColumns/DisplayManageColumnsPanell/ColumnItemControls/hideColumn'
 
 export default function PostContent({title, subtitle, body, image, hidden}) {
     return (
         <div className='post-item-body'>
  
             {hidden === true ? <strong>Hidden</strong> : null }
+            
 
             <div className='post-item-headline-wrapper'>
 

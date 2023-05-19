@@ -13,7 +13,8 @@ const updateLiveText = (changedPost, getColumnItems, getPostId, getColumnId, liv
         // console.log(x[getColumnId])
         if(x[getColumnId]){ 
             return{
-                ...x, [getColumnId]:{ type:"Column", items:updateColumn, headline: getColumnHeadline }}
+                // ...x, [getColumnId]:{ type:"Column", items:updateColumn, headline: getColumnHeadline, hidden:"yes" }}
+                ...x, [getColumnId]:{ ...x[getColumnId], items:updateColumn, }}
         }else{ 
             return x 
             }

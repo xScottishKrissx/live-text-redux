@@ -6,16 +6,21 @@
     /* outline: 1px solid var(--backgroundColour); */
     /* box-shadow: 5px 5px 0px 0px var(--backgroundColour); */
     color: black;
-    margin-bottom: 1.5rem;
+    display: flex;
+        flex-direction: column;
+        gap: 10px;
+    /* margin-bottom: 1.5rem; */
 
     height: 70px;
     overflow: hidden;
     /* outline: 1px solid red; */
     outline: 5px solid #8080805c;
+
+    padding: 10px;
 }
 
 .global-view-wrapper .item-review-container .colTitle, .left-column .colTitle{
-    border-bottom: 10px solid var(--backgroundColour);
+    /* border-bottom: 10px solid var(--backgroundColour); */
     /* background-color: red; */
     cursor: default;
     font-size: 1.75rem;
@@ -25,8 +30,10 @@
 
 .colTitle{
     background-color: white;
+    border-radius: 5px;
     display: flex;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    outline: 1px solid #cbcccd;
     width: 100%;
 }
 .colTitle h2{
@@ -42,10 +49,7 @@
     padding: 10px;
 }
 
-#post-item-edit-mode{
-    background-color: var(--authorInputBackgroundColour);
-    transform: translateX(-20px);
-}
+
 
 /* Change Page Buttons */
 .changePageButtonContainer{

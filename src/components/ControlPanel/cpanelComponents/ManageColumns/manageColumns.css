@@ -22,13 +22,15 @@
 
 .manageColumns-createNewLiveColumn{
 
-    border-top: 10px solid var(--backgroundColour);
+    /* border-top: 10px solid var(--backgroundColour); */
+    border-radius: 10px;
     display: flex;  
         flex-direction: column;
     background-color: var(--newPostSignal);
     width: 100%;
     padding-top: 20px;
     padding-bottom: 30px;
+    
 }
 
 .manageColumns-createNewLiveColumn h3{

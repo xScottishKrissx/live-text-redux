@@ -6,7 +6,8 @@ const deletePost = (getCurrentColumn, getColumnId, getPostId, liveTexts, updateW
 
     const updateLiveTexts = liveTexts.map(x =>{ 
         if(x[getColumnId]){ 
-            return{...x, [getColumnId]:  {type:"Column", headline:getColumnHeadline, items:removePost[0]}} 
+            // return{...x, [getColumnId]:  {type:"Column", headline:getColumnHeadline, items:removePost[0]}} 
+            return{ ...x, [getColumnId]:{ ...x[getColumnId], items:removePost[0] }}
         }else{ 
             return x 
         }

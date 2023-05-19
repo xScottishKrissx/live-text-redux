@@ -7,9 +7,11 @@ import ColumnsView from './ColumnView'
 export default function Columns() {
     
     const liveText = useSelector((state) => state.livetext.value)
+    // console.log(liveText)
     // console.log(liveText.length)
     const activeLiveText = useSelector((state) => state.active.value)
     // console.log(activeLiveText)
+    
     if(liveText.length === undefined) return
     if(!liveText || !activeLiveText) return
     

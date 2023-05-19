@@ -4,6 +4,7 @@ import { createMarkup } from '../Utility/createMarkup'
 import ChangePageButton from './columnComponents/changePageButton'
 import DisplayColumn from './DisplayColumn'
 import {removeTag} from '../Utility/removeTag.js'
+import HiddenMessage from '../Utility/hiddenMessage'
 export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, useHiddenValue}) {
 
   const columnItemsCount = getactiveColumnsItems.length
@@ -22,7 +23,7 @@ export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, u
     <div className={`${toggle ? 'global-view-wrapper expand' : 'global-view-wrapper'}`}>
 
         {/* Display UI if column is hidden */}
-        {useHiddenValue ? <h2 className='defaultBtnStyle columnHidden'>Column Hidden</h2> : null}
+        {/* {useHiddenValue ? <h2 className='defaultBtnStyle columnHidden'>Column Hidden</h2> : null} */}
 
         {/* Column Headline */}
 
@@ -31,6 +32,7 @@ export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, u
           setToggle={()=>setToggle(!toggle)} 
           toggle={toggle} 
         />
+        <HiddenMessage hidden={useHiddenValue} thingThatsHidden="Column" />
 
         {columnItemsCount === 0 ? "+ Add New Post" : 
           <>

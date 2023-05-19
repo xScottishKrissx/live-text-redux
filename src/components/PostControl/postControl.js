@@ -30,9 +30,6 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     let getColumnId = Object.keys(getCurrentColumn[0])
     let currentPostItems = getCurrentPost.length > 0 ? getCurrentPost[0][getPostId[0]].items : "newPost"
     let getColumnItems = getCurrentColumn[0][getColumnId].items
-    let getColumnHeadline = getCurrentColumn[0][getColumnId].headline
-    // console.log(getColumnHeadline)
-
     
     useEffect(() => {
         
@@ -73,14 +70,14 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
     const handleHide = (setHide) =>{
         const newPostItems = {...currentPostItems, hidden:setHide}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
-        updateLiveText(updateCurrentPost, getColumnItems,  getPostId, getColumnId, liveTexts, updateWebsite,  getColumnHeadline, "keepOpen") 
+        updateLiveText(updateCurrentPost, getColumnItems,  getPostId, getColumnId, liveTexts, updateWebsite, "keepOpen") 
         
     }
 
     const handleSaveEdit = () =>{
         const newPostItems = {...currentPostItems, body, title, subtitle, tweet, youtube, image, type, hidden}
         const updateCurrentPost = {...getCurrentPost[0][getPostId], items:newPostItems}
-        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite, getColumnHeadline)   
+        updateLiveText(updateCurrentPost, getColumnItems, getPostId, getColumnId, liveTexts, updateWebsite)   
         dispatch(setCPanelVis(true))
     }
      
@@ -90,12 +87,13 @@ export default function PostControl({id, handleEdit, body, subtitle, title, type
         // if(keepOpen?.includes("keepOpen")){ }else{ handleEdit(false) }
         if(keepOpen === "keepOpen"){ }else{ handleEdit(false) }
 
+        console.log(newMasterLiveText)
         dispatch(updateArray(newMasterLiveText))
         localStorage.setItem("liveTextMaster", JSON.stringify(newMasterLiveText))    
     }
 
     const handleDelete = () => {
-        deletePost(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite, getColumnHeadline) 
+        deletePost(getCurrentColumn, getColumnId, getPostId, liveTexts, updateWebsite) 
         dispatch(setCPanelVis(true))
     }
     return (
