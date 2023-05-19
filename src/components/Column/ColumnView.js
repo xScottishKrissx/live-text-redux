@@ -17,7 +17,7 @@ export default function ColumnsView({useColumnHeadline, getactiveColumnsItems, u
  
   const [toggle, setToggle] = useState(false)
   
-  console.log(removeTag(useColumnHeadline))
+  // console.log(removeTag(useColumnHeadline))
   return (
     <div className={`${toggle ? 'global-view-wrapper expand' : 'global-view-wrapper'}`}>
 

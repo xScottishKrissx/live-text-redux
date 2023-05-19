@@ -8,7 +8,7 @@ export default function EditButton({loggedIn, id, handleEdit}) {
 
     const toggleEditButton = editModeState.editing === false && editModeState.editId !== id
 
-    console.log(cPanelVis)
+    // console.log(cPanelVis)
     return (
         loggedIn && cPanelVis? 
             <>

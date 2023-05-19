@@ -60,6 +60,7 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
 
         onUpdate:({editor}) => {
             const json = editor.getHTML()
+            console.log(json)
             passNewFieldValue(json)
         },
     })
@@ -67,7 +68,7 @@ export default function EditTextArea({field, passNewFieldValue, setPostImageName
     // Clear form after a post is submitted/edited
     const dispatch = useDispatch()
     const clrForm = useSelector((state) => state.reset.value)
-    const inputStyle = useSelector((state) => state.inputStyle.value)
+    const inputStyle = useSelector((state) => state.cPanelStyle.value)
 
     useEffect(() =>{
         if(clrForm === "clearForm"){

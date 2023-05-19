@@ -106,6 +106,10 @@ Live Text:
           ✔ Pressing Control + Enter should submit the post when ready @done(23-05-04 12:17)
           ✔ Show keyboard controls on page @done(23-05-04 13:06)
         
+        ☐ Ability to add new posts as hidden
+
+        ☐ Possible Bug: The break tag can be saved and cause issues when saving posts as it counts towards the char limit
+        
       Editing Posts:
         ✔ Fields to edit @done(23-02-08 13:39)
           ✔ Title @done(23-02-08 13:39)
@@ -182,11 +186,12 @@ Live Text:
         ✔ The padding for the names is off @done(23-04-13 17:21)
         ✔ Saving an edit should return you to the control panel @done(23-04-13 17:21)
         ✔ Deleting a post should return you to the control panel @done(23-04-13 17:35)
-        ☐ Integrate the simple/complex form views.
-                  ☐ Tabbing over the button has not visual indicator
+        ✔ Integrate the simple/complex form views. @done(23-05-19 16:28)
+                  ✔ Tabbing over the button has not visual indicator @done(23-05-19 16:28)
         ✔ Change the indicator that the post is being edited. @done(23-04-13 18:01)
             ✔ It should be much more obvious which post is being edited. @done(23-04-13 18:01)
 
+        
         Issues:
           Creating a new post is returning an error object is not extensible which i understand. I don't understand why the exact same object from local storage is extensible but the same array from state is not.
             ✔ It works with the local storage array but it's annoying me @done(23-04-07 15:19)
