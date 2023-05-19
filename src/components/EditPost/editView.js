@@ -18,7 +18,8 @@ const EditTiptap = ({ id, handleEdit }) =>{
     const dispatch = useDispatch()
     
     // console.log(id)
-    const inputStyle = useSelector((state) => state.inputStyle.value)
+    // const inputStyle = useSelector((state) => state.inputStyle.value)
+    const inputStyle = useSelector((state) => state.cPanelStyle.value)
 
     const liveText = useSelector((state) => state.livetext.value)
     const activeLiveText = useSelector((state) => state.active.value)

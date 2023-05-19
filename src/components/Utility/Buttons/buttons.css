@@ -158,12 +158,18 @@ padding: 10px;
 /* View Style Button */
 /* created by ChatGPT, modified by me */
 .cPanelViewStyleContainer{
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
     cursor: default;
     display: flex;
         align-items: center;
     gap: 5px;
     color: var(--infoSignal);
     /* outline: 1px solid black; */
+}
+.cPanelViewStyleContainer:focus-visible {
+    outline: 2px solid black;
 }
 .simpleView{
 

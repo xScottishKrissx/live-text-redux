@@ -3,7 +3,10 @@
 }
 
 .author-input-edit-form-wrapper{
-
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
 }
 .post-item-container-editMode{
     /* transform: translateY(1000px); */

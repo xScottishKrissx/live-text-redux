@@ -99,13 +99,13 @@ export default function ControlPanel({setControlPanelVis}) {
     <div className='confirm-post-overlay'> 
 
     <div className='control-panel-title-bar'>
-        <h3>Manage Columns</h3>
+        {/* <h3>Manage Columns</h3> */}
+        <div className='control-panel-header-buttons'>
+            <ClearColumnsButton clearColumns={clearColumns} />
+        </div>
         <CPanelViewStyleButton />
     </div>
 
-    <div className='control-panel-header-buttons'>
-        <ClearColumnsButton clearColumns={clearColumns} />
-    </div>
 
         <ManageColumns 
             data={liveTexts} 

@@ -145,11 +145,12 @@ body{
   .manageColumns-row{
     height: 85px;
   }
+
   .manageColumns-columnTitle{
     display: flex;
       flex-direction: row;
-    margin-bottom: 10px;
-    margin-top: 5px;
+    /* margin-bottom: 10px; */
+    /* margin-top: 5px; */
   }
   .manageColumns-columnTitle .manageColumns-headline{
     margin-top: 0;
@@ -194,6 +195,10 @@ body{
   .manageColumns-createNewLiveColumn{
     border-bottom: 10px solid var(--backgroundColour);
   }
+  #column-active   .manageColumns-addNewButton .addNewButton{
+    margin-bottom: 0px;
+  }
+
   .keyboard-shortcuts{
     display: block;
   }
@@ -211,6 +216,7 @@ body{
   }
   .manageColumns-column{
     flex-direction: row;
+    gap: 5px;
   }
   .manageColumns-columnTitle{
     margin: 0;

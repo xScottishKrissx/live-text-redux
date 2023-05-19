@@ -67,12 +67,14 @@
 .author-input-field{
     color: black;
 }
+
 .author-input-field .defaultBtnStyle {
 
     cursor: default;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     /* margin-right: 5px; */   
-    /* gap: 10px; */
+    gap: 5px;
 }
 .author-input-field > div{
     background-color:white;
@@ -82,7 +84,7 @@
 }
 .author-input-field > div > div > div{
     /* background-color: #80808040; */
-    min-height: 50px;
+    /* min-height: 50px; */
     display: flex;
         overflow-wrap: anywhere;
 }
